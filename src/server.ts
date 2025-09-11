@@ -1,0 +1,191 @@
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
+import multer from 'multer';
+import path from 'path';
+import dotenv from 'dotenv';
+import { DocumentProcessor } from './services/DocumentProcessor';
+import { WordPressService } from './services/WordPressService';
+import { LocalSaveService } from './services/LocalSaveService';
+import { errorHandler } from './middleware/errorHandler';
+
+dotenv.config();
+
+const app = express();
+const PORT = process.env.PORT || 3007;
+
+// Security middleware
+app.use(helmet());
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' ? false : 'http://localhost:3006',
+  credentials: true
+}));
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
+});
+app.use(limiter);
+
+// Body parsing middleware
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+
+// File upload configuration
+const storage = multer.memoryStorage();
+const upload = multer({
+  storage,
+  limits: {
+    fileSize: (parseInt(process.env.UPLOAD_LIMIT_MB || '50')) * 1024 * 1024
+  },
+  fileFilter: (req, file, cb) => {
+    const allowedMimes = [
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx
+      'application/msword', // .doc
+      'application/pdf' // .pdf
+    ];
+    if (allowedMimes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Only Word documents (.docx, .doc) and PDF files (.pdf) are allowed'));
+    }
+  }
+});
+
+// Services
+const documentProcessor = new DocumentProcessor();
+const wordpressService = new WordPressService();
+const localSaveService = new LocalSaveService();
+
+// Routes
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
+// Upload and process document
+app.post('/api/upload', upload.single('document'), async (req, res, next) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No document uploaded' });
+    }
+
+    console.log('Processing document:', req.file.originalname);
+    console.log('File type:', req.file.mimetype);
+    console.log('File size:', req.file.size, 'bytes');
+    
+    // Process the document with filename for type detection
+    const processedContent = await documentProcessor.processDocument(
+      req.file.buffer, 
+      req.file.originalname
+    );
+    
+    res.json({
+      success: true,
+      content: processedContent,
+      filename: req.file.originalname,
+      fileType: processedContent.documentType
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Publish to WordPress
+app.post('/api/publish', async (req, res, next) => {
+  const { content, wpConfig, postData } = req.body;
+  
+  try {
+    console.log('Publish request received');
+    console.log('Content title:', content?.title);
+    console.log('WordPress site:', wpConfig?.siteUrl);
+    console.log('Post status:', postData?.status);
+    
+    if (!content || !wpConfig || !postData) {
+      console.error('Missing required data:', { content: !!content, wpConfig: !!wpConfig, postData: !!postData });
+      return res.status(400).json({ error: 'Missing required data' });
+    }
+
+    // Validate WordPress configuration
+    if (!wpConfig.siteUrl || !wpConfig.username || !wpConfig.password) {
+      console.error('WordPress configuration incomplete');
+      return res.status(400).json({ error: 'WordPress configuration incomplete' });
+    }
+
+    console.log('Publishing to WordPress:', wpConfig.siteUrl);
+    console.log('Username:', wpConfig.username);
+    
+    const result = await wordpressService.publishPost(content, wpConfig, postData);
+    
+    console.log('Publish successful, post ID:', result.id);
+    
+    res.json({
+      success: true,
+      postId: result.id,
+      postUrl: result.link,
+      message: 'Post published successfully'
+    });
+  } catch (error: any) {
+    console.error('Error in publish endpoint:', error);
+    
+    // If it's a permission error, try to save locally
+    if (error.message && error.message.includes('not allowed to create posts') && content && postData) {
+      try {
+        console.log('WordPress permission denied, saving post locally...');
+        const filename = await localSaveService.savePost(content, postData);
+        
+        res.json({
+          success: false,
+          savedLocally: true,
+          filename: filename,
+          error: 'WordPress permission denied. Post saved locally for later publishing.',
+          message: `Post saved as ${filename}. Please contact your WordPress admin to grant post creation permissions.`
+        });
+        return;
+      } catch (saveError) {
+        console.error('Failed to save locally:', saveError);
+      }
+    }
+    
+    next(error);
+  }
+});
+
+// Test WordPress connection
+app.post('/api/test-connection', async (req, res, next) => {
+  try {
+    const { wpConfig } = req.body;
+    
+    if (!wpConfig || !wpConfig.siteUrl || !wpConfig.username || !wpConfig.password) {
+      return res.status(400).json({ error: 'WordPress configuration incomplete' });
+    }
+
+    const isConnected = await wordpressService.testConnection(wpConfig);
+    
+    res.json({
+      success: true,
+      connected: isConnected,
+      message: isConnected ? 'Connection successful' : 'Connection failed'
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Serve static files in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+  
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
+}
+
+// Error handling middleware
+app.use(errorHandler);
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+}); 
