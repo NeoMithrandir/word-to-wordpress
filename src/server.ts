@@ -38,7 +38,7 @@ const storage = multer.memoryStorage();
 const upload = multer({
   storage,
   limits: {
-    fileSize: (parseInt(process.env.UPLOAD_LIMIT_MB || '50')) * 1024 * 1024
+    fileSize: (parseInt(process.env.UPLOAD_LIMIT_MB || '128')) * 1024 * 1024
   },
   fileFilter: (req, file, cb) => {
     const allowedMimes = [
@@ -148,6 +148,28 @@ app.post('/api/publish', async (req, res, next) => {
       }
     }
     
+    next(error);
+  }
+});
+
+// Save as HTML locally
+app.post('/api/save-html', async (req, res, next) => {
+  try {
+    const { content, postData } = req.body;
+    
+    if (!content || !postData) {
+      return res.status(400).json({ error: 'Missing content or post data' });
+    }
+
+    const folderName = await localSaveService.savePostAsHtml(content, postData);
+    
+    res.json({
+      success: true,
+      filename: folderName,
+      message: `Post saved as HTML: ${folderName}/index.html`,
+      location: path.join(process.cwd(), 'saved-posts', folderName)
+    });
+  } catch (error) {
     next(error);
   }
 });

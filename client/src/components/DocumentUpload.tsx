@@ -71,6 +71,7 @@ export const DocumentUpload: React.FC<DocumentUploadProps> = ({ onDocumentProces
       'application/pdf': ['.pdf']
     },
     maxFiles: 1,
+    maxSize: 128 * 1024 * 1024, // 128 MB
     disabled: isUploading
   });
 

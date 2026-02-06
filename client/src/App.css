@@ -750,6 +750,114 @@ body {
   flex-wrap: wrap;
 }
 
+.publish-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* WordPress Connection Status Styles */
+.wp-connection-status {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.wp-connection-status .status-icon {
+  font-size: 1.25rem;
+}
+
+.wp-connection-status.checking {
+  background: #fff4e5;
+  border: 1px solid #ff9800;
+  color: #e65100;
+}
+
+.wp-connection-status.connected {
+  background: #e8f5e9;
+  border: 1px solid #4caf50;
+  color: #2e7d32;
+}
+
+.wp-connection-status.failed {
+  background: #ffeaa7;
+  border: 1px solid #fdcb6e;
+  color: #2d3436;
+}
+
+.wp-connection-status.failed div {
+  flex: 1;
+}
+
+.wp-connection-status.failed p {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.875rem;
+  color: #636e72;
+}
+
+.connection-error {
+  color: #d63031;
+  font-weight: 600;
+}
+
+/* HTML Save Note Styles */
+.html-save-note {
+  background: #f0f8ff;
+  border: 1px solid #4a90e2;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.html-save-note p {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.html-save-note ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.html-save-note li {
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
 /* Error Message Styles */
 .error-message {
   background: #fff5f5;
@@ -780,6 +888,15 @@ body {
   }
   
   .form-navigation button, .preview-actions button, .publish-actions button {
+    width: 100%;
+  }
+  
+  .publish-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .publish-buttons button {
     width: 100%;
   }
   

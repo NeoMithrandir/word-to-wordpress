@@ -37,18 +37,19 @@ const storage = multer_1.default.memoryStorage();
 const upload = (0, multer_1.default)({
     storage,
     limits: {
-        fileSize: (parseInt(process.env.UPLOAD_LIMIT_MB || '50')) * 1024 * 1024
+        fileSize: (parseInt(process.env.UPLOAD_LIMIT_MB || '128')) * 1024 * 1024
     },
     fileFilter: (req, file, cb) => {
         const allowedMimes = [
-            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-            'application/msword'
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx
+            'application/msword', // .doc
+            'application/pdf' // .pdf
         ];
         if (allowedMimes.includes(file.mimetype)) {
             cb(null, true);
         }
         else {
-            cb(new Error('Only Word documents (.docx, .doc) are allowed'));
+            cb(new Error('Only Word documents (.docx, .doc) and PDF files (.pdf) are allowed'));
         }
     }
 });
@@ -67,12 +68,15 @@ app.post('/api/upload', upload.single('document'), async (req, res, next) => {
             return res.status(400).json({ error: 'No document uploaded' });
         }
         console.log('Processing document:', req.file.originalname);
-        // Process the document
-        const processedContent = await documentProcessor.processDocument(req.file.buffer);
+        console.log('File type:', req.file.mimetype);
+        console.log('File size:', req.file.size, 'bytes');
+        // Process the document with filename for type detection
+        const processedContent = await documentProcessor.processDocument(req.file.buffer, req.file.originalname);
         res.json({
             success: true,
             content: processedContent,
-            filename: req.file.originalname
+            filename: req.file.originalname,
+            fileType: processedContent.documentType
         });
     }
     catch (error) {
@@ -127,6 +131,25 @@ app.post('/api/publish', async (req, res, next) => {
                 console.error('Failed to save locally:', saveError);
             }
         }
+        next(error);
+    }
+});
+// Save as HTML locally
+app.post('/api/save-html', async (req, res, next) => {
+    try {
+        const { content, postData } = req.body;
+        if (!content || !postData) {
+            return res.status(400).json({ error: 'Missing content or post data' });
+        }
+        const folderName = await localSaveService.savePostAsHtml(content, postData);
+        res.json({
+            success: true,
+            filename: folderName,
+            message: `Post saved as HTML: ${folderName}/index.html`,
+            location: path_1.default.join(process.cwd(), 'saved-posts', folderName)
+        });
+    }
+    catch (error) {
         next(error);
     }
 });

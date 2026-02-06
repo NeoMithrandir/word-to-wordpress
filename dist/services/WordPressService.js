@@ -99,113 +99,17 @@ class WordPressService {
         }
     }
     /**
-     * Prepare post content with WordPress-specific formatting
+     * Prepare post content for WordPress.
+     *
+     * The DocumentProcessor already produces clean, minimal HTML with:
+     *   - citation anchor links to the ΒΙΒΛΙΟΓΡΑΦΙΑ section
+     *   - footnote back-reference anchors
+     *   - LaTeX delimiters ($...$ / $$...$$) for a WP MathJax/KaTeX plugin
+     *
+     * No scripts, styles, or duplicate sections are injected here.
      */
-    async preparePostContent(content, client) {
-        let processedContent = content.content;
-        // Add MathJax support if equations are present
-        if (content.equations && content.equations.length > 0) {
-            const mathJaxScript = `
-        <script type="text/javascript" async
-          src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script type="text/javascript" id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script type="text/javascript">
-          window.MathJax = {
-            tex: {
-              inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-              displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
-              processEscapes: true,
-              processEnvironments: true
-            },
-            options: {
-              ignoreHtmlClass: 'tex2jax_ignore',
-              processHtmlClass: 'tex2jax_process'
-            }
-          };
-        </script>
-      `;
-            // Add MathJax script to the beginning of the content
-            processedContent = mathJaxScript + '\n\n' + processedContent;
-            // Add equation-specific CSS
-            const equationCSS = `
-        <style>
-          .equation-display, .math-display {
-            text-align: center;
-            margin: 1em 0;
-            padding: 1em;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            overflow-x: auto;
-          }
-          .equation-display-numbered {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            margin: 1em 0;
-            padding: 1em;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            overflow-x: auto;
-          }
-          .equation-content {
-            flex: 1;
-          }
-          .equation-number {
-            margin-left: 1em;
-            font-weight: bold;
-            color: #666;
-          }
-          .equation-inline, .math-inline {
-            font-style: italic;
-          }
-          .wp-block-equation-display, .wp-block-math-display {
-            margin: 1.5em 0;
-          }
-          .wp-block-equation-inline, .wp-block-math-inline {
-            display: inline;
-          }
-        </style>
-      `;
-            processedContent = equationCSS + '\n\n' + processedContent;
-        }
-        // Add footnotes section if present
-        if (content.footnotes && content.footnotes.length > 0) {
-            processedContent += '\n\n<div class="footnotes">\n<h3>Footnotes</h3>\n';
-            for (const footnote of content.footnotes) {
-                processedContent += `<div id="${footnote.id}" class="footnote">`;
-                processedContent += `<p>${footnote.text} <a href="#${footnote.backRef}" class="footnote-backref">↩</a></p>`;
-                processedContent += '</div>\n';
-            }
-            processedContent += '</div>\n';
-        }
-        // Add citations section if present
-        if (content.citations && content.citations.length > 0) {
-            processedContent += '\n\n<div class="citations">\n<h3>References</h3>\n';
-            for (const citation of content.citations) {
-                processedContent += `<div id="${citation.id}" class="citation">`;
-                processedContent += `<p>${citation.text}</p>`;
-                processedContent += '</div>\n';
-            }
-            processedContent += '</div>\n';
-        }
-        // Add equations section if present (for reference)
-        if (content.equations && content.equations.length > 0) {
-            processedContent += '\n\n<div class="equations-reference">\n<h3>Equations Reference</h3>\n';
-            for (const equation of content.equations) {
-                processedContent += `<div id="ref-${equation.id}" class="equation-reference">`;
-                processedContent += `<p><strong>${equation.display ? 'Display' : 'Inline'} Equation`;
-                if (equation.number) {
-                    processedContent += ` (${equation.number})`;
-                }
-                processedContent += ':</strong></p>';
-                processedContent += `<div class="equation-latex-code"><code>${equation.latex}</code></div>`;
-                processedContent += '</div>\n';
-            }
-            processedContent += '</div>\n';
-        }
-        return processedContent;
+    async preparePostContent(content, _client) {
+        return content.content;
     }
     /**
      * Upload images to WordPress media library

@@ -1,6 +1,9 @@
 import mammoth from 'mammoth';
 import * as cheerio from 'cheerio';
+import JSZip from 'jszip';
 import { PdfProcessor } from './PdfProcessor';
+
+// ─── Public Interfaces ────────────────────────────────────────────────
 
 export interface ProcessedContent {
   title: string;
@@ -41,6 +44,32 @@ export interface Equation {
   number?: string;
 }
 
+// ─── Internal: parsed bibliography entry ──────────────────────────────
+
+interface BibliographyEntry {
+  /** Anchor id, e.g. "bib-writer-1989" */
+  id: string;
+  /** Normalized surname used as a matching key */
+  surname: string;
+  /** Four-digit year string */
+  year: string;
+  /** Full text of the bibliography line */
+  text: string;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  DocumentProcessor — converts .docx / .pdf → clean, minimal HTML
+//  suitable for WordPress + WPBakery (Visual Bakery).
+//
+//  Design goals:
+//    • No extra classes, scripts, or inline styles in the output.
+//    • Preserve hyperlinks (<a>), subscripts (<sub>), superscripts (<sup>).
+//    • Link in-text citations like (Author, 1989) to the matching entry
+//      in the ΒΙΒΛΙΟΓΡΑΦΙΑ section via anchor tags.
+//    • Keep LaTeX formulas as $$...$$ / $...$ delimiters so a MathJax or
+//      KaTeX WordPress plugin can render them.
+// ═══════════════════════════════════════════════════════════════════════
+
 export class DocumentProcessor {
   private pdfProcessor: PdfProcessor;
 
@@ -49,36 +78,31 @@ export class DocumentProcessor {
   }
 
   /**
-   * Process a document buffer (Word or PDF) and extract content with formatting
+   * Main entry point: accept a document buffer (Word or PDF) and return
+   * structured content ready for WordPress publishing.
    */
   async processDocument(buffer: Buffer, filename?: string): Promise<ProcessedContent> {
     try {
-      // Detect document type
       const documentType = this.detectDocumentType(buffer, filename);
       console.log(`Detected document type: ${documentType}`);
 
       if (documentType === 'pdf') {
         const result = await this.pdfProcessor.processPdf(buffer);
-        return {
-          ...result,
-          documentType: 'pdf'
-        };
+        return { ...result, documentType: 'pdf' };
       } else {
         const result = await this.processWordDocument(buffer);
-        return {
-          ...result,
-          documentType: 'word'
-        };
+        return { ...result, documentType: 'word' };
       }
     } catch (error) {
       console.error('Error processing document:', error);
-      throw new Error(`Failed to process document: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw new Error(
+        `Failed to process document: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
     }
   }
 
-  /**
-   * Detect document type from buffer and filename
-   */
+  // ─── Document Type Detection ──────────────────────────────────────
+
   private detectDocumentType(buffer: Buffer, filename?: string): 'word' | 'pdf' {
     // Check filename extension first
     if (filename) {
@@ -87,149 +111,122 @@ export class DocumentProcessor {
       if (ext === 'docx' || ext === 'doc') return 'word';
     }
 
-    // Check magic bytes/file signature
+    // Fall back to magic bytes
     const header = buffer.toString('hex', 0, 8).toLowerCase();
-    
-    // PDF signature: %PDF
-    if (buffer.toString('ascii', 0, 4) === '%PDF') {
-      return 'pdf';
-    }
-    
-    // Word document signatures
-    // DOCX files start with PK (ZIP file format)
-    if (header.startsWith('504b0304') || header.startsWith('504b0506') || header.startsWith('504b0708')) {
-      return 'word';
-    }
-    
-    // DOC files have a specific signature
-    if (header.startsWith('d0cf11e0a1b11ae1')) {
-      return 'word';
-    }
+    if (buffer.toString('ascii', 0, 4) === '%PDF') return 'pdf';
+    if (header.startsWith('504b0304') || header.startsWith('504b0506') || header.startsWith('504b0708')) return 'word';
+    if (header.startsWith('d0cf11e0a1b11ae1')) return 'word';
 
-    // Default to word if uncertain
     console.warn('Could not determine document type, defaulting to Word');
     return 'word';
   }
 
+  // ─── Word Document Processing ─────────────────────────────────────
+
   /**
-   * Process a Word document buffer and extract content with formatting
+   * Convert a .docx buffer to clean HTML.
+   * Uses a minimal mammoth styleMap — no equation or WordPress-specific
+   * class mappings.
    */
   private async processWordDocument(buffer: Buffer): Promise<ProcessedContent> {
     try {
-      // Configure mammoth options for better HTML output with equation support
       const options = {
         styleMap: [
-          // Preserve heading styles
+          // Headings
           "p[style-name='Heading 1'] => h1:fresh",
           "p[style-name='Heading 2'] => h2:fresh",
           "p[style-name='Heading 3'] => h3:fresh",
           "p[style-name='Heading 4'] => h4:fresh",
           "p[style-name='Heading 5'] => h5:fresh",
           "p[style-name='Heading 6'] => h6:fresh",
-          
-          // Preserve text formatting
+
+          // Basic text formatting (mammoth handles sub/sup natively)
           "b => strong",
           "i => em",
           "u => u",
-          
-          // Preserve lists
+
+          // Lists
           "p[style-name='List Paragraph'] => li:fresh",
-          
-          // Preserve quotes
+
+          // Quotes
           "p[style-name='Quote'] => blockquote > p:fresh",
-          
-          // Preserve code blocks
-          "p[style-name='Code'] => pre:fresh",
-          
-          // Custom styles for footnotes and citations
-          "p[style-name='Footnote Text'] => p.footnote-text:fresh",
-          "p[style-name='Citation'] => p.citation:fresh",
-          
-          // Equation styles - handle common equation style names
-          "p[style-name='Equation'] => div.equation-display:fresh",
-          "p[style-name='Inline Equation'] => span.equation-inline:fresh",
-          "p[style-name='Math'] => span.math-inline:fresh",
-          "p[style-name='Display Math'] => div.math-display:fresh",
-          
-          // Common equation style names in Word
-          "p[style-name='Equation 1'] => div.equation-display:fresh",
-          "p[style-name='Equation 2'] => div.equation-display:fresh",
-          "p[style-name='Equation 3'] => div.equation-display:fresh"
         ],
         convertImage: mammoth.images.imgElement((image: any) => {
-          return image.read("base64").then((imageBuffer: string) => {
-            return {
-              src: `data:${image.contentType};base64,${imageBuffer}`,
-              alt: image.altText || "Document image"
-            };
-          });
+          return image.read('base64').then((imageBuffer: string) => ({
+            src: `data:${image.contentType};base64,${imageBuffer}`,
+            alt: image.altText || 'Document image',
+          }));
         }),
         includeDefaultStyleMap: true,
-        // Preserve raw XML for better equation handling
-        preserveEmptyParagraphs: true,
-        idPrefix: "doc-"
+        idPrefix: 'doc-',
       };
 
-      // First, try to extract raw XML to find OMath elements
+      // Extract equations from the actual .docx XML (via JSZip)
       const rawXmlEquations = await this.extractOMathFromXML(buffer);
 
-      // Convert document to HTML
+      // Convert to HTML
       const result = await mammoth.convertToHtml({ buffer }, options);
-      
+
+      // Log non-OMath conversion messages
       if (result.messages.length > 0) {
-        console.log('Mammoth conversion messages:', result.messages);
-        // Filter out the OMath warnings since we'll handle them separately
-        const filteredMessages = result.messages.filter(msg => 
-          !msg.message.includes('oMath') && !msg.message.includes('oMathPara')
+        const filtered = result.messages.filter(
+          (msg) => !msg.message.includes('oMath') && !msg.message.includes('oMathPara')
         );
-        if (filteredMessages.length > 0) {
-          console.log('Other conversion messages:', filteredMessages);
+        if (filtered.length > 0) {
+          console.log('Mammoth conversion messages:', filtered);
         }
       }
 
-      // Process the HTML content
-      const processedContent = await this.processHtmlContent(result.value, rawXmlEquations);
-      
-      return processedContent;
+      return await this.processHtmlContent(result.value, rawXmlEquations);
     } catch (error) {
       console.error('Error processing Word document:', error);
-      throw new Error(`Failed to process Word document: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw new Error(
+        `Failed to process Word document: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
     }
   }
 
+  // ─── HTML Post-Processing Pipeline ────────────────────────────────
+
   /**
-   * Process HTML content to extract and organize footnotes, citations, equations, and other elements
+   * Master pipeline: extract metadata, link citations, clean markup.
+   * Order matters — citation linking adds ids that must survive the
+   * subsequent cleanHtml pass.
    */
-  private async processHtmlContent(html: string, rawXmlEquations: string[]): Promise<ProcessedContent> {
+  private async processHtmlContent(
+    html: string,
+    rawXmlEquations: string[]
+  ): Promise<ProcessedContent> {
     const $ = cheerio.load(html);
-    
-    // Extract title (first h1 or first paragraph if no h1)
+
+    // 1. Extract & remove title from body
     const title = this.extractTitle($);
-    
-    // Extract and process footnotes
+
+    // 2. Process footnotes (rewrite Word's _ftn anchors)
     const footnotes = this.extractFootnotes($);
-    
-    // Extract and process citations
-    const citations = this.extractCitations($);
-    
-    // Extract and process equations
+
+    // 3. Handle equations — insert $$...$$ for any OMath content
     const equations = this.extractEquations($, rawXmlEquations);
-    
-    // Extract images with metadata
+
+    // 4. Extract image metadata
     const images = this.extractImages($);
-    
-    // Clean and enhance the content
-    this.enhanceContent($);
-    
-    // Generate excerpt
+
+    // 5. Link in-text citations → ΒΙΒΛΙΟΓΡΑΦΙΑ entries
+    const citations = this.linkCitations($);
+
+    // 6. Wrap orphaned <li> elements in <ul>
+    this.processLists($);
+
+    // 7. Strip all unnecessary markup (classes, ids, scripts, styles, empties)
+    this.cleanHtml($);
+
+    // 8. Compute excerpt and word count
     const excerpt = this.generateExcerpt($);
-    
-    // Count words
     const wordCount = this.countWords($);
-    
-    // Get final cleaned HTML
-    const content = $.html();
-    
+
+    // Return only the body inner-HTML (no <html>/<head>/<body> wrappers)
+    const content = $('body').html() || '';
+
     return {
       title,
       content,
@@ -238,347 +235,375 @@ export class DocumentProcessor {
       citations,
       images,
       equations,
-      wordCount
+      wordCount,
     };
   }
 
-  /**
-   * Extract document title
-   */
+  // ─── Title ────────────────────────────────────────────────────────
+
   private extractTitle($: cheerio.CheerioAPI): string {
-    // Try to find title in various ways
     let title = $('h1').first().text().trim();
-    
+
     if (!title) {
-      // Try first paragraph if it looks like a title
+      // Use first short paragraph that looks like a title
       const firstP = $('p').first().text().trim();
       if (firstP && firstP.length < 100 && !firstP.includes('.')) {
         title = firstP;
-        $('p').first().remove(); // Remove it from content
+        $('p').first().remove();
       }
     }
-    
+
     return title || 'Untitled Document';
   }
 
+  // ─── Footnotes ────────────────────────────────────────────────────
+
   /**
-   * Extract and process footnotes
+   * Rewrite footnote anchors into a clean scheme (footnote-N / footnote-ref-N)
+   * and collect footnote text.
+   *
+   * Supports two formats:
+   *   • mammoth native (idPrefix 'doc-'):  #doc-footnote-N / doc-footnote-ref-N
+   *   • Legacy Word HTML:                  #_ftnN
+   *
+   * NOTE: We intentionally do NOT use the Word paragraph style "Footnote Text"
+   * for detection, because mammoth applies that style to any paragraph bearing
+   * it — including quoted / italic passages that were (mis-)styled with it in
+   * the original .docx.  Only structurally-linked footnotes are reliable.
    */
   private extractFootnotes($: cheerio.CheerioAPI): Footnote[] {
     const footnotes: Footnote[] = [];
-    let footnoteCounter = 1;
-    
-    // Look for footnote references in the text
-    $('a[href^="#_ftn"]').each((index, element) => {
-      const $el = $(element);
-      const href = $el.attr('href');
-      const footnoteId = href?.replace('#_ftn', '') || footnoteCounter.toString();
-      
-      // Create footnote reference
-      const footnoteRef = `footnote-${footnoteId}`;
-      $el.attr('href', `#${footnoteRef}`);
-      $el.attr('id', `footnote-ref-${footnoteId}`);
-      $el.addClass('footnote-ref');
-      
-      footnoteCounter++;
+    let counter = 1;
+
+    // ── Rewrite in-text footnote reference links ──
+    // mammoth:      <sup><a href="#doc-footnote-N" id="doc-footnote-ref-N">[N]</a></sup>
+    // Legacy Word:  <a href="#_ftnN">
+    $('a[href^="#doc-footnote-"], a[href^="#_ftn"]').each((_, el) => {
+      const $el = $(el);
+      const href = $el.attr('href') || '';
+
+      let id: string;
+      if (href.startsWith('#doc-footnote-')) {
+        id = href.replace('#doc-footnote-', '');
+      } else {
+        id = href.replace('#_ftn', '') || counter.toString();
+      }
+
+      $el.attr('href', `#footnote-${id}`);
+      $el.attr('id', `footnote-ref-${id}`);
+      counter++;
     });
-    
-    // Look for footnote text
-    $('div[id^="_ftn"], p.footnote-text').each((index, element) => {
-      const $el = $(element);
+
+    // ── Collect footnote body text ──
+    // mammoth:      <ol><li id="doc-footnote-N"><p>text</p></li></ol>
+    // Legacy Word:  <div id="_ftnN">...</div>
+    $('li[id^="doc-footnote-"], div[id^="_ftn"]').each((idx, el) => {
+      const $el = $(el);
       const text = $el.text().trim();
-      
-      if (text) {
-        const footnoteId = $el.attr('id')?.replace('_ftn', '') || (index + 1).toString();
-        
-        footnotes.push({
-          id: `footnote-${footnoteId}`,
-          text: text,
-          backRef: `footnote-ref-${footnoteId}`
-        });
-        
-        // Replace with proper footnote HTML
-        $el.replaceWith(`
-          <div id="footnote-${footnoteId}" class="footnote">
-            <p>${text} <a href="#footnote-ref-${footnoteId}" class="footnote-backref">↩</a></p>
-          </div>
-        `);
+      if (!text) return;
+
+      const elId = $el.attr('id') || '';
+      let id: string;
+      if (elId.startsWith('doc-footnote-')) {
+        id = elId.replace('doc-footnote-', '');
+      } else {
+        id = elId.replace('_ftn', '') || (idx + 1).toString();
+      }
+
+      footnotes.push({
+        id: `footnote-${id}`,
+        text,
+        backRef: `footnote-ref-${id}`,
+      });
+
+      // Replace with a clean footnote div (id preserved by cleanHtml)
+      $el.replaceWith(
+        `<div id="footnote-${id}"><p>${text} <a href="#footnote-ref-${id}">↩</a></p></div>`
+      );
+    });
+
+    // Clean up any now-empty <ol> wrappers left behind by mammoth's footnote list
+    $('ol').each((_, el) => {
+      const $el = $(el);
+      if ($el.children().length === 0 && $el.text().trim() === '') {
+        $el.remove();
       }
     });
-    
+
     return footnotes;
   }
 
+  // ─── Citation Linking System ──────────────────────────────────────
+
   /**
-   * Extract and process citations
+   * Detect the ΒΙΒΛΙΟΓΡΑΦΙΑ (bibliography) section, parse its entries,
+   * and turn every in-text "(Author, Year)" occurrence into an anchor
+   * link pointing to the matching bibliography entry.
+   *
+   * Returns the Citation[] metadata array.
    */
-  private extractCitations($: cheerio.CheerioAPI): Citation[] {
+  private linkCitations($: cheerio.CheerioAPI): Citation[] {
     const citations: Citation[] = [];
-    let citationCounter = 1;
-    
-    // Look for citation patterns
-    $('p.citation, p:contains("Bibliography"), p:contains("References")').each((index, element) => {
-      const $el = $(element);
+
+    // ── Step A: find the bibliography heading ──
+    let bibHeading: cheerio.Cheerio<any> | null = null;
+
+    $('h1, h2, h3, h4, h5, h6, p').each((_, el) => {
+      if (bibHeading) return; // already found
+      const $el = $(el);
       const text = $el.text().trim();
-      
-      if (text && text.length > 10) {
-        const citationId = `citation-${citationCounter}`;
-        
-        citations.push({
-          id: citationId,
-          text: text,
-          source: this.extractCitationSource(text)
-        });
-        
-        $el.attr('id', citationId);
-        $el.addClass('citation');
-        
-        citationCounter++;
+      // Match "ΒΙΒΛΙΟΓΡΑΦΙΑ" in any case (with or without accent on Ι),
+      // plus the common English equivalents.
+      if (/^(?:βιβλιογραφ[ιί]α|bibliography|references)\s*:?\s*$/iu.test(text)) {
+        bibHeading = $el;
       }
     });
-    
+
+    if (!bibHeading) {
+      console.log('No bibliography section (ΒΙΒΛΙΟΓΡΑΦΙΑ) found');
+      return citations;
+    }
+
+    console.log('Found bibliography section');
+
+    // ── Step B: collect & parse bibliography entries ──
+    const entries: BibliographyEntry[] = [];
+    let current = (bibHeading as cheerio.Cheerio<any>).next();
+
+    while (current.length > 0) {
+      const tag = (current.prop('tagName') || '').toLowerCase();
+      // Stop at the next major heading (h1–h3)
+      if (/^h[1-3]$/.test(tag)) break;
+
+      const text = current.text().trim();
+      if (text && text.length > 10) {
+        const entry = this.parseBibEntry(text);
+        if (entry) {
+          entries.push(entry);
+          // Stamp the element with an anchor id
+          current.attr('id', entry.id);
+          citations.push({
+            id: entry.id,
+            text: entry.text,
+            source: `${entry.surname}, ${entry.year}`,
+          });
+        }
+      }
+
+      current = current.next();
+    }
+
+    console.log(`Parsed ${entries.length} bibliography entries`);
+
+    // ── Steps C & D: scan body for in-text citations and link them ──
+    if (entries.length > 0) {
+      this.linkInTextCitations($, entries, bibHeading as cheerio.Cheerio<any>);
+    }
+
     return citations;
   }
 
   /**
-   * Extract source information from citation text
+   * Parse a single bibliography line to extract the leading surname
+   * and the year.
+   *
+   * Handles formats like:
+   *   "Παπαδόπουλος, Α. (2023). Τίτλος..."
+   *   "Smith, J. (1989). Title..."
+   *   "Writer (1989) Title..."
    */
-  private extractCitationSource(text: string): string {
-    // Simple heuristic to extract source
-    const patterns = [
-      /(\d{4})\./,  // Year
-      /([A-Z][a-z]+,\s[A-Z]\.)/,  // Author pattern
-      /"([^"]+)"/,  // Title in quotes
-    ];
-    
-    for (const pattern of patterns) {
-      const match = text.match(pattern);
-      if (match) {
-        return match[1];
-      }
-    }
-    
-    return text.substring(0, 50) + '...';
+  private parseBibEntry(text: string): BibliographyEntry | null {
+    // Look for a four-digit year (19xx or 20xx), optionally in parentheses
+    const yearMatch = text.match(/\(?((?:19|20)\d{2})[a-z]?\)?/);
+    if (!yearMatch) return null;
+    const year = yearMatch[1];
+
+    // Leading surname: sequence of Unicode letters, hyphens, or apostrophes
+    const surnameMatch = text.match(/^([\p{L}\-']+)/u);
+    if (!surnameMatch) return null;
+    const surname = surnameMatch[1];
+
+    const normalized = this.normalizeName(surname);
+    const id = `bib-${normalized}-${year}`;
+
+    return { id, surname: normalized, year, text };
   }
 
   /**
-   * Extract images with metadata
+   * Normalize a name for anchor-id generation and matching:
+   * lowercase → strip combining diacritics → keep only letters & digits.
    */
-  private extractImages($: cheerio.CheerioAPI): ProcessedImage[] {
-    const images: ProcessedImage[] = [];
-    
-    $('img').each((index, element) => {
-      const $el = $(element);
-      const src = $el.attr('src');
-      const alt = $el.attr('alt') || '';
-      const title = $el.attr('title') || '';
-      
-      if (src && src.startsWith('data:')) {
-        const imageId = `image-${index + 1}`;
-        
-        // Extract base64 data and content type
-        const matches = src.match(/data:([^;]+);base64,(.+)/);
-        if (matches) {
-          const contentType = matches[1];
-          const base64Data = matches[2];
-          
-          images.push({
-            id: imageId,
-            alt: alt,
-            title: title,
-            data: Buffer.from(base64Data, 'base64'),
-            contentType: contentType
-          });
-          
-          // Update image element with proper attributes
-          $el.attr('id', imageId);
-          $el.addClass('document-image');
+  private normalizeName(name: string): string {
+    return name
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '') // remove combining diacritical marks
+      .replace(/[^\p{L}\p{N}]/gu, ''); // keep letters and digits only
+  }
+
+  /**
+   * Extract ALL author surnames from a bibliography entry text.
+   * Looks for capitalized words before commas in the author portion
+   * (everything before the year).  This lets us index entries by
+   * non-first authors too, so "(Lemonde, 1998)" can match an entry
+   * that starts with "Laurent, Ph., Lemonde, P., …, 1998."
+   */
+  private extractAllSurnames(text: string, year: string): string[] {
+    const yearIdx = text.indexOf(year);
+    if (yearIdx < 0) return [];
+
+    const authorPart = text.substring(0, yearIdx);
+
+    // Find words of 2+ letters that appear before a comma — these are
+    // likely surnames in "Surname, Initial." patterns.
+    const surnameRe = /([\p{L}][\p{L}\-']+)\s*,/gu;
+    const surnames: string[] = [];
+    let m: RegExpExecArray | null;
+    while ((m = surnameRe.exec(authorPart)) !== null) {
+      if (m[1].length > 1) {
+        surnames.push(this.normalizeName(m[1]));
+      }
+    }
+
+    return [...new Set(surnames)];
+  }
+
+  /**
+   * Walk every text-containing element *before* the bibliography heading
+   * and replace "(Author, Year)" patterns with `<a href="#bib-...">` links.
+   */
+  private linkInTextCitations(
+    $: cheerio.CheerioAPI,
+    entries: BibliographyEntry[],
+    bibHeading: cheerio.Cheerio<any>
+  ): void {
+    // Build a lookup map:  "normalizedSurname-year" → BibliographyEntry
+    // Primary key: first author's surname.
+    // Secondary keys: every other author surname in the same entry,
+    // so that e.g. "(Lemonde, 1998)" can find the Laurent et al. 1998 entry.
+    const lookup = new Map<string, BibliographyEntry>();
+    for (const e of entries) {
+      // Primary key
+      lookup.set(`${e.surname}-${e.year}`, e);
+
+      // Secondary keys from all author surnames in the full text
+      const allSurnames = this.extractAllSurnames(e.text, e.year);
+      for (const s of allSurnames) {
+        if (!lookup.has(`${s}-${e.year}`)) {
+          lookup.set(`${s}-${e.year}`, e);
         }
       }
-    });
-    
-    return images;
-  }
+    }
 
-  /**
-   * Enhance content with WordPress-specific formatting
-   */
-  private enhanceContent($: cheerio.CheerioAPI): void {
-    // Add WordPress-friendly classes
-    $('blockquote').addClass('wp-block-quote');
-    $('pre').addClass('wp-block-code');
-    $('table').addClass('wp-block-table');
-    
-    // Add equation-specific classes and styling
-    $('.equation-display').addClass('wp-block-equation-display');
-    $('.equation-inline').addClass('wp-block-equation-inline');
-    $('.math-display').addClass('wp-block-math-display');
-    $('.math-inline').addClass('wp-block-math-inline');
-    
-    // Ensure proper paragraph spacing
-    $('p').each((index, element) => {
-      const $el = $(element);
-      if ($el.text().trim() === '') {
-        $el.remove();
+    // Broad citation regex.
+    //
+    // Matches any "(SOMETHING, YEAR)" where SOMETHING starts with a
+    // Unicode letter.  This covers all common academic citation formats:
+    //
+    //   (Author, 1989)                simple
+    //   (Author & Author, 1989)       multi-author
+    //   (Author et al., 1989)         et al.
+    //   (De Marchi, 1982)             multi-word surname
+    //   (F. Maier et al., 2025)       initial before surname
+    //   (Παπαδόπουλος, 2023)          Greek names
+    //   (Author, 2011, σ.438)         with page reference
+    //   (Author, 2020: 55-60)         colon-style page
+    //
+    // Group 1 = author portion (everything before the last ", YEAR")
+    // Group 2 = year
+    // Group 3 = optional trailing content (page refs, etc.)
+    const citationRe =
+      /\(([\p{L}][^()]*?),\s*((?:19|20)\d{2}[a-z]?)(\s*[,:][^)]*)?\)/gu;
+
+    const bibHeadingEl = bibHeading[0];
+    let reachedBib = false;
+
+    $('p, li, td, th, h1, h2, h3, h4, h5, h6').each((_, el) => {
+      if (reachedBib) return;
+      if (el === bibHeadingEl) {
+        reachedBib = true;
+        return;
       }
-    });
-    
-    // Handle lists properly
-    this.processLists($);
-    
-    // Add MathJax configuration if equations are present
-    if ($('.equation-display, .equation-inline, .math-display, .math-inline').length > 0) {
-      this.addMathJaxSupport($);
-    }
-  }
 
-  /**
-   * Add MathJax support for equation rendering
-   */
-  private addMathJaxSupport($: cheerio.CheerioAPI): void {
-    // Add MathJax script to head if not already present
-    if ($('script[src*="mathjax"]').length === 0) {
-      $('head').append(`
-        <script type="text/javascript" async
-          src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script type="text/javascript" id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script type="text/javascript">
-          window.MathJax = {
-            tex: {
-              inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-              displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
-              processEscapes: true,
-              processEnvironments: true
-            },
-            options: {
-              ignoreHtmlClass: 'tex2jax_ignore',
-              processHtmlClass: 'tex2jax_process'
-            }
-          };
-        </script>
-      `);
-    }
-    
-    // Add CSS for equation styling
-    if ($('style[data-equation-styles]').length === 0) {
-      $('head').append(`
-        <style data-equation-styles>
-          .equation-display, .math-display {
-            text-align: center;
-            margin: 1em 0;
-            padding: 1em;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            overflow-x: auto;
-          }
-          .equation-display-numbered {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            margin: 1em 0;
-            padding: 1em;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            overflow-x: auto;
-          }
-          .equation-content {
-            flex: 1;
-          }
-          .equation-number {
-            margin-left: 1em;
-            font-weight: bold;
-            color: #666;
-          }
-          .equation-inline, .math-inline {
-            font-style: italic;
-          }
-          .wp-block-equation-display, .wp-block-math-display {
-            margin: 1.5em 0;
-          }
-          .wp-block-equation-inline, .wp-block-math-inline {
-            display: inline;
-          }
-        </style>
-      `);
-    }
-  }
+      const $el = $(el);
+      const html = $el.html();
+      if (!html) return;
 
-  /**
-   * Process lists to create proper HTML structure
-   */
-  private processLists($: cheerio.CheerioAPI): void {
-    // Group consecutive list items into proper ul/ol structures
-    const listItems = $('li');
-    let currentList: cheerio.Cheerio<any> | null = null;
-    
-    listItems.each((index, element) => {
-      const $li = $(element);
-      
-      if (!currentList) {
-        currentList = $('<ul>');
-        $li.before(currentList);
-      }
-      
-      currentList.append($li);
-      
-      // Check if next element is also a list item
-      const next = $li.next();
-      if (!next.is('li')) {
-        currentList = null;
+      citationRe.lastIndex = 0;
+
+      const replaced = html.replace(citationRe, (full, authors, yearStr, extra) => {
+        const baseYear = yearStr.replace(/[a-z]$/, '');
+
+        // Extract candidate surnames from the author text.
+        // Strip "et al.", "κ.α.", ampersands, "και", then split into words.
+        // Filter out single-letter initials (like "F.") and try each
+        // remaining word as a potential surname for lookup.
+        const cleaned = authors
+          .replace(/\s*et\s+al\.?\s*/gi, ' ')
+          .replace(/\s*κ\.?\s*α\.?\s*/gi, ' ')
+          .replace(/&amp;/g, ' ')
+          .replace(/&/g, ' ')
+          .replace(/και/g, ' ')
+          .replace(/,/g, ' ');
+
+        const candidates = cleaned
+          .split(/\s+/)
+          .filter((w: string) => w.length > 1)
+          .filter((w: string) => !/^[\p{L}]\.$/u.test(w)); // skip initials like "F."
+
+        for (const word of candidates) {
+          const key = `${this.normalizeName(word)}-${baseYear}`;
+          const entry = lookup.get(key);
+          if (entry) {
+            const trailing = extra || '';
+            return `<a href="#${entry.id}">(${authors}, ${yearStr}${trailing})</a>`;
+          }
+        }
+
+        // No matching bibliography entry — leave the text as-is
+        return full;
+      });
+
+      if (replaced !== html) {
+        $el.html(replaced);
       }
     });
   }
 
-  /**
-   * Generate excerpt from content
-   */
-  private generateExcerpt($: cheerio.CheerioAPI): string {
-    const text = $.text().trim();
-    const words = text.split(/\s+/).slice(0, 55); // WordPress default excerpt length
-    return words.join(' ') + (words.length >= 55 ? '...' : '');
-  }
+  // ─── Equations ────────────────────────────────────────────────────
 
   /**
-   * Count words in the document
-   */
-  private countWords($: cheerio.CheerioAPI): number {
-    const text = $.text().trim();
-    return text.split(/\s+/).filter(word => word.length > 0).length;
-  }
-
-  /**
-   * Extract OMath elements from raw XML
+   * Extract OMath elements by unzipping the .docx with JSZip and
+   * reading word/document.xml.  This replaces the broken approach of
+   * reading the compressed buffer as UTF-8.
    */
   private async extractOMathFromXML(buffer: Buffer): Promise<string[]> {
     try {
-      const xmlString = buffer.toString('utf8');
+      const zip = await JSZip.loadAsync(buffer);
+      const docFile = zip.file('word/document.xml');
+      if (!docFile) {
+        console.log('No word/document.xml found in .docx archive');
+        return [];
+      }
+
+      const xml = await docFile.async('string');
       const equations: string[] = [];
-      
-      // Look for OMath elements in the XML
-      const omathRegex = /<[^:]*:oMath[^>]*>(.*?)<\/[^:]*:oMath>/gs;
-      const omathParaRegex = /<[^:]*:oMathPara[^>]*>(.*?)<\/[^:]*:oMathPara>/gs;
-      
-      let match;
-      
-      // Extract OMath elements
-      while ((match = omathRegex.exec(xmlString)) !== null) {
-        const mathContent = this.extractMathText(match[1]);
-        if (mathContent && mathContent.trim()) {
-          equations.push(mathContent.trim());
-        }
+
+      // Flexible namespace prefix: <m:oMath>, <w14:oMath>, etc.
+      const omathRe = /<[^:]*:oMath\b[^>]*>([\s\S]*?)<\/[^:]*:oMath>/g;
+      const omathParaRe = /<[^:]*:oMathPara\b[^>]*>([\s\S]*?)<\/[^:]*:oMathPara>/g;
+
+      let m: RegExpExecArray | null;
+      while ((m = omathRe.exec(xml)) !== null) {
+        const text = this.extractMathText(m[1]);
+        if (text) equations.push(text);
       }
-      
-      // Extract OMathPara elements
-      while ((match = omathParaRegex.exec(xmlString)) !== null) {
-        const mathContent = this.extractMathText(match[1]);
-        if (mathContent && mathContent.trim()) {
-          equations.push(mathContent.trim());
-        }
+      while ((m = omathParaRe.exec(xml)) !== null) {
+        const text = this.extractMathText(m[1]);
+        if (text) equations.push(text);
       }
-      
-      console.log(`Found ${equations.length} equations in raw XML`);
+
+      console.log(`Found ${equations.length} equations in document XML`);
       return equations;
     } catch (error) {
       console.error('Error extracting OMath from XML:', error);
@@ -586,146 +611,197 @@ export class DocumentProcessor {
     }
   }
 
-  /**
-   * Extract text content from OMath XML
-   */
+  /** Strip XML tags from an OMath fragment and reconstruct the expression. */
   private extractMathText(omathXml: string): string {
-    // Remove XML tags and extract text content
     let text = omathXml.replace(/<[^>]*>/g, ' ');
-    // Clean up whitespace
     text = text.replace(/\s+/g, ' ').trim();
-    
-    // Try to reconstruct mathematical expressions from common patterns
     text = this.reconstructMathExpression(text);
-    
     return text;
   }
 
-  /**
-   * Reconstruct mathematical expressions from extracted text
-   */
+  /** Basic heuristic to tidy up math text extracted from OMath XML. */
   private reconstructMathExpression(text: string): string {
-    // This is a simplified reconstruction - a full implementation would need
-    // to parse the OMath XML structure more carefully
-    
-    // Handle common mathematical patterns
-    text = text.replace(/(\w+)\s+(\^|\u005E)\s*(\w+)/g, '$1^$3'); // superscripts
-    text = text.replace(/(\w+)\s+(_|\u005F)\s*(\w+)/g, '$1_$3'); // subscripts
-    text = text.replace(/\s*\/\s*/g, '/'); // fractions
-    text = text.replace(/\s*\+\s*/g, ' + '); // addition
-    text = text.replace(/\s*-\s*/g, ' - '); // subtraction
-    text = text.replace(/\s*\*\s*/g, ' × '); // multiplication
-    text = text.replace(/\s*=\s*/g, ' = '); // equals
-    
+    text = text.replace(/(\w+)\s+(\^|\u005E)\s*(\w+)/g, '$1^$3');   // superscripts
+    text = text.replace(/(\w+)\s+(_|\u005F)\s*(\w+)/g, '$1_$3');    // subscripts
+    text = text.replace(/\s*\/\s*/g, '/');                            // fractions
+    text = text.replace(/\s*\+\s*/g, ' + ');                         // addition
+    text = text.replace(/\s*-\s*/g, ' - ');                           // subtraction
+    text = text.replace(/\s*\*\s*/g, ' \\times ');                    // multiplication
+    text = text.replace(/\s*=\s*/g, ' = ');                           // equals
     return text;
   }
 
   /**
-   * Extract and process equations
+   * Process equations extracted from the .docx XML and record them
+   * as metadata.  Each equation is also appended to the HTML body as
+   * a paragraph with $$...$$ delimiters so a MathJax/KaTeX WordPress
+   * plugin can render it.
+   *
+   * Any LaTeX already present in the body as $...$ / $$...$$ text
+   * is left untouched — it will render naturally via the WP plugin.
    */
-  private extractEquations($: cheerio.CheerioAPI, rawXmlEquations: string[] = []): Equation[] {
+  private extractEquations(
+    $: cheerio.CheerioAPI,
+    rawXmlEquations: string[] = []
+  ): Equation[] {
     const equations: Equation[] = [];
-    let equationCounter = 1;
-    
-    // First, process equations found in raw XML (Word's equation editor)
-    for (const rawEquation of rawXmlEquations) {
-      const equationId = `xml-equation-${equationCounter}`;
-      const latex = this.convertToLatex(rawEquation);
-      
-      equations.push({
-        id: equationId,
-        latex: latex,
-        display: true // Assume OMath equations are display equations
-      });
-      
-      // Add a placeholder in the HTML for this equation
-      $('body').append(`
-        <div id="${equationId}" class="equation-display equation-from-xml">
-          <div class="equation-content">$$${latex}$$</div>
-        </div>
-      `);
-      
-      equationCounter++;
+    let counter = 1;
+
+    for (const raw of rawXmlEquations) {
+      const id = `equation-${counter}`;
+      const latex = this.convertToLatex(raw);
+      equations.push({ id, latex, display: true });
+
+      // Append as a clean paragraph with LaTeX display-math delimiters
+      $('body').append(`<p>$$${latex}$$</p>`);
+      counter++;
     }
-    
-    // Process display equations (block-level) - only from proper styling
-    $('.equation-display, .math-display').each((index, element) => {
-      const $el = $(element);
-      
-      // Skip if this is already processed from XML
-      if ($el.hasClass('equation-from-xml')) {
-        return;
-      }
-      
-      const text = $el.text().trim();
-      
-      if (text) {
-        const equationId = `equation-${equationCounter}`;
-        const latex = this.convertToLatex(text);
-        
-        // Try to extract equation number
-        const numberMatch = text.match(/\((\d+)\)$/);
-        const number = numberMatch ? numberMatch[1] : undefined;
-        
-        equations.push({
-          id: equationId,
-          latex: latex,
-          display: true,
-          number: number
-        });
-        
-        // Replace with MathJax/LaTeX rendering
-        const displayClass = number ? 'equation-display-numbered' : 'equation-display';
-        $el.replaceWith(`
-          <div id="${equationId}" class="${displayClass}">
-            <div class="equation-content">$$${latex}$$</div>
-            ${number ? `<div class="equation-number">(${number})</div>` : ''}
-          </div>
-        `);
-        
-        equationCounter++;
-      }
-    });
-    
-    // Process inline equations - only from proper styling
-    $('.equation-inline, .math-inline').each((index, element) => {
-      const $el = $(element);
-      const text = $el.text().trim();
-      
-      if (text) {
-        const equationId = `equation-inline-${equationCounter}`;
-        const latex = this.convertToLatex(text);
-        
-        equations.push({
-          id: equationId,
-          latex: latex,
-          display: false
-        });
-        
-        // Replace with inline MathJax/LaTeX rendering
-        $el.replaceWith(`<span id="${equationId}" class="equation-inline">$${latex}$</span>`);
-        
-        equationCounter++;
-      }
-    });
-    
-    console.log(`Extracted ${equations.length} equations total (${rawXmlEquations.length} from XML, ${equations.length - rawXmlEquations.length} from styles)`);
+
+    console.log(`Extracted ${equations.length} equations from document XML`);
     return equations;
   }
 
+  // ─── Images ───────────────────────────────────────────────────────
+
   /**
-   * Convert mathematical text to LaTeX format
+   * Extract base64-embedded images as metadata (for potential upload
+   * to the WordPress media library later).
+   */
+  private extractImages($: cheerio.CheerioAPI): ProcessedImage[] {
+    const images: ProcessedImage[] = [];
+
+    $('img').each((idx, el) => {
+      const $el = $(el);
+      const src = $el.attr('src');
+      if (!src || !src.startsWith('data:')) return;
+
+      const matches = src.match(/data:([^;]+);base64,(.+)/);
+      if (!matches) return;
+
+      images.push({
+        id: `image-${idx + 1}`,
+        alt: $el.attr('alt') || '',
+        title: $el.attr('title') || '',
+        data: Buffer.from(matches[2], 'base64'),
+        contentType: matches[1],
+      });
+    });
+
+    return images;
+  }
+
+  // ─── Clean HTML ───────────────────────────────────────────────────
+
+  /**
+   * Strip all unnecessary markup so the output is WPBakery-friendly:
+   *
+   *   • No classes
+   *   • No scripts or styles
+   *   • No id attributes except those needed for citation / footnote anchoring
+   *   • No empty paragraphs
+   *   • No data-* attributes
+   *
+   * Preserved:
+   *   <a>, <sub>, <sup>, <strong>, <em>, <u>, headings, lists,
+   *   blockquotes, tables, images, and LaTeX delimiters in text.
+   */
+  private cleanHtml($: cheerio.CheerioAPI): void {
+    // Remove <script> and <style> tags entirely
+    $('script, style').remove();
+
+    // Strip all class attributes
+    $('[class]').removeAttr('class');
+
+    // Strip id attributes except those used for citation or footnote anchoring
+    $('[id]').each((_, el) => {
+      const $el = $(el);
+      const id = $el.attr('id') || '';
+      if (
+        !id.startsWith('bib-') &&
+        !id.startsWith('footnote-') &&
+        !id.startsWith('doc-footnote-')
+      ) {
+        $el.removeAttr('id');
+      }
+    });
+
+    // Remove empty paragraphs (preserve those containing images, sub/sup, or br)
+    $('p').each((_, el) => {
+      const $el = $(el);
+      if (
+        $el.text().trim() === '' &&
+        $el.find('img, sub, sup, br').length === 0
+      ) {
+        $el.remove();
+      }
+    });
+
+    // Remove data-* attributes from all elements
+    $('*').each((_, el) => {
+      const attribs = (el as any).attribs || {};
+      for (const attr of Object.keys(attribs)) {
+        if (attr.startsWith('data-')) {
+          $(el).removeAttr(attr);
+        }
+      }
+    });
+  }
+
+  // ─── Lists ────────────────────────────────────────────────────────
+
+  /**
+   * Group consecutive orphaned <li> elements into proper <ul> wrappers.
+   * mammoth may output bare <li> elements without a parent list.
+   */
+  private processLists($: cheerio.CheerioAPI): void {
+    const listItems = $('li');
+    let currentList: cheerio.Cheerio<any> | null = null;
+
+    listItems.each((_, el) => {
+      const $li = $(el);
+      if (!currentList) {
+        currentList = $('<ul>');
+        $li.before(currentList);
+      }
+      currentList.append($li);
+
+      if (!$li.next().is('li')) {
+        currentList = null;
+      }
+    });
+  }
+
+  // ─── Excerpt & Word Count ─────────────────────────────────────────
+
+  private generateExcerpt($: cheerio.CheerioAPI): string {
+    const text = $('body').text().trim();
+    const words = text.split(/\s+/).slice(0, 55);
+    return words.join(' ') + (words.length >= 55 ? '...' : '');
+  }
+
+  private countWords($: cheerio.CheerioAPI): number {
+    const text = $('body').text().trim();
+    return text.split(/\s+/).filter((w) => w.length > 0).length;
+  }
+
+  // ─── LaTeX Conversion ─────────────────────────────────────────────
+
+  /**
+   * Convert extracted mathematical text (from OMath XML) into LaTeX
+   * notation.  Handles Unicode symbols, fractions, sub/superscripts,
+   * roots, named functions, integrals, limits, and matrices.
    */
   private convertToLatex(text: string): string {
-    // Remove equation numbers and clean up
+    // Remove trailing equation numbers and normalize whitespace
     let latex = text.replace(/\(\d+\)$/, '').trim();
-    
-    // Handle common Word equation artifacts
-    latex = latex.replace(/\s+/g, ' '); // normalize whitespace
-    latex = latex.replace(/[\u00A0\u2000-\u200B\u2028\u2029\u202F\u205F\u3000]/g, ' '); // remove various unicode spaces
-    
-    // Common mathematical symbol conversions
-    const symbolMap: { [key: string]: string } = {
+    latex = latex.replace(/\s+/g, ' ');
+    latex = latex.replace(
+      /[\u00A0\u2000-\u200B\u2028\u2029\u202F\u205F\u3000]/g,
+      ' '
+    );
+
+    // Unicode → LaTeX symbol map
+    const symbolMap: Record<string, string> = {
       '×': '\\times',
       '÷': '\\div',
       '±': '\\pm',
@@ -739,6 +815,7 @@ export class DocumentProcessor {
       '∫': '\\int',
       '∂': '\\partial',
       '√': '\\sqrt',
+      // Greek lowercase
       'α': '\\alpha',
       'β': '\\beta',
       'γ': '\\gamma',
@@ -752,8 +829,7 @@ export class DocumentProcessor {
       'φ': '\\phi',
       'ψ': '\\psi',
       'ω': '\\omega',
-      'Α': '\\Alpha',
-      'Β': '\\Beta',
+      // Greek uppercase (only those that differ from Latin)
       'Γ': '\\Gamma',
       'Δ': '\\Delta',
       'Θ': '\\Theta',
@@ -763,12 +839,14 @@ export class DocumentProcessor {
       'Φ': '\\Phi',
       'Ψ': '\\Psi',
       'Ω': '\\Omega',
+      // Arrows
       '→': '\\rightarrow',
       '←': '\\leftarrow',
       '↔': '\\leftrightarrow',
       '⇒': '\\Rightarrow',
       '⇐': '\\Leftarrow',
       '⇔': '\\Leftrightarrow',
+      // Set theory
       '∈': '\\in',
       '∉': '\\notin',
       '⊂': '\\subset',
@@ -778,93 +856,101 @@ export class DocumentProcessor {
       '∪': '\\cup',
       '∩': '\\cap',
       '∅': '\\emptyset',
+      // Number sets
       'ℕ': '\\mathbb{N}',
       'ℤ': '\\mathbb{Z}',
       'ℚ': '\\mathbb{Q}',
       'ℝ': '\\mathbb{R}',
       'ℂ': '\\mathbb{C}',
+      // Miscellaneous
       '°': '^{\\circ}',
       '∠': '\\angle',
       '⊥': '\\perp',
       '∥': '\\parallel',
       '∴': '\\therefore',
-      '∵': '\\because'
+      '∵': '\\because',
     };
-    
-    // Apply symbol conversions
-    for (const [symbol, latexSymbol] of Object.entries(symbolMap)) {
-      latex = latex.replace(new RegExp(symbol, 'g'), latexSymbol);
+
+    // Apply symbol conversions using split/join (safe for special chars)
+    for (const [sym, cmd] of Object.entries(symbolMap)) {
+      latex = latex.split(sym).join(cmd);
     }
-    
-    // Handle fractions more intelligently
-    // Match patterns like "a/b", "12/34", "(x+1)/(y-2)"
-    latex = latex.replace(/\(([^)]+)\)\/\(([^)]+)\)/g, '\\frac{$1}{$2}'); // (expr)/(expr)
-    latex = latex.replace(/(\w+(?:\^\w+|\^{\w+})?)\s*\/\s*(\w+(?:\^\w+|\^{\w+})?)/g, '\\frac{$1}{$2}'); // simple fractions
-    latex = latex.replace(/(\d+)\s*\/\s*(\d+)/g, '\\frac{$1}{$2}'); // numeric fractions
-    
-    // Handle subscripts and superscripts more carefully
-    // Handle patterns like x_2, x_{12}, x^2, x^{-1}
-    latex = latex.replace(/(\w+)_\{([^}]+)\}/g, '$1_{$2}'); // already properly formatted
-    latex = latex.replace(/(\w+)_(\w+)/g, '$1_{$2}'); // simple subscripts
-    latex = latex.replace(/(\w+)\^\{([^}]+)\}/g, '$1^{$2}'); // already properly formatted
-    latex = latex.replace(/(\w+)\^(\w+)/g, '$1^{$2}'); // simple superscripts
-    latex = latex.replace(/(\w+)\^(-?\d+)/g, '$1^{$2}'); // numeric superscripts
-    
-    // Handle square roots more intelligently
-    latex = latex.replace(/\\sqrt\s*\(([^)]+)\)/g, '\\sqrt{$1}'); // √(expression)
-    latex = latex.replace(/\\sqrt\s*([a-zA-Z0-9]+)/g, '\\sqrt{$1}'); // √x
-    
-    // Handle nth roots
+
+    // Fractions
+    latex = latex.replace(/\(([^)]+)\)\/\(([^)]+)\)/g, '\\frac{$1}{$2}');
+    latex = latex.replace(
+      /(\w+(?:\^\w+|\^{\w+})?)\s*\/\s*(\w+(?:\^\w+|\^{\w+})?)/g,
+      '\\frac{$1}{$2}'
+    );
+    latex = latex.replace(/(\d+)\s*\/\s*(\d+)/g, '\\frac{$1}{$2}');
+
+    // Subscripts / superscripts
+    latex = latex.replace(/(\w+)_\{([^}]+)\}/g, '$1_{$2}');
+    latex = latex.replace(/(\w+)_(\w+)/g, '$1_{$2}');
+    latex = latex.replace(/(\w+)\^\{([^}]+)\}/g, '$1^{$2}');
+    latex = latex.replace(/(\w+)\^(\w+)/g, '$1^{$2}');
+    latex = latex.replace(/(\w+)\^(-?\d+)/g, '$1^{$2}');
+
+    // Square roots
+    latex = latex.replace(/\\sqrt\s*\(([^)]+)\)/g, '\\sqrt{$1}');
+    latex = latex.replace(/\\sqrt\s*([a-zA-Z0-9]+)/g, '\\sqrt{$1}');
     latex = latex.replace(/(\d+)\\sqrt\{([^}]+)\}/g, '\\sqrt[$1]{$2}');
-    
-    // Handle common functions with arguments
-    const functions = ['sin', 'cos', 'tan', 'sec', 'csc', 'cot', 'log', 'ln', 'exp', 'lim', 'max', 'min', 'arcsin', 'arccos', 'arctan'];
-    for (const func of functions) {
-      // Handle function(argument) format
-      const regex = new RegExp(`\\b${func}\\s*\\(([^)]+)\\)`, 'g');
-      latex = latex.replace(regex, `\\${func}($1)`);
-      
-      // Handle function argument without parentheses (like sin x)
-      const regexNoParen = new RegExp(`\\b${func}\\s+([a-zA-Z0-9\\\\{}^_]+)`, 'g');
-      latex = latex.replace(regexNoParen, `\\${func} $1`);
+
+    // Named functions
+    const fns = [
+      'sin', 'cos', 'tan', 'sec', 'csc', 'cot',
+      'log', 'ln', 'exp', 'lim', 'max', 'min',
+      'arcsin', 'arccos', 'arctan',
+    ];
+    for (const fn of fns) {
+      latex = latex.replace(
+        new RegExp(`\\b${fn}\\s*\\(([^)]+)\\)`, 'g'),
+        `\\${fn}($1)`
+      );
+      latex = latex.replace(
+        new RegExp(`\\b${fn}\\s+([a-zA-Z0-9\\\\{}^_]+)`, 'g'),
+        `\\${fn} $1`
+      );
     }
-    
-    // Handle summation and product notations
-    latex = latex.replace(/\\sum\s*\(([^)]+)\s+to\s+([^)]+)\)/g, '\\sum_{$1}^{$2}');
-    latex = latex.replace(/\\prod\s*\(([^)]+)\s+to\s+([^)]+)\)/g, '\\prod_{$1}^{$2}');
-    latex = latex.replace(/\\sum\s*([^{]+)=([^{]+)to([^{]+)/g, '\\sum_{$1=$2}^{$3}');
-    
-    // Handle integrals
-    latex = latex.replace(/\\int\s*([^{]+)\s+d([a-zA-Z])/g, '\\int $1 \\, d$2');
-    
-    // Handle limits
-    latex = latex.replace(/\\lim\s*([^{]+)→([^{]+)/g, '\\lim_{$1 \\to $2}');
-    latex = latex.replace(/\\lim\s*([^{]+)\s+approaches\s+([^{]+)/g, '\\lim_{$1 \\to $2}');
-    
-    // Handle matrices (basic support)
+
+    // Summation / product
+    latex = latex.replace(
+      /\\sum\s*\(([^)]+)\s+to\s+([^)]+)\)/g,
+      '\\sum_{$1}^{$2}'
+    );
+    latex = latex.replace(
+      /\\prod\s*\(([^)]+)\s+to\s+([^)]+)\)/g,
+      '\\prod_{$1}^{$2}'
+    );
+
+    // Integrals
+    latex = latex.replace(
+      /\\int\s*([^{]+)\s+d([a-zA-Z])/g,
+      '\\int $1 \\, d$2'
+    );
+
+    // Limits
+    latex = latex.replace(
+      /\\lim\s*([^{]+)→([^{]+)/g,
+      '\\lim_{$1 \\to $2}'
+    );
+
+    // Matrices (semicolons become row breaks)
     latex = latex.replace(/\[([^\]]+)\]/g, (match, content) => {
       if (content.includes(';') || content.includes('\\\\')) {
         return `\\begin{bmatrix} ${content.replace(/;/g, '\\\\')} \\end{bmatrix}`;
       }
       return match;
     });
-    
-    // Handle absolute values and norms
+
+    // Absolute values, floor, ceiling
     latex = latex.replace(/\|([^|]+)\|/g, '\\left|$1\\right|');
-    
-    // Handle floor and ceiling functions
     latex = latex.replace(/⌊([^⌋]+)⌋/g, '\\lfloor $1 \\rfloor');
     latex = latex.replace(/⌈([^⌉]+)⌉/g, '\\lceil $1 \\rceil');
-    
-    // Clean up excessive spaces
+
+    // Final whitespace cleanup
     latex = latex.replace(/\s+/g, ' ').trim();
-    
-    // Add spacing around operators for better readability
-    latex = latex.replace(/([^\\])([\+\-=<>])/g, '$1 $2 ');
-    latex = latex.replace(/([\+\-=<>])([^\\])/g, '$1 $2');
-    latex = latex.replace(/\s+/g, ' ').trim();
-    
-    console.log(`Converted "${text}" to LaTeX: "${latex}"`);
+
     return latex;
   }
-} 
+}

@@ -41,7 +41,14 @@ export declare class WordPressService {
      */
     publishPost(content: ProcessedContent, config: WordPressConfig, postData: PostData): Promise<WordPressPost>;
     /**
-     * Prepare post content with WordPress-specific formatting
+     * Prepare post content for WordPress.
+     *
+     * The DocumentProcessor already produces clean, minimal HTML with:
+     *   - citation anchor links to the ΒΙΒΛΙΟΓΡΑΦΙΑ section
+     *   - footnote back-reference anchors
+     *   - LaTeX delimiters ($...$ / $$...$$) for a WP MathJax/KaTeX plugin
+     *
+     * No scripts, styles, or duplicate sections are injected here.
      */
     private preparePostContent;
     /**

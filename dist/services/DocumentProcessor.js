@@ -39,112 +39,149 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DocumentProcessor = void 0;
 const mammoth_1 = __importDefault(require("mammoth"));
 const cheerio = __importStar(require("cheerio"));
+const jszip_1 = __importDefault(require("jszip"));
+const PdfProcessor_1 = require("./PdfProcessor");
+// ═══════════════════════════════════════════════════════════════════════
+//  DocumentProcessor — converts .docx / .pdf → clean, minimal HTML
+//  suitable for WordPress + WPBakery (Visual Bakery).
+//
+//  Design goals:
+//    • No extra classes, scripts, or inline styles in the output.
+//    • Preserve hyperlinks (<a>), subscripts (<sub>), superscripts (<sup>).
+//    • Link in-text citations like (Author, 1989) to the matching entry
+//      in the ΒΙΒΛΙΟΓΡΑΦΙΑ section via anchor tags.
+//    • Keep LaTeX formulas as $$...$$ / $...$ delimiters so a MathJax or
+//      KaTeX WordPress plugin can render them.
+// ═══════════════════════════════════════════════════════════════════════
 class DocumentProcessor {
+    constructor() {
+        this.pdfProcessor = new PdfProcessor_1.PdfProcessor();
+    }
     /**
-     * Process a Word document buffer and extract content with formatting
+     * Main entry point: accept a document buffer (Word or PDF) and return
+     * structured content ready for WordPress publishing.
      */
-    async processDocument(buffer) {
+    async processDocument(buffer, filename) {
         try {
-            // Configure mammoth options for better HTML output with equation support
-            const options = {
-                styleMap: [
-                    // Preserve heading styles
-                    "p[style-name='Heading 1'] => h1:fresh",
-                    "p[style-name='Heading 2'] => h2:fresh",
-                    "p[style-name='Heading 3'] => h3:fresh",
-                    "p[style-name='Heading 4'] => h4:fresh",
-                    "p[style-name='Heading 5'] => h5:fresh",
-                    "p[style-name='Heading 6'] => h6:fresh",
-                    // Preserve text formatting
-                    "b => strong",
-                    "i => em",
-                    "u => u",
-                    // Preserve lists
-                    "p[style-name='List Paragraph'] => li:fresh",
-                    // Preserve quotes
-                    "p[style-name='Quote'] => blockquote > p:fresh",
-                    // Preserve code blocks
-                    "p[style-name='Code'] => pre:fresh",
-                    // Custom styles for footnotes and citations
-                    "p[style-name='Footnote Text'] => p.footnote-text:fresh",
-                    "p[style-name='Citation'] => p.citation:fresh",
-                    // Equation styles - handle both inline and display equations
-                    "p[style-name='Equation'] => div.equation-display:fresh",
-                    "p[style-name='Inline Equation'] => span.equation-inline:fresh",
-                    "p[style-name='Math'] => span.math-inline:fresh",
-                    "p[style-name='Display Math'] => div.math-display:fresh",
-                    // Common equation style names in Word
-                    "p[style-name='Equation 1'] => div.equation-display:fresh",
-                    "p[style-name='Equation 2'] => div.equation-display:fresh",
-                    "p[style-name='Equation 3'] => div.equation-display:fresh",
-                    // Handle equation objects with specific style names
-                    "p[style-name*='equation'] => div.equation-display:fresh",
-                    "p[style-name*='math'] => span.math-inline:fresh"
-                ],
-                convertImage: mammoth_1.default.images.imgElement((image) => {
-                    return image.read("base64").then((imageBuffer) => {
-                        return {
-                            src: `data:${image.contentType};base64,${imageBuffer}`,
-                            alt: image.altText || "Document image"
-                        };
-                    });
-                }),
-                includeDefaultStyleMap: true,
-                // Preserve raw XML for better equation handling
-                preserveEmptyParagraphs: true,
-                idPrefix: "doc-",
-                // Add custom transform to handle Office Math elements
-                transformDocument: (document) => {
-                    return this.transformDocumentForEquations(document);
-                }
-            };
-            // Convert document to HTML
-            const result = await mammoth_1.default.convertToHtml({ buffer }, options);
-            if (result.messages.length > 0) {
-                console.log('Mammoth conversion messages:', result.messages);
+            const documentType = this.detectDocumentType(buffer, filename);
+            console.log(`Detected document type: ${documentType}`);
+            if (documentType === 'pdf') {
+                const result = await this.pdfProcessor.processPdf(buffer);
+                return { ...result, documentType: 'pdf' };
             }
-            // Process the HTML content
-            const processedContent = await this.processHtmlContent(result.value);
-            return processedContent;
+            else {
+                const result = await this.processWordDocument(buffer);
+                return { ...result, documentType: 'word' };
+            }
         }
         catch (error) {
             console.error('Error processing document:', error);
             throw new Error(`Failed to process document: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
     }
-    /**
-     * Transform document to handle Office Math elements before HTML conversion
-     */
-    transformDocumentForEquations(document) {
-        // This is a simplified approach - in a real implementation, you'd need to
-        // parse the Office Math XML and convert it to text representation
-        // For now, we'll rely on the style-based detection and post-processing
-        console.log('Document transformation for equations completed');
-        return document;
+    // ─── Document Type Detection ──────────────────────────────────────
+    detectDocumentType(buffer, filename) {
+        // Check filename extension first
+        if (filename) {
+            const ext = filename.toLowerCase().split('.').pop();
+            if (ext === 'pdf')
+                return 'pdf';
+            if (ext === 'docx' || ext === 'doc')
+                return 'word';
+        }
+        // Fall back to magic bytes
+        const header = buffer.toString('hex', 0, 8).toLowerCase();
+        if (buffer.toString('ascii', 0, 4) === '%PDF')
+            return 'pdf';
+        if (header.startsWith('504b0304') || header.startsWith('504b0506') || header.startsWith('504b0708'))
+            return 'word';
+        if (header.startsWith('d0cf11e0a1b11ae1'))
+            return 'word';
+        console.warn('Could not determine document type, defaulting to Word');
+        return 'word';
     }
+    // ─── Word Document Processing ─────────────────────────────────────
     /**
-     * Process HTML content to extract and organize footnotes, citations, equations, and other elements
+     * Convert a .docx buffer to clean HTML.
+     * Uses a minimal mammoth styleMap — no equation or WordPress-specific
+     * class mappings.
      */
-    async processHtmlContent(html) {
+    async processWordDocument(buffer) {
+        try {
+            const options = {
+                styleMap: [
+                    // Headings
+                    "p[style-name='Heading 1'] => h1:fresh",
+                    "p[style-name='Heading 2'] => h2:fresh",
+                    "p[style-name='Heading 3'] => h3:fresh",
+                    "p[style-name='Heading 4'] => h4:fresh",
+                    "p[style-name='Heading 5'] => h5:fresh",
+                    "p[style-name='Heading 6'] => h6:fresh",
+                    // Basic text formatting (mammoth handles sub/sup natively)
+                    "b => strong",
+                    "i => em",
+                    "u => u",
+                    // Lists
+                    "p[style-name='List Paragraph'] => li:fresh",
+                    // Quotes
+                    "p[style-name='Quote'] => blockquote > p:fresh",
+                    // Footnote text — used for detection, class stripped later
+                    "p[style-name='Footnote Text'] => p.footnote-text:fresh",
+                ],
+                convertImage: mammoth_1.default.images.imgElement((image) => {
+                    return image.read('base64').then((imageBuffer) => ({
+                        src: `data:${image.contentType};base64,${imageBuffer}`,
+                        alt: image.altText || 'Document image',
+                    }));
+                }),
+                includeDefaultStyleMap: true,
+                idPrefix: 'doc-',
+            };
+            // Extract equations from the actual .docx XML (via JSZip)
+            const rawXmlEquations = await this.extractOMathFromXML(buffer);
+            // Convert to HTML
+            const result = await mammoth_1.default.convertToHtml({ buffer }, options);
+            // Log non-OMath conversion messages
+            if (result.messages.length > 0) {
+                const filtered = result.messages.filter((msg) => !msg.message.includes('oMath') && !msg.message.includes('oMathPara'));
+                if (filtered.length > 0) {
+                    console.log('Mammoth conversion messages:', filtered);
+                }
+            }
+            return await this.processHtmlContent(result.value, rawXmlEquations);
+        }
+        catch (error) {
+            console.error('Error processing Word document:', error);
+            throw new Error(`Failed to process Word document: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        }
+    }
+    // ─── HTML Post-Processing Pipeline ────────────────────────────────
+    /**
+     * Master pipeline: extract metadata, link citations, clean markup.
+     * Order matters — citation linking adds ids that must survive the
+     * subsequent cleanHtml pass.
+     */
+    async processHtmlContent(html, rawXmlEquations) {
         const $ = cheerio.load(html);
-        // Extract title (first h1 or first paragraph if no h1)
+        // 1. Extract & remove title from body
         const title = this.extractTitle($);
-        // Extract and process footnotes
+        // 2. Process footnotes (rewrite Word's _ftn anchors)
         const footnotes = this.extractFootnotes($);
-        // Extract and process citations
-        const citations = this.extractCitations($);
-        // Extract and process equations
-        const equations = this.extractEquations($);
-        // Extract images with metadata
+        // 3. Handle equations — insert $$...$$ for any OMath content
+        const equations = this.extractEquations($, rawXmlEquations);
+        // 4. Extract image metadata
         const images = this.extractImages($);
-        // Clean and enhance the content
-        this.enhanceContent($);
-        // Generate excerpt
+        // 5. Link in-text citations → ΒΙΒΛΙΟΓΡΑΦΙΑ entries
+        const citations = this.linkCitations($);
+        // 6. Wrap orphaned <li> elements in <ul>
+        this.processLists($);
+        // 7. Strip all unnecessary markup (classes, ids, scripts, styles, empties)
+        this.cleanHtml($);
+        // 8. Compute excerpt and word count
         const excerpt = this.generateExcerpt($);
-        // Count words
         const wordCount = this.countWords($);
-        // Get final cleaned HTML
-        const content = $.html();
+        // Return only the body inner-HTML (no <html>/<head>/<body> wrappers)
+        const content = $('body').html() || '';
         return {
             title,
             content,
@@ -153,491 +190,396 @@ class DocumentProcessor {
             citations,
             images,
             equations,
-            wordCount
+            wordCount,
         };
     }
-    /**
-     * Extract document title
-     */
+    // ─── Title ────────────────────────────────────────────────────────
     extractTitle($) {
-        // Try to find title in various ways
         let title = $('h1').first().text().trim();
         if (!title) {
-            // Try first paragraph if it looks like a title
+            // Use first short paragraph that looks like a title
             const firstP = $('p').first().text().trim();
             if (firstP && firstP.length < 100 && !firstP.includes('.')) {
                 title = firstP;
-                $('p').first().remove(); // Remove it from content
+                $('p').first().remove();
             }
         }
         return title || 'Untitled Document';
     }
+    // ─── Footnotes ────────────────────────────────────────────────────
     /**
-     * Extract and process footnotes
+     * Rewrite Word's footnote anchors (#_ftn*) into a clean scheme
+     * (footnote-N / footnote-ref-N) and collect footnote text.
      */
     extractFootnotes($) {
         const footnotes = [];
-        let footnoteCounter = 1;
-        // Look for footnote references in the text
-        $('a[href^="#_ftn"]').each((index, element) => {
-            const $el = $(element);
+        let counter = 1;
+        // Rewrite in-text footnote reference links
+        $('a[href^="#_ftn"]').each((_, el) => {
+            const $el = $(el);
             const href = $el.attr('href');
-            const footnoteId = href?.replace('#_ftn', '') || footnoteCounter.toString();
-            // Create footnote reference
-            const footnoteRef = `footnote-${footnoteId}`;
-            $el.attr('href', `#${footnoteRef}`);
-            $el.attr('id', `footnote-ref-${footnoteId}`);
-            $el.addClass('footnote-ref');
-            footnoteCounter++;
+            const id = href?.replace('#_ftn', '') || counter.toString();
+            $el.attr('href', `#footnote-${id}`);
+            $el.attr('id', `footnote-ref-${id}`);
+            counter++;
         });
-        // Look for footnote text
-        $('div[id^="_ftn"], p.footnote-text').each((index, element) => {
-            const $el = $(element);
+        // Collect footnote text and rewrite as clean anchored elements
+        $('div[id^="_ftn"], p.footnote-text').each((idx, el) => {
+            const $el = $(el);
             const text = $el.text().trim();
-            if (text) {
-                const footnoteId = $el.attr('id')?.replace('_ftn', '') || (index + 1).toString();
-                footnotes.push({
-                    id: `footnote-${footnoteId}`,
-                    text: text,
-                    backRef: `footnote-ref-${footnoteId}`
-                });
-                // Replace with proper footnote HTML
-                $el.replaceWith(`
-          <div id="footnote-${footnoteId}" class="footnote">
-            <p>${text} <a href="#footnote-ref-${footnoteId}" class="footnote-backref">↩</a></p>
-          </div>
-        `);
-            }
+            if (!text)
+                return;
+            const id = $el.attr('id')?.replace('_ftn', '') || (idx + 1).toString();
+            footnotes.push({
+                id: `footnote-${id}`,
+                text,
+                backRef: `footnote-ref-${id}`,
+            });
+            // Replace with a clean footnote div (id preserved by cleanHtml)
+            $el.replaceWith(`<div id="footnote-${id}"><p>${text} <a href="#footnote-ref-${id}">↩</a></p></div>`);
         });
         return footnotes;
     }
+    // ─── Citation Linking System ──────────────────────────────────────
     /**
-     * Extract and process citations
+     * Detect the ΒΙΒΛΙΟΓΡΑΦΙΑ (bibliography) section, parse its entries,
+     * and turn every in-text "(Author, Year)" occurrence into an anchor
+     * link pointing to the matching bibliography entry.
+     *
+     * Returns the Citation[] metadata array.
      */
-    extractCitations($) {
+    linkCitations($) {
         const citations = [];
-        let citationCounter = 1;
-        // Look for citation patterns
-        $('p.citation, p:contains("Bibliography"), p:contains("References")').each((index, element) => {
-            const $el = $(element);
+        // ── Step A: find the bibliography heading ──
+        let bibHeading = null;
+        $('h1, h2, h3, h4, h5, h6, p').each((_, el) => {
+            if (bibHeading)
+                return; // already found
+            const $el = $(el);
             const text = $el.text().trim();
-            if (text && text.length > 10) {
-                const citationId = `citation-${citationCounter}`;
-                citations.push({
-                    id: citationId,
-                    text: text,
-                    source: this.extractCitationSource(text)
-                });
-                $el.attr('id', citationId);
-                $el.addClass('citation');
-                citationCounter++;
+            // Match "ΒΙΒΛΙΟΓΡΑΦΙΑ" in any case (with or without accent on Ι),
+            // plus the common English equivalents.
+            if (/^(?:βιβλιογραφ[ιί]α|bibliography|references)\s*:?\s*$/iu.test(text)) {
+                bibHeading = $el;
             }
         });
+        if (!bibHeading) {
+            console.log('No bibliography section (ΒΙΒΛΙΟΓΡΑΦΙΑ) found');
+            return citations;
+        }
+        console.log('Found bibliography section');
+        // ── Step B: collect & parse bibliography entries ──
+        const entries = [];
+        let current = bibHeading.next();
+        while (current.length > 0) {
+            const tag = (current.prop('tagName') || '').toLowerCase();
+            // Stop at the next major heading (h1–h3)
+            if (/^h[1-3]$/.test(tag))
+                break;
+            const text = current.text().trim();
+            if (text && text.length > 10) {
+                const entry = this.parseBibEntry(text);
+                if (entry) {
+                    entries.push(entry);
+                    // Stamp the element with an anchor id
+                    current.attr('id', entry.id);
+                    citations.push({
+                        id: entry.id,
+                        text: entry.text,
+                        source: `${entry.surname}, ${entry.year}`,
+                    });
+                }
+            }
+            current = current.next();
+        }
+        console.log(`Parsed ${entries.length} bibliography entries`);
+        // ── Steps C & D: scan body for in-text citations and link them ──
+        if (entries.length > 0) {
+            this.linkInTextCitations($, entries, bibHeading);
+        }
         return citations;
     }
     /**
-     * Extract source information from citation text
+     * Parse a single bibliography line to extract the leading surname
+     * and the year.
+     *
+     * Handles formats like:
+     *   "Παπαδόπουλος, Α. (2023). Τίτλος..."
+     *   "Smith, J. (1989). Title..."
+     *   "Writer (1989) Title..."
      */
-    extractCitationSource(text) {
-        // Simple heuristic to extract source
-        const patterns = [
-            /(\d{4})\./, // Year
-            /([A-Z][a-z]+,\s[A-Z]\.)/, // Author pattern
-            /"([^"]+)"/, // Title in quotes
-        ];
-        for (const pattern of patterns) {
-            const match = text.match(pattern);
-            if (match) {
-                return match[1];
-            }
-        }
-        return text.substring(0, 50) + '...';
+    parseBibEntry(text) {
+        // Look for a four-digit year (19xx or 20xx), optionally in parentheses
+        const yearMatch = text.match(/\(?((?:19|20)\d{2})[a-z]?\)?/);
+        if (!yearMatch)
+            return null;
+        const year = yearMatch[1];
+        // Leading surname: sequence of Unicode letters, hyphens, or apostrophes
+        const surnameMatch = text.match(/^([\p{L}\-']+)/u);
+        if (!surnameMatch)
+            return null;
+        const surname = surnameMatch[1];
+        const normalized = this.normalizeName(surname);
+        const id = `bib-${normalized}-${year}`;
+        return { id, surname: normalized, year, text };
     }
     /**
-     * Extract images with metadata
+     * Normalize a name for anchor-id generation and matching:
+     * lowercase → strip combining diacritics → keep only letters & digits.
+     */
+    normalizeName(name) {
+        return name
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '') // remove combining diacritical marks
+            .replace(/[^\p{L}\p{N}]/gu, ''); // keep letters and digits only
+    }
+    /**
+     * Walk every text-containing element *before* the bibliography heading
+     * and replace "(Author, Year)" patterns with `<a href="#bib-...">` links.
+     */
+    linkInTextCitations($, entries, bibHeading) {
+        // Build a lookup map:  "normalizedSurname-year" → BibliographyEntry
+        const lookup = new Map();
+        for (const e of entries) {
+            lookup.set(`${e.surname}-${e.year}`, e);
+        }
+        // Regex that matches in-text citations.
+        //
+        //   (Author, 1989)
+        //   (Author & Author, 1989)
+        //   (Author et al., 1989)
+        //   (Παπαδόπουλος, 2023)
+        //   (Author κ.α., 2023)
+        //
+        // The first capture group is the author portion, the second is the year.
+        const citationRe = /\(([\p{L}\-']+(?:\s*(?:&amp;|&|και)\s*[\p{L}\-']+)*(?:\s*(?:et\s+al\.?|κ\.?\s*α\.?))?)\s*,\s*((?:19|20)\d{2}[a-z]?)\)/gu;
+        const bibHeadingEl = bibHeading[0];
+        let reachedBib = false;
+        $('p, li, td, th, h1, h2, h3, h4, h5, h6').each((_, el) => {
+            if (reachedBib)
+                return;
+            if (el === bibHeadingEl) {
+                reachedBib = true;
+                return;
+            }
+            const $el = $(el);
+            const html = $el.html();
+            if (!html)
+                return;
+            // Reset the regex lastIndex for each element (since it has the g flag)
+            citationRe.lastIndex = 0;
+            const replaced = html.replace(citationRe, (full, authors, yearStr) => {
+                // Extract the first surname from the captured author text
+                const firstSurname = (authors.match(/^([\p{L}\-']+)/u) || [])[1];
+                if (!firstSurname)
+                    return full;
+                // Strip optional year-letter suffix (e.g. 1989a → 1989) for lookup
+                const baseYear = yearStr.replace(/[a-z]$/, '');
+                const key = `${this.normalizeName(firstSurname)}-${baseYear}`;
+                const entry = lookup.get(key);
+                if (entry) {
+                    return `<a href="#${entry.id}">(${authors}, ${yearStr})</a>`;
+                }
+                // No matching bibliography entry — leave the text as-is
+                return full;
+            });
+            if (replaced !== html) {
+                $el.html(replaced);
+            }
+        });
+    }
+    // ─── Equations ────────────────────────────────────────────────────
+    /**
+     * Extract OMath elements by unzipping the .docx with JSZip and
+     * reading word/document.xml.  This replaces the broken approach of
+     * reading the compressed buffer as UTF-8.
+     */
+    async extractOMathFromXML(buffer) {
+        try {
+            const zip = await jszip_1.default.loadAsync(buffer);
+            const docFile = zip.file('word/document.xml');
+            if (!docFile) {
+                console.log('No word/document.xml found in .docx archive');
+                return [];
+            }
+            const xml = await docFile.async('string');
+            const equations = [];
+            // Flexible namespace prefix: <m:oMath>, <w14:oMath>, etc.
+            const omathRe = /<[^:]*:oMath\b[^>]*>([\s\S]*?)<\/[^:]*:oMath>/g;
+            const omathParaRe = /<[^:]*:oMathPara\b[^>]*>([\s\S]*?)<\/[^:]*:oMathPara>/g;
+            let m;
+            while ((m = omathRe.exec(xml)) !== null) {
+                const text = this.extractMathText(m[1]);
+                if (text)
+                    equations.push(text);
+            }
+            while ((m = omathParaRe.exec(xml)) !== null) {
+                const text = this.extractMathText(m[1]);
+                if (text)
+                    equations.push(text);
+            }
+            console.log(`Found ${equations.length} equations in document XML`);
+            return equations;
+        }
+        catch (error) {
+            console.error('Error extracting OMath from XML:', error);
+            return [];
+        }
+    }
+    /** Strip XML tags from an OMath fragment and reconstruct the expression. */
+    extractMathText(omathXml) {
+        let text = omathXml.replace(/<[^>]*>/g, ' ');
+        text = text.replace(/\s+/g, ' ').trim();
+        text = this.reconstructMathExpression(text);
+        return text;
+    }
+    /** Basic heuristic to tidy up math text extracted from OMath XML. */
+    reconstructMathExpression(text) {
+        text = text.replace(/(\w+)\s+(\^|\u005E)\s*(\w+)/g, '$1^$3'); // superscripts
+        text = text.replace(/(\w+)\s+(_|\u005F)\s*(\w+)/g, '$1_$3'); // subscripts
+        text = text.replace(/\s*\/\s*/g, '/'); // fractions
+        text = text.replace(/\s*\+\s*/g, ' + '); // addition
+        text = text.replace(/\s*-\s*/g, ' - '); // subtraction
+        text = text.replace(/\s*\*\s*/g, ' \\times '); // multiplication
+        text = text.replace(/\s*=\s*/g, ' = '); // equals
+        return text;
+    }
+    /**
+     * Process equations extracted from the .docx XML and record them
+     * as metadata.  Each equation is also appended to the HTML body as
+     * a paragraph with $$...$$ delimiters so a MathJax/KaTeX WordPress
+     * plugin can render it.
+     *
+     * Any LaTeX already present in the body as $...$ / $$...$$ text
+     * is left untouched — it will render naturally via the WP plugin.
+     */
+    extractEquations($, rawXmlEquations = []) {
+        const equations = [];
+        let counter = 1;
+        for (const raw of rawXmlEquations) {
+            const id = `equation-${counter}`;
+            const latex = this.convertToLatex(raw);
+            equations.push({ id, latex, display: true });
+            // Append as a clean paragraph with LaTeX display-math delimiters
+            $('body').append(`<p>$$${latex}$$</p>`);
+            counter++;
+        }
+        console.log(`Extracted ${equations.length} equations from document XML`);
+        return equations;
+    }
+    // ─── Images ───────────────────────────────────────────────────────
+    /**
+     * Extract base64-embedded images as metadata (for potential upload
+     * to the WordPress media library later).
      */
     extractImages($) {
         const images = [];
-        $('img').each((index, element) => {
-            const $el = $(element);
+        $('img').each((idx, el) => {
+            const $el = $(el);
             const src = $el.attr('src');
-            const alt = $el.attr('alt') || '';
-            const title = $el.attr('title') || '';
-            if (src && src.startsWith('data:')) {
-                const imageId = `image-${index + 1}`;
-                // Extract base64 data and content type
-                const matches = src.match(/data:([^;]+);base64,(.+)/);
-                if (matches) {
-                    const contentType = matches[1];
-                    const base64Data = matches[2];
-                    images.push({
-                        id: imageId,
-                        alt: alt,
-                        title: title,
-                        data: Buffer.from(base64Data, 'base64'),
-                        contentType: contentType
-                    });
-                    // Update image element with proper attributes
-                    $el.attr('id', imageId);
-                    $el.addClass('document-image');
-                }
-            }
+            if (!src || !src.startsWith('data:'))
+                return;
+            const matches = src.match(/data:([^;]+);base64,(.+)/);
+            if (!matches)
+                return;
+            images.push({
+                id: `image-${idx + 1}`,
+                alt: $el.attr('alt') || '',
+                title: $el.attr('title') || '',
+                data: Buffer.from(matches[2], 'base64'),
+                contentType: matches[1],
+            });
         });
         return images;
     }
+    // ─── Clean HTML ───────────────────────────────────────────────────
     /**
-     * Enhance content with WordPress-specific formatting
+     * Strip all unnecessary markup so the output is WPBakery-friendly:
+     *
+     *   • No classes
+     *   • No scripts or styles
+     *   • No id attributes except those needed for citation / footnote anchoring
+     *   • No empty paragraphs
+     *   • No data-* attributes
+     *
+     * Preserved:
+     *   <a>, <sub>, <sup>, <strong>, <em>, <u>, headings, lists,
+     *   blockquotes, tables, images, and LaTeX delimiters in text.
      */
-    enhanceContent($) {
-        // Add WordPress-friendly classes
-        $('blockquote').addClass('wp-block-quote');
-        $('pre').addClass('wp-block-code');
-        $('table').addClass('wp-block-table');
-        // Add equation-specific classes and styling
-        $('.equation-display').addClass('wp-block-equation-display');
-        $('.equation-inline').addClass('wp-block-equation-inline');
-        $('.math-display').addClass('wp-block-math-display');
-        $('.math-inline').addClass('wp-block-math-inline');
-        // Ensure proper paragraph spacing
-        $('p').each((index, element) => {
-            const $el = $(element);
-            if ($el.text().trim() === '') {
+    cleanHtml($) {
+        // Remove <script> and <style> tags entirely
+        $('script, style').remove();
+        // Strip all class attributes
+        $('[class]').removeAttr('class');
+        // Strip id attributes except those used for citation or footnote anchoring
+        $('[id]').each((_, el) => {
+            const $el = $(el);
+            const id = $el.attr('id') || '';
+            if (!id.startsWith('bib-') && !id.startsWith('footnote-')) {
+                $el.removeAttr('id');
+            }
+        });
+        // Remove empty paragraphs (preserve those containing images, sub/sup, or br)
+        $('p').each((_, el) => {
+            const $el = $(el);
+            if ($el.text().trim() === '' &&
+                $el.find('img, sub, sup, br').length === 0) {
                 $el.remove();
             }
         });
-        // Handle lists properly
-        this.processLists($);
-        // Add MathJax configuration if equations are present
-        if ($('.equation-display, .equation-inline, .math-display, .math-inline').length > 0) {
-            this.addMathJaxSupport($);
-        }
-    }
-    /**
-     * Add MathJax support for equation rendering
-     */
-    addMathJaxSupport($) {
-        // Add MathJax script to head if not already present
-        if ($('script[src*="mathjax"]').length === 0) {
-            $('head').append(`
-        <script type="text/javascript" async
-          src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script type="text/javascript" id="MathJax-script" async
-          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script type="text/javascript">
-          window.MathJax = {
-            tex: {
-              inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
-              displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
-              processEscapes: true,
-              processEnvironments: true
-            },
-            options: {
-              ignoreHtmlClass: 'tex2jax_ignore',
-              processHtmlClass: 'tex2jax_process'
+        // Remove data-* attributes from all elements
+        $('*').each((_, el) => {
+            const attribs = el.attribs || {};
+            for (const attr of Object.keys(attribs)) {
+                if (attr.startsWith('data-')) {
+                    $(el).removeAttr(attr);
+                }
             }
-          };
-        </script>
-      `);
-        }
-        // Add CSS for equation styling
-        if ($('style[data-equation-styles]').length === 0) {
-            $('head').append(`
-        <style data-equation-styles>
-          .equation-display, .math-display {
-            text-align: center;
-            margin: 1em 0;
-            padding: 1em;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            overflow-x: auto;
-          }
-          .equation-display-numbered {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            margin: 1em 0;
-            padding: 1em;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            overflow-x: auto;
-          }
-          .equation-content {
-            flex: 1;
-          }
-          .equation-number {
-            margin-left: 1em;
-            font-weight: bold;
-            color: #666;
-          }
-          .equation-inline, .math-inline {
-            font-style: italic;
-          }
-          .wp-block-equation-display, .wp-block-math-display {
-            margin: 1.5em 0;
-          }
-          .wp-block-equation-inline, .wp-block-math-inline {
-            display: inline;
-          }
-        </style>
-      `);
-        }
+        });
     }
+    // ─── Lists ────────────────────────────────────────────────────────
     /**
-     * Process lists to create proper HTML structure
+     * Group consecutive orphaned <li> elements into proper <ul> wrappers.
+     * mammoth may output bare <li> elements without a parent list.
      */
     processLists($) {
-        // Group consecutive list items into proper ul/ol structures
         const listItems = $('li');
         let currentList = null;
-        listItems.each((index, element) => {
-            const $li = $(element);
+        listItems.each((_, el) => {
+            const $li = $(el);
             if (!currentList) {
                 currentList = $('<ul>');
                 $li.before(currentList);
             }
             currentList.append($li);
-            // Check if next element is also a list item
-            const next = $li.next();
-            if (!next.is('li')) {
+            if (!$li.next().is('li')) {
                 currentList = null;
             }
         });
     }
-    /**
-     * Generate excerpt from content
-     */
+    // ─── Excerpt & Word Count ─────────────────────────────────────────
     generateExcerpt($) {
-        const text = $.text().trim();
-        const words = text.split(/\s+/).slice(0, 55); // WordPress default excerpt length
+        const text = $('body').text().trim();
+        const words = text.split(/\s+/).slice(0, 55);
         return words.join(' ') + (words.length >= 55 ? '...' : '');
     }
-    /**
-     * Count words in the document
-     */
     countWords($) {
-        const text = $.text().trim();
-        return text.split(/\s+/).filter(word => word.length > 0).length;
+        const text = $('body').text().trim();
+        return text.split(/\s+/).filter((w) => w.length > 0).length;
     }
+    // ─── LaTeX Conversion ─────────────────────────────────────────────
     /**
-     * Extract and process equations
-     */
-    extractEquations($) {
-        const equations = [];
-        let equationCounter = 1;
-        // Strategy 1: Process elements with equation-specific classes
-        $('.equation-display, .math-display, div[id*="equation"], div[id*="math"]').each((index, element) => {
-            const $el = $(element);
-            const text = $el.text().trim();
-            if (text && this.isMathematicalContent(text)) {
-                const equationId = `equation-${equationCounter}`;
-                const latex = this.convertToLatex(text);
-                // Try to extract equation number
-                const numberMatch = text.match(/\((\d+)\)$/);
-                const number = numberMatch ? numberMatch[1] : undefined;
-                equations.push({
-                    id: equationId,
-                    latex: latex,
-                    display: true,
-                    number: number
-                });
-                // Replace with MathJax/LaTeX rendering
-                const displayClass = number ? 'equation-display-numbered' : 'equation-display';
-                $el.replaceWith(`
-          <div id="${equationId}" class="${displayClass}">
-            <div class="equation-content">$$${latex}$$</div>
-            ${number ? `<div class="equation-number">(${number})</div>` : ''}
-          </div>
-        `);
-                equationCounter++;
-            }
-        });
-        // Strategy 2: Process inline equations
-        $('.equation-inline, .math-inline, span[id*="equation"], span[id*="math"]').each((index, element) => {
-            const $el = $(element);
-            const text = $el.text().trim();
-            if (text && this.isMathematicalContent(text)) {
-                const equationId = `equation-inline-${equationCounter}`;
-                const latex = this.convertToLatex(text);
-                equations.push({
-                    id: equationId,
-                    latex: latex,
-                    display: false
-                });
-                // Replace with inline MathJax/LaTeX rendering
-                $el.replaceWith(`<span id="${equationId}" class="equation-inline">$${latex}$</span>`);
-                equationCounter++;
-            }
-        });
-        // Strategy 3: Pattern-based detection in paragraphs
-        $('p').each((index, element) => {
-            const $el = $(element);
-            const text = $el.text().trim();
-            if (text && this.isMathematicalContent(text) && !$el.hasClass('footnote-text') && !$el.hasClass('citation')) {
-                const equationId = `equation-pattern-${equationCounter}`;
-                const latex = this.convertToLatex(text);
-                const isDisplay = this.isDisplayEquation(text);
-                equations.push({
-                    id: equationId,
-                    latex: latex,
-                    display: isDisplay
-                });
-                // Replace with appropriate rendering
-                if (isDisplay) {
-                    $el.replaceWith(`
-            <div id="${equationId}" class="equation-display">
-              <div class="equation-content">$$${latex}$$</div>
-            </div>
-          `);
-                }
-                else {
-                    $el.replaceWith(`<span id="${equationId}" class="equation-inline">$${latex}$</span>`);
-                }
-                equationCounter++;
-            }
-        });
-        // Strategy 4: Look for mathematical symbols in any text content
-        $('*').each((index, element) => {
-            const $el = $(element);
-            const text = $el.text().trim();
-            // Skip if this element already has equation classes or is a child of an equation
-            if ($el.hasClass('equation-display') || $el.hasClass('equation-inline') ||
-                $el.hasClass('math-display') || $el.hasClass('math-inline') ||
-                $el.parents('.equation-display, .equation-inline, .math-display, .math-inline').length > 0) {
-                return;
-            }
-            if (text && this.containsMathematicalSymbols(text) && text.length < 200) {
-                const equationId = `equation-symbol-${equationCounter}`;
-                const latex = this.convertToLatex(text);
-                const isDisplay = this.isDisplayEquation(text);
-                equations.push({
-                    id: equationId,
-                    latex: latex,
-                    display: isDisplay
-                });
-                // Replace with appropriate rendering
-                if (isDisplay) {
-                    $el.replaceWith(`
-            <div id="${equationId}" class="equation-display">
-              <div class="equation-content">$$${latex}$$</div>
-            </div>
-          `);
-                }
-                else {
-                    $el.replaceWith(`<span id="${equationId}" class="equation-inline">$${latex}$</span>`);
-                }
-                equationCounter++;
-            }
-        });
-        console.log(`Extracted ${equations.length} equations from document`);
-        return equations;
-    }
-    /**
-     * Check if text content appears to be mathematical
-     */
-    isMathematicalContent(text) {
-        // Skip very long text (likely regular paragraphs)
-        if (text.length > 300) {
-            return false;
-        }
-        // Skip text that looks like regular paragraphs with too many spaces
-        if (text.split(' ').length > 20) {
-            return false;
-        }
-        // Check for mathematical symbols (excluding common Greek letters used in text)
-        const mathSymbols = /[×÷±∞≤≥≠≈∑∏∫∂√→←↔⇒⇐⇔∈∉⊂⊃∪∩∅ℕℤℚℝℂ]/;
-        // Check for mathematical patterns that are more specific
-        const mathPatterns = [
-            /\d+\/\d+/, // Fractions
-            /\w+_\w+/, // Subscripts
-            /\w+\^\w+/, // Superscripts
-            /√\([^)]+\)/, // Square roots
-            /\b(sin|cos|tan|log|ln|exp|lim)\s*\(/, // Functions
-            /[a-zA-Z]\s*=\s*[^=]+/, // Equations with variables
-            /\d+\s*[+\-×÷]\s*\d+/, // Basic arithmetic
-            /∑|∏|∫/, // Summation, product, integral
-            /[≤≥≠≈]/, // Mathematical comparisons
-        ];
-        // Check for equation-like patterns
-        const equationPatterns = [
-            /^[a-zA-Z]\s*=\s*/, // Starts with variable assignment
-            /^[a-zA-Z]\s*≤\s*/, // Starts with inequality
-            /^[a-zA-Z]\s*≥\s*/, // Starts with inequality
-            /^√\(/, // Starts with square root
-            /^∑/, // Starts with summation
-            /^∫/, // Starts with integral
-            /^∏/, // Starts with product
-            /^\d+\/\d+/, // Starts with fraction
-        ];
-        // If it has mathematical symbols or specific patterns, it's likely math
-        const hasMathSymbols = mathSymbols.test(text);
-        const hasMathPatterns = mathPatterns.some(pattern => pattern.test(text));
-        const hasEquationPatterns = equationPatterns.some(pattern => pattern.test(text));
-        // For Greek letters, only treat as math if they're part of mathematical expressions
-        const hasGreekInMathContext = this.hasGreekInMathContext(text);
-        return hasMathSymbols || hasMathPatterns || hasEquationPatterns || hasGreekInMathContext;
-    }
-    /**
-     * Check if Greek letters are used in mathematical context
-     */
-    hasGreekInMathContext(text) {
-        // Common Greek letters used in mathematics
-        const mathGreekLetters = /[αβγδεθλμπσφψω]/;
-        // If no Greek letters, not math
-        if (!mathGreekLetters.test(text)) {
-            return false;
-        }
-        // Check if Greek letters are used in mathematical patterns
-        const mathGreekPatterns = [
-            /[αβγδεθλμπσφψω]\s*[+\-×÷=≤≥]/, // Greek letter followed by operator
-            /[+\-×÷=≤≥]\s*[αβγδεθλμπσφψω]/, // Operator followed by Greek letter
-            /[αβγδεθλμπσφψω]_\w+/, // Greek letter with subscript
-            /[αβγδεθλμπσφψω]\^\w+/, // Greek letter with superscript
-            /sin\([αβγδεθλμπσφψω]\)/, // Function with Greek argument
-            /cos\([αβγδεθλμπσφψω]\)/, // Function with Greek argument
-            /tan\([αβγδεθλμπσφψω]\)/, // Function with Greek argument
-            /[αβγδεθλμπσφψω]\s*=\s*/, // Greek letter assignment
-        ];
-        return mathGreekPatterns.some(pattern => pattern.test(text));
-    }
-    /**
-     * Check if text contains mathematical symbols
-     */
-    containsMathematicalSymbols(text) {
-        // Skip very long text
-        if (text.length > 200) {
-            return false;
-        }
-        // Skip text with too many words (likely regular paragraphs)
-        if (text.split(' ').length > 15) {
-            return false;
-        }
-        const mathSymbols = /[×÷±∞≤≥≠≈∑∏∫∂√→←↔⇒⇐⇔∈∉⊂⊃∪∩∅ℕℤℚℝℂ]/;
-        return mathSymbols.test(text);
-    }
-    /**
-     * Determine if an equation should be displayed as block or inline
-     */
-    isDisplayEquation(text) {
-        // Check for patterns that suggest display equations
-        const displayPatterns = [
-            /^[a-zA-Zαβγδεθλμπσφψω]\s*=\s*/, // Variable = expression
-            /^[a-zA-Zαβγδεθλμπσφψω]\s*≤\s*/, // Variable ≤ expression
-            /^[a-zA-Zαβγδεθλμπσφψω]\s*≥\s*/, // Variable ≥ expression
-            /^√\([^)]+\)/, // Square roots
-            /^\d+\/\d+/, // Fractions
-            /^∑|^∏|^∫/, // Summation, product, integral
-        ];
-        // If text is longer than 50 characters or contains display patterns, treat as display
-        return text.length > 50 || displayPatterns.some(pattern => pattern.test(text));
-    }
-    /**
-     * Convert mathematical text to LaTeX format
+     * Convert extracted mathematical text (from OMath XML) into LaTeX
+     * notation.  Handles Unicode symbols, fractions, sub/superscripts,
+     * roots, named functions, integrals, limits, and matrices.
      */
     convertToLatex(text) {
-        // Remove equation numbers and clean up
+        // Remove trailing equation numbers and normalize whitespace
         let latex = text.replace(/\(\d+\)$/, '').trim();
-        // Common mathematical symbol conversions
+        latex = latex.replace(/\s+/g, ' ');
+        latex = latex.replace(/[\u00A0\u2000-\u200B\u2028\u2029\u202F\u205F\u3000]/g, ' ');
+        // Unicode → LaTeX symbol map
         const symbolMap = {
             '×': '\\times',
             '÷': '\\div',
@@ -652,6 +594,7 @@ class DocumentProcessor {
             '∫': '\\int',
             '∂': '\\partial',
             '√': '\\sqrt',
+            // Greek lowercase
             'α': '\\alpha',
             'β': '\\beta',
             'γ': '\\gamma',
@@ -665,43 +608,95 @@ class DocumentProcessor {
             'φ': '\\phi',
             'ψ': '\\psi',
             'ω': '\\omega',
+            // Greek uppercase (only those that differ from Latin)
+            'Γ': '\\Gamma',
+            'Δ': '\\Delta',
+            'Θ': '\\Theta',
+            'Λ': '\\Lambda',
+            'Π': '\\Pi',
+            'Σ': '\\Sigma',
+            'Φ': '\\Phi',
+            'Ψ': '\\Psi',
+            'Ω': '\\Omega',
+            // Arrows
             '→': '\\rightarrow',
             '←': '\\leftarrow',
             '↔': '\\leftrightarrow',
             '⇒': '\\Rightarrow',
             '⇐': '\\Leftarrow',
             '⇔': '\\Leftrightarrow',
+            // Set theory
             '∈': '\\in',
             '∉': '\\notin',
             '⊂': '\\subset',
             '⊃': '\\supset',
+            '⊆': '\\subseteq',
+            '⊇': '\\supseteq',
             '∪': '\\cup',
             '∩': '\\cap',
             '∅': '\\emptyset',
+            // Number sets
             'ℕ': '\\mathbb{N}',
             'ℤ': '\\mathbb{Z}',
             'ℚ': '\\mathbb{Q}',
             'ℝ': '\\mathbb{R}',
-            'ℂ': '\\mathbb{C}'
+            'ℂ': '\\mathbb{C}',
+            // Miscellaneous
+            '°': '^{\\circ}',
+            '∠': '\\angle',
+            '⊥': '\\perp',
+            '∥': '\\parallel',
+            '∴': '\\therefore',
+            '∵': '\\because',
         };
-        // Apply symbol conversions
-        for (const [symbol, latexSymbol] of Object.entries(symbolMap)) {
-            latex = latex.replace(new RegExp(symbol, 'g'), latexSymbol);
+        // Apply symbol conversions using split/join (safe for special chars)
+        for (const [sym, cmd] of Object.entries(symbolMap)) {
+            latex = latex.split(sym).join(cmd);
         }
-        // Handle fractions (a/b format)
-        latex = latex.replace(/(\d+)\/(\d+)/g, '\\frac{$1}{$2}');
-        // Handle subscripts and superscripts
+        // Fractions
+        latex = latex.replace(/\(([^)]+)\)\/\(([^)]+)\)/g, '\\frac{$1}{$2}');
+        latex = latex.replace(/(\w+(?:\^\w+|\^{\w+})?)\s*\/\s*(\w+(?:\^\w+|\^{\w+})?)/g, '\\frac{$1}{$2}');
+        latex = latex.replace(/(\d+)\s*\/\s*(\d+)/g, '\\frac{$1}{$2}');
+        // Subscripts / superscripts
+        latex = latex.replace(/(\w+)_\{([^}]+)\}/g, '$1_{$2}');
         latex = latex.replace(/(\w+)_(\w+)/g, '$1_{$2}');
+        latex = latex.replace(/(\w+)\^\{([^}]+)\}/g, '$1^{$2}');
         latex = latex.replace(/(\w+)\^(\w+)/g, '$1^{$2}');
-        // Handle square roots
-        latex = latex.replace(/√\(([^)]+)\)/g, '\\sqrt{$1}');
-        latex = latex.replace(/√(\w+)/g, '\\sqrt{$1}');
-        // Handle common functions
-        const functions = ['sin', 'cos', 'tan', 'log', 'ln', 'exp', 'lim'];
-        for (const func of functions) {
-            const regex = new RegExp(`\\b${func}\\s*\\(([^)]+)\\)`, 'g');
-            latex = latex.replace(regex, `\\${func}($1)`);
+        latex = latex.replace(/(\w+)\^(-?\d+)/g, '$1^{$2}');
+        // Square roots
+        latex = latex.replace(/\\sqrt\s*\(([^)]+)\)/g, '\\sqrt{$1}');
+        latex = latex.replace(/\\sqrt\s*([a-zA-Z0-9]+)/g, '\\sqrt{$1}');
+        latex = latex.replace(/(\d+)\\sqrt\{([^}]+)\}/g, '\\sqrt[$1]{$2}');
+        // Named functions
+        const fns = [
+            'sin', 'cos', 'tan', 'sec', 'csc', 'cot',
+            'log', 'ln', 'exp', 'lim', 'max', 'min',
+            'arcsin', 'arccos', 'arctan',
+        ];
+        for (const fn of fns) {
+            latex = latex.replace(new RegExp(`\\b${fn}\\s*\\(([^)]+)\\)`, 'g'), `\\${fn}($1)`);
+            latex = latex.replace(new RegExp(`\\b${fn}\\s+([a-zA-Z0-9\\\\{}^_]+)`, 'g'), `\\${fn} $1`);
         }
+        // Summation / product
+        latex = latex.replace(/\\sum\s*\(([^)]+)\s+to\s+([^)]+)\)/g, '\\sum_{$1}^{$2}');
+        latex = latex.replace(/\\prod\s*\(([^)]+)\s+to\s+([^)]+)\)/g, '\\prod_{$1}^{$2}');
+        // Integrals
+        latex = latex.replace(/\\int\s*([^{]+)\s+d([a-zA-Z])/g, '\\int $1 \\, d$2');
+        // Limits
+        latex = latex.replace(/\\lim\s*([^{]+)→([^{]+)/g, '\\lim_{$1 \\to $2}');
+        // Matrices (semicolons become row breaks)
+        latex = latex.replace(/\[([^\]]+)\]/g, (match, content) => {
+            if (content.includes(';') || content.includes('\\\\')) {
+                return `\\begin{bmatrix} ${content.replace(/;/g, '\\\\')} \\end{bmatrix}`;
+            }
+            return match;
+        });
+        // Absolute values, floor, ceiling
+        latex = latex.replace(/\|([^|]+)\|/g, '\\left|$1\\right|');
+        latex = latex.replace(/⌊([^⌋]+)⌋/g, '\\lfloor $1 \\rfloor');
+        latex = latex.replace(/⌈([^⌉]+)⌉/g, '\\lceil $1 \\rceil');
+        // Final whitespace cleanup
+        latex = latex.replace(/\s+/g, ' ').trim();
         return latex;
     }
 }

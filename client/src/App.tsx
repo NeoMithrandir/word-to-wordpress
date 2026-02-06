@@ -66,10 +66,39 @@ function App() {
   });
   const [isPublishing, setIsPublishing] = useState(false);
   const [publishResult, setPublishResult] = useState<any>(null);
+  const [htmlSaveResult, setHtmlSaveResult] = useState<any>(null);
+  const [wpConnectionStatus, setWpConnectionStatus] = useState<'checking' | 'connected' | 'failed' | null>(null);
+
+  const checkWordPressConnection = async () => {
+    setWpConnectionStatus('checking');
+    try {
+      const response = await fetch(`${API_URL}/api/test-connection`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          wpConfig: WORDPRESS_CONFIG
+        }),
+      });
+      
+      const result = await response.json();
+      if (result.connected) {
+        setWpConnectionStatus('connected');
+      } else {
+        setWpConnectionStatus('failed');
+      }
+    } catch (error) {
+      console.error('WordPress connection check failed:', error);
+      setWpConnectionStatus('failed');
+    }
+  };
 
   const handleDocumentProcessed = (content: ProcessedContent) => {
     setProcessedContent(content);
     setStep('preview');
+    // Check WordPress connection in the background (non-blocking)
+    checkWordPressConnection();
   };
 
   const handlePreviewConfirmed = () => {
@@ -139,11 +168,49 @@ function App() {
     }
   };
 
+  const handleSaveAsHtml = async (settings: PostSettings) => {
+    if (!processedContent) return;
+
+    try {
+      const response = await fetch(`${API_URL}/api/save-html`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content: processedContent,
+          postData: settings
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to save: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      
+      if (result.success) {
+        setHtmlSaveResult(result);
+        alert(`✅ ${result.message}\n\nFile saved in: saved-posts/${result.filename}`);
+      } else {
+        throw new Error(result.error || 'Failed to save as HTML');
+      }
+    } catch (error) {
+      console.error('HTML save error:', error);
+      let errorMessage = 'Unknown error';
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      alert(`Error saving as HTML: ${errorMessage}`);
+    }
+  };
+
   const resetApp = () => {
     setStep('upload');
     setProcessedContent(null);
     setPostSettings({ status: 'draft' });
     setPublishResult(null);
+    setHtmlSaveResult(null);
   };
 
   return (
@@ -183,9 +250,13 @@ function App() {
             content={processedContent}
             wpConfig={WORDPRESS_CONFIG}
             onPublish={handlePublish}
+            onSaveAsHtml={handleSaveAsHtml}
             onBack={() => setStep('preview')}
             isPublishing={isPublishing}
             publishResult={publishResult}
+            htmlSaveResult={htmlSaveResult}
+            wpConnectionStatus={wpConnectionStatus}
+            onRetryConnection={checkWordPressConnection}
           />
         )}
 
