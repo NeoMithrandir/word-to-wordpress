@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3007;
 // Security middleware
 app.use(helmet());
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? false : 'http://localhost:3006',
+  origin: process.env.NODE_ENV === 'production' ? false : ['http://localhost:3006', 'http://localhost:3001'],
   credentials: true
 }));
 
