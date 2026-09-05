@@ -1,0 +1,253 @@
+{
+  "id": 9206,
+  "slug": "podcast-megali-epistimi-endiaferouses-zoes",
+  "status": "publish",
+  "type": "post",
+  "date": "2023-01-04T23:56:01",
+  "date_gmt": "2023-01-04T21:56:01",
+  "modified": "2023-09-12T01:07:13",
+  "modified_gmt": "2023-09-11T22:07:13",
+  "link": "https://inscience.gr/2023/01/04/podcast-megali-epistimi-endiaferouses-zoes/",
+  "title": {
+    "rendered": "Podcast: AΪΝΣΤΑΙΝ – ΜΕΓΑΛΗ ΕΠΙΣΤΗΜΗ – ΕΝΔΙΑΦΕΡΟΥΣΕΣ ΖΩΕΣ: ΟΙ ΠΡΩΤΑΓΩΝΙΣΤΕΣ ΤΗΣ ΚΒΑΝΤΙΚΗΣ ΕΠΑΝΑΣΤΑΣΗΣ."
+  },
+  "content": {
+    "rendered": "<p><strong>Αγαπητές φίλες και φίλοι</strong></p>\n<p><strong>Σε αυτό το podcast το InScience παρουσιάζει μια σύντομη βιογραφία του Άλμπερτ Αϊνστάιν, όπως έχει γραφεί από τον Στέφανο Τραχανά, στο βιβλίο του με τίτλο ΜΕΓΑΛΗ ΕΠΙΣΤΗΜΗ – ΕΝΔΙΑΦΕΡΟΥΣΕΣ ΖΩΕΣ: ΟΙ ΠΡΩΤΑΓΩΝΙΣΤΕΣ ΤΗΣ ΚΒΑΝΤΙΚΗΣ ΕΠΑΝΑΣΤΑΣΗΣ.</strong></p>\n\n<figure class=\"wp-block-audio\"><audio src=\"https://inscience.gr/wp-content/uploads/2023/01/einstein.mp3\" controls=\"controls\"></audio></figure>\n\n<p>Το βιβλίο εκδόθηκε το 2014 από τις ΠΑΝΕΠΙΣΤΗΜΙΑΚΕΣ ΕΚΔΟΣΕΙΣ ΚΡΗΤΗΣ και κυκλοφορεί εκτός εμπορίου. Οι ενδιαφερόμενοι αναγνώστες μπορούν να το προμηθευτούν από την ιστοσελίδα των εκδόσεων.</p>\n<p>Την επιμέλεια του podcast είχε η <a href=\"https://www.facebook.com/paramythanthos\">Ομάδα Αφήγησης Παραμυθανθός</a></p>\n<p>Αφηγητές: Δημήτρης Μάλλης και Καλλιρρόη Μουλά</p>\n<p>Την μουσική συνέθεσε αποκλειστικά για το podcast o Θωμάς Ζήσης</p>\n<p>Την κεντρική εικόνα του podcast φιλοτέχνησε ο εικαστικός <a href=\"https://www.facebook.com/alavchr\">Χρήστος Αλαβέρας</a> από τη Θεσσαλονίκη.</p>\n<p>H συντακτική επιτροπή του InScience αισθάνεται την ανάγκη να ευχαριστήσει θερμά τις ΠΑΝΕΠΙΣΤΗΜΙΑΚΕΣ ΕΚΔΟΣΕΙΣ ΚΡΗΤΗΣ και ιδιαίτερα την κυρία Ελένη Χρηστιά για την ευγενική παραχώρηση της άδειας για την αναπαραγωγή του υλικού.</p>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>Αγαπητές φίλες και φίλοι Σε αυτό το podcast το InScience παρουσιάζει μια σύντομη βιογραφία του Άλμπερτ Αϊνστάιν, όπως έχει γραφεί από τον Στέφανο Τραχανά, στο βιβλίο του με τίτλο ΜΕΓΑΛΗ...</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 2,
+    "name": "Βασίλης Λεμπέσης",
+    "slug": "vlembessis",
+    "avatar_urls": {
+      "24": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-24x24.jpg",
+      "48": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-48x48.jpg",
+      "96": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-96x96.jpg"
+    }
+  },
+  "featured_media": 9211,
+  "featured_image": {
+    "id": 9211,
+    "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2.jpg",
+    "alt_text": "",
+    "media_details": {
+      "width": 1436,
+      "height": 1016,
+      "file": "2022/10/Einstein-Alaveras-2.jpg",
+      "sizes": {
+        "medium": {
+          "file": "Einstein-Alaveras-2-300x212.jpg",
+          "width": 300,
+          "height": 212,
+          "filesize": 15444,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-300x212.jpg"
+        },
+        "large": {
+          "file": "Einstein-Alaveras-2-1024x725.jpg",
+          "width": 1024,
+          "height": 725,
+          "filesize": 148970,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-1024x725.jpg"
+        },
+        "thumbnail": {
+          "file": "Einstein-Alaveras-2-150x150.jpg",
+          "width": 150,
+          "height": 150,
+          "filesize": 7440,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-150x150.jpg"
+        },
+        "medium_large": {
+          "file": "Einstein-Alaveras-2-768x543.jpg",
+          "width": 768,
+          "height": 543,
+          "filesize": 86648,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-768x543.jpg"
+        },
+        "portfolio-thumb_large": {
+          "file": "Einstein-Alaveras-2-900x604.jpg",
+          "width": 900,
+          "height": 604,
+          "filesize": 115493,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-900x604.jpg"
+        },
+        "portfolio-thumb": {
+          "file": "Einstein-Alaveras-2-600x403.jpg",
+          "width": 600,
+          "height": 403,
+          "filesize": 53615,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-600x403.jpg"
+        },
+        "portfolio-thumb_small": {
+          "file": "Einstein-Alaveras-2-400x269.jpg",
+          "width": 400,
+          "height": 269,
+          "filesize": 25508,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-400x269.jpg"
+        },
+        "portfolio-widget": {
+          "file": "Einstein-Alaveras-2-100x100.jpg",
+          "width": 100,
+          "height": 100,
+          "filesize": 4108,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-100x100.jpg"
+        },
+        "nectar_small_square": {
+          "file": "Einstein-Alaveras-2-140x140.jpg",
+          "width": 140,
+          "height": 140,
+          "filesize": 6720,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-140x140.jpg"
+        },
+        "wide": {
+          "file": "Einstein-Alaveras-2-1000x500.jpg",
+          "width": 1000,
+          "height": 500,
+          "filesize": 123075,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-1000x500.jpg"
+        },
+        "wide_small": {
+          "file": "Einstein-Alaveras-2-670x335.jpg",
+          "width": 670,
+          "height": 335,
+          "filesize": 57567,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-670x335.jpg"
+        },
+        "regular": {
+          "file": "Einstein-Alaveras-2-500x500.jpg",
+          "width": 500,
+          "height": 500,
+          "filesize": 63390,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-500x500.jpg"
+        },
+        "regular_small": {
+          "file": "Einstein-Alaveras-2-350x350.jpg",
+          "width": 350,
+          "height": 350,
+          "filesize": 32517,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-350x350.jpg"
+        },
+        "tall": {
+          "file": "Einstein-Alaveras-2-500x1000.jpg",
+          "width": 500,
+          "height": 1000,
+          "filesize": 128833,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-500x1000.jpg"
+        },
+        "wide_tall": {
+          "file": "Einstein-Alaveras-2-1000x1000.jpg",
+          "width": 1000,
+          "height": 1000,
+          "filesize": 227779,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-1000x1000.jpg"
+        },
+        "wide_photography": {
+          "file": "Einstein-Alaveras-2-900x600.jpg",
+          "width": 900,
+          "height": 600,
+          "filesize": 115465,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-900x600.jpg"
+        },
+        "large_featured": {
+          "file": "Einstein-Alaveras-2-1436x770.jpg",
+          "width": 1436,
+          "height": 770,
+          "filesize": 293783,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-1436x770.jpg"
+        },
+        "medium_featured": {
+          "file": "Einstein-Alaveras-2-800x800.jpg",
+          "width": 800,
+          "height": 800,
+          "filesize": 152386,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2-800x800.jpg"
+        },
+        "full": {
+          "file": "Einstein-Alaveras-2.jpg",
+          "width": 1436,
+          "height": 1016,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Einstein-Alaveras-2.jpg"
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": 166,
+      "name": "Podcast",
+      "slug": "podcast",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 8,
+      "name": "ΦΥΣΙΚΗ",
+      "slug": "physics",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 80,
+      "name": "history of science",
+      "slug": "history-of-science",
+      "description": ""
+    },
+    {
+      "id": 75,
+      "name": "physics",
+      "slug": "physics",
+      "description": ""
+    },
+    {
+      "id": 81,
+      "name": "ιστορία της επιστήμης",
+      "slug": "istoria-tis-epistimis",
+      "description": ""
+    },
+    {
+      "id": 76,
+      "name": "φυσική",
+      "slug": "fysiki",
+      "description": ""
+    }
+  ],
+  "format": "standard",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 1,
+    "article_content_type": "podcast",
+    "article_abstract": "Αγαπητές φίλες και φίλοι Σε αυτό το podcast το InScience παρουσιάζει μια σύντομη βιογραφία του Άλμπερτ Αϊνστάιν, όπως έχει γραφεί από τον Στέφανο Τραχανά, στο βιβλίο του με τίτλο ΜΕΓΑΛΗ...",
+    "article_youtube_url": null,
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}

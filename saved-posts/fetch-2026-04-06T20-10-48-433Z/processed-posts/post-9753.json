@@ -1,0 +1,243 @@
+{
+  "id": 9753,
+  "slug": "optikoi-kristaloi-atomon-meros-deftero-oi-efarmoges",
+  "status": "publish",
+  "type": "post",
+  "date": "2023-04-18T05:10:26",
+  "date_gmt": "2023-04-18T02:10:26",
+  "modified": "2024-08-31T15:54:57",
+  "modified_gmt": "2024-08-31T12:54:57",
+  "link": "https://inscience.gr/2023/04/18/optikoi-kristaloi-atomon-meros-deftero-oi-efarmoges/",
+  "title": {
+    "rendered": "ΟΠΤΙΚΟΙ ΚΡΥΣΤΑΛΛΟΙ ΑΤΟΜΩΝ – ΜΕΡΟΣ ΔΕΥΤΕΡΟ: ΟΙ ΕΦΑΡΜΟΓΕΣ"
+  },
+  "content": {
+    "rendered": "<p><strong><em>Στο <a href=\"https://inscience.gr/2022/06/10/%ce%bf%cf%80%cf%84%ce%b9%ce%ba%ce%bf%ce%b9-%ce%ba%cf%81%cf%85%cf%83%cf%84%ce%b1%ce%bb%ce%bb%ce%bf%ce%b9-%ce%b1%cf%84%ce%bf%ce%bc%cf%89%ce%bd-%ce%bc%ce%b5%cf%81%ce%bf%cf%83-%cf%80%cf%81%cf%89/\">πρώτο άρθρο</a> του αφιερώματος στους οπτικούς κρυστάλλους παρουσιάσαμε τον τρόπο κατασκευής τους, τις ιδιότητές τους και τις ποικιλίες στις οποίες εμφανίζονται. Σε αυτό το άρθρο εστιάζουμε στις πιο σημαντικές εφαρμογές τους.</em></strong><strong>ΠΡΟΣΟΜΟΙΩΣΕΙΣ ΦΑΙΝΟΜΕΝΩΝ ΣΕ ΜΙΑ ΔΙΑΣΤΑΣΗ </strong></p>\n<p>Στην επιστημονική έρευνα είναι συνήθης πρακτική η προσομοίωση πολύπλοκων φυσικών συστημάτων από ηλεκτρονικούς υπολογιστές, όταν η αναλυτική περιγραφή τους είναι είτε αδύνατη είτε εξαιρετικά δύσκολη. Στην περίπτωση των κβαντικών συστημάτων, η προσομοίωση, ακόμη και των πιο απλών από αυτά, είναι σχεδόν αδύνατη και μπορεί να προκαλέσει σημαντικά προβλήματα λειτουργίας ακόμη και στα πιο ισχυρά υπολογιστικά συστήματα που διαθέτουμε. Το ζήτημα της κβαντικής προσομοίωσης τέθηκε για πρώτη φορά το 1982 από τον R. Feynmann, o οποίος υπέδειξε πως, σε κάποιες περιπτώσεις, θα ήταν δυνατόν να βρεθεί ένα απλούστερο, και πειραματικά πιο προσιτό κβαντικό σύστημα, το οποίο να «μιμείται» τη συμπεριφορά του κβαντικού συστήματος που ενδιαφερόμαστε να μελετήσουμε (<a href=\"#9\">Feynman, 1982</a>). Οι κβαντικές προσομοιώσεις συνιστούν ένα από τα πιο ραγδαία εξελισσόμενα και, συνάμα, συναρπαστικά πεδία έρευνας στην ατομική φυσική του 21ου αιώνα. Οι οπτικοί κρύσταλλοι ατόμων προσφέρουν ένα ιδανικό περιβάλλον για την προσομοίωση αρκετών κβαντικών φαινομένων. Οι περισσότερες από τις εφαρμογές τους, που παρουσιάζουμε στη συνέχεια, είναι προσομοιώσεις φαινομένων που απαντώνται στη φυσική της συμπυκνωμένης ύλης.</p>\n<p>Μια από τις πρώτες εφαρμογές των οπτικών πλεγμάτων ήταν η προσομοίωση των ταλαντώσεων Bloch. Πρόκειται για τις ταλαντώσεις των ελεύθερων ηλεκτρονίων ενός μετάλλου που εμφανίζονται όταν εφαρμόσουμε σε αυτό ένα ομογενές ηλεκτρικό πεδίο. Τα ηλεκτρόνια δέχονται μια σταθερή δύναμη από το ηλεκτρικό πεδίο αλλά, προς έκπληξή μας, αντί να επιταχυνθούν ομαλά, εκτελούν μια ταλαντωτική κίνηση. Η προσομοίωση αυτού του φαινόμενου γίνεται με την παγίδευση ατόμων σε ένα μονοδιάστατο οπτικό κρύσταλλο, σαν αυτό που περιγράψαμε στο προηγούμενο άρθρο. Όπως έχουμε αναφέρει, όταν αυξήσουμε τη συχνότητα ενός από τα δύο λέιζερ, ο κρύσταλλος μετατρέπεται σε οπτικό ιμάντα. Αν η αύξηση της συχνότητας είναι γραμμική με το χρόνο, τότε ο ιμάντας επιταχύνεται στο χώρο και μαζί με αυτόν τα παγιδευμένα άτομα. Στο σύστημα αναφοράς του ιμάντα αυτό ισοδυναμεί με την επίδραση στο άτομο μιας σταθερής αδρανειακής δύναμης ταυτόχρονα με την περιοδική δύναμη που του ασκεί το οπτικό πλέγμα. Στην ουσία το κάθε άτομο συμπεριφέρεται σαν ένα ηλεκτρόνιο που κινείται στο περιοδικό δυναμικό ενός στερεού κρυστάλλου υπό την επίδραση ενός ομογενούς ηλεκτρικού πεδίου. Το φαινόμενο αυτό παρατηρήθηκε το 1996 σε άτομα παγιδευμένα μέσα σε ένα στάσιμο κύμα λέιζερ (<a href=\"#4\">Ben Dahan et al, 1996</a>). Στο πείραμα αυτό καταγράφηκαν οι περιοδικές μεταβολές της ορμής που αποτελούν ένδειξη της ταλάντωσης. Η απευθείας παρατήρηση των ταλαντώσεων των ατόμων στο χώρο έγινε πρόσφατα σε άτομα παγιδευμένα σε οπτικό κρύσταλλο (<a href=\"#10\">Geiger et al, 2018</a>).</p>\n<p>Στην κβαντική φυσική τα μονοδιάστατα συστήματα χαρακτηρίζονται από κάποιες εντυπωσιακές και σε πρώτη ανάγνωση “παράδοξες” ιδιότητες. Για παράδειγμα, οι διαστάσεις ενός μακροσκοπικού κβαντικού συστήματος παίζουν κρίσιμο ρόλο στη φυσική του συμπεριφορά. Μέχρι πρόσφατα η πειραματική δραστηριότητα σε αυτό το πεδίο ήταν περιορισμένη. Σήμερα είμαστε σε θέση να κατασκευάζουμε διατάξεις από μονοδιάστατα κβαντικά αέρια χρησιμοποιώντας οπτικά πλέγματα δύο διαστάσεων. Σε αυτές τις δομές τα άτομα παγιδεύονται σε περιοχές με σωληνοειδή μορφή και μπορούν να κινηθούν μόνο κατά μήκος αυτών.</p>\n<p>Το 1960 ο M. Girardeau ανακάλυψε πως, όταν περιορίσουμε σε μια διάσταση ένα σύνολο από μποζόνια, η συμπεριφορά τους είναι ισοδύναμη με ένα σύνολο από φερμιόνια που δεν αλληλεπιδρούν μεταξύ τους. Αυτό το αξιοσημείωτο φαινόμενο είναι γνωστό στη φυσική με τον όρο <em>φερμιονιοποίηση </em>(fermionization) (<a href=\"#12\">Girardeau, 1960</a>). Η φερμιονιοποίηση εμφανίζεται όταν οι απωστικές δυνάμεις μεταξύ των ατόμων γίνονται πολύ ισχυρές. Τα άτομα, τότε, τείνουν να διαχωριστούν κατά μήκος του άξονα του παγιδευτικού σωλήνα και η πιθανότητα να βρεθούν στην ίδια θέση μηδενίζεται. Με αυτόν τον τρόπο τα άτομα, στην πράξη, “μιμούνται” την <em>Απαγορευτική Αρχή</em> του Pauli: τα μποζόνια συμπεριφέρονται ως φερμιόνια. Η πρώτη πειραματική επιβεβαίωση της φερμιονιοποίησης ενός συνόλου μποζονίων παρατηρήθηκε από την ομάδα του W. Phillips στο NIST (<a href=\"#8\">Fertig et al, 2005</a>). Όταν οι αλληλεπιδράσεις μεταξύ των ατόμων σε μονοδιάστατα κβαντικά συστήματα γίνουν ακόμη ισχυρότερες θα μπορούσαμε να φτάσουμε σε ένα αέριο Tonks–Girardeau όπου η φερμιονιοποίηση είναι ακόμη ισχυρότερη (<a href=\"#26\">Tonks, 1936</a>). Στην περίπτωση που αυτό επιτευχθεί, θα έχουμε κατορθώσει κάτι πραγματικά εκπληκτικό: ένα σύστημα μποζονίων που μπορεί να περιγραφεί από τη θεωρία των ελεύθερων φερμιονίων. Η παρατήρηση αυτού του φαινόμενου αποτελεί μια από τις πιο μεγάλες προκλήσεις για την πειραματική ατομική φυσική.</p>\n<p><strong>ΜΕΤΑΒΟΛΕΣ ΚΒΑΝΤΙΚΩΝ ΦΑΣΕΩΝ </strong></p>\n<p>Το 1998 ο P. Zoller και οι συνεργάτες του στο Πανεπιστήμιο του Innsbruck απόδειξαν πως αν μεταφέρουμε ένα <a href=\"https://inscience.gr/2022/02/26/%ce%ba%ce%b2%ce%b1%ce%bd%cf%84%ce%b9%ce%ba%ce%b1-%ce%b1%ce%b5%cf%81%ce%b9%ce%b1-%ce%b1%cf%84%ce%bf%ce%bc%cf%89%ce%bd-%ce%bc%ce%b5%cf%81%ce%bf%cf%83-%cf%80%cf%81%cf%89%cf%84%ce%bf-%ce%b1%cf%80%cf%8c/\">συμπύκνωμα Bose-Eistein</a> σε έναν οπτικό κρύσταλλο τότε μπορούμε να παρατηρήσουμε μια πολύ ενδιαφέρουσα μεταβολή φάσης. Το υπερρευστό συμπύκνωμα μετατρέπεται σε «μονωτή». Δηλαδή τα άτομα δεν μπορούν πλέον να κινούνται ελεύθερα στο «πλέγμα» του οπτικού κρυστάλλου και παγιδεύονται σε συγκεκριμένες θέσεις σε αυτό.  Πρόκειται για μια μεταβολή φάσης που είναι γνωστή στη βιβλιογραφία ως <em><a href=\"https://en.wikipedia.org/wiki/Mott_transition\">μετάβαση Mott</a></em> (<a href=\"#15\">Jaksch et al, 1998</a>). Τρία χρόνια αργότερα, ο Τ. Hänsch, στο Ινστιτούτο Κβαντικής Οπτικής Max Planck (MPQ), στο Garching της Βαυαρίας, παρατήρησε για πρώτη φορά την μετάβαση Mott. Η επιστημονική εργασία στην οποία αναφέρθηκαν τα αποτελέσματα αυτού του πειράματος, είναι σήμερα μια από τις κορυφαίες στην ιστορία της φυσικής σε αριθμό βιβλιογραφικών αναφορών (<a href=\"#13\">Greiner et al, 2002</a>).</p>\n<p>Πώς όμως πραγματοποιείται αυτή η μεταβολή από μια υπερρευστή φάση σε έναν μονωτή; Η φυσική της βάση είναι το κβαντομηχανικό <em>φαινόμενο σήραγγας</em>. Χάρις σε αυτό το φαινόμενο είναι δυνατή η διάχυση των ατόμων σε διάφορες θέσεις μέσα στον οπτικό κρύσταλλο. Όπως γνωρίζουμε, στο συμπύκνωμα Bose-Einstein έχουμε το σχηματισμό ενός \"γιγάντιου\" υλικού κύματος που προκύπτει από την υπέρθεση ανάμεσα στα επιμέρους υλικά κύματα των ατόμων που συνιστούν το συμπύκνωμα μεταξύ των οποίων υπάρχει τέλεια συμφωνία φάσης. Όμως στα μακροσκοπικά κβαντικά πεδία<a href=\"#_ftn1\" name=\"_ftnref1\">[1]</a> υπάρχει μια ενδογενής και θεμελιώδης απροσδιοριστία: κάθε φορά που η φάση είναι καθορισμένη ο αριθμός των ατόμων παρουσιάζει διακυμάνσεις και αντίστροφα. Αν, λοιπόν, καταφέρουμε να σταθεροποιήσουμε τον αριθμό των ατόμων σε όλες τις παγιδευτικές θέσεις, τότε η φάση θα γίνει εντελώς απροσδιόριστη και το \"γιγάντιο\" υλικό κύμα θα εξαφανιστεί. Ο αριθμός των ατόμων σε κάθε περιοχή παγίδευσης είναι συνεπώς ένας κρίσιμος παράγοντας. Ο μονωτής Mott είναι μια φάση του συστήματος όπου υπάρχει μόνο ένα άτομο σε κάθε τέτοια θέση. Τότε τα άτομα είναι απομονωμένα και κατά συνέπεια η μεταξύ τους αλληλεπίδραση είναι μηδενική<a href=\"#_ftn2\" name=\"_ftnref2\">[2]</a>. Όλα τα παραπάνω είναι εφικτά γιατί το ενεργειακό βάθος των παγίδων σε έναν οπτικό κρύσταλλο μπορεί να γίνει αρκετά μεγάλο (απλά αυξάνοντας την ένταση του φωτός) οπότε η μετακίνηση των ατόμων ανάμεσα σε δύο γειτονικές θέσεις παγίδευσης είναι πρακτικά αδύνατη.  Στα πειράματα στο MPQ κατόρθωσαν να μετατρέψουν ένα συμπύκνωμα Bose–Einstein σε μονωτή Mott και αντίστροφα πολλές φορές, αυξομειώνοντας το ενεργειακό βάθος των παγιδευτικών πηγαδιών.Εικόνα 1: (α) Ένα «ρηχό» πλέγμα οπτικού κρυστάλλου. Η πολυσωματιδιακή κατάσταση που δημιουργείται είναι ένα σύμφωνο υλικό κύμα μακροσκοπικής κλίμακας απεντοπισμένο σε όλο το χώρο του πλέγματος: κατάσταση υπερρευστότητας. (β)  Ένα «βαθύ» οπτικό πλέγμα στο οποίο κάθε άτομο είναι εντοπισμένο σε μια δεδομένη περιοχή: κατάσταση μονωτή-Mott. Μπορούμε να μεταβαίνουμε από τη μια κατάσταση στην άλλη απλά μεταβάλλοντας το ενεργειακό βάθος του οπτικού πλέγματος. Καθώς το βάθος ελλατώνεται το άτομο, αξιοποιώντας το φαινόμενο σήραγγας, μπορεί να μεταπηδά από μια περιοχή σε άλλη και να μεταβαίνει από τη φάση του μονωτή σε αυτήν του υπερρευστού. Και στις δυό εικόνες οι συνεχείς γραμμές αναπαριστούν τα δυναμικά παγίδευσης των ατόμων και οι σκιασμένες περιοχές την πυκνότητα πιθανότητας που αντιστοιχεί στην κυματοσυνάρτηση των ατόμων.Ένα σημαντικό χαρακτηριστικό αυτής της μεταβολής φάσης είναι πως μπορεί να επιτευχθεί ακόμη και σε θερμοκρασία ίση με το απόλυτο μηδέν. Σε ένα κλασικό σύστημα κάτι τέτοιο είναι αδύνατον γιατί οι απαραίτητες θερμικές διακυμάνσεις που προκαλούν αυτή τη μετάβαση δεν υπάρχουν. Σε ένα κβαντικό σύστημα, όμως, οι ενδογενείς διακυμάνσεις του κβαντικού κενού είναι ικανές να προκαλέσουν μια τέτοια μετάβαση. Αυτού του τύπου οι κβαντικές μεταβάσεις έχουν πολύ ενδιαφέρον για τη φυσική της συμπυκνωμένης ύλης και έχουν επίσης παρατηρηθεί σε υπεραγωγούς.</p>\n<p><strong>ΜΗ ΓΡΑΜΜΙΚΗ ΔΥΝΑΜΙΚΗ ΣΕ ΠΕΡΙΟΔΙΚΑ ΔΥΝΑΜΙΚΑ</strong></p>\n<p>Οι αντιδράσεις ανάμεσα στα άτομα, αν και ασθενείς, μπορεί να οδηγήσουν σε σημαντικά <em>μη γραμμικά</em> <em>φαινόμενα</em> στη φυσική συμπεριφορά των υλικών κυμάτων. Για παράδειγμα, στην κβαντική φυσική είναι γνωστό το <em><a href=\"https://en.wikipedia.org/wiki/Josephson_effect\">φαινόμενο Josephson</a></em>, που αφορά στην εμφάνιση ενός ηλεκτρικού ρεύματος ικανού να ρέει απεριόριστα, χωρίς την εφαρμογή κάποιας εξωτερικής τάσης, κατά μήκος μιας διάταξης γνωστής ως <em>επαφής Josephson </em>(<a href=\"#16\">Josephson, 1962</a>). Η διάταξη αυτή αποτελείται από δύο υπεραγωγούς που διαχωρίζονται από ένα λεπτό μονωτικό υλικό. ‘Eνα συμπύκνωμα Bose-Einstein το οποίο βρίσκεται σε έναν ασθενή (αβαθή) οπτικό κρύσταλλο και στο οποίο οι αλληλεπιδράσεις μεταξύ των ατόμων είναι πολύ ισχυρές, μπορεί να περιγραφεί σαν μια διάταξη από επαφές Josephson (<a href=\"#2\">Anderson et al, 1998</a>), (<a href=\"#5\">Cataliotti et al, 2001</a>). Όταν το συμπύκνωμα παγιδευτεί σε δύο γειτονικές θέσεις ενός οπτικού κρυστάλλου, τα δύο επί μέρους συμπυκνώματα που προκύπτουν, αλληλεπιδρούν μέσω του φαινόμενου σήραγγας ανάμεσα στο φραγμό που χωρίζει τις δύο θέσεις.  Ένα τέτοιο σύστημα είναι, στην πράξη, μια επαφή Josephson για ατομικά κβαντικά αέρια (<a href=\"#25\">Sukhatme et al, 2001</a>). H μικρή απόσταση μεταξύ των δύο θέσεων του πλέγματος οδηγεί σε πολύ ισχυρό φαινόμενο σήραγγας ανάμεσα στα δύο συμπυκνώματα, γεγονός που εξασφαλίζει για το πείραμα μια επαρκή χρονική διάρκεια ώστε να μπορούν να εντοπιστούν και να μετρηθούν τα φαινόμενα της μη γραμμικής δυναμικής.</p>\n<p><strong>ΠΡΟΟΠΤΙΚΕΣ</strong></p>\n<p>Οι οπτικοί κρύσταλλοι ψυχρών ατόμων έχουν ανοίξει την πόρτα σε ένα ευρύ διαθεματικό πεδίο από τη μη γραμμική δυναμική έως τις ισχυρά συσχετισμένες κβαντικές φάσεις. Ένα από τα μεγάλα στοιχήματα αυτήν την εποχή είναι η διερεύνηση του φαινόμενου της υπεραγωγιμότητας, το οποίο βασίζεται στα λεγόμενα <em><a href=\"https://en.wikipedia.org/wiki/Cooper_pair\">ζεύγη Cooper</a></em>. Πρόκειται για ηλεκτρόνια, τα οποία, αν και φερμιόνια, σχηματίζουν ζεύγη που έχουν ακέραιο σπιν και, συνεπώς, συμπεριφέρονται ως μποζόνια. Οι οπτικοί κρύσταλλοι μπορεί να χρησιμοποιηθούν για τη δημιουργία καταστάσεων ζευγών Cooper από φερμιονικά άτομα. Σε αυτήν την περίπτωση θα μπορούμε να επιτύχουμε μια πολύ επιτυχημένη προσομοιώση του φαινόμενου της υπεραγωγιμότητας.</p>\n<p>Άλλες ερευνητικές προσπάθειες εστιάζονται στην επίτευξη άμορφων συστημάτων. Πρόκειται για ισχυρώς αλληλεπιδρώντα κβαντικά συστήματα μέσα σε τυχαία δυναμικά που η θεωρητική τους ανάλυση είναι πολύ δύσκολη (<a href=\"#22\">Roth et al, 2003</a>). Αξιοσημείωτη είναι η πρόβλεψη για την ύπαρξη μιας «υαλώδους» φάσης, σε ένα συμπύκνωμα Bose-Einstein, όταν αυτό παγιδευτεί σε ένα μονοδιάστατο οπτικό κρύσταλλο και αλληλεπιδράσει με τυχαία δυναμικά. Η κατάσταση του συμπυκνώματος είναι μονωτική και γεωμετρικά άμορφη, όπως το γυαλί, και θα μπορούσε να παρατηρηθεί πειραματικά (<a href=\"#18\">Lye et al, 2005</a>).</p>\n<p>Τα οπτικά πλέγματα προσφέρουν ενα ιδανικό περιβάλλον για την μελέτη της φυσικής συμπεριφοράς των φερμιονίων. Τα φερμιόνια, σε αντίθεση με τα μποζόνια απαιτούν περαιτέρω μελέτη για να αποκαλύψουν τις “λανθάνουσες” κβαντικές τους φάσεις. Τα φερμιόνια σε έναν οπτικό κρύσταλλο τριών διαστάσεων περιγράφονται από την <em>θεωρία </em><em>Hubbard</em> η οποία θεωρείται πως “κρατάει” το μυστικό για την εξήγηση της υπεραγωγιμότητας υψηλών θερμοκρασιών (<a href=\"#1\">Anderson, 1987</a>), (<a href=\"#14\">Hofstetter et al, 2002</a>). Αν και αυτό το σύστημα έχει διερευνηθεί θεωρητικά για δεκαετίες εντούτοις, ακόμη, δεν έχουμε καταλήξει σε τελεσίδικα αποτελέσματα και στην πλήρη διαύγαση όλων των ερωτημάτων. Τα φερμιόνια σε οπτικά πλέγματα είναι κατάλληλα για ακριβείς μετρήσεις της επιτάχυνσης της βαρύτητας με συμβολόμετρα ατόμων (<a href=\"#21\">Roati et al, 2004</a>). Επίσης, σε μίγματα διαφορετικών μποζονίων και φερμιονίων έχει προβλεφθεί η ύπαρξη «εξοτικών» κβαντικών φάσεων που δεν έχουν παρατηρηθεί στη συμβατική φυσική συμπυκνωμένης ύλης (<a href=\"#23\">Sanpera et al, 2004</a>). Η ανάπτυξη νέας γενιάς ατομικών ρολογιών πολύ υψηλής ακρίβειας είναι ένα ακόμη πεδίο εφαρμογής των οπτικών κρυστάλλων ατόμων (<a href=\"https://www.mpq.mpg.de/6371063/the-lattice-the-clock-and-the-microscope-a-next-generation-quantum-simulator?fbclid=IwAR0TOP0rLAh5YzJA9evS0da0m3w8j13x2iUM9urzfYCx3HvOsDlluL2taYY\">εδώ</a>). Σε αυτό το θέμα θα αναφερθούμε σε επόμενο άρθρο μας.</p>\n<p>Οι οπτικοί κρύσταλλοι ατόμων, όταν το ενεργειακό βάθος τους μεταβάλλεται με το χρόνο, μπορούν να αξιοποιηθούν στην εξερεύνηση συστημάτων που λειτουργούν ως κβαντικές μηχανές. Αυτές είναι μικροσκοπικές συσκευές που εκμεταλλεύονται τους νόμους της κβαντικής μηχανικής για να παράγουν μηχανικό έργο. Η πρώτη κβαντική μηχανή κατασκευάστηκε το 2009 από μια ερευνητική ομάδα στο University of California, Santa Barbara (<a href=\"#19\">O’Connell et al, 2010</a>). Μια μικροσκοπική «σανίδα» από αλουμίνιο συζεύχθηκε με έναν υπεραγώγιμο δακτύλιο, ο οποίος είναι στην πραγματικότητα ένας ηλεκτρονικό σύστημα δύο καταστάσεων αφού διαθέτει δύο δυνατές ενεργειακές κβαντικές καταστάσεις. Χειριζόμενοι αυτό το σύστημα με τη βοήθεια μικροκυμάτων, οι ερευνητές κατάφεραν να το τροφοδοτήσουν ή να αφαιρέσουν από αυτό κβάντα ενέργειας, όπως θα μπορούσε κανείς να χρησιμοποιήσει ένα ΑΤΜ για κατάθεση ή ανάληψη χρημάτων από έναν τραπεζικό λογαριασμό.</p>\n<p>Ορισμένες ερευνητικές ομάδες έχουν προσπαθήσει να κατασκευάσουν κβαντομηχανικά συστήματα αντίστοιχα των κλασικών χαοτικών συστημάτων που συναντάμε στις μοριακές μηχανές. Σε αυτήν την περίπτωση τα άτομα μπορούν να τεθούν σε κίνηση ανοίγοντας και κλείνοντας ένα περιοδικό και ασύμμετρο οπτικό δυναμικό που προσομοιώνει την κίνηση μηχανικών γραναζιών (<a href=\"#20\">Ringot et al, 2000</a>).</p>\n<p>Η ανίχνευση ασθενών ηλεκτρομαγνητικών πεδίων είναι ένας άλλος τομέας στον οποίο οι οπτικοί κρύσταλλοι αφήνουν πολλές υποσχέσεις καθώς μπορούν να αποτελέσουν τη βάση για την κατασκευή υπερ-ευαίσθητων κβαντικών ανιχνευτών πεδίων τα οποία δεν μπορούν να ανιχνευτούν από αντίστοιχες κλασικές διατάξεις. Ιδαίτερες υποσχέσεις αφήνουν τα παγιδευμένα ιόντα σε οπτικούς κρυστάλλους εξαιτίας του γεγονότος πως οι πειραματικοί μπορούν να έχουν εξαιρετικό βαθμό ελέγχου των ιδιοτήτων τους και των παραμέτρων που είναι σημαντικές στο πείραμα καθώς και στη δυνατότητα να δημιουργούνται οι «πολυπόθητες» <em>σύμπλεκτες κβαντικές καταστάσεις</em>  (<a href=\"https://en.wikipedia.org/wiki/Quantum_entanglement\">quantum entangled states</a>) ανάμεσα σε παγιδευμένα ιόντα. Πρόσφατα, ερευνητές στο National Institute of Standards and Technology (NIST) των ΗΠΑ κατόρθωσαν να κατασκευάσουν ένα τέτοιο οπτικό κρύσταλλο-ανιχνευτή με παγιδευμένα ιόντα βυρηλλίου με ικανότητα ανίχνευσης έως 20 φορές μεγαλύτερη από τις μέχρι τώρα διαθέσιμες ατομικές διατάξεις (<a href=\"#11\">Gilmore et al, 2021</a>).</p>\n<p>Τα οπτικά πλέγματα αποτελούν ένα πεδίο μελέτης ιδιαίτερα περίπλοκων προβλημάτων στην κβαντική χημεία, όπως ο ακριβής υπολογισμός της ηλεκτρονικής δομής των μορίων. Η ακριβής επίλυση τέτοιων προβλημάτων είναι πολύ δύσκολο έργο για τους συμβατικούς υπολογιστές. Οι ερευνητές πρότειναν πρόσφατα να το αντιμετωπίσουν χρησιμοποιώντας προσομοίωση προβλημάτων κβαντικής χημείας με τη βοήθεια ατόμων παγιδευμένων σε οπτικά πλέγματα που έχουν αναπτυχθεί εντός μιας ηλεκτρομαγνητικής κοιλότητας (<a href=\"#3\">Argüello-Luengo et al, 2019</a>). Στην πρότασή τους, τα ηλεκτρόνια προσομοιώνονται με φερμιονικά άτομα που μετακινούνται μέσα στο δυναμικό του οπτικού πλέγματος, η έλξη από τον πυρήνα προσομοιώνεται με τη βοήθεια πρόσθετων οπτικών δυναμικών, ενώ η απωστική δύναμη  Coulomb μεταξύ των ηλεκτρονίων προσομοιώνεται με την επίδραση του ηλεκτρομαγνητικού πεδίου της κοιλότητας στα παγιδευμένα άτομα.</p>\n<p>Ένα άλλο ερευνητικό πεδίο στο οποίο οι οπτικοί κρύσταλλοι ατόμων μπορούν να έχουν σημαντική συνεισφορά είναι οι προσομοιώσεις της μεταβολής της κβαντικής φάσης που εικάζεται πως συνέβη στα πρώτα στάδια του σύμπαντος. Οι αναγνώστες του <em>Ι</em>nS γνωρίζουν πως η φυσική των ψυχρών ατόμων και συγκεκριμένα τα κβαντικά αέρια ατόμων έχουν αξιοποιηθεί πολλαπλώς σε αυτή το ερευνητικό πεδίο (<a href=\"https://inscience.gr/2023/02/18/kvantika-aeria-meros-tetarto/\">εδώ</a>). Η πιο πρόσφατη προσπάθεια σε αυτή την κατεύθυνση έγινε από τον Bo Song και τους συνεργάτες του στο Πανεπιστήμιο του Cambridge οι οποίοι αξιοποίησαν παγιδευμένα άτομα σε οπτικά πλέγματα και παρατήρησαν για πρώτη φορά ασυνεχείς μεταβάσεις από καταστάσεις μονωτή Mott σε μια υπερρευστη κατάσταση υψηλότερης ενέργειας στην οποία τα άτομα μπορούν να μετακινηθούν ελεύθερα μεταξύ διαφορετικών τοποθεσιών μέσα στο πλέγμα (<a href=\"#24\">Song et al, 2022</a>). Η εμφάνιση ασυνεχών μεταβάσεων φάσεως προβλέπεται στο αρχικό στάδιο δημιουργίας του Σύμπαντος. Στο εν λόγω πείραμα επιτεύχθηκαν με διαταραχή του οπτικού κρύσταλλου.</p>\n<p>Τέλος σε συστήματα που η συλλογική τους συμπεριφορά ακολουθεί τους νόμους της σχετικότητας μπορεί να εμφανιστεί μια ιδιαίτερης μορφής ταλάντωση, γνωστή ως <em><a href=\"https://en.wikipedia.org/wiki/Higgs_boson\">διέγερση Higgs</a></em>, η οποία μας είναι γνωστή από τον θεμελιώδη ρόλο που παίζει στο <em>Καθιερωμένο Πρότυπο</em> των στοιχειωδών σωματιδίων (το διάσημο, πλέον, «σωμάτιο του Higgs»). Η ανίχνευση αυτής της διέγερσης είναι αρκετά δύσκολη, γιατί έχει πολύ μικρό χρόνο ζωής, ο οποίος είναι ακόμη μικρότερος σε επίπεδα συστήματα δύο διαστάσεων, με αποτέλεσμα να έχουν εγερθεί σημαντικές αμφιβολίες για το κατά πόσο, τελικά, είναι δυνατή η ύπαρξή της. Σε συστήματα παγιδευμένων ατόμων σε οπτικούς κρυστάλλους έχει προβλεφτεί η ύπαρξη αυτής της ταλάντωσης στο όριο που τα άτομα μεταπίπτουν από τη φάση της υπερρευστότητας σε αυτήν του μονωτή. Πρόσφατα, ερευνητικές ομάδες από το Ινστιτούτο Μαξ Πλανκ, το Χάρβαρντ και το Ινστιτούτο Τεχνολογίας της Καλιφόρνια (CalTech), εργαζόμενες από κοινού, κατόρθωσαν να εντοπίσουν αυτές τις περιβόητες διεγέρσεις σε άτομα ρουβιδίου, που είχαν παγιδευτεί σε οπτικά πλέγματα δύο διαστάσεων (<a href=\"#7\">Endres et al, 2012</a>).</p>\n<p>Κλείνοντας αυτό το άρθρο θα πρέπει να αναφέρουμε τις πολύ μεγάλες προοπτικές για την αξιοποίηση των οπτικών πλεγμάτων στην κατασκευή κβαντικών πυλών που αποτελούν τα βασικά στοιχεία για την κατασκευή ενός κβαντικού υπολογιστή. Σε αυτό το θέμα θα αναφερθούμε εκτενώς σε επόμενη μας δημοσίευση.</p>\n<p>Οι αναγνώστες του <em>I</em>nS έχουν την ευκαιρία στα δύο άρθρα αυτού του αφιερώματος να λάβουν, ελπίζουμε, μια αρκετά λεπτομερή εικόνα για τις ιδιότητες και τις εφαρμογές των οπτικών κρυστάλλων οι οποίοι, μαζί με τα κβαντικά αέρια αποτελούν τα κορυφαία ίσως επιτεύγματα της σύγχρονης ατομικής φυσικής και βασικούς πυλώνες της αναγέννησης του πεδίου αυτού που λαμβάνει χώρα τις τελευταίες δεκαετίες (<a href=\"https://inscience.gr/2023/02/18/kvantika-aeria-meros-tetarto/#6\">Lembessis, 2020</a>).<strong>ΕΥΧΑΡΙΣΤΙΕΣ</strong></p>\n<p>Η κεντρική εικόνα του άρθρου είναι ευγενική προσφορά στο InS του <a href=\"https://www.quantum-munich.de/104554/bloch-immanuel-prof-dr\">I. Bloch</a>, καθηγητή στο Πανεπιστήμιο Ludwig Maximilian (LMU) του Μονάχου και Διευθυντή Ερευνών στο Ινστιτούτο Max Planck για την Κβαντική Οπτική στο Garching της Γερμανίας.<strong>ΣΗΜΕΙΩΣΕΙΣ</strong></p>\n<p><a id=\"_ftn1\"></a>[1] Ένα άλλο παράδειγμα μακροσκοπικού κβαντικού συστήματος είναι το φως του λέιζερ. Και σε αυτήν την περίπτωση υπάρχει μια σχέση απροσδιοριστίας ανάμεσα στον αριθμό των φωτονίων της δέσμης λέιζερ και στη φάση αυτής της δέσμης.</p>\n<p><a id=\"_ftn2\"></a>[2] Στην περίπτωση του μονωτή Mott ο αριθμός των ατόμων σε κάθε θέση είναι καθορισμένος οπότε, όπως εξηγήσαμε παραπάνω, η φάση είναι πλήρως απροσδιόριστη με αποτέλεσμα να μην μπορεί κάποιος να παρατηρήσει φαινόμενα συμβολής μεταξύ υλικών κυμάτων.</p>\n<p><strong>ΒΙΒΛΙΟΓΡΑΦΙΑ</strong></p>\n<p><a id=\"1\"></a>Anderson, P., W., 1987. The resonating valence bond state in La2CuO4 and superconductivity. <em>Science</em> 235, 1196–1198. <a href=\"https://doi.org/10.1126/science.235.4793.1196\">DOI: 10.1126/science.235.4793.1196</a></p>\n<p><a id=\"2\"></a>Anderson, B., P., and Kasevich, M., A., 1998. Macroscopic quantum interferencefrom atomic tunnel arrays. <em>Science</em> 282, 1686–1689. <a href=\"https://doi.org/10.1126/science.282.5394.1686\">10.1126/science.282.5394.1686 </a></p>\n<p><a id=\"3\"></a>Argüello-Luengo, J., González-Tudela, A., Shi, T., Zoller, P., and Cirac, J., I., 2019. Analogue quantum chemistry simulation. <em>Nature</em> 574, 215–218. <a href=\"https://doi.org/10.1038/s41586-019-1614-4\">10.1038/s41586-019-1614-4 </a></p>\n<p><a id=\"4\"></a>Ben Dahan, M., Peik, E., Reichel, J., Castin, Y., and Salomon, C., 1996. Bloch oscillations of atoms in an optical potential. <em>Phys. Rev. Lett.</em> 76, 4508–4511. <a href=\"https://doi.org/10.1103/PhysRevLett.76.4508\">https://doi.org/10.1103/PhysRevLett.76.4508</a></p>\n<p><a id=\"5\"></a>Cataliotti, F., S., Burger, S., Fort, C., Maddaloni, P., Minardi, F., Trombettoni, A., Smerzi, A.  and Inguscio, M., 2001. Josephson junction arrays with Bose–Einstein condensates. <em>Science</em> 293(5531), 843–846. <a href=\"https://doi.org/10.1126/science.1062612\">10.1126/science.1062612</a></p>\n<p><a id=\"6\"></a>Cohen-Tannoudji C.  and Guéry-Odelin D., 2011. <em>ADVANCES IN ATOMIC PHYSICS: An overview</em>. New Jersey, USA. World Scientific, p. 671.</p>\n<p><a id=\"7\"></a>Endres, M., Fukuhara, T., Pekker, D., Cheneau, M., Schauss, P., Gross, C., Demler, E., Kuhr, S., and Bloch, I., 2012. The ‘Higgs’ amplitude mode at the two-dimensional superfluid/Mott insulator transition. <em>Nature</em> 487, 454–458. <a href=\"https://doi.org/10.1038/nature11255\">10.1038/nature11255 </a></p>\n<p><a id=\"8\"></a>Fertig, C., D., O’Hara, K., M., Huckans, J., H., Rolston, S., L.,  Phillips, W., D.,  and Porto, J., V., 2005. Strongly inhibited transport of a degenerate 1D Bose gas in a lattice. <em>Phys. Rev. Lett.</em> 94, 120403. <a href=\"https://doi.org/10.1103/PhysRevLett.94.120403\">https://doi.org/10.1103/PhysRevLett.94.120403</a></p>\n<p><a id=\"9\"></a>Feynman, R., 1982. Simulating physics with computers. <em>Int. J. Theor. Phys</em>. 21, 467–488. <a href=\"https://s2.smu.edu/~mitch/class/5395/papers/feynman-quantum-1981.pdf\">https://s2.smu.edu/~mitch/class/5395/papers/feynman-quantum-1981.pdf</a></p>\n<p><a id=\"10\"></a>Geiger, A., Z., Fujiwava, K., M., Singh, K., Senaratne, R., Rajagopal, S., V., Lipatov, M., Shimasaki, T., Driben, R., Konotop, V., Meier, T., and Weld, D., M., 2018. Observation and uses of position-space Bloch oscillations in an ultracold gas. <em>Phys. Rev. Lett.</em> 120, 213201. <a href=\"https://doi.org/10.1103/physrevlett.120.213201\">10.1103/PhysRevLett.120.213201 </a></p>\n<p><a id=\"11\"></a>Gilmore, K., A., Affolter, M., Lewis-Swan, R., J., Barberena, D., Jordan, E., Rey, A., M., and Bolinger J., J., 2021. Quantum-enhanced sensing of displacements and electric fields with two-dimensional trapped-ion crystals. <em>Science </em>373, 673-678. <a href=\"https://doi.org/10.1126/science.abi5226\">DOI: 10.1126/science.abi5226</a></p>\n<p><a id=\"12\"></a>Girardeau, M. 1960. Relationship between systems of impenetrable bosons and fermions in one dimension. <em>J. Math. Phys.</em> 1, 516–523. <a href=\"https://doi.org/10.1063/1.1703687\">https://doi.org/10.1063/1.1703687</a></p>\n<p><a id=\"13\"></a>Greiner, M., Mandel, O., Esslinger, T., Hänsch, T., W., and Bloch, I., 2002. Quantum phase transition from a superfluid to a Mott insulator in a gas of ultracold atoms. <em>Nature</em> 415, 39–44. <a href=\"https://doi.org/10.1038/415039a\">10.1038/415039a </a></p>\n<p><a id=\"14\"></a>Hofstetter, W., Cirac, J., I., Zoller, P., Demler, E., and Lukin, M., D., 2002. High-temperature superfluidity of fermionic atoms in optical lattices. Phys. Rev. Lett. 89, 220407. <a href=\"https://doi.org/10.1103/PhysRevLett.89.220407\">https://doi.org/10.1103/PhysRevLett.89.220407</a></p>\n<p><a id=\"15\"></a>Jaksch, D., Bruder, C., Cirac, J., I., Gardiner, C., W., and Zoller, P., 1998. Cold bosonic atoms in optical lattices. <em>Phys. Rev. Lett.</em> 81, 3108–3111.<a href=\"https://doi.org/10.1103/PhysRevLett.81.3108\">https://doi.org/10.1103/PhysRevLett.81.3108</a></p>\n<p><a id=\"16\"></a>Josephson, B., D., 1962. Possible new effects in superconductive tunnelling. <em>Phys. Lett.</em> 1, 251–253. <a href=\"https://doi.org/10.1016/0031-9163(62)91369-0\">https://doi.org/10.1016/0031-9163(62)91369-0</a></p>\n<p><a id=\"17\"></a>Lembessis, V. E., 2020. Taming Atoms: The Renaissance of Atomic Physics. Bellingham, Washington USA: SPIE. <a href=\"https://spie.org/Publications/Book/2563827?SSO=1\">https://spie.org/Publications/Book/2563827?SSO=1</a></p>\n<p><a id=\"18\"></a>Lye, J. E., Fallani, L., Modugno, M., Wiersma, D., S., Fort, C., and Inguscio, M., 2005. Bose–Einstein condensate in a random potential. <em>Phys. Rev. Lett.</em> 95, 070401. <a href=\"https://doi.org/10.1103/PhysRevLett.95.070401\">https://doi.org/10.1103/PhysRevLett.95.070401</a></p>\n<p><a id=\"19\"></a>O’Connell, A., D., Hofheinz, M., Ansmann, M., Bialczak, R., C.,  Lenander, M., Lucero, M., Neeley, M., Sank, D., Wang, H., Weides, M., Wenner, J., Martinis, J., M.,  and Cleland, A., N., 2010. Quantum ground state and single-phonon control of a mechanical resonator. <em>Nature </em>464(7289), 697–703. <a href=\"https://doi.org/10.1038/nature08967\">10.1038/nature08967 </a></p>\n<p><a id=\"20\"></a>Ringot, J., Szriftgiser, P., Garreau, J., C., and Delande, D., 2000. Experimental evidence of dynamical localization and delocalization in a quasiperiodic driven system. <em>Phys. Rev. Lett.</em> 85, 2741–2744. <a href=\"https://doi.org/10.1103/PhysRevLett.85.2741\">https://doi.org/10.1103/PhysRevLett.85.2741</a></p>\n<p><a id=\"21\"></a>Roati, G., de Mirandes, E., Ferlaino, F., Ott, H., Modugno, G., and Inguscio, M., Atom interferometry with trapped Fermi gases. <em>Phys. Rev. Lett. </em>92, 230402. <a href=\"https://doi.org/10.1103/PhysRevLett.92.230402\">https://doi.org/10.1103/PhysRevLett.92.230402</a></p>\n<p><a id=\"22\"></a>Roth R., and Burnett, K., 2003. Ultracold bosonic atoms in two-colour superlattices. <em>J. Opt. B</em> 5, S50–S54. <a href=\"https://iopscience.iop.org/article/10.1088/1464-4266/5/2/358\">https://iopscience.iop.org/article/10.1088/1464-4266/5/2/358</a></p>\n<p><a id=\"23\"></a>Sanpera, A., Kantian, A., Sanchez-Palencia, L., Zakrzwewski, J., and Lewenstein, M., 2004. Atomic Fermi–Bose mixtures in inhomogeneous and random lattices: from Fermi glass to quantum spin glass and quantum percolation. <em>Phys. Rev. Lett.</em> 93, 040401. <a href=\"https://doi.org/10.1103/PhysRevLett.93.040401\">https://doi.org/10.1103/PhysRevLett.93.040401</a></p>\n<p><a id=\"24\"></a>Song, B., Dutta, S., Bhave, S., Yu, Jr.-C., Carter, E., Cooper., N., and Schneider, U., 2022. Realizing discontinuous quantum phase transitions in a strongly correlated driven optical lattice. <em>Nature Physics</em>, 259-264. <a href=\"https://doi.org/10.1038/s41567-021-01476-w\">https://doi.org/10.1038/s41567-021-01476-w</a></p>\n<p><a id=\"25\"></a>Sukhatme, K., Mukharsky, Y., Chui, T., and Pearson, D., 2001. Observation of the ideal Josephson effect in superfluid 4He. <em>Nature</em> 411, 280–283. <a href=\"https://doi.org/10.1038/35077024\">https://doi.org/10.1038/35077024</a></p>\n<p><a id=\"26\"></a>Tonks, L., 1936. The complete equation of state of one, two and threedimensional gases of hard elastic spheres. <em>Phys. Rev.</em> 50, 955–963. <a href=\"https://doi.org/10.1103/PhysRev.50.955\">https://doi.org/10.1103/PhysRev.50.955</a></p>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>Στο πρώτο άρθρο του αφιερώματος στους οπτικούς κρυστάλλους παρουσιάσαμε τον τρόπο κατασκευής τους, τις ιδιότητές τους και τις ποικιλίες στις οποίες εμφανίζονται. Σε αυτό το άρθρο εστιάζουμε στις πιο σημαντικές...</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 2,
+    "name": "Βασίλης Λεμπέσης",
+    "slug": "vlembessis",
+    "avatar_urls": {
+      "24": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-24x24.jpg",
+      "48": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-48x48.jpg",
+      "96": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-96x96.jpg"
+    }
+  },
+  "featured_media": 9754,
+  "featured_image": {
+    "id": 9754,
+    "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main.jpg",
+    "alt_text": "",
+    "media_details": {
+      "width": 933,
+      "height": 695,
+      "file": "2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main.jpg",
+      "sizes": {
+        "medium": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-300x223.jpg",
+          "width": 300,
+          "height": 223,
+          "filesize": 11200,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-300x223.jpg"
+        },
+        "thumbnail": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-150x150.jpg",
+          "width": 150,
+          "height": 150,
+          "filesize": 4823,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-150x150.jpg"
+        },
+        "medium_large": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-768x572.jpg",
+          "width": 768,
+          "height": 572,
+          "filesize": 46208,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-768x572.jpg"
+        },
+        "portfolio-thumb_large": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-900x604.jpg",
+          "width": 900,
+          "height": 604,
+          "filesize": 54496,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-900x604.jpg"
+        },
+        "portfolio-thumb": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-600x403.jpg",
+          "width": 600,
+          "height": 403,
+          "filesize": 30405,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-600x403.jpg"
+        },
+        "portfolio-thumb_small": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-400x269.jpg",
+          "width": 400,
+          "height": 269,
+          "filesize": 16427,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-400x269.jpg"
+        },
+        "portfolio-widget": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-100x100.jpg",
+          "width": 100,
+          "height": 100,
+          "filesize": 2712,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-100x100.jpg"
+        },
+        "nectar_small_square": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-140x140.jpg",
+          "width": 140,
+          "height": 140,
+          "filesize": 4325,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-140x140.jpg"
+        },
+        "wide": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-933x500.jpg",
+          "width": 933,
+          "height": 500,
+          "filesize": 52821,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-933x500.jpg"
+        },
+        "wide_small": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-670x335.jpg",
+          "width": 670,
+          "height": 335,
+          "filesize": 29041,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-670x335.jpg"
+        },
+        "regular": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-500x500.jpg",
+          "width": 500,
+          "height": 500,
+          "filesize": 29370,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-500x500.jpg"
+        },
+        "regular_small": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-350x350.jpg",
+          "width": 350,
+          "height": 350,
+          "filesize": 17216,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-350x350.jpg"
+        },
+        "tall": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-500x695.jpg",
+          "width": 500,
+          "height": 695,
+          "filesize": 32961,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-500x695.jpg"
+        },
+        "wide_photography": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-900x600.jpg",
+          "width": 900,
+          "height": 600,
+          "filesize": 54309,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-900x600.jpg"
+        },
+        "medium_featured": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-800x695.jpg",
+          "width": 800,
+          "height": 695,
+          "filesize": 53265,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main-800x695.jpg"
+        },
+        "full": {
+          "file": "InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main.jpg",
+          "width": 933,
+          "height": 695,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/04/InScience-Optikoi-Kristaloi-Atomon-Meros-2o-Main.jpg"
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": 262,
+      "name": "ΔΑΜΑΖΟΝΤΑΣ ΤΑ ΑΤΟΜΑ",
+      "slug": "damazontas-ta-atoma",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 99,
+      "name": "ΝΕΟΤΕΡΑ",
+      "slug": "latest",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 263,
+      "name": "ΟΠΤΙΚΗ ΚΡΥΣΤΑΛΛΟΙ ΑΤΟΜΩΝ",
+      "slug": "optikoi-krystalloi-atomon",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 8,
+      "name": "ΦΥΣΙΚΗ",
+      "slug": "physics",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 75,
+      "name": "physics",
+      "slug": "physics",
+      "description": ""
+    },
+    {
+      "id": 32,
+      "name": "Επιστήμες",
+      "slug": "science",
+      "description": ""
+    },
+    {
+      "id": 88,
+      "name": "επιστήμη",
+      "slug": "epistimi",
+      "description": ""
+    },
+    {
+      "id": 76,
+      "name": "φυσική",
+      "slug": "fysiki",
+      "description": ""
+    }
+  ],
+  "format": "standard",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 18,
+    "article_content_type": "article",
+    "article_abstract": "Στο πρώτο άρθρο του αφιερώματος στους οπτικούς κρυστάλλους παρουσιάσαμε τον τρόπο κατασκευής τους, τις ιδιότητές τους και τις ποικιλίες στις οποίες εμφανίζονται. Σε αυτό το άρθρο εστιάζουμε στις πιο σημαντικές...",
+    "article_youtube_url": null,
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}

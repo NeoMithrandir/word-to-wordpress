@@ -1,0 +1,2014 @@
+{
+  "generatedAt": "2026-04-28T18:04:38.969Z",
+  "siteUrl": "https://arthra.inscience.gr",
+  "options": {
+    "dryRun": false,
+    "skipFeaturedImage": false,
+    "reuseFeaturedMediaFromSite": false
+  },
+  "summary": {
+    "totalFiles": 249,
+    "created": 248,
+    "dryRunSimulated": 0,
+    "failed": 1,
+    "errors": [
+      {
+        "file": "post-6377.json",
+        "message": "Request failed with status code 500"
+      }
+    ],
+    "results": [
+      {
+        "file": "post-1.json",
+        "slug": "hello-world",
+        "outcome": "success",
+        "wordPressPostId": 11641,
+        "postLink": "https://arthra.inscience.gr/?p=11641",
+        "featuredMedia": "none"
+      },
+      {
+        "file": "post-64.json",
+        "slug": "standard-post",
+        "outcome": "success",
+        "wordPressPostId": 11642,
+        "postLink": "https://arthra.inscience.gr/?p=11642",
+        "featuredMedia": "none"
+      },
+      {
+        "file": "post-66.json",
+        "slug": "aside-post",
+        "outcome": "success",
+        "wordPressPostId": 11643,
+        "postLink": "https://arthra.inscience.gr/?p=11643",
+        "featuredMedia": "none"
+      },
+      {
+        "file": "post-68.json",
+        "slug": "audio-post",
+        "outcome": "success",
+        "wordPressPostId": 11644,
+        "postLink": "https://arthra.inscience.gr/?p=11644",
+        "featuredMedia": "none"
+      },
+      {
+        "file": "post-70.json",
+        "slug": "chat-post",
+        "outcome": "success",
+        "wordPressPostId": 11645,
+        "postLink": "https://arthra.inscience.gr/?p=11645",
+        "featuredMedia": "none"
+      },
+      {
+        "file": "post-74.json",
+        "slug": "image-post",
+        "outcome": "success",
+        "wordPressPostId": 11646,
+        "postLink": "https://arthra.inscience.gr/?p=11646",
+        "featuredMedia": "none"
+      },
+      {
+        "file": "post-80.json",
+        "slug": "status-post",
+        "outcome": "success",
+        "wordPressPostId": 11647,
+        "postLink": "https://arthra.inscience.gr/?p=11647",
+        "featuredMedia": "none"
+      },
+      {
+        "file": "post-82.json",
+        "slug": "video-post",
+        "outcome": "success",
+        "wordPressPostId": 11648,
+        "postLink": "https://arthra.inscience.gr/?p=11648",
+        "featuredMedia": "none"
+      },
+      {
+        "file": "post-219.json",
+        "slug": "we-encountered-a-bird-paradise",
+        "outcome": "success",
+        "wordPressPostId": 11650,
+        "postLink": "https://arthra.inscience.gr/?p=11650",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-220.json",
+        "slug": "doing-a-cross-country-road-trip",
+        "outcome": "success",
+        "wordPressPostId": 11652,
+        "postLink": "https://arthra.inscience.gr/?p=11652",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-221.json",
+        "slug": "a-new-office-location",
+        "outcome": "success",
+        "wordPressPostId": 11654,
+        "postLink": "https://arthra.inscience.gr/?p=11654",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-222.json",
+        "slug": "deep-down-in-the-water",
+        "outcome": "success",
+        "wordPressPostId": 11656,
+        "postLink": "https://arthra.inscience.gr/?p=11656",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-1239.json",
+        "slug": "velit-feugiat-porttito",
+        "outcome": "success",
+        "wordPressPostId": 11658,
+        "postLink": "https://arthra.inscience.gr/?p=11658",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-2328.json",
+        "slug": "the-most-beautiful-canyons-youll-ever-see",
+        "outcome": "success",
+        "wordPressPostId": 11660,
+        "postLink": "https://arthra.inscience.gr/?p=11660",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-2329.json",
+        "slug": "every-day-you-learn-something-new",
+        "outcome": "success",
+        "wordPressPostId": 11662,
+        "postLink": "https://arthra.inscience.gr/?p=11662",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-2671.json",
+        "slug": "ownage-in-the-mountains",
+        "outcome": "success",
+        "wordPressPostId": 11664,
+        "postLink": "https://arthra.inscience.gr/?p=11664",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-2677.json",
+        "slug": "arthro-me-fotografies",
+        "outcome": "success",
+        "wordPressPostId": 11666,
+        "postLink": "https://arthra.inscience.gr/?p=11666",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5618.json",
+        "slug": "we-hired-a-new-employee",
+        "outcome": "success",
+        "wordPressPostId": 11668,
+        "postLink": "https://arthra.inscience.gr/?p=11668",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5782.json",
+        "slug": "exploring-the-great-ice-cavern",
+        "outcome": "success",
+        "wordPressPostId": 11670,
+        "postLink": "https://arthra.inscience.gr/?p=11670",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5791.json",
+        "slug": "the-endless-green-layers",
+        "outcome": "success",
+        "wordPressPostId": 11672,
+        "postLink": "https://arthra.inscience.gr/?p=11672",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5794.json",
+        "slug": "getting-out-of-bed-super-early-today",
+        "outcome": "success",
+        "wordPressPostId": 11674,
+        "postLink": "https://arthra.inscience.gr/?p=11674",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5806.json",
+        "slug": "appreciating-the-sound-of-nature",
+        "outcome": "success",
+        "wordPressPostId": 11676,
+        "postLink": "https://arthra.inscience.gr/?p=11676",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5823.json",
+        "slug": "establishing-that-you-have-something-to-say",
+        "outcome": "success",
+        "wordPressPostId": 11678,
+        "postLink": "https://arthra.inscience.gr/?p=11678",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5826.json",
+        "slug": "investigating-the-sun-kissed-water-closer",
+        "outcome": "success",
+        "wordPressPostId": 11680,
+        "postLink": "https://arthra.inscience.gr/?p=11680",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5848.json",
+        "slug": "miami-street-style",
+        "outcome": "success",
+        "wordPressPostId": 11682,
+        "postLink": "https://arthra.inscience.gr/?p=11682",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5850.json",
+        "slug": "arthro-me-ixografisi",
+        "outcome": "success",
+        "wordPressPostId": 11684,
+        "postLink": "https://arthra.inscience.gr/?p=11684",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5860.json",
+        "slug": "getting-tickets-to-the-big-show",
+        "outcome": "success",
+        "wordPressPostId": 11686,
+        "postLink": "https://arthra.inscience.gr/?p=11686",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5879.json",
+        "slug": "tyxaio-arthro",
+        "outcome": "success",
+        "wordPressPostId": 11688,
+        "postLink": "https://arthra.inscience.gr/?p=11688",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5893.json",
+        "slug": "mikro-arthro",
+        "outcome": "success",
+        "wordPressPostId": 11690,
+        "postLink": "https://arthra.inscience.gr/?p=11690",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5898.json",
+        "slug": "new-office-space",
+        "outcome": "success",
+        "wordPressPostId": 11692,
+        "postLink": "https://arthra.inscience.gr/?p=11692",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5900.json",
+        "slug": "the-new-look",
+        "outcome": "success",
+        "wordPressPostId": 11694,
+        "postLink": "https://arthra.inscience.gr/?p=11694",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5917.json",
+        "slug": "arthro-me-video",
+        "outcome": "success",
+        "wordPressPostId": 11696,
+        "postLink": "https://arthra.inscience.gr/?p=11696",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5923.json",
+        "slug": "roses-are-red-but-are-violets-are-blue",
+        "outcome": "success",
+        "wordPressPostId": 11698,
+        "postLink": "https://arthra.inscience.gr/?p=11698",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-5927.json",
+        "slug": "how-to-start-designing-for-the-web",
+        "outcome": "success",
+        "wordPressPostId": 11700,
+        "postLink": "https://arthra.inscience.gr/?p=11700",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6079.json",
+        "slug": "hello-world-2",
+        "outcome": "success",
+        "wordPressPostId": 11701,
+        "postLink": "https://arthra.inscience.gr/?p=11701",
+        "featuredMedia": "none"
+      },
+      {
+        "file": "post-6089.json",
+        "slug": "gallery-post",
+        "outcome": "success",
+        "wordPressPostId": 11702,
+        "postLink": "https://arthra.inscience.gr/?p=11702",
+        "featuredMedia": "none"
+      },
+      {
+        "file": "post-6090.json",
+        "slug": "link-post",
+        "outcome": "success",
+        "wordPressPostId": 11703,
+        "postLink": "https://arthra.inscience.gr/?p=11703",
+        "featuredMedia": "none"
+      },
+      {
+        "file": "post-6091.json",
+        "slug": "quote-post",
+        "outcome": "success",
+        "wordPressPostId": 11704,
+        "postLink": "https://arthra.inscience.gr/?p=11704",
+        "featuredMedia": "none"
+      },
+      {
+        "file": "post-6158.json",
+        "slug": "francois-jacob-egkomio-toy-darvinismoy",
+        "outcome": "success",
+        "wordPressPostId": 11706,
+        "postLink": "https://arthra.inscience.gr/2021/06/02/francois-jacob-egkomio-toy-darvinismoy/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6206.json",
+        "slug": "synenteyxi-eytychioy-mpitsaki",
+        "outcome": "success",
+        "wordPressPostId": 11708,
+        "postLink": "https://arthra.inscience.gr/2021/06/02/synenteyxi-eytychioy-mpitsaki/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6227.json",
+        "slug": "o-r-p-feynman-kai-i-epistimi-ton-ypologiston",
+        "outcome": "success",
+        "wordPressPostId": 11710,
+        "postLink": "https://arthra.inscience.gr/2021/06/18/o-r-p-feynman-kai-i-epistimi-ton-ypologiston/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6262.json",
+        "slug": "synenteyxi-vaggeli-spandagoy",
+        "outcome": "success",
+        "wordPressPostId": 11712,
+        "postLink": "https://arthra.inscience.gr/2021/06/21/synenteyxi-vaggeli-spandagoy/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6290.json",
+        "slug": "synenteyxi-dimitri-pateli",
+        "outcome": "success",
+        "wordPressPostId": 11714,
+        "postLink": "https://arthra.inscience.gr/2021/07/05/synenteyxi-dimitri-pateli/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6336.json",
+        "slug": "deka-chronia-apo-tin-systasi-toy-parart",
+        "outcome": "success",
+        "wordPressPostId": 11716,
+        "postLink": "https://arthra.inscience.gr/2021/07/20/deka-chronia-apo-tin-systasi-toy-parart/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6363.json",
+        "slug": "inscience-synenteyxi-vasili-zoympoyrli",
+        "outcome": "success",
+        "wordPressPostId": 11718,
+        "postLink": "https://arthra.inscience.gr/2021/08/01/inscience-synenteyxi-vasili-zoympoyrli/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6377.json",
+        "slug": "viologia-morfi-kai-leitoyrgia-sta-fyt",
+        "outcome": "failed",
+        "featuredMedia": "none",
+        "error": "Request failed with status code 500"
+      },
+      {
+        "file": "post-6385.json",
+        "slug": "peri-fyseos-i-klironomia-enos-epimono",
+        "outcome": "success",
+        "wordPressPostId": 11720,
+        "postLink": "https://arthra.inscience.gr/2021/08/02/peri-fyseos-i-klironomia-enos-epimono/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6390.json",
+        "slug": "ston-kathrefti-toy-darvinoy-mia-prospa",
+        "outcome": "success",
+        "wordPressPostId": 11722,
+        "postLink": "https://arthra.inscience.gr/2021/08/02/ston-kathrefti-toy-darvinoy-mia-prospa/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6393.json",
+        "slug": "i-chara-toy-ch-mia-xenagisi-sta-mathimati",
+        "outcome": "success",
+        "wordPressPostId": 11724,
+        "postLink": "https://arthra.inscience.gr/2021/08/02/i-chara-toy-ch-mia-xenagisi-sta-mathimati/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6399.json",
+        "slug": "o-michanismos-ton-antikythiron-astrono",
+        "outcome": "success",
+        "wordPressPostId": 11726,
+        "postLink": "https://arthra.inscience.gr/2021/08/02/o-michanismos-ton-antikythiron-astrono/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6413.json",
+        "slug": "i-komi-tis-verenikis-37i-ekdosi-me-cd-epet",
+        "outcome": "success",
+        "wordPressPostId": 11728,
+        "postLink": "https://arthra.inscience.gr/2021/08/02/i-komi-tis-verenikis-37i-ekdosi-me-cd-epet/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6439.json",
+        "slug": "o-anthropos-ton-arithmon-o-fimponatsi-ka",
+        "outcome": "success",
+        "wordPressPostId": 11730,
+        "postLink": "https://arthra.inscience.gr/2021/08/06/o-anthropos-ton-arithmon-o-fimponatsi-ka/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6443.json",
+        "slug": "mystiki-gnosi-mia-epistimoniki-prose",
+        "outcome": "success",
+        "wordPressPostId": 11732,
+        "postLink": "https://arthra.inscience.gr/2021/08/06/mystiki-gnosi-mia-epistimoniki-prose/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6446.json",
+        "slug": "eisagogi-sti-sygchroni-kosmologia",
+        "outcome": "success",
+        "wordPressPostId": 11734,
+        "postLink": "https://arthra.inscience.gr/2021/08/06/eisagogi-sti-sygchroni-kosmologia/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6471.json",
+        "slug": "gia-tin-techni-tis-moysikis-synthesis-mi",
+        "outcome": "success",
+        "wordPressPostId": 11736,
+        "postLink": "https://arthra.inscience.gr/2021/09/06/gia-tin-techni-tis-moysikis-synthesis-mi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6476.json",
+        "slug": "chegkel-prologoi-kai-eisagoges",
+        "outcome": "success",
+        "wordPressPostId": 11738,
+        "postLink": "https://arthra.inscience.gr/2021/09/08/chegkel-prologoi-kai-eisagoges/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6482.json",
+        "slug": "optikes-lavides-i-ergaleiothiki-toy-mi",
+        "outcome": "success",
+        "wordPressPostId": 11740,
+        "postLink": "https://arthra.inscience.gr/2021/09/08/optikes-lavides-i-ergaleiothiki-toy-mi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6497.json",
+        "slug": "i-gonidiaki-michani-i-ekstrateia-apokr",
+        "outcome": "success",
+        "wordPressPostId": 11742,
+        "postLink": "https://arthra.inscience.gr/2021/09/13/i-gonidiaki-michani-i-ekstrateia-apokr/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6511.json",
+        "slug": "",
+        "outcome": "success",
+        "wordPressPostId": 11743,
+        "postLink": "https://arthra.inscience.gr/?p=11743",
+        "featuredMedia": "none"
+      },
+      {
+        "file": "post-6524.json",
+        "slug": "to-gnothi-sayton-sti-metagonidiomat",
+        "outcome": "success",
+        "wordPressPostId": 11745,
+        "postLink": "https://arthra.inscience.gr/2021/09/19/to-gnothi-sayton-sti-metagonidiomat/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6530.json",
+        "slug": "inscience-synenteyxi-theodoroy-papaggeli",
+        "outcome": "success",
+        "wordPressPostId": 11747,
+        "postLink": "https://arthra.inscience.gr/2021/09/25/inscience-synenteyxi-theodoroy-papaggeli/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6560.json",
+        "slug": "i-stigmi-ton-kvanta",
+        "outcome": "success",
+        "wordPressPostId": 11749,
+        "postLink": "https://arthra.inscience.gr/2021/10/07/i-stigmi-ton-kvanta/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6564.json",
+        "slug": "i-koinonia-ton-gonidion",
+        "outcome": "success",
+        "wordPressPostId": 11751,
+        "postLink": "https://arthra.inscience.gr/2021/10/07/i-koinonia-ton-gonidion/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6568.json",
+        "slug": "to-diadiktyo-ton-pragmaton-internet-of-things",
+        "outcome": "success",
+        "wordPressPostId": 11753,
+        "postLink": "https://arthra.inscience.gr/2021/10/09/to-diadiktyo-ton-pragmaton-internet-of-things/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6609.json",
+        "slug": "ekpaideytiki-drasi-2mobil-kai-epanaprosdi",
+        "outcome": "success",
+        "wordPressPostId": 11755,
+        "postLink": "https://arthra.inscience.gr/2021/10/23/ekpaideytiki-drasi-2mobil-kai-epanaprosdi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6631.json",
+        "slug": "epigenetiki",
+        "outcome": "success",
+        "wordPressPostId": 11757,
+        "postLink": "https://arthra.inscience.gr/2021/10/26/epigenetiki/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6636.json",
+        "slug": "to-kefalaio-kai-i-oikologia-ton-astheneio",
+        "outcome": "success",
+        "wordPressPostId": 11759,
+        "postLink": "https://arthra.inscience.gr/2021/11/06/to-kefalaio-kai-i-oikologia-ton-astheneio/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6665.json",
+        "slug": "oi-ermineies-tis-kvantomichanikis",
+        "outcome": "success",
+        "wordPressPostId": 11761,
+        "postLink": "https://arthra.inscience.gr/2021/11/20/oi-ermineies-tis-kvantomichanikis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6668.json",
+        "slug": "astronaytes-se-cheimeria-narki-ellina",
+        "outcome": "success",
+        "wordPressPostId": 11763,
+        "postLink": "https://arthra.inscience.gr/2021/11/20/astronaytes-se-cheimeria-narki-ellina/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6684.json",
+        "slug": "eptamisi-mathimata-gia-ton-egkefalo",
+        "outcome": "success",
+        "wordPressPostId": 11765,
+        "postLink": "https://arthra.inscience.gr/2021/12/04/eptamisi-mathimata-gia-ton-egkefalo/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6688.json",
+        "slug": "inscience-vinteo-diadiktyaki-syzitisi-me-ton",
+        "outcome": "success",
+        "wordPressPostId": 11767,
+        "postLink": "https://arthra.inscience.gr/?p=11767",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6723.json",
+        "slug": "oi-dynameis-poy-askei-to-fos-stin-yli-a",
+        "outcome": "success",
+        "wordPressPostId": 11769,
+        "postLink": "https://arthra.inscience.gr/2021/12/18/oi-dynameis-poy-askei-to-fos-stin-yli-a/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6756.json",
+        "slug": "vivliodeiktes-teychos-08-afieroma-ston",
+        "outcome": "success",
+        "wordPressPostId": 11771,
+        "postLink": "https://arthra.inscience.gr/2021/12/27/vivliodeiktes-teychos-08-afieroma-ston/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6762.json",
+        "slug": "o-astikos-choros-os-pedio-symperiforon",
+        "outcome": "success",
+        "wordPressPostId": 11773,
+        "postLink": "https://arthra.inscience.gr/2022/01/31/o-astikos-choros-os-pedio-symperiforon/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6796.json",
+        "slug": "kvantika-aeria-atomon-meros-proto-apo",
+        "outcome": "success",
+        "wordPressPostId": 11775,
+        "postLink": "https://arthra.inscience.gr/2022/02/26/kvantika-aeria-atomon-meros-proto-apo/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6810.json",
+        "slug": "archi-sofias-onomaton-episkepsis-metath",
+        "outcome": "success",
+        "wordPressPostId": 11777,
+        "postLink": "https://arthra.inscience.gr/2022/03/12/archi-sofias-onomaton-episkepsis-metath/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6846.json",
+        "slug": "metavoloma-kai-mikrovioma-i-exatomik",
+        "outcome": "success",
+        "wordPressPostId": 11779,
+        "postLink": "https://arthra.inscience.gr/2022/03/12/metavoloma-kai-mikrovioma-i-exatomik/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6901.json",
+        "slug": "neyrotechnologia-i-alli-opsi-toy-nomisma",
+        "outcome": "success",
+        "wordPressPostId": 11781,
+        "postLink": "https://arthra.inscience.gr/2022/03/26/neyrotechnologia-i-alli-opsi-toy-nomisma/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6916.json",
+        "slug": "i-istoria-tis-dytikis-epistimis-apo-ta",
+        "outcome": "success",
+        "wordPressPostId": 11783,
+        "postLink": "https://arthra.inscience.gr/2022/03/30/i-istoria-tis-dytikis-epistimis-apo-ta/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6955.json",
+        "slug": "oi-empeiries-moy-apo-tin-anastilosi-is",
+        "outcome": "success",
+        "wordPressPostId": 11785,
+        "postLink": "https://arthra.inscience.gr/2022/04/09/oi-empeiries-moy-apo-tin-anastilosi-is/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-6999.json",
+        "slug": "ta-themeliodi-deka-kleidia-gia-tin-prag",
+        "outcome": "success",
+        "wordPressPostId": 11787,
+        "postLink": "https://arthra.inscience.gr/2022/04/15/ta-themeliodi-deka-kleidia-gia-tin-prag/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7021.json",
+        "slug": "imerida-gia-to-paron-kai-to-mellon-tis-p",
+        "outcome": "success",
+        "wordPressPostId": 11789,
+        "postLink": "https://arthra.inscience.gr/2022/04/22/imerida-gia-to-paron-kai-to-mellon-tis-p/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7089.json",
+        "slug": "imerida-gia-to-paron-kai-to-mellon-tis-2",
+        "outcome": "success",
+        "wordPressPostId": 11791,
+        "postLink": "https://arthra.inscience.gr/2022/05/05/imerida-gia-to-paron-kai-to-mellon-tis-2/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7121.json",
+        "slug": "i-epochi-ton-algorithmon",
+        "outcome": "success",
+        "wordPressPostId": 11793,
+        "postLink": "https://arthra.inscience.gr/2022/05/13/i-epochi-ton-algorithmon/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7141.json",
+        "slug": "psachnontas-vatheia-sto-lagoymi",
+        "outcome": "success",
+        "wordPressPostId": 11795,
+        "postLink": "https://arthra.inscience.gr/2022/05/19/psachnontas-vatheia-sto-lagoymi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7170.json",
+        "slug": "to-dakry-toy-ntirak",
+        "outcome": "success",
+        "wordPressPostId": 11797,
+        "postLink": "https://arthra.inscience.gr/2022/05/23/to-dakry-toy-ntirak/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7204.json",
+        "slug": "ntorothi-chotzkin-pathos-gia-ereyna-epis",
+        "outcome": "success",
+        "wordPressPostId": 11799,
+        "postLink": "https://arthra.inscience.gr/2022/06/05/ntorothi-chotzkin-pathos-gia-ereyna-epis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7207.json",
+        "slug": "optikoi-krystalloi-atomon-meros-pro",
+        "outcome": "success",
+        "wordPressPostId": 11801,
+        "postLink": "https://arthra.inscience.gr/2022/06/10/optikoi-krystalloi-atomon-meros-pro/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7297.json",
+        "slug": "poios-kynigaei-to-higgs-mia-odysseia-toy-mi",
+        "outcome": "success",
+        "wordPressPostId": 11803,
+        "postLink": "https://arthra.inscience.gr/2022/06/30/poios-kynigaei-to-higgs-mia-odysseia-toy-mi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7308.json",
+        "slug": "imerida-toy-syllogoy-ergazomenon-toy",
+        "outcome": "success",
+        "wordPressPostId": 11805,
+        "postLink": "https://arthra.inscience.gr/2022/07/04/imerida-toy-syllogoy-ergazomenon-toy/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7339.json",
+        "slug": "i-mera-poy-anakalypsame-to-sympan",
+        "outcome": "success",
+        "wordPressPostId": 11807,
+        "postLink": "https://arthra.inscience.gr/2022/07/14/i-mera-poy-anakalypsame-to-sympan/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7342.json",
+        "slug": "thetikes-epistimes-kai-technologia-sti",
+        "outcome": "success",
+        "wordPressPostId": 11809,
+        "postLink": "https://arthra.inscience.gr/2022/07/18/thetikes-epistimes-kai-technologia-sti/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7351.json",
+        "slug": "i-megali-peripeteia-sto-diastima-apo-t",
+        "outcome": "success",
+        "wordPressPostId": 11811,
+        "postLink": "https://arthra.inscience.gr/2022/08/08/i-megali-peripeteia-sto-diastima-apo-t/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7355.json",
+        "slug": "oi-mathimatikoi",
+        "outcome": "success",
+        "wordPressPostId": 11813,
+        "postLink": "https://arthra.inscience.gr/2022/08/09/oi-mathimatikoi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7417.json",
+        "slug": "to-megalytero-lathos-toy-ainstain",
+        "outcome": "success",
+        "wordPressPostId": 11815,
+        "postLink": "https://arthra.inscience.gr/2022/08/18/to-megalytero-lathos-toy-ainstain/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7565.json",
+        "slug": "enas-ellinas-sto-diastimiko-tileskop",
+        "outcome": "success",
+        "wordPressPostId": 11817,
+        "postLink": "https://arthra.inscience.gr/2022/08/27/enas-ellinas-sto-diastimiko-tileskop/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-7948.json",
+        "slug": "kvantika-aeria-atomon-meros-deytero-t",
+        "outcome": "success",
+        "wordPressPostId": 11819,
+        "postLink": "https://arthra.inscience.gr/2022/09/15/kvantika-aeria-atomon-meros-deytero-t/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-8220.json",
+        "slug": "metaxy-logoy-kai-empeirias-keimena-gi",
+        "outcome": "success",
+        "wordPressPostId": 11821,
+        "postLink": "https://arthra.inscience.gr/2022/09/28/metaxy-logoy-kai-empeirias-keimena-gi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-8320.json",
+        "slug": "podcast-dialexeis-gia-toys-ypologistes-richard-p-feynmann",
+        "outcome": "success",
+        "wordPressPostId": 11823,
+        "postLink": "https://arthra.inscience.gr/2022/10/09/podcast-dialexeis-gia-toys-ypologistes-richard-p-feynmann/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-8462.json",
+        "slug": "o-giannis-xenakis-kai-i-osmosi-tis-moys",
+        "outcome": "success",
+        "wordPressPostId": 11825,
+        "postLink": "https://arthra.inscience.gr/2022/10/22/o-giannis-xenakis-kai-i-osmosi-tis-moys/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-8517.json",
+        "slug": "emvolia-kai-emvoliasmoi-syllogikos-t",
+        "outcome": "success",
+        "wordPressPostId": 11827,
+        "postLink": "https://arthra.inscience.gr/2022/10/17/emvolia-kai-emvoliasmoi-syllogikos-t/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-8594.json",
+        "slug": "i-ginaika-ergazomeni-sto-xoro-tis-erevnas",
+        "outcome": "success",
+        "wordPressPostId": 11829,
+        "postLink": "https://arthra.inscience.gr/2022/11/02/i-ginaika-ergazomeni-sto-xoro-tis-erevnas/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-8744.json",
+        "slug": "oi-anthropoi-piso-apo-to-vivlio-sinentefkis",
+        "outcome": "success",
+        "wordPressPostId": 11831,
+        "postLink": "https://arthra.inscience.gr/2022/11/19/oi-anthropoi-piso-apo-to-vivlio-sinentefkis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-8848.json",
+        "slug": "homo-hapticus-giati-den-mporoyme-na-zisoyme-dichos",
+        "outcome": "success",
+        "wordPressPostId": 11833,
+        "postLink": "https://arthra.inscience.gr/2022/11/26/homo-hapticus-giati-den-mporoyme-na-zisoyme-dichos/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-8906.json",
+        "slug": "o-anthropos-tou-neandertal",
+        "outcome": "success",
+        "wordPressPostId": 11835,
+        "postLink": "https://arthra.inscience.gr/2022/12/05/o-anthropos-tou-neandertal/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-8937.json",
+        "slug": "kvantika-aeria-atomon-meros-trito",
+        "outcome": "success",
+        "wordPressPostId": 11837,
+        "postLink": "https://arthra.inscience.gr/2022/12/08/kvantika-aeria-atomon-meros-trito/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9071.json",
+        "slug": "to-mikrovioma-tis-gastrenterikis-odo",
+        "outcome": "success",
+        "wordPressPostId": 11839,
+        "postLink": "https://arthra.inscience.gr/2022/12/19/to-mikrovioma-tis-gastrenterikis-odo/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9074.json",
+        "slug": "i-istoria-tis-neoteris-epistimis-mia-e",
+        "outcome": "success",
+        "wordPressPostId": 11841,
+        "postLink": "https://arthra.inscience.gr/2022/12/31/i-istoria-tis-neoteris-epistimis-mia-e/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9080.json",
+        "slug": "psifiakes-technologies-kai-technes",
+        "outcome": "success",
+        "wordPressPostId": 11843,
+        "postLink": "https://arthra.inscience.gr/2023/01/14/psifiakes-technologies-kai-technes/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9083.json",
+        "slug": "kvantiki-klironomia-antapokriseis-a",
+        "outcome": "success",
+        "wordPressPostId": 11845,
+        "postLink": "https://arthra.inscience.gr/?p=11845",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9108.json",
+        "slug": "sxediazontas-kai-vionontas-tin-arxitektoniki",
+        "outcome": "success",
+        "wordPressPostId": 11847,
+        "postLink": "https://arthra.inscience.gr/2022/12/22/sxediazontas-kai-vionontas-tin-arxitektoniki/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9206.json",
+        "slug": "podcast-megali-epistimi-endiaferouses-zoes",
+        "outcome": "success",
+        "wordPressPostId": 11849,
+        "postLink": "https://arthra.inscience.gr/2023/01/04/podcast-megali-epistimi-endiaferouses-zoes/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9333.json",
+        "slug": "aniara-epistimi-texnologia-kinimatografos",
+        "outcome": "success",
+        "wordPressPostId": 11851,
+        "postLink": "https://arthra.inscience.gr/2023/01/21/aniara-epistimi-texnologia-kinimatografos/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9477.json",
+        "slug": "parousiasi-tou-vivliou-tis-marianas-haritonidou",
+        "outcome": "success",
+        "wordPressPostId": 11853,
+        "postLink": "https://arthra.inscience.gr/2023/02/04/parousiasi-tou-vivliou-tis-marianas-haritonidou/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9558.json",
+        "slug": "monopatia-katanoisis",
+        "outcome": "success",
+        "wordPressPostId": 11855,
+        "postLink": "https://arthra.inscience.gr/2023/02/11/monopatia-katanoisis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9576.json",
+        "slug": "kvantika-aeria-meros-tetarto",
+        "outcome": "success",
+        "wordPressPostId": 11857,
+        "postLink": "https://arthra.inscience.gr/2023/02/18/kvantika-aeria-meros-tetarto/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9610.json",
+        "slug": "omilia-manoli-dafermou-h-epistimi-se-stavrodromi",
+        "outcome": "success",
+        "wordPressPostId": 11859,
+        "postLink": "https://arthra.inscience.gr/2023/03/01/omilia-manoli-dafermou-h-epistimi-se-stavrodromi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9712.json",
+        "slug": "mathimatikoi-kikloi",
+        "outcome": "success",
+        "wordPressPostId": 11861,
+        "postLink": "https://arthra.inscience.gr/2023/03/28/mathimatikoi-kikloi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9718.json",
+        "slug": "kvantiki-klironomia",
+        "outcome": "success",
+        "wordPressPostId": 11863,
+        "postLink": "https://arthra.inscience.gr/2023/04/08/kvantiki-klironomia/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9720.json",
+        "slug": "egkefalos-kai-xronos",
+        "outcome": "success",
+        "wordPressPostId": 11865,
+        "postLink": "https://arthra.inscience.gr/2023/05/02/egkefalos-kai-xronos/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9722.json",
+        "slug": "i-simviotiki-peripeteia",
+        "outcome": "success",
+        "wordPressPostId": 11867,
+        "postLink": "https://arthra.inscience.gr/2023/05/13/i-simviotiki-peripeteia/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9726.json",
+        "slug": "the-lognest-goodbye-epistimi-texnologia-kinimatografos",
+        "outcome": "success",
+        "wordPressPostId": 11869,
+        "postLink": "https://arthra.inscience.gr/2023/03/31/the-lognest-goodbye-epistimi-texnologia-kinimatografos/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9753.json",
+        "slug": "optikoi-kristaloi-atomon-meros-deftero-oi-efarmoges",
+        "outcome": "success",
+        "wordPressPostId": 11871,
+        "postLink": "https://arthra.inscience.gr/2023/04/18/optikoi-kristaloi-atomon-meros-deftero-oi-efarmoges/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-9894.json",
+        "slug": "alphaville",
+        "outcome": "success",
+        "wordPressPostId": 11873,
+        "postLink": "https://arthra.inscience.gr/2023/05/06/alphaville/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10051.json",
+        "slug": "epanatopothetisi-farmakon",
+        "outcome": "success",
+        "wordPressPostId": 11875,
+        "postLink": "https://arthra.inscience.gr/2023/05/20/epanatopothetisi-farmakon/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10067.json",
+        "slug": "pseydoepistimes-kai-theories-synomosi",
+        "outcome": "success",
+        "wordPressPostId": 11877,
+        "postLink": "https://arthra.inscience.gr/2023/06/11/pseydoepistimes-kai-theories-synomosi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10070.json",
+        "slug": "prosarmostiki-ogkogenesi",
+        "outcome": "success",
+        "wordPressPostId": 11879,
+        "postLink": "https://arthra.inscience.gr/2023/06/18/prosarmostiki-ogkogenesi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10110.json",
+        "slug": "omilia-aggelou-chanioti-i-texnologia-tis-nixtas",
+        "outcome": "success",
+        "wordPressPostId": 11881,
+        "postLink": "https://arthra.inscience.gr/2023/07/22/omilia-aggelou-chanioti-i-texnologia-tis-nixtas/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10118.json",
+        "slug": "i-goiteia-tis-emmonis",
+        "outcome": "success",
+        "wordPressPostId": 11883,
+        "postLink": "https://arthra.inscience.gr/2023/07/29/i-goiteia-tis-emmonis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10126.json",
+        "slug": "omilia-christou-papadimitriou-peri-fysikis-kai-technitis-noimosinis",
+        "outcome": "success",
+        "wordPressPostId": 11885,
+        "postLink": "https://arthra.inscience.gr/2023/09/02/omilia-christou-papadimitriou-peri-fysikis-kai-technitis-noimosinis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10136.json",
+        "slug": "filosofia-tis-texnologias",
+        "outcome": "success",
+        "wordPressPostId": 11887,
+        "postLink": "https://arthra.inscience.gr/2023/09/11/filosofia-tis-texnologias/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10140.json",
+        "slug": "podcast-heisenberg-megali-epistimi",
+        "outcome": "success",
+        "wordPressPostId": 11889,
+        "postLink": "https://arthra.inscience.gr/2023/09/16/podcast-heisenberg-megali-epistimi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10147.json",
+        "slug": "apaiteitai-sinarmologisi",
+        "outcome": "success",
+        "wordPressPostId": 11891,
+        "postLink": "https://arthra.inscience.gr/2023/09/23/apaiteitai-sinarmologisi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10155.json",
+        "slug": "cinema-modern-times",
+        "outcome": "success",
+        "wordPressPostId": 11893,
+        "postLink": "https://arthra.inscience.gr/2023/09/30/cinema-modern-times/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10165.json",
+        "slug": "peri-tis-katagogis-toy-chronoy-i-teliki",
+        "outcome": "success",
+        "wordPressPostId": 11895,
+        "postLink": "https://arthra.inscience.gr/2023/10/07/peri-tis-katagogis-toy-chronoy-i-teliki/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10168.json",
+        "slug": "texniti-noimosini-i-nea-epistimi-tis-gnostikis-ikanotitas",
+        "outcome": "success",
+        "wordPressPostId": 11897,
+        "postLink": "https://arthra.inscience.gr/2023/10/08/texniti-noimosini-i-nea-epistimi-tis-gnostikis-ikanotitas/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10185.json",
+        "slug": "omilia-harry-varvogli-astrologia-mythoi",
+        "outcome": "success",
+        "wordPressPostId": 11899,
+        "postLink": "https://arthra.inscience.gr/2023/10/28/omilia-harry-varvogli-astrologia-mythoi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10195.json",
+        "slug": "ta-themelia-tis-sigxronis-fisikis",
+        "outcome": "success",
+        "wordPressPostId": 11901,
+        "postLink": "https://arthra.inscience.gr/2023/10/23/ta-themelia-tis-sigxronis-fisikis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10202.json",
+        "slug": "klasiki-kai-kvantiki-sxetikistiki-theoria-pediou",
+        "outcome": "success",
+        "wordPressPostId": 11903,
+        "postLink": "https://arthra.inscience.gr/2023/11/04/klasiki-kai-kvantiki-sxetikistiki-theoria-pediou/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10205.json",
+        "slug": "robert-oppenheimer-o-thriamvos-kai-i-tragodia-tou",
+        "outcome": "success",
+        "wordPressPostId": 11905,
+        "postLink": "https://arthra.inscience.gr/2023/11/18/robert-oppenheimer-o-thriamvos-kai-i-tragodia-tou/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10208.json",
+        "slug": "john-von-neumann-o-anthropos-apo-to-mellon",
+        "outcome": "success",
+        "wordPressPostId": 11907,
+        "postLink": "https://arthra.inscience.gr/2023/12/02/john-von-neumann-o-anthropos-apo-to-mellon/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10213.json",
+        "slug": "omilia-adrianou-golemi-o-anthropos-sta-asteria",
+        "outcome": "success",
+        "wordPressPostId": 11909,
+        "postLink": "https://arthra.inscience.gr/2023/11/11/omilia-adrianou-golemi-o-anthropos-sta-asteria/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10230.json",
+        "slug": "pesvodepistimes-kai-theories-sinomosias",
+        "outcome": "success",
+        "wordPressPostId": 11911,
+        "postLink": "https://arthra.inscience.gr/2023/11/25/pesvodepistimes-kai-theories-sinomosias/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10244.json",
+        "slug": "parousiasi-vivliou-arxitektonika-sxedia-os-mixanismoi-dierevnisis",
+        "outcome": "success",
+        "wordPressPostId": 11913,
+        "postLink": "https://arthra.inscience.gr/2023/11/25/parousiasi-vivliou-arxitektonika-sxedia-os-mixanismoi-dierevnisis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10253.json",
+        "slug": "kosmologia-desk-top",
+        "outcome": "success",
+        "wordPressPostId": 11915,
+        "postLink": "https://arthra.inscience.gr/2023/12/07/kosmologia-desk-top/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10282.json",
+        "slug": "apodeixeis-apo-to-vivlio",
+        "outcome": "success",
+        "wordPressPostId": 11917,
+        "postLink": "https://arthra.inscience.gr/2023/12/16/apodeixeis-apo-to-vivlio/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10287.json",
+        "slug": "vatheia-iatriki-kai-texniti-noimosini",
+        "outcome": "success",
+        "wordPressPostId": 11919,
+        "postLink": "https://arthra.inscience.gr/2023/12/23/vatheia-iatriki-kai-texniti-noimosini/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10290.json",
+        "slug": "filosofia-kai-iatriki-stin-arxaia-ellada-methodoi-kai-provlimata",
+        "outcome": "success",
+        "wordPressPostId": 11921,
+        "postLink": "https://arthra.inscience.gr/2023/12/30/filosofia-kai-iatriki-stin-arxaia-ellada-methodoi-kai-provlimata/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10295.json",
+        "slug": "i-aytoviografia-tis-gis-ti-istories-ma",
+        "outcome": "success",
+        "wordPressPostId": 11923,
+        "postLink": "https://arthra.inscience.gr/2024/01/20/i-aytoviografia-tis-gis-ti-istories-ma/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10302.json",
+        "slug": "i-sxesi-polis-kai-politikis-kata-tin-psixropolemiki-periodo",
+        "outcome": "success",
+        "wordPressPostId": 11925,
+        "postLink": "https://arthra.inscience.gr/2024/01/26/i-sxesi-polis-kai-politikis-kata-tin-psixropolemiki-periodo/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10322.json",
+        "slug": "omilia-marias-zarifi-i-epistimoniki-apomonosi-tis-vaimaris",
+        "outcome": "success",
+        "wordPressPostId": 11927,
+        "postLink": "https://arthra.inscience.gr/2024/01/13/omilia-marias-zarifi-i-epistimoniki-apomonosi-tis-vaimaris/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10364.json",
+        "slug": "apo-ton-dimokrito-stous-kvantikozs-ipologistes",
+        "outcome": "success",
+        "wordPressPostId": 11929,
+        "postLink": "https://arthra.inscience.gr/2024/02/03/apo-ton-dimokrito-stous-kvantikozs-ipologistes/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10373.json",
+        "slug": "metropolis",
+        "outcome": "success",
+        "wordPressPostId": 11931,
+        "postLink": "https://arthra.inscience.gr/2024/02/09/metropolis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10383.json",
+        "slug": "i-eleysi-toy-katalliloteroy",
+        "outcome": "success",
+        "wordPressPostId": 11933,
+        "postLink": "https://arthra.inscience.gr/2024/02/17/i-eleysi-toy-katalliloteroy/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10388.json",
+        "slug": "paul-a-m-dirac-theoria-ton-ilektronion-kai-pozitronion",
+        "outcome": "success",
+        "wordPressPostId": 11935,
+        "postLink": "https://arthra.inscience.gr/2024/02/24/paul-a-m-dirac-theoria-ton-ilektronion-kai-pozitronion/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10401.json",
+        "slug": "syzitisi-me-tous-foitites-tis-arxitektonikis",
+        "outcome": "success",
+        "wordPressPostId": 11937,
+        "postLink": "https://arthra.inscience.gr/2024/03/02/syzitisi-me-tous-foitites-tis-arxitektonikis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10405.json",
+        "slug": "parousiasi-tou-vivliou-tis-marianas-haritonidou-architectural-drawings-as-investigating-devices",
+        "outcome": "success",
+        "wordPressPostId": 11939,
+        "postLink": "https://arthra.inscience.gr/2024/03/08/parousiasi-tou-vivliou-tis-marianas-haritonidou-architectural-drawings-as-investigating-devices/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10422.json",
+        "slug": "i-apoliti-viografia-tis-gis",
+        "outcome": "success",
+        "wordPressPostId": 11941,
+        "postLink": "https://arthra.inscience.gr/2024/03/30/i-apoliti-viografia-tis-gis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10426.json",
+        "slug": "sti-geitonia-toy-oyranoy-anafora-sta-o",
+        "outcome": "success",
+        "wordPressPostId": 11943,
+        "postLink": "https://arthra.inscience.gr/2024/03/16/sti-geitonia-toy-oyranoy-anafora-sta-o/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10429.json",
+        "slug": "omilia-thodorou-arabatzi-i-krisi-sta-themelia-tis-fisikis",
+        "outcome": "success",
+        "wordPressPostId": 11945,
+        "postLink": "https://arthra.inscience.gr/2024/03/22/omilia-thodorou-arabatzi-i-krisi-sta-themelia-tis-fisikis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10447.json",
+        "slug": "werner-heisenberg-i-anaptiksi-tis-kvantomixanikis",
+        "outcome": "success",
+        "wordPressPostId": 11947,
+        "postLink": "https://arthra.inscience.gr/2024/04/06/werner-heisenberg-i-anaptiksi-tis-kvantomixanikis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10465.json",
+        "slug": "o-axristos-planitis-ki-alla-sovietika-diigimata-epistimonikis-fantasias",
+        "outcome": "success",
+        "wordPressPostId": 11949,
+        "postLink": "https://arthra.inscience.gr/2024/04/13/o-axristos-planitis-ki-alla-sovietika-diigimata-epistimonikis-fantasias/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10469.json",
+        "slug": "seirines-stin-erimo-to-mistiriodes-tragoudi-ton-ammolofon",
+        "outcome": "success",
+        "wordPressPostId": 11951,
+        "postLink": "https://arthra.inscience.gr/2024/04/20/seirines-stin-erimo-to-mistiriodes-tragoudi-ton-ammolofon/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10488.json",
+        "slug": "pistosi-hronou-i-vioepistimoniki-theorisi",
+        "outcome": "success",
+        "wordPressPostId": 11953,
+        "postLink": "https://arthra.inscience.gr/2024/04/27/pistosi-hronou-i-vioepistimoniki-theorisi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10491.json",
+        "slug": "i-ptisi-ton-psaronion",
+        "outcome": "success",
+        "wordPressPostId": 11955,
+        "postLink": "https://arthra.inscience.gr/2024/05/04/i-ptisi-ton-psaronion/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10495.json",
+        "slug": "i-germaniki-rithimis-i-ensomatosi-tis-sigxronis-texnologias-stin-ethniki-koultoura",
+        "outcome": "success",
+        "wordPressPostId": 11957,
+        "postLink": "https://arthra.inscience.gr/2024/05/11/i-germaniki-rithimis-i-ensomatosi-tis-sigxronis-texnologias-stin-ethniki-koultoura/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10540.json",
+        "slug": "to-atheato-soma-pos-i-nea-epistimi-tou-anthropinou-somatos-allazei",
+        "outcome": "success",
+        "wordPressPostId": 11959,
+        "postLink": "https://arthra.inscience.gr/2024/05/18/to-atheato-soma-pos-i-nea-epistimi-tou-anthropinou-somatos-allazei/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10544.json",
+        "slug": "omilia-anamaria-gkini-sto-monopati-ton-yperkainofanon-asteron",
+        "outcome": "success",
+        "wordPressPostId": 11961,
+        "postLink": "https://arthra.inscience.gr/2024/05/25/omilia-anamaria-gkini-sto-monopati-ton-yperkainofanon-asteron/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10566.json",
+        "slug": "ena-mikro-vivlio-gia-ti-megali-ekriksi",
+        "outcome": "success",
+        "wordPressPostId": 11963,
+        "postLink": "https://arthra.inscience.gr/2024/06/02/ena-mikro-vivlio-gia-ti-megali-ekriksi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10570.json",
+        "slug": "podcast-i-krisi-sti-fisiki-kai-i-dimokratia-tis-vaimaris",
+        "outcome": "success",
+        "wordPressPostId": 11965,
+        "postLink": "https://arthra.inscience.gr/2024/06/08/podcast-i-krisi-sti-fisiki-kai-i-dimokratia-tis-vaimaris/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10579.json",
+        "slug": "to-sympan",
+        "outcome": "success",
+        "wordPressPostId": 11967,
+        "postLink": "https://arthra.inscience.gr/2024/06/15/to-sympan/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10582.json",
+        "slug": "ena-analafro-foteino-aggigma-sto-kvanto",
+        "outcome": "success",
+        "wordPressPostId": 11969,
+        "postLink": "https://arthra.inscience.gr/2024/06/22/ena-analafro-foteino-aggigma-sto-kvanto/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10603.json",
+        "slug": "anazitontas-ti-mnimi-i-anadysi-mias",
+        "outcome": "success",
+        "wordPressPostId": 11971,
+        "postLink": "https://arthra.inscience.gr/2024/06/29/anazitontas-ti-mnimi-i-anadysi-mias/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10609.json",
+        "slug": "i-themeliodis-idea-tis-kimatikis-mixanikis",
+        "outcome": "success",
+        "wordPressPostId": 11973,
+        "postLink": "https://arthra.inscience.gr/2024/07/06/i-themeliodis-idea-tis-kimatikis-mixanikis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10627.json",
+        "slug": "otan-to-feggari-egine-to-feggaraki-mas",
+        "outcome": "success",
+        "wordPressPostId": 11975,
+        "postLink": "https://arthra.inscience.gr/2024/07/13/otan-to-feggari-egine-to-feggaraki-mas/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10630.json",
+        "slug": "sixnes-erotiseis-gia-to-simpan",
+        "outcome": "success",
+        "wordPressPostId": 11977,
+        "postLink": "https://arthra.inscience.gr/2024/07/20/sixnes-erotiseis-gia-to-simpan/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10634.json",
+        "slug": "kvantiko-atmopunk",
+        "outcome": "success",
+        "wordPressPostId": 11979,
+        "postLink": "https://arthra.inscience.gr/2024/08/03/kvantiko-atmopunk/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10639.json",
+        "slug": "konstantinos-negris-o-protos-kathigitis-mathimatikon-sto-othoniko-panepistimio",
+        "outcome": "success",
+        "wordPressPostId": 11981,
+        "postLink": "https://arthra.inscience.gr/2024/08/10/konstantinos-negris-o-protos-kathigitis-mathimatikon-sto-othoniko-panepistimio/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10645.json",
+        "slug": "to-mistirio-tis-zois-ena-taksidi-sta-vathi-tis-istorias-mas",
+        "outcome": "success",
+        "wordPressPostId": 11983,
+        "postLink": "https://arthra.inscience.gr/2024/08/25/to-mistirio-tis-zois-ena-taksidi-sta-vathi-tis-istorias-mas/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10649.json",
+        "slug": "mia-sintomi-istoria-tis-kosmologias",
+        "outcome": "success",
+        "wordPressPostId": 11985,
+        "postLink": "https://arthra.inscience.gr/2024/09/01/mia-sintomi-istoria-tis-kosmologias/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10681.json",
+        "slug": "mathimatika-gia-nipia-logiki-mathimatika-kai-kritiki-skepsi",
+        "outcome": "success",
+        "wordPressPostId": 11987,
+        "postLink": "https://arthra.inscience.gr/2024/09/08/mathimatika-gia-nipia-logiki-mathimatika-kai-kritiki-skepsi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10687.json",
+        "slug": "ta-anoixta-erotimata-tis-fisikis-stoixeiodon-somatidion",
+        "outcome": "success",
+        "wordPressPostId": 11989,
+        "postLink": "https://arthra.inscience.gr/2024/09/14/ta-anoixta-erotimata-tis-fisikis-stoixeiodon-somatidion/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10703.json",
+        "slug": "i-domi-tou-kosmou-xoros-xronos-kai-i-yfi-tis-pragmatikotitas",
+        "outcome": "success",
+        "wordPressPostId": 11991,
+        "postLink": "https://arthra.inscience.gr/2024/09/21/i-domi-tou-kosmou-xoros-xronos-kai-i-yfi-tis-pragmatikotitas/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10706.json",
+        "slug": "einai-i-epistimi-mia-moda-ton-kairon",
+        "outcome": "success",
+        "wordPressPostId": 11993,
+        "postLink": "https://arthra.inscience.gr/2024/09/28/einai-i-epistimi-mia-moda-ton-kairon/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10720.json",
+        "slug": "filosofia-toy-psifiakoy-mia-eisagogi",
+        "outcome": "success",
+        "wordPressPostId": 11995,
+        "postLink": "https://arthra.inscience.gr/2024/10/05/filosofia-toy-psifiakoy-mia-eisagogi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10724.json",
+        "slug": "omilia-adrianou-golemi-14-mines-se-mia-pagomeni-apomonosi",
+        "outcome": "success",
+        "wordPressPostId": 11997,
+        "postLink": "https://arthra.inscience.gr/2024/10/12/omilia-adrianou-golemi-14-mines-se-mia-pagomeni-apomonosi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10739.json",
+        "slug": "apo-pou-pane-sto-sympan",
+        "outcome": "success",
+        "wordPressPostId": 11999,
+        "postLink": "https://arthra.inscience.gr/2024/10/19/apo-pou-pane-sto-sympan/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10748.json",
+        "slug": "skoteini-ili-i-tropopoiimeni-varitita",
+        "outcome": "success",
+        "wordPressPostId": 12001,
+        "postLink": "https://arthra.inscience.gr/2024/10/26/skoteini-ili-i-tropopoiimeni-varitita/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10761.json",
+        "slug": "domninos-o-larisaios-ta-arithimitka-erga",
+        "outcome": "success",
+        "wordPressPostId": 12003,
+        "postLink": "https://arthra.inscience.gr/2024/11/02/domninos-o-larisaios-ta-arithimitka-erga/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10766.json",
+        "slug": "i-fisiki-epistimi-kai-to-pnevma-tis-epoxis",
+        "outcome": "success",
+        "wordPressPostId": 12005,
+        "postLink": "https://arthra.inscience.gr/2024/11/09/i-fisiki-epistimi-kai-to-pnevma-tis-epoxis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10791.json",
+        "slug": "ta-mathimatika-tis-pandimias",
+        "outcome": "success",
+        "wordPressPostId": 12007,
+        "postLink": "https://arthra.inscience.gr/2024/11/16/ta-mathimatika-tis-pandimias/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10795.json",
+        "slug": "i-sxesi-politikis-kai-sxediasmou-stin-praktiki-kai-sti-skepsi-tou-adriano-olivetti",
+        "outcome": "success",
+        "wordPressPostId": 12009,
+        "postLink": "https://arthra.inscience.gr/2024/11/23/i-sxesi-politikis-kai-sxediasmou-stin-praktiki-kai-sti-skepsi-tou-adriano-olivetti/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10825.json",
+        "slug": "i-michani-tis-genesis-xanagrafontas-ti",
+        "outcome": "success",
+        "wordPressPostId": 12011,
+        "postLink": "https://arthra.inscience.gr/2024/11/30/i-michani-tis-genesis-xanagrafontas-ti/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10830.json",
+        "slug": "max-born-i-statistiki-ermineia-tis-kvantomixanikis",
+        "outcome": "success",
+        "wordPressPostId": 12013,
+        "postLink": "https://arthra.inscience.gr/2024/12/06/max-born-i-statistiki-ermineia-tis-kvantomixanikis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10854.json",
+        "slug": "i-diamorfosi-tis-proseggisis-tou-konstantinou-doxiadi-apo-tin-periodo",
+        "outcome": "success",
+        "wordPressPostId": 12015,
+        "postLink": "https://arthra.inscience.gr/2024/12/21/i-diamorfosi-tis-proseggisis-tou-konstantinou-doxiadi-apo-tin-periodo/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10881.json",
+        "slug": "o-papas-tou-galilaiou",
+        "outcome": "success",
+        "wordPressPostId": 12017,
+        "postLink": "https://arthra.inscience.gr/2024/12/14/o-papas-tou-galilaiou/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10900.json",
+        "slug": "enas-allos-nous",
+        "outcome": "success",
+        "wordPressPostId": 12019,
+        "postLink": "https://arthra.inscience.gr/2025/01/04/enas-allos-nous/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10903.json",
+        "slug": "galinos-sxetika-me-tis-apopseis-mou",
+        "outcome": "success",
+        "wordPressPostId": 12021,
+        "postLink": "https://arthra.inscience.gr/2025/01/18/galinos-sxetika-me-tis-apopseis-mou/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10906.json",
+        "slug": "what-is-a-quantum-field-theory-parousiasi-kai-kritiki-vivliou",
+        "outcome": "success",
+        "wordPressPostId": 12023,
+        "postLink": "https://arthra.inscience.gr/2025/01/11/what-is-a-quantum-field-theory-parousiasi-kai-kritiki-vivliou/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10915.json",
+        "slug": "i-fisiki-i-texniti-noimosini-kai-to-melon-tis-anakalipsis",
+        "outcome": "success",
+        "wordPressPostId": 12025,
+        "postLink": "https://arthra.inscience.gr/2025/01/25/i-fisiki-i-texniti-noimosini-kai-to-melon-tis-anakalipsis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10938.json",
+        "slug": "i-epistimoniki-apomonosi-tis-vaimaris-kai-i-adieksodos-sti-notio-anatoliki-evropi",
+        "outcome": "success",
+        "wordPressPostId": 12027,
+        "postLink": "https://arthra.inscience.gr/2025/02/08/i-epistimoniki-apomonosi-tis-vaimaris-kai-i-adieksodos-sti-notio-anatoliki-evropi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10952.json",
+        "slug": "propatorika-amartimata-tis-fisikis",
+        "outcome": "success",
+        "wordPressPostId": 12029,
+        "postLink": "https://arthra.inscience.gr/2025/02/15/propatorika-amartimata-tis-fisikis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10955.json",
+        "slug": "i-omorfia-tis-chimeias",
+        "outcome": "success",
+        "wordPressPostId": 12031,
+        "postLink": "https://arthra.inscience.gr/2025/03/01/i-omorfia-tis-chimeias/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10959.json",
+        "slug": "ti-oneirevontai-ta-androeidi",
+        "outcome": "success",
+        "wordPressPostId": 12033,
+        "postLink": "https://arthra.inscience.gr/2025/03/15/ti-oneirevontai-ta-androeidi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10963.json",
+        "slug": "algorithmoi-tis-antistasis",
+        "outcome": "success",
+        "wordPressPostId": 12035,
+        "postLink": "https://arthra.inscience.gr/2025/03/29/algorithmoi-tis-antistasis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10966.json",
+        "slug": "piso-apo-to-peplo",
+        "outcome": "success",
+        "wordPressPostId": 12037,
+        "postLink": "https://arthra.inscience.gr/2025/04/12/piso-apo-to-peplo/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10969.json",
+        "slug": "to-thavma-tou-anthropinou-somatos",
+        "outcome": "success",
+        "wordPressPostId": 12039,
+        "postLink": "https://arthra.inscience.gr/2025/04/26/to-thavma-tou-anthropinou-somatos/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10973.json",
+        "slug": "istorite-forthistory",
+        "outcome": "success",
+        "wordPressPostId": 12041,
+        "postLink": "https://arthra.inscience.gr/2025/05/10/istorite-forthistory/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10977.json",
+        "slug": "mia-fisiki-istoria-tou-mellontos",
+        "outcome": "success",
+        "wordPressPostId": 12043,
+        "postLink": "https://arthra.inscience.gr/2025/05/24/mia-fisiki-istoria-tou-mellontos/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10985.json",
+        "slug": "mia-protasi-gia-to-therino-programma-tou-dartmouth-gia-tin-texniti-noimosini",
+        "outcome": "success",
+        "wordPressPostId": 12045,
+        "postLink": "https://arthra.inscience.gr/2025/02/22/mia-protasi-gia-to-therino-programma-tou-dartmouth-gia-tin-texniti-noimosini/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-10997.json",
+        "slug": "emfilies-prokatalipseis-se-algorithmous-texnitis-noimosinis-mia-feministiki-kritiki",
+        "outcome": "success",
+        "wordPressPostId": 12047,
+        "postLink": "https://arthra.inscience.gr/2025/03/08/emfilies-prokatalipseis-se-algorithmous-texnitis-noimosinis-mia-feministiki-kritiki/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11012.json",
+        "slug": "sizitis-me-ton-filosofo-luciano-floridi-gia-tin-techniti-noimosini",
+        "outcome": "success",
+        "wordPressPostId": 12049,
+        "postLink": "https://arthra.inscience.gr/2025/03/22/sizitis-me-ton-filosofo-luciano-floridi-gia-tin-techniti-noimosini/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11030.json",
+        "slug": "omilia-dimitriou-tsomokou-analisi-tis-nomismatikis-kai-xrimatistiriakis",
+        "outcome": "success",
+        "wordPressPostId": 12051,
+        "postLink": "https://arthra.inscience.gr/2025/04/05/omilia-dimitriou-tsomokou-analisi-tis-nomismatikis-kai-xrimatistiriakis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11043.json",
+        "slug": "kinimatografos-kai-tehniti-noimosini-ena-iparksiako-kai-filosofiko-taksidi",
+        "outcome": "success",
+        "wordPressPostId": 12053,
+        "postLink": "https://arthra.inscience.gr/2025/04/19/kinimatografos-kai-tehniti-noimosini-ena-iparksiako-kai-filosofiko-taksidi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11058.json",
+        "slug": "to-vraveio-nobel-anadiknyei-tis-rizes-ton-nevronikon-diktion-sti-fisiki",
+        "outcome": "success",
+        "wordPressPostId": 12055,
+        "postLink": "https://arthra.inscience.gr/2025/05/03/to-vraveio-nobel-anadiknyei-tis-rizes-ton-nevronikon-diktion-sti-fisiki/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11078.json",
+        "slug": "omilia-dr-kariofylli-karamperi-exatomikevmeni-iatriki-kai-therapeia",
+        "outcome": "success",
+        "wordPressPostId": 12057,
+        "postLink": "https://arthra.inscience.gr/2025/05/17/omilia-dr-kariofylli-karamperi-exatomikevmeni-iatriki-kai-therapeia/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11089.json",
+        "slug": "xristos-papakyriakopoulos-enas-gigantas-tis-zois-kai-ton-mathimatikon",
+        "outcome": "success",
+        "wordPressPostId": 12059,
+        "postLink": "https://arthra.inscience.gr/2025/05/31/xristos-papakyriakopoulos-enas-gigantas-tis-zois-kai-ton-mathimatikon/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11100.json",
+        "slug": "o-vomvistis-kai-o-stratigos",
+        "outcome": "success",
+        "wordPressPostId": 12061,
+        "postLink": "https://arthra.inscience.gr/2025/06/08/o-vomvistis-kai-o-stratigos/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11106.json",
+        "slug": "parousiasi-tou-vivliou-i-diki-tou-galilaiou",
+        "outcome": "success",
+        "wordPressPostId": 12063,
+        "postLink": "https://arthra.inscience.gr/2025/06/14/parousiasi-tou-vivliou-i-diki-tou-galilaiou/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11126.json",
+        "slug": "ola-ksekinisan-para-poli-apla",
+        "outcome": "success",
+        "wordPressPostId": 12065,
+        "postLink": "https://arthra.inscience.gr/2025/06/21/ola-ksekinisan-para-poli-apla/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11134.json",
+        "slug": "wolfgang-pauli-apagoreftiki-archi-kai-kvantomixaniki",
+        "outcome": "success",
+        "wordPressPostId": 12067,
+        "postLink": "https://arthra.inscience.gr/2025/06/28/wolfgang-pauli-apagoreftiki-archi-kai-kvantomixaniki/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11144.json",
+        "slug": "ergodotis-mou-einai-enas-algorithmos",
+        "outcome": "success",
+        "wordPressPostId": 12069,
+        "postLink": "https://arthra.inscience.gr/2025/07/05/ergodotis-mou-einai-enas-algorithmos/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11151.json",
+        "slug": "ta-prota-vimata-i-orthia-vadisi",
+        "outcome": "success",
+        "wordPressPostId": 12071,
+        "postLink": "https://arthra.inscience.gr/2025/07/19/ta-prota-vimata-i-orthia-vadisi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11158.json",
+        "slug": "ta-gonidia-simvatotitas",
+        "outcome": "success",
+        "wordPressPostId": 12073,
+        "postLink": "https://arthra.inscience.gr/2025/08/02/ta-gonidia-simvatotitas/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11162.json",
+        "slug": "o-kosmos-o-mikros-o-megas",
+        "outcome": "success",
+        "wordPressPostId": 12075,
+        "postLink": "https://arthra.inscience.gr/2025/08/16/o-kosmos-o-mikros-o-megas/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11172.json",
+        "slug": "omilia-dr-papadopoulou-i-texniti-noimosini-sinanta-tis-anthropistikes-epistimes",
+        "outcome": "success",
+        "wordPressPostId": 12077,
+        "postLink": "https://arthra.inscience.gr/2025/08/30/omilia-dr-papadopoulou-i-texniti-noimosini-sinanta-tis-anthropistikes-epistimes/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11189.json",
+        "slug": "kvantika-me-eikones",
+        "outcome": "success",
+        "wordPressPostId": 12079,
+        "postLink": "https://arthra.inscience.gr/2025/09/06/kvantika-me-eikones/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11195.json",
+        "slug": "oi-gates-tis-kvantomixanikis",
+        "outcome": "success",
+        "wordPressPostId": 12081,
+        "postLink": "https://arthra.inscience.gr/2025/09/13/oi-gates-tis-kvantomixanikis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11248.json",
+        "slug": "xartografontas-to-skoteino-sympan-meros-1",
+        "outcome": "success",
+        "wordPressPostId": 12083,
+        "postLink": "https://arthra.inscience.gr/2025/09/27/xartografontas-to-skoteino-sympan-meros-1/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11280.json",
+        "slug": "parousiasi-vivilou-oikonomou-o-kosmos-o-mikros-o-megas",
+        "outcome": "success",
+        "wordPressPostId": 12085,
+        "postLink": "https://arthra.inscience.gr/2025/10/11/parousiasi-vivilou-oikonomou-o-kosmos-o-mikros-o-megas/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11292.json",
+        "slug": "epistimi-ypologiston-i-techni-tis-epil",
+        "outcome": "success",
+        "wordPressPostId": 12087,
+        "postLink": "https://arthra.inscience.gr/2025/10/18/epistimi-ypologiston-i-techni-tis-epil/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11298.json",
+        "slug": "omilia-stergiou-chatzikyriakidi",
+        "outcome": "success",
+        "wordPressPostId": 12089,
+        "postLink": "https://arthra.inscience.gr/2025/10/25/omilia-stergiou-chatzikyriakidi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11310.json",
+        "slug": "ethniki-katagogi-kai-dna-katarriptontas",
+        "outcome": "success",
+        "wordPressPostId": 12091,
+        "postLink": "https://arthra.inscience.gr/2025/11/01/ethniki-katagogi-kai-dna-katarriptontas/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11318.json",
+        "slug": "o-rolos-tou-chandrasekhar-stin-epistimi-tou-20ou-aiona",
+        "outcome": "success",
+        "wordPressPostId": 12093,
+        "postLink": "https://arthra.inscience.gr/2025/11/08/o-rolos-tou-chandrasekhar-stin-epistimi-tou-20ou-aiona/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11337.json",
+        "slug": "omilia-thimiou-nikolaidi-oi-episitmes-ston-elliniko-horo-apo-tin-ptosi",
+        "outcome": "success",
+        "wordPressPostId": 12095,
+        "postLink": "https://arthra.inscience.gr/2025/11/22/omilia-thimiou-nikolaidi-oi-episitmes-ston-elliniko-horo-apo-tin-ptosi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11353.json",
+        "slug": "arxaia-elliniki-stratiotiki-texnologia",
+        "outcome": "success",
+        "wordPressPostId": 12097,
+        "postLink": "https://arthra.inscience.gr/2025/11/29/arxaia-elliniki-stratiotiki-texnologia/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11362.json",
+        "slug": "omilia-g-vlahaki-oi-fysikes-epistimes-ston-neoelliniko-diafotismo",
+        "outcome": "success",
+        "wordPressPostId": 12099,
+        "postLink": "https://arthra.inscience.gr/2025/12/06/omilia-g-vlahaki-oi-fysikes-epistimes-ston-neoelliniko-diafotismo/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11374.json",
+        "slug": "oi-anthropoi-piso-apo-to-vivlio",
+        "outcome": "success",
+        "wordPressPostId": 12101,
+        "postLink": "https://arthra.inscience.gr/2025/12/18/oi-anthropoi-piso-apo-to-vivlio/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11387.json",
+        "slug": "ta-xnaria-tou-darvinou",
+        "outcome": "success",
+        "wordPressPostId": 12103,
+        "postLink": "https://arthra.inscience.gr/2026/01/03/ta-xnaria-tou-darvinou/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11390.json",
+        "slug": "i-goiteia-tis-ptosis",
+        "outcome": "success",
+        "wordPressPostId": 12105,
+        "postLink": "https://arthra.inscience.gr/2025/12/27/i-goiteia-tis-ptosis/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11394.json",
+        "slug": "solaris-tou-andrei-tarkovski",
+        "outcome": "success",
+        "wordPressPostId": 12107,
+        "postLink": "https://arthra.inscience.gr/2026/01/10/solaris-tou-andrei-tarkovski/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11403.json",
+        "slug": "omilia-kosta-tampaki",
+        "outcome": "success",
+        "wordPressPostId": 12109,
+        "postLink": "https://arthra.inscience.gr/2026/01/24/omilia-kosta-tampaki/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11416.json",
+        "slug": "i-symmetria-kai-to-thirio-mia-mnimeiodi",
+        "outcome": "success",
+        "wordPressPostId": 12111,
+        "postLink": "https://arthra.inscience.gr/2026/02/14/i-symmetria-kai-to-thirio-mia-mnimeiodi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11420.json",
+        "slug": "ta-atomika-rologia",
+        "outcome": "success",
+        "wordPressPostId": 12113,
+        "postLink": "https://arthra.inscience.gr/2026/02/07/ta-atomika-rologia/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11438.json",
+        "slug": "oi-anthropoi-piso-apo-to-vivlio-christina-eftixi",
+        "outcome": "success",
+        "wordPressPostId": 12115,
+        "postLink": "https://arthra.inscience.gr/2026/02/21/oi-anthropoi-piso-apo-to-vivlio-christina-eftixi/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11463.json",
+        "slug": "omilia-anastassiou-roussou",
+        "outcome": "success",
+        "wordPressPostId": 12117,
+        "postLink": "https://arthra.inscience.gr/2026/03/07/omilia-anastassiou-roussou/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11480.json",
+        "slug": "xrisi-tis-psifiakis-texnologias-apo-tous-efivous",
+        "outcome": "success",
+        "wordPressPostId": 12119,
+        "postLink": "https://arthra.inscience.gr/2026/03/21/xrisi-tis-psifiakis-texnologias-apo-tous-efivous/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11508.json",
+        "slug": "apo-to-mesaioniko-panepistimio-sto-pa",
+        "outcome": "success",
+        "wordPressPostId": 12121,
+        "postLink": "https://arthra.inscience.gr/2026/03/28/apo-to-mesaioniko-panepistimio-sto-pa/",
+        "featuredMedia": "uploaded_from_source_url"
+      },
+      {
+        "file": "post-11514.json",
+        "slug": "omlia-tou-vasili-zoumpourli-me-thema-ta-simantika-orosima",
+        "outcome": "success",
+        "wordPressPostId": 12123,
+        "postLink": "https://arthra.inscience.gr/2026/04/03/omlia-tou-vasili-zoumpourli-me-thema-ta-simantika-orosima/",
+        "featuredMedia": "uploaded_from_source_url"
+      }
+    ]
+  }
+}

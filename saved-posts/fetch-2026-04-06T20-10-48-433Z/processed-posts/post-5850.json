@@ -1,0 +1,189 @@
+{
+  "id": 5850,
+  "slug": "arthro-me-ixografisi",
+  "status": "draft",
+  "type": "post",
+  "date": "2021-02-28T21:14:38",
+  "date_gmt": "2021-02-28T21:14:38",
+  "modified": "2021-08-02T04:20:17",
+  "modified_gmt": "2021-08-02T04:20:17",
+  "link": "https://inscience.gr/?p=5850",
+  "title": {
+    "rendered": "Άρθρο με Ηχογράφηση"
+  },
+  "content": {
+    "rendered": "<p><iframe loading=\"lazy\" src=\"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/683999537&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true\" width=\"100%\" height=\"166\" frameborder=\"no\" scrolling=\"no\"></iframe></p>\n<div style=\"font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif; font-weight: 100;\"><a style=\"color: #cccccc; text-decoration: none;\" title=\"Guardian Science Weekly\" href=\"https://soundcloud.com/guardianscienceweekly\" target=\"_blank\" rel=\"noopener\">Guardian Science Weekly</a> · <a style=\"color: #cccccc; text-decoration: none;\" title=\"'Nature is quantum from the start': Sean Carroll, many worlds, and a new theory of spacetime – Science Weekly podcast\" href=\"https://soundcloud.com/guardianscienceweekly/nature-is-quantum-from-the\" target=\"_blank\" rel=\"noopener\">'Nature is quantum from the start': Sean Carroll, many worlds, and a new theory of spacetime – Science Weekly podcast</a></div>\n<p>Έχει συχνά εκφράσει τον δεσµό του µε το συγκεκριµένο Ινστιτούτο καθώς και µε την ερευνητική παράδοση που είχε αναπτυχθεί στους κόλπους του εδώ και ένα αιώνα. Οι έρευνες του καθώς και οι έρευνες των συνεργατών του,  ωστόσο, είχαν δροµολογήσει ένα τροποποιηµένο προσανατολισµό στην ερευνητική παράδοση του Ινστιτούτου µε κατεύθυνση προς τις πιο θεµελιακές εκδοχές της βιολογίας και κυρίως της εξέλιξης. Ο Lwoff, ο Μονό και ο Francois Jacob, συνιστούν κατά κάποιο τρόπο την εισβολή του πλοίου Μπίγκλ µέσα στο Ινστιτούτο Παστέρ. Το αξιοσέβαστο ίδρυµα όµως, χρειάστηκε να περάσει αρκετός χρόνος για να υποδεχτεί αναλόγως αυτή την εισβολή, αλλά παρόλα αυτά δέχθηκε από αυτή µία αποφασιστική ώθηση.</p>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>Guardian Science Weekly · 'Nature is quantum from the start': Sean Carroll, many worlds, and a new theory of spacetime – Science Weekly podcast Έχει συχνά εκφράσει τον δεσµό του...</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 1,
+    "name": "Νεσίμ Καλόσι",
+    "slug": "nesimk",
+    "avatar_urls": {
+      "24": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=24&d=mm&r=g",
+      "48": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=48&d=mm&r=g",
+      "96": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=96&d=mm&r=g"
+    }
+  },
+  "featured_media": 5626,
+  "featured_image": {
+    "id": 5626,
+    "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928.jpg",
+    "alt_text": "",
+    "media_details": {
+      "width": 1000,
+      "height": 667,
+      "file": "2014/07/josh-nuttall-271928.jpg",
+      "sizes": {
+        "medium": {
+          "file": "josh-nuttall-271928-300x200.jpg",
+          "width": 300,
+          "height": 200,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-300x200.jpg"
+        },
+        "thumbnail": {
+          "file": "josh-nuttall-271928-150x150.jpg",
+          "width": 150,
+          "height": 150,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-150x150.jpg"
+        },
+        "medium_large": {
+          "file": "josh-nuttall-271928-768x512.jpg",
+          "width": 768,
+          "height": 512,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-768x512.jpg"
+        },
+        "portfolio-thumb_large": {
+          "file": "josh-nuttall-271928-900x604.jpg",
+          "width": 900,
+          "height": 604,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-900x604.jpg"
+        },
+        "portfolio-thumb": {
+          "file": "josh-nuttall-271928-600x403.jpg",
+          "width": 600,
+          "height": 403,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-600x403.jpg"
+        },
+        "portfolio-thumb_small": {
+          "file": "josh-nuttall-271928-400x269.jpg",
+          "width": 400,
+          "height": 269,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-400x269.jpg"
+        },
+        "portfolio-widget": {
+          "file": "josh-nuttall-271928-100x100.jpg",
+          "width": 100,
+          "height": 100,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-100x100.jpg"
+        },
+        "nectar_small_square": {
+          "file": "josh-nuttall-271928-140x140.jpg",
+          "width": 140,
+          "height": 140,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-140x140.jpg"
+        },
+        "wide": {
+          "file": "josh-nuttall-271928-1000x500.jpg",
+          "width": 1000,
+          "height": 500,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-1000x500.jpg"
+        },
+        "wide_small": {
+          "file": "josh-nuttall-271928-670x335.jpg",
+          "width": 670,
+          "height": 335,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-670x335.jpg"
+        },
+        "regular": {
+          "file": "josh-nuttall-271928-500x500.jpg",
+          "width": 500,
+          "height": 500,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-500x500.jpg"
+        },
+        "regular_small": {
+          "file": "josh-nuttall-271928-350x350.jpg",
+          "width": 350,
+          "height": 350,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-350x350.jpg"
+        },
+        "tall": {
+          "file": "josh-nuttall-271928-500x667.jpg",
+          "width": 500,
+          "height": 667,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-500x667.jpg"
+        },
+        "wide_photography": {
+          "file": "josh-nuttall-271928-900x600.jpg",
+          "width": 900,
+          "height": 600,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-900x600.jpg"
+        },
+        "medium_featured": {
+          "file": "josh-nuttall-271928-800x667.jpg",
+          "width": 800,
+          "height": 667,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928-800x667.jpg"
+        },
+        "full": {
+          "file": "josh-nuttall-271928.jpg",
+          "width": 1000,
+          "height": 667,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2014/07/josh-nuttall-271928.jpg"
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": 5,
+      "name": "ΙΣΤΟΡΙΑ ΚΑΙ ΦΙΛΟΣΟΦΙΑ ΕΠΙΣΤΗΜΩΝ ΚΑΙ ΤΕΧΝΟΛΟΓΙΑΣ",
+      "slug": "history-and-philosophy-of-science-and-technology",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 99,
+      "name": "ΝΕΟΤΕΡΑ",
+      "slug": "latest",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [],
+  "format": "standard",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 1,
+    "article_content_type": "article",
+    "article_abstract": "Guardian Science Weekly · 'Nature is quantum from the start': Sean Carroll, many worlds, and a new theory of spacetime – Science Weekly podcast Έχει συχνά εκφράσει τον δεσµό του...",
+    "article_youtube_url": null,
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}

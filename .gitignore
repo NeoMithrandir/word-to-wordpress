@@ -95,7 +95,11 @@ temp/
 wordpress-credentials.json
 
 # Saved posts (optional - uncomment if you don't want to track these)
-# saved-posts/
+#saved-posts/
 
 # Test files output
 test-output/
+
+# MemPalace per-project files (issue #185)
+mempalace.yaml
+entities.json

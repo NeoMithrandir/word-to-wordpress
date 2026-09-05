@@ -1,0 +1,195 @@
+{
+  "id": 6631,
+  "slug": "epigenetiki",
+  "status": "publish",
+  "type": "post",
+  "date": "2021-10-26T05:54:52",
+  "date_gmt": "2021-10-26T02:54:52",
+  "modified": "2021-10-26T05:55:58",
+  "modified_gmt": "2021-10-26T02:55:58",
+  "link": "https://inscience.gr/2021/10/26/%ce%b5%cf%80%ce%b9%ce%b3%ce%b5%ce%bd%ce%b5%cf%84%ce%b9%ce%ba%ce%b7/",
+  "title": {
+    "rendered": "ΕΠΙΓΕΝΕΤΙΚΗ"
+  },
+  "content": {
+    "rendered": "<p><strong>LYLE ARMSTRONG </strong></p>\n<p><strong>Μετάφραση: Δέσποινα Αλεξανδράκη &#8211; Αντώνης Κυρμίζης</strong><br />\n<strong>Μαριλένα Παπαϊωάννου &#8211; Ιωσήφ Παπαματθαιάκης</strong><br />\n<strong>Χαράλαμπος Σπηλιανάκης</strong>Η <em>Επιγενετική</em> του Lyle Armstrong μεταφράζεται για πρώτη φορά στην ελληνική γλώσσα και έρχεται να καλύψει ένα σημαντικό κενό: την έλλειψη συγγράμματος για τη διδασκαλία τού εν λόγω γνωστικού αντικειμένου στα ανώτατα εκπαιδευτικά ιδρύματα.</p>\n<p>Διαρθρωμένο σε τρεις ενότητες, το βιβλίο προσφέρει μια λεπτομερή επισκόπηση του πεδίου της Επιγενετικής:</p>\n<p>Στην Ενότητα Ι περιγράφονται η αρχιτεκτονική της χρωματίνης και οι μηχανισμοί που διέπουν τη μεθυλίωση του DNA και την ακετυλίωση των ιστονών.</p>\n<p>Στην Ενότητα ΙΙ εξετάζεται πώς επηρεάζονται από τις επιγενετικές τροποποιήσεις διάφορες κυτταρικές λειτουργίες (η γονιδιακή έκφραση, ο κυτταρικός κύκλος, το γονιδιακό εντύπωμα και η διαφοροποίηση), αλλά και πώς αντιστρέφονται τα πρότυπα των τροποποιήσεων αυτών έτσι ώστε να δημιουργηθούν πολυδύναμα βλαστικά κύτταρα.</p>\n<p>Τέλος, στην Ενότητα ΙΙΙ αναλύονται οι ενδείξεις που διαθέτουμε σήμερα όσον αφορά το επιγενετικό υπόβαθρο ορισμένων ασθενειών, ιδίως των γνωσιακών δυσλειτουργιών και του καρκίνου. Με πλούσια έγχρωμη εικονογράφηση και παραδείγματα από την κλασική αλλά και την πρόσφατη βιβλιογραφία, η <em>Επιγενετική</em> αποτελεί ένα πολύτιμο εγχειρίδιο τόσο για τους φοιτητές όσο και για τους ερευνητές των συναφών επιστημονικών κλάδων.</p>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>LYLE ARMSTRONG Μετάφραση: Δέσποινα Αλεξανδράκη &#8211; Αντώνης Κυρμίζης Μαριλένα Παπαϊωάννου &#8211; Ιωσήφ Παπαματθαιάκης Χαράλαμπος Σπηλιανάκης Η Επιγενετική του Lyle Armstrong μεταφράζεται για πρώτη φορά στην ελληνική γλώσσα και έρχεται να...</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 2,
+    "name": "Βασίλης Λεμπέσης",
+    "slug": "vlembessis",
+    "avatar_urls": {
+      "24": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-24x24.jpg",
+      "48": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-48x48.jpg",
+      "96": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-96x96.jpg"
+    }
+  },
+  "featured_media": 6632,
+  "featured_image": {
+    "id": 6632,
+    "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki.jpg",
+    "alt_text": "",
+    "media_details": {
+      "width": 602,
+      "height": 842,
+      "file": "2021/10/Epigenetiki.jpg",
+      "sizes": {
+        "medium": {
+          "file": "Epigenetiki-214x300.jpg",
+          "width": 214,
+          "height": 300,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-214x300.jpg"
+        },
+        "thumbnail": {
+          "file": "Epigenetiki-150x150.jpg",
+          "width": 150,
+          "height": 150,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-150x150.jpg"
+        },
+        "portfolio-thumb_large": {
+          "file": "Epigenetiki-602x604.jpg",
+          "width": 602,
+          "height": 604,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-602x604.jpg"
+        },
+        "portfolio-thumb": {
+          "file": "Epigenetiki-600x403.jpg",
+          "width": 600,
+          "height": 403,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-600x403.jpg"
+        },
+        "portfolio-thumb_small": {
+          "file": "Epigenetiki-400x269.jpg",
+          "width": 400,
+          "height": 269,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-400x269.jpg"
+        },
+        "portfolio-widget": {
+          "file": "Epigenetiki-100x100.jpg",
+          "width": 100,
+          "height": 100,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-100x100.jpg"
+        },
+        "nectar_small_square": {
+          "file": "Epigenetiki-140x140.jpg",
+          "width": 140,
+          "height": 140,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-140x140.jpg"
+        },
+        "wide": {
+          "file": "Epigenetiki-602x500.jpg",
+          "width": 602,
+          "height": 500,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-602x500.jpg"
+        },
+        "wide_small": {
+          "file": "Epigenetiki-602x335.jpg",
+          "width": 602,
+          "height": 335,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-602x335.jpg"
+        },
+        "regular": {
+          "file": "Epigenetiki-500x500.jpg",
+          "width": 500,
+          "height": 500,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-500x500.jpg"
+        },
+        "regular_small": {
+          "file": "Epigenetiki-350x350.jpg",
+          "width": 350,
+          "height": 350,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-350x350.jpg"
+        },
+        "tall": {
+          "file": "Epigenetiki-500x842.jpg",
+          "width": 500,
+          "height": 842,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-500x842.jpg"
+        },
+        "wide_photography": {
+          "file": "Epigenetiki-602x600.jpg",
+          "width": 602,
+          "height": 600,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-602x600.jpg"
+        },
+        "large_featured": {
+          "file": "Epigenetiki-602x770.jpg",
+          "width": 602,
+          "height": 770,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-602x770.jpg"
+        },
+        "medium_featured": {
+          "file": "Epigenetiki-602x800.jpg",
+          "width": 602,
+          "height": 800,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki-602x800.jpg"
+        },
+        "full": {
+          "file": "Epigenetiki.jpg",
+          "width": 602,
+          "height": 842,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/10/Epigenetiki.jpg"
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": 96,
+      "name": "ΠΡΟΤΑΣΕΙΣ ΒΙΒΛΙΩΝ",
+      "slug": "book-suggestions",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 98,
+      "name": "InScience book suggestions",
+      "slug": "inscience-book-suggestions",
+      "description": ""
+    },
+    {
+      "id": 97,
+      "name": "InScience προτάσεις βιβλίων",
+      "slug": "inscience-protaseis-vivlion",
+      "description": ""
+    }
+  ],
+  "format": "standard",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 1,
+    "article_content_type": "book_review",
+    "article_abstract": "LYLE ARMSTRONG Μετάφραση: Δέσποινα Αλεξανδράκη &#8211; Αντώνης Κυρμίζης Μαριλένα Παπαϊωάννου &#8211; Ιωσήφ Παπαματθαιάκης Χαράλαμπος Σπηλιανάκης Η Επιγενετική του Lyle Armstrong μεταφράζεται για πρώτη φορά στην ελληνική γλώσσα και έρχεται να...",
+    "article_youtube_url": null,
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": 6079,
+  "date": "2013-11-03T02:56:30",
+  "date_gmt": "2013-11-03T02:56:30",
+  "modified": "2021-07-16T00:39:12",
+  "modified_gmt": "2021-07-16T00:39:12",
+  "slug": "hello-world-2",
+  "status": "draft",
+  "type": "post",
+  "link": "https://inscience.gr/?p=6079",
+  "title": {
+    "rendered": "Hello world!"
+  },
+  "content": {
+    "rendered": "<div id=\"bsf_rt_marker\"></div><p><span class=\"span-reading-time rt-reading-time\" style=\"display: block;\"><span class=\"rt-label rt-prefix\">Χρόνος Ανάγνωσης</span> <span class=\"rt-time\"> &lt; 1</span> <span class=\"rt-label rt-postfix\">λεπτό</span></span>Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!</p>\n",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p><span class=\"span-reading-time rt-reading-time\" style=\"display: block;\"><span class=\"rt-label rt-prefix\">Χρόνος Ανάγνωσης</span> <span class=\"rt-time\"> &lt; 1</span> <span class=\"rt-label rt-postfix\">λεπτό</span></span>Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!</p>\n",
+    "protected": false
+  },
+  "author": {
+    "id": 1,
+    "name": "Νεσίμ Καλόσι",
+    "slug": "nesimk",
+    "avatar_urls": {
+      "24": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=24&d=mm&r=g",
+      "48": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=48&d=mm&r=g",
+      "96": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=96&d=mm&r=g"
+    }
+  },
+  "featured_media": 0,
+  "featured_image": null,
+  "categories": [
+    {
+      "id": 47,
+      "name": "Uncategorized",
+      "slug": "uncategorized",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [],
+  "format": "standard",
+  "meta": {
+    "_acf_changed": false,
+    "_bbp_topic_count": 0,
+    "_bbp_reply_count": 0,
+    "_bbp_total_topic_count": 0,
+    "_bbp_total_reply_count": 0,
+    "_bbp_voice_count": 0,
+    "_bbp_anonymous_reply_count": 0,
+    "_bbp_topic_count_hidden": 0,
+    "_bbp_reply_count_hidden": 0,
+    "_bbp_forum_subforum_count": 0,
+    "footnotes": ""
+  },
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open"
+}

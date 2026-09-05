@@ -1,0 +1,42 @@
+[
+  {
+    "filename": "image-1.png",
+    "originalId": "image-1",
+    "alt": "Document image",
+    "title": "",
+    "contentType": "image/png",
+    "sizeBytes": 2894618
+  },
+  {
+    "filename": "image-2.png",
+    "originalId": "image-2",
+    "alt": "Document image",
+    "title": "",
+    "contentType": "image/png",
+    "sizeBytes": 55837
+  },
+  {
+    "filename": "image-3.png",
+    "originalId": "image-3",
+    "alt": "Document image",
+    "title": "",
+    "contentType": "image/png",
+    "sizeBytes": 37436
+  },
+  {
+    "filename": "image-4.png",
+    "originalId": "image-4",
+    "alt": "Document image",
+    "title": "",
+    "contentType": "image/png",
+    "sizeBytes": 33538
+  },
+  {
+    "filename": "image-5.jpg",
+    "originalId": "image-5",
+    "alt": "Document image",
+    "title": "",
+    "contentType": "image/jpeg",
+    "sizeBytes": 28767
+  }
+]

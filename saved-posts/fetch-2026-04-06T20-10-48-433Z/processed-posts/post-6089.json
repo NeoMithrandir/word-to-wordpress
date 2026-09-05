@@ -1,0 +1,66 @@
+{
+  "id": 6089,
+  "slug": "gallery-post",
+  "status": "draft",
+  "type": "post",
+  "date": "2013-12-08T22:30:17",
+  "date_gmt": "2013-12-08T22:30:17",
+  "modified": "2021-07-16T00:39:10",
+  "modified_gmt": "2021-07-16T00:39:10",
+  "link": "https://inscience.gr/?p=6089",
+  "title": {
+    "rendered": "Gallery Post"
+  },
+  "content": {
+    "rendered": "<p>Gallery Post</p>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>Gallery Post</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 1,
+    "name": "Νεσίμ Καλόσι",
+    "slug": "nesimk",
+    "avatar_urls": {
+      "24": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=24&d=mm&r=g",
+      "48": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=48&d=mm&r=g",
+      "96": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=96&d=mm&r=g"
+    }
+  },
+  "featured_media": 0,
+  "featured_image": null,
+  "categories": [
+    {
+      "id": 46,
+      "name": "Posts",
+      "slug": "posts",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 48,
+      "name": "Posts",
+      "slug": "posts",
+      "description": ""
+    }
+  ],
+  "format": "gallery",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 1,
+    "article_content_type": "article",
+    "article_abstract": "Gallery Post",
+    "article_youtube_url": null,
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}

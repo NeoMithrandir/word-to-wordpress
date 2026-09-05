@@ -1,0 +1,241 @@
+{
+  "id": 11292,
+  "slug": "epistimi-ypologiston-i-techni-tis-epil",
+  "status": "publish",
+  "type": "post",
+  "date": "2025-10-18T06:02:27",
+  "date_gmt": "2025-10-18T03:02:27",
+  "modified": "2025-10-16T20:14:36",
+  "modified_gmt": "2025-10-16T17:14:36",
+  "link": "https://inscience.gr/2025/10/18/%ce%b5%cf%80%ce%b9%cf%83%cf%84%ce%b7%ce%bc%ce%b7-%cf%85%cf%80%ce%bf%ce%bb%ce%bf%ce%b3%ce%b9%cf%83%cf%84%cf%89%ce%bd-%ce%b7-%cf%84%ce%ad%cf%87%ce%bd%ce%b7-%cf%84%ce%b7%cf%82-%ce%b5%cf%80%ce%af%ce%bb/",
+  "title": {
+    "rendered": "ΕΠΙΣΤΗΜΗ ΥΠΟΛΟΓΙΣΤΩΝ – Η τέχνη της επίλυσης υπολογιστικών προβλημάτων. Μια συνοπτική εισαγωγή"
+  },
+  "content": {
+    "rendered": "<p><strong>ΠΑΝΕΠΙΣΤΗΜΙΑΚΕΣ ΕΚΔΟΣΕΙΣ ΚΡΗΤΗΣ<br />\n</strong><strong>WLADSTON FERREIRA FILHO</strong></p>\n<p><strong>Μετάφραση: </strong><strong>Αλέξανδρος Χορταράς<br />\nΕπιστημονική επιμέλεια: Ιωάννης Παπαδόγγονας<br />\n</strong><strong>Σχεδίαση εξωφύλλου</strong><strong>:</strong><strong> Ιάκωβος Ουρανός </strong><strong> </strong></p>\n<p><strong>ISBN</strong> <strong>978-618-230-133-3<br />\n</strong><strong>Διαστάσεις: </strong><strong>12</strong><strong> x </strong><strong>17</strong><strong> cm<br />\n</strong><strong>Αριθμός σελίδων: </strong><strong>232<br />\n</strong><strong>Τιμή: € </strong><strong>12<br />\n</strong><strong>Έτος έκδοσης: 2025</strong>Περιγραφή</p>\n<p>Το βιβλίο αυτό προσφέρει μια συνοπτική περιήγηση σε έννοιες της επιστήμης υπολογιστών που είναι αναγκαίες για όσους και όσες ενδιαφέρονται για τον προγραμματισμό. Σχεδιασμένο για αναγνώστες που δεν επικεντρώνονται στην ακαδημαϊκή τυπικότητα, αποτελεί έναν γρήγορο και εύκολο οδηγό για την επιστήμη υπολογιστών, παρουσιάζοντας με εύληπτο και γλαφυρό τρόπο τα θεμέλια που χρειάζεται κανείς για να προγραμματίσει υπολογιστές. Μετά από μια απλή εισαγωγή στα διακριτά μαθηματικά, περιγράφει καθιερωμένους αλγορίθμους και δομές δεδομένων, και συνοψίζει τις αρχές στις οποίες βασίζεται η λειτουργία των υπολογιστών και των γλωσσών προγραμματισμού.<strong>Bιογραφικ</strong><strong>ά</strong><strong> Συγγραφέα</strong></p>\n<p>Ο Wladston Ferreira Filho είναι βραζιλιάνος προγραμματιστής και ερευνητής, και απολαμβάνει το γράψιμο. Με τα βιβλία του εξηγεί με απλό τρόπο την επιστήμη του υπολογισμού, παρουσιάζει τις έννοιες στις οποίες βασίζονται οι προγραμματιστές για να οικοδομήσουν τον ψηφιακό μας κόσμο, και εξηγεί τον τρόπο λειτουργίας του Διαδικτύου, την κυβερνοασφάλεια και την επιστήμη δεδομένων.</p>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>ΠΑΝΕΠΙΣΤΗΜΙΑΚΕΣ ΕΚΔΟΣΕΙΣ ΚΡΗΤΗΣ WLADSTON FERREIRA FILHO Μετάφραση: Αλέξανδρος Χορταράς Επιστημονική επιμέλεια: Ιωάννης Παπαδόγγονας Σχεδίαση εξωφύλλου : Ιάκωβος Ουρανός ISBN 978-618-230-133-3 Διαστάσεις: 12 x 17 cm Αριθμός σελίδων: 232 Τιμή: €...</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 2,
+    "name": "Βασίλης Λεμπέσης",
+    "slug": "vlembessis",
+    "avatar_urls": {
+      "24": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-24x24.jpg",
+      "48": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-48x48.jpg",
+      "96": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-96x96.jpg"
+    }
+  },
+  "featured_media": 11294,
+  "featured_image": {
+    "id": 11294,
+    "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r.jpg",
+    "alt_text": "",
+    "media_details": {
+      "width": 561,
+      "height": 800,
+      "file": "2025/10/InScience-Book-suggestions-epistimi-ipologiston-r.jpg",
+      "sizes": {
+        "medium": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-210x300.jpg",
+          "width": 210,
+          "height": 300,
+          "filesize": 17457,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-210x300.jpg"
+        },
+        "thumbnail": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-150x150.jpg",
+          "width": 150,
+          "height": 150,
+          "filesize": 6950,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-150x150.jpg"
+        },
+        "portfolio-thumb": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-561x403.jpg",
+          "width": 561,
+          "height": 403,
+          "filesize": 66195,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-561x403.jpg"
+        },
+        "nectar_small_square": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-140x140.jpg",
+          "width": 140,
+          "height": 140,
+          "filesize": 6110,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-140x140.jpg"
+        },
+        "portfolio-thumb_large": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-561x604.jpg",
+          "width": 561,
+          "height": 604,
+          "filesize": 93667,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-561x604.jpg"
+        },
+        "portfolio-thumb_small": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-400x269.jpg",
+          "width": 400,
+          "height": 269,
+          "filesize": 32340,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-400x269.jpg"
+        },
+        "portfolio-widget": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-100x100.jpg",
+          "width": 100,
+          "height": 100,
+          "filesize": 3234,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-100x100.jpg"
+        },
+        "wide": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-561x500.jpg",
+          "width": 561,
+          "height": 500,
+          "filesize": 80507,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-561x500.jpg"
+        },
+        "wide_photography": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-561x600.jpg",
+          "width": 561,
+          "height": 600,
+          "filesize": 93410,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-561x600.jpg"
+        },
+        "wide_small": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-561x335.jpg",
+          "width": 561,
+          "height": 335,
+          "filesize": 52985,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-561x335.jpg"
+        },
+        "regular": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-500x500.jpg",
+          "width": 500,
+          "height": 500,
+          "filesize": 68289,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-500x500.jpg"
+        },
+        "regular_small": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-350x350.jpg",
+          "width": 350,
+          "height": 350,
+          "filesize": 37264,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-350x350.jpg"
+        },
+        "tall": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-500x800.jpg",
+          "width": 500,
+          "height": 800,
+          "filesize": 102694,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-500x800.jpg"
+        },
+        "large_featured": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-561x770.jpg",
+          "width": 561,
+          "height": 770,
+          "filesize": 110470,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-561x770.jpg"
+        },
+        "cmplz_banner_image": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-350x100.jpg",
+          "width": 350,
+          "height": 100,
+          "filesize": 11377,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-350x100.jpg"
+        },
+        "full": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r.jpg",
+          "width": 561,
+          "height": 800,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r.jpg"
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "ΠΛΗΡΟΦΟΡΙΚΗ-ΤΗΛΕΠΙΚΟΙΝΩΝΙΕΣ",
+      "slug": "information-technology-and-telecommunications",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 96,
+      "name": "ΠΡΟΤΑΣΕΙΣ ΒΙΒΛΙΩΝ",
+      "slug": "book-suggestions",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 159,
+      "name": "computer science",
+      "slug": "computer-science",
+      "description": ""
+    },
+    {
+      "id": 98,
+      "name": "InScience book suggestions",
+      "slug": "inscience-book-suggestions",
+      "description": ""
+    },
+    {
+      "id": 97,
+      "name": "InScience προτάσεις βιβλίων",
+      "slug": "inscience-protaseis-vivlion",
+      "description": ""
+    },
+    {
+      "id": 314,
+      "name": "programming",
+      "slug": "programming",
+      "description": ""
+    },
+    {
+      "id": 160,
+      "name": "επιστήμη των υπολογιστών",
+      "slug": "epistimi-ton-ypologiston",
+      "description": ""
+    },
+    {
+      "id": 313,
+      "name": "προγραμματισμός",
+      "slug": "programmatismos",
+      "description": ""
+    }
+  ],
+  "format": "standard",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 1,
+    "article_content_type": "book_review",
+    "article_abstract": "ΠΑΝΕΠΙΣΤΗΜΙΑΚΕΣ ΕΚΔΟΣΕΙΣ ΚΡΗΤΗΣ WLADSTON FERREIRA FILHO Μετάφραση: Αλέξανδρος Χορταράς Επιστημονική επιμέλεια: Ιωάννης Παπαδόγγονας Σχεδίαση εξωφύλλου : Ιάκωβος Ουρανός ISBN 978-618-230-133-3 Διαστάσεις: 12 x 17 cm Αριθμός σελίδων: 232 Τιμή: €...",
+    "article_youtube_url": null,
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}

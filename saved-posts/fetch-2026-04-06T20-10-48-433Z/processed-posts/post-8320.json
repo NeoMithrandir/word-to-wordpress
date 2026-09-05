@@ -1,0 +1,208 @@
+{
+  "id": 8320,
+  "slug": "podcast-dialexeis-gia-toys-ypologistes-richard-p-feynmann",
+  "status": "publish",
+  "type": "post",
+  "date": "2022-10-09T20:27:47",
+  "date_gmt": "2022-10-09T17:27:47",
+  "modified": "2022-10-22T21:31:37",
+  "modified_gmt": "2022-10-22T18:31:37",
+  "link": "https://inscience.gr/2022/10/09/podcast-%ce%b4%ce%b9%ce%b1%ce%bb%ce%ad%ce%be%ce%b5%ce%b9%cf%82-%ce%b3%ce%b9%ce%b1-%cf%84%ce%bf%cf%85%cf%82-%cf%85%cf%80%ce%bf%ce%bb%ce%bf%ce%b3%ce%b9%cf%83%cf%84%ce%ad%cf%82-richard-p-feynmann/",
+  "title": {
+    "rendered": "Podcast: Διαλέξεις για τους υπολογιστές – Richard P. Feynman"
+  },
+  "content": {
+    "rendered": "<h5><strong>Ακούστε εδώ την εισαγωγή του βιβλίου \" Διαλέξεις για τους υπολογιστές\" του Richard P. Feynman, των εκδόσεων Leader Books.</strong></h5>\n\n\n<figure class=\"wp-block-audio\"><audio src=\"https://inscience.gr/wp-content/uploads/2022/10/FEYNMAN-PODCAST.mp3\" autoplay=\"autoplay\" controls=\"controls\"></audio></figure>\n\n<p>Αγαπητές φίλες και φίλοι</p>\n<p>Σε αυτό το podcast το InScience παρουσιάζει το βιβλίο του μεγάλου Αμερικανού φυσικού Ρίτσαρντ Φάυνμαν, ΔΙΑΛΕΞΕΙΣ ΓΙΑ ΤΟΥΣ ΥΠΟΛΟΓΙΣΤΕΣ, που εκδόθηκε το 2006 από τις εκδόσεις Leader Books.</p>\n<p>Την μετάφραση του βιβλίου είχε κάνει ο Βασίλης Λεμπέσης.</p>\n<p>Την επιστημονική επιμέλεια της μετάφρασης είχαν υπό την ευθύνη τους οι Δημοσθένης Έλληνας και Γιάννης Τσοχαντζής.</p>\n<p>Την φιλολογική επιμέλεια της μετάφρασης είχε κάνει η Έλλη Κορρού-Λεμπέση.</p>\n<p>Την επιμέλεια του podcast είχε η Ομάδα Αφήγησης Παραμυθανθός</p>\n<p>Αφηγητές: Δημήτρης Μάλλης και Καλλιρρόη Μουλά</p>\n<p>Την μουσική συνέθεσε αποκλειστικά για το podcast o Θωμάς Ζήσης</p>\n<p>H συντακτική επιτροπή του InScience αισθάνεται την ανάγκη να ευχαριστήσει θερμά τις εκδόσεις Leader Books και ιδιαίτερα τον κ. Σωτήρη Καρέγλη για την ευγενική παραχώρηση της άδειας για την αναπαραγωγή του υλικού.</p>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>Ακούστε εδώ την εισαγωγή του βιβλίου \" Διαλέξεις για τους υπολογιστές\" του Richard P. Feynman, των εκδόσεων Leader Books. Αγαπητές φίλες και φίλοι Σε αυτό το podcast το InScience παρουσιάζει...</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 2,
+    "name": "Βασίλης Λεμπέσης",
+    "slug": "vlembessis",
+    "avatar_urls": {
+      "24": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-24x24.jpg",
+      "48": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-48x48.jpg",
+      "96": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-96x96.jpg"
+    }
+  },
+  "featured_media": 8331,
+  "featured_image": {
+    "id": 8331,
+    "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann.jpg",
+    "alt_text": "",
+    "media_details": {
+      "width": 600,
+      "height": 672,
+      "file": "2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann.jpg",
+      "sizes": {
+        "medium": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-268x300.jpg",
+          "width": 268,
+          "height": 300,
+          "filesize": 16804,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-268x300.jpg"
+        },
+        "thumbnail": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-150x150.jpg",
+          "width": 150,
+          "height": 150,
+          "filesize": 7236,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-150x150.jpg"
+        },
+        "portfolio-thumb_large": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-600x604.jpg",
+          "width": 600,
+          "height": 604,
+          "filesize": 56871,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-600x604.jpg"
+        },
+        "portfolio-thumb": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-600x403.jpg",
+          "width": 600,
+          "height": 403,
+          "filesize": 38824,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-600x403.jpg"
+        },
+        "portfolio-thumb_small": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-400x269.jpg",
+          "width": 400,
+          "height": 269,
+          "filesize": 19044,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-400x269.jpg"
+        },
+        "portfolio-widget": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-100x100.jpg",
+          "width": 100,
+          "height": 100,
+          "filesize": 4509,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-100x100.jpg"
+        },
+        "nectar_small_square": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-140x140.jpg",
+          "width": 140,
+          "height": 140,
+          "filesize": 6501,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-140x140.jpg"
+        },
+        "wide": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-600x500.jpg",
+          "width": 600,
+          "height": 500,
+          "filesize": 47651,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-600x500.jpg"
+        },
+        "wide_small": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-600x335.jpg",
+          "width": 600,
+          "height": 335,
+          "filesize": 33529,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-600x335.jpg"
+        },
+        "regular": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-500x500.jpg",
+          "width": 500,
+          "height": 500,
+          "filesize": 39353,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-500x500.jpg"
+        },
+        "regular_small": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-350x350.jpg",
+          "width": 350,
+          "height": 350,
+          "filesize": 23411,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-350x350.jpg"
+        },
+        "tall": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-500x672.jpg",
+          "width": 500,
+          "height": 672,
+          "filesize": 56704,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-500x672.jpg"
+        },
+        "wide_photography": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-600x600.jpg",
+          "width": 600,
+          "height": 600,
+          "filesize": 56779,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann-600x600.jpg"
+        },
+        "full": {
+          "file": "Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann.jpg",
+          "width": 600,
+          "height": 672,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/10/Inscience-podcasts-Dialekseis-gia-tous-Ipologistes-Richard-P-Feynmann.jpg"
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": 166,
+      "name": "Podcast",
+      "slug": "podcast",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 99,
+      "name": "ΝΕΟΤΕΡΑ",
+      "slug": "latest",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 1,
+      "name": "ΠΛΗΡΟΦΟΡΙΚΗ-ΤΗΛΕΠΙΚΟΙΝΩΝΙΕΣ",
+      "slug": "information-technology-and-telecommunications",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 77,
+      "name": "computer science. επιστήμη των υπολογιστών",
+      "slug": "computer-science-epistimi-ton-ypologiston",
+      "description": ""
+    },
+    {
+      "id": 154,
+      "name": "sciences",
+      "slug": "sciences",
+      "description": ""
+    }
+  ],
+  "format": "standard",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 1,
+    "article_content_type": "podcast",
+    "article_abstract": "Ακούστε εδώ την εισαγωγή του βιβλίου \" Διαλέξεις για τους υπολογιστές\" του Richard P. Feynman, των εκδόσεων Leader Books. Αγαπητές φίλες και φίλοι Σε αυτό το podcast το InScience παρουσιάζει...",
+    "article_youtube_url": null,
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "id": 11292,
+  "date": "2025-10-18T06:02:27",
+  "date_gmt": "2025-10-18T03:02:27",
+  "modified": "2025-10-16T20:14:36",
+  "modified_gmt": "2025-10-16T17:14:36",
+  "slug": "%ce%b5%cf%80%ce%b9%cf%83%cf%84%ce%b7%ce%bc%ce%b7-%cf%85%cf%80%ce%bf%ce%bb%ce%bf%ce%b3%ce%b9%cf%83%cf%84%cf%89%ce%bd-%ce%b7-%cf%84%ce%ad%cf%87%ce%bd%ce%b7-%cf%84%ce%b7%cf%82-%ce%b5%cf%80%ce%af%ce%bb",
+  "status": "publish",
+  "type": "post",
+  "link": "https://inscience.gr/2025/10/18/%ce%b5%cf%80%ce%b9%cf%83%cf%84%ce%b7%ce%bc%ce%b7-%cf%85%cf%80%ce%bf%ce%bb%ce%bf%ce%b3%ce%b9%cf%83%cf%84%cf%89%ce%bd-%ce%b7-%cf%84%ce%ad%cf%87%ce%bd%ce%b7-%cf%84%ce%b7%cf%82-%ce%b5%cf%80%ce%af%ce%bb/",
+  "title": {
+    "rendered": "ΕΠΙΣΤΗΜΗ ΥΠΟΛΟΓΙΣΤΩΝ &#8211; Η τέχνη της επίλυσης υπολογιστικών προβλημάτων. Μια συνοπτική εισαγωγή"
+  },
+  "content": {
+    "rendered": "<div id=\"bsf_rt_marker\"></div><p><span class=\"span-reading-time rt-reading-time\" style=\"display: block;\"><span class=\"rt-label rt-prefix\">Χρόνος Ανάγνωσης</span> <span class=\"rt-time\"> 2</span> <span class=\"rt-label rt-postfix\">Λεπτά</span></span>[vc_row type=&#8221;in_container&#8221; full_screen_row_position=&#8221;middle&#8221; column_margin=&#8221;default&#8221; column_direction=&#8221;default&#8221; column_direction_tablet=&#8221;default&#8221; column_direction_phone=&#8221;default&#8221; scene_position=&#8221;center&#8221; text_color=&#8221;dark&#8221; text_align=&#8221;left&#8221; row_border_radius=&#8221;none&#8221; row_border_radius_applies=&#8221;bg&#8221; overflow=&#8221;visible&#8221; overlay_strength=&#8221;0.3&#8243; gradient_direction=&#8221;left_to_right&#8221; shape_divider_position=&#8221;bottom&#8221; bg_image_animation=&#8221;none&#8221;][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_direction_desktop=&#8221;default&#8221; column_element_spacing=&#8221;default&#8221; desktop_text_alignment=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_backdrop_filter=&#8221;none&#8221; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; column_position=&#8221;default&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/1&#8243; tablet_width_inherit=&#8221;default&#8221; animation_type=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][vc_column_text css=&#8221;&#8221; text_direction=&#8221;default&#8221;]<strong>ΠΑΝΕΠΙΣΤΗΜΙΑΚΕΣ ΕΚΔΟΣΕΙΣ ΚΡΗΤΗΣ<br />\n</strong><strong>WLADSTON FERREIRA FILHO</strong></p>\n<p><strong>Μετάφραση: </strong><strong>Αλέξανδρος Χορταράς<br />\nΕπιστημονική επιμέλεια: Ιωάννης Παπαδόγγονας<br />\n</strong><strong>Σχεδίαση εξωφύλλου</strong><strong>:</strong><strong> Ιάκωβος Ουρανός </strong><strong> </strong></p>\n<p><strong>ISBN</strong> <strong>978-618-230-133-3<br />\n</strong><strong>Διαστάσεις: </strong><strong>12</strong><strong> x </strong><strong>17</strong><strong> cm<br />\n</strong><strong>Αριθμός σελίδων: </strong><strong>232<br />\n</strong><strong>Τιμή: € </strong><strong>12<br />\n</strong><strong>Έτος έκδοσης: 2025</strong>[/vc_column_text][/vc_column][/vc_row][vc_row type=&#8221;in_container&#8221; full_screen_row_position=&#8221;middle&#8221; column_margin=&#8221;default&#8221; column_direction=&#8221;default&#8221; column_direction_tablet=&#8221;default&#8221; column_direction_phone=&#8221;default&#8221; scene_position=&#8221;center&#8221; text_color=&#8221;dark&#8221; text_align=&#8221;left&#8221; row_border_radius=&#8221;none&#8221; row_border_radius_applies=&#8221;bg&#8221; overflow=&#8221;visible&#8221; overlay_strength=&#8221;0.3&#8243; gradient_direction=&#8221;left_to_right&#8221; shape_divider_position=&#8221;bottom&#8221; bg_image_animation=&#8221;none&#8221;][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_direction_desktop=&#8221;default&#8221; column_element_spacing=&#8221;default&#8221; desktop_text_alignment=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_backdrop_filter=&#8221;none&#8221; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; column_position=&#8221;default&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/1&#8243; tablet_width_inherit=&#8221;default&#8221; animation_type=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][vc_column_text css=&#8221;&#8221; text_direction=&#8221;default&#8221;]Περιγραφή</p>\n<p>Το βιβλίο αυτό προσφέρει μια συνοπτική περιήγηση σε έννοιες της επιστήμης υπολογιστών που είναι αναγκαίες για όσους και όσες ενδιαφέρονται για τον προγραμματισμό. Σχεδιασμένο για αναγνώστες που δεν επικεντρώνονται στην ακαδημαϊκή τυπικότητα, αποτελεί έναν γρήγορο και εύκολο οδηγό για την επιστήμη υπολογιστών, παρουσιάζοντας με εύληπτο και γλαφυρό τρόπο τα θεμέλια που χρειάζεται κανείς για να προγραμματίσει υπολογιστές. Μετά από μια απλή εισαγωγή στα διακριτά μαθηματικά, περιγράφει καθιερωμένους αλγορίθμους και δομές δεδομένων, και συνοψίζει τις αρχές στις οποίες βασίζεται η λειτουργία των υπολογιστών και των γλωσσών προγραμματισμού.[/vc_column_text][/vc_column][/vc_row][vc_row type=&#8221;in_container&#8221; full_screen_row_position=&#8221;middle&#8221; column_margin=&#8221;default&#8221; column_direction=&#8221;default&#8221; column_direction_tablet=&#8221;default&#8221; column_direction_phone=&#8221;default&#8221; scene_position=&#8221;center&#8221; text_color=&#8221;dark&#8221; text_align=&#8221;left&#8221; row_border_radius=&#8221;none&#8221; row_border_radius_applies=&#8221;bg&#8221; overflow=&#8221;visible&#8221; overlay_strength=&#8221;0.3&#8243; gradient_direction=&#8221;left_to_right&#8221; shape_divider_position=&#8221;bottom&#8221; bg_image_animation=&#8221;none&#8221;][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_direction_desktop=&#8221;default&#8221; column_element_spacing=&#8221;default&#8221; desktop_text_alignment=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_backdrop_filter=&#8221;none&#8221; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; column_position=&#8221;default&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/1&#8243; tablet_width_inherit=&#8221;default&#8221; animation_type=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][vc_column_text css=&#8221;&#8221; text_direction=&#8221;default&#8221;]<strong>Bιογραφικ</strong><strong>ά</strong><strong> Συγγραφέα</strong></p>\n<p>Ο Wladston Ferreira Filho είναι βραζιλιάνος προγραμματιστής και ερευνητής, και απολαμβάνει το γράψιμο. Με τα βιβλία του εξηγεί με απλό τρόπο την επιστήμη του υπολογισμού, παρουσιάζει τις έννοιες στις οποίες βασίζονται οι προγραμματιστές για να οικοδομήσουν τον ψηφιακό μας κόσμο, και εξηγεί τον τρόπο λειτουργίας του Διαδικτύου, την κυβερνοασφάλεια και την επιστήμη δεδομένων.[/vc_column_text][/vc_column][/vc_row][vc_row type=&#8221;in_container&#8221; full_screen_row_position=&#8221;middle&#8221; column_margin=&#8221;default&#8221; column_direction=&#8221;default&#8221; column_direction_tablet=&#8221;default&#8221; column_direction_phone=&#8221;default&#8221; scene_position=&#8221;center&#8221; text_color=&#8221;dark&#8221; text_align=&#8221;left&#8221; row_border_radius=&#8221;none&#8221; row_border_radius_applies=&#8221;bg&#8221; overflow=&#8221;visible&#8221; overlay_strength=&#8221;0.3&#8243; gradient_direction=&#8221;left_to_right&#8221; shape_divider_position=&#8221;bottom&#8221; bg_image_animation=&#8221;none&#8221;][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_direction_desktop=&#8221;default&#8221; column_element_spacing=&#8221;default&#8221; desktop_text_alignment=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_backdrop_filter=&#8221;none&#8221; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; column_position=&#8221;default&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/3&#8243; tablet_width_inherit=&#8221;default&#8221; animation_type=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][/vc_column][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_direction_desktop=&#8221;default&#8221; column_element_spacing=&#8221;default&#8221; desktop_text_alignment=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_backdrop_filter=&#8221;none&#8221; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; column_position=&#8221;default&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/3&#8243; tablet_width_inherit=&#8221;default&#8221; animation_type=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][image_with_animation image_url=&#8221;11294&#8243; image_size=&#8221;full&#8221; animation_type=&#8221;entrance&#8221; animation=&#8221;Fade In&#8221; animation_easing=&#8221;default&#8221; animation_movement_type=&#8221;transform_y&#8221; hover_animation=&#8221;none&#8221; alignment=&#8221;center&#8221; border_radius=&#8221;none&#8221; box_shadow=&#8221;none&#8221; image_loading=&#8221;default&#8221; max_width=&#8221;100%&#8221; max_width_mobile=&#8221;default&#8221; img_link=&#8221;https://cup.gr/book/epistimi-ypologiston/&#8221;][/vc_column][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_direction_desktop=&#8221;default&#8221; column_element_spacing=&#8221;default&#8221; desktop_text_alignment=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_backdrop_filter=&#8221;none&#8221; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; column_position=&#8221;default&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/3&#8243; tablet_width_inherit=&#8221;default&#8221; animation_type=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][/vc_column][/vc_row]</p>\n",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p><span class=\"span-reading-time rt-reading-time\" style=\"display: block;\"><span class=\"rt-label rt-prefix\">Χρόνος Ανάγνωσης</span> <span class=\"rt-time\"> 2</span> <span class=\"rt-label rt-postfix\">Λεπτά</span></span>[vc_row type=&#8221;in_container&#8221; full_screen_row_position=&#8221;middle&#8221; column_margin=&#8221;default&#8221; column_direction=&#8221;default&#8221; column_direction_tablet=&#8221;default&#8221; column_direction_phone=&#8221;default&#8221; scene_position=&#8221;center&#8221; text_color=&#8221;dark&#8221; text_align=&#8221;left&#8221; row_border_radius=&#8221;none&#8221; row_border_radius_applies=&#8221;bg&#8221; overflow=&#8221;visible&#8221; overlay_strength=&#8221;0.3&#8243; gradient_direction=&#8221;left_to_right&#8221;&#8230;</p>\n",
+    "protected": false
+  },
+  "author": {
+    "id": 2,
+    "name": "Βασίλης Λεμπέσης",
+    "slug": "vlembessis",
+    "avatar_urls": {
+      "24": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-24x24.jpg",
+      "48": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-48x48.jpg",
+      "96": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-96x96.jpg"
+    }
+  },
+  "featured_media": 11294,
+  "featured_image": {
+    "id": 11294,
+    "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r.jpg",
+    "alt_text": "",
+    "media_details": {
+      "width": 561,
+      "height": 800,
+      "file": "2025/10/InScience-Book-suggestions-epistimi-ipologiston-r.jpg",
+      "sizes": {
+        "medium": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-210x300.jpg",
+          "width": 210,
+          "height": 300,
+          "filesize": 17457,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-210x300.jpg"
+        },
+        "thumbnail": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-150x150.jpg",
+          "width": 150,
+          "height": 150,
+          "filesize": 6950,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-150x150.jpg"
+        },
+        "portfolio-thumb": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-561x403.jpg",
+          "width": 561,
+          "height": 403,
+          "filesize": 66195,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-561x403.jpg"
+        },
+        "nectar_small_square": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-140x140.jpg",
+          "width": 140,
+          "height": 140,
+          "filesize": 6110,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-140x140.jpg"
+        },
+        "portfolio-thumb_large": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-561x604.jpg",
+          "width": 561,
+          "height": 604,
+          "filesize": 93667,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-561x604.jpg"
+        },
+        "portfolio-thumb_small": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-400x269.jpg",
+          "width": 400,
+          "height": 269,
+          "filesize": 32340,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-400x269.jpg"
+        },
+        "portfolio-widget": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-100x100.jpg",
+          "width": 100,
+          "height": 100,
+          "filesize": 3234,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-100x100.jpg"
+        },
+        "wide": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-561x500.jpg",
+          "width": 561,
+          "height": 500,
+          "filesize": 80507,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-561x500.jpg"
+        },
+        "wide_photography": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-561x600.jpg",
+          "width": 561,
+          "height": 600,
+          "filesize": 93410,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-561x600.jpg"
+        },
+        "wide_small": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-561x335.jpg",
+          "width": 561,
+          "height": 335,
+          "filesize": 52985,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-561x335.jpg"
+        },
+        "regular": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-500x500.jpg",
+          "width": 500,
+          "height": 500,
+          "filesize": 68289,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-500x500.jpg"
+        },
+        "regular_small": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-350x350.jpg",
+          "width": 350,
+          "height": 350,
+          "filesize": 37264,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-350x350.jpg"
+        },
+        "tall": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-500x800.jpg",
+          "width": 500,
+          "height": 800,
+          "filesize": 102694,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-500x800.jpg"
+        },
+        "large_featured": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-561x770.jpg",
+          "width": 561,
+          "height": 770,
+          "filesize": 110470,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-561x770.jpg"
+        },
+        "cmplz_banner_image": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r-350x100.jpg",
+          "width": 350,
+          "height": 100,
+          "filesize": 11377,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r-350x100.jpg"
+        },
+        "full": {
+          "file": "InScience-Book-suggestions-epistimi-ipologiston-r.jpg",
+          "width": 561,
+          "height": 800,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/10/InScience-Book-suggestions-epistimi-ipologiston-r.jpg"
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "ΠΛΗΡΟΦΟΡΙΚΗ-ΤΗΛΕΠΙΚΟΙΝΩΝΙΕΣ",
+      "slug": "information-technology-and-telecommunications",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 96,
+      "name": "ΠΡΟΤΑΣΕΙΣ ΒΙΒΛΙΩΝ",
+      "slug": "book-suggestions",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 159,
+      "name": "computer science",
+      "slug": "computer-science",
+      "description": ""
+    },
+    {
+      "id": 98,
+      "name": "InScience book suggestions",
+      "slug": "inscience-book-suggestions",
+      "description": ""
+    },
+    {
+      "id": 97,
+      "name": "InScience προτάσεις βιβλίων",
+      "slug": "inscience-%cf%80%cf%81%ce%bf%cf%84%ce%ac%cf%83%ce%b5%ce%b9%cf%82-%ce%b2%ce%b9%ce%b2%ce%bb%ce%af%cf%89%ce%bd",
+      "description": ""
+    },
+    {
+      "id": 314,
+      "name": "programming",
+      "slug": "programming",
+      "description": ""
+    },
+    {
+      "id": 160,
+      "name": "επιστήμη των υπολογιστών",
+      "slug": "%ce%b5%cf%80%ce%b9%cf%83%cf%84%ce%ae%ce%bc%ce%b7-%cf%84%cf%89%ce%bd-%cf%85%cf%80%ce%bf%ce%bb%ce%bf%ce%b3%ce%b9%cf%83%cf%84%cf%8e%ce%bd",
+      "description": ""
+    },
+    {
+      "id": 313,
+      "name": "προγραμματισμός",
+      "slug": "%cf%80%cf%81%ce%bf%ce%b3%cf%81%ce%b1%ce%bc%ce%bc%ce%b1%cf%84%ce%b9%cf%83%ce%bc%cf%8c%cf%82",
+      "description": ""
+    }
+  ],
+  "format": "standard",
+  "meta": {
+    "_acf_changed": false,
+    "_bbp_topic_count": 0,
+    "_bbp_reply_count": 0,
+    "_bbp_total_topic_count": 0,
+    "_bbp_total_reply_count": 0,
+    "_bbp_voice_count": 0,
+    "_bbp_anonymous_reply_count": 0,
+    "_bbp_topic_count_hidden": 0,
+    "_bbp_reply_count_hidden": 0,
+    "_bbp_forum_subforum_count": 0,
+    "footnotes": ""
+  },
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open"
+}

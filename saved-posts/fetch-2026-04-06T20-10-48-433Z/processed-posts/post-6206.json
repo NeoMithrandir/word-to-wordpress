@@ -1,0 +1,224 @@
+{
+  "id": 6206,
+  "slug": "synenteyxi-eytychioy-mpitsaki",
+  "status": "publish",
+  "type": "post",
+  "date": "2021-06-02T02:10:03",
+  "date_gmt": "2021-06-02T02:10:03",
+  "modified": "2021-08-02T04:20:16",
+  "modified_gmt": "2021-08-02T04:20:16",
+  "link": "https://inscience.gr/2021/06/02/%cf%83%cf%85%ce%bd%ce%ad%ce%bd%cf%84%ce%b5%cf%85%ce%be%ce%b7-%ce%b5%cf%85%cf%84%cf%8d%cf%87%ce%b9%ce%bf%cf%85-%ce%bc%cf%80%ce%b9%cf%84%cf%83%ce%ac%ce%ba%ce%b7/",
+  "title": {
+    "rendered": "Συνέντευξη Ευτύχη Μπιτσάκη"
+  },
+  "content": {
+    "rendered": "<div>Το InScience παρουσιάζει από το αρχείο του μια συνέντευξη, που πραγματοποιήθηκε το 2009, με τον καθηγητή φιλοσοφίας της επιστήμης και συγγραφέα βιβλίων επιστημονικής και πολιτικής θεωρίας Ευτύχη Μπιτσάκη.</div>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>Το InScience παρουσιάζει από το αρχείο του μια συνέντευξη, που πραγματοποιήθηκε το 2009, με τον καθηγητή φιλοσοφίας της επιστήμης και συγγραφέα βιβλίων επιστημονικής και πολιτικής θεωρίας Ευτύχη Μπιτσάκη.</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 2,
+    "name": "Βασίλης Λεμπέσης",
+    "slug": "vlembessis",
+    "avatar_urls": {
+      "24": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-24x24.jpg",
+      "48": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-48x48.jpg",
+      "96": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-96x96.jpg"
+    }
+  },
+  "featured_media": 6217,
+  "featured_image": {
+    "id": 6217,
+    "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552.jpg",
+    "alt_text": "",
+    "media_details": {
+      "width": 1189,
+      "height": 800,
+      "file": "2021/06/14L1039552.jpg",
+      "sizes": {
+        "medium": {
+          "file": "14L1039552-300x202.jpg",
+          "width": 300,
+          "height": 202,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-300x202.jpg"
+        },
+        "large": {
+          "file": "14L1039552-1024x689.jpg",
+          "width": 1024,
+          "height": 689,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-1024x689.jpg"
+        },
+        "thumbnail": {
+          "file": "14L1039552-150x150.jpg",
+          "width": 150,
+          "height": 150,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-150x150.jpg"
+        },
+        "medium_large": {
+          "file": "14L1039552-768x517.jpg",
+          "width": 768,
+          "height": 517,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-768x517.jpg"
+        },
+        "portfolio-thumb_large": {
+          "file": "14L1039552-900x604.jpg",
+          "width": 900,
+          "height": 604,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-900x604.jpg"
+        },
+        "portfolio-thumb": {
+          "file": "14L1039552-600x403.jpg",
+          "width": 600,
+          "height": 403,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-600x403.jpg"
+        },
+        "portfolio-thumb_small": {
+          "file": "14L1039552-400x269.jpg",
+          "width": 400,
+          "height": 269,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-400x269.jpg"
+        },
+        "portfolio-widget": {
+          "file": "14L1039552-100x100.jpg",
+          "width": 100,
+          "height": 100,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-100x100.jpg"
+        },
+        "nectar_small_square": {
+          "file": "14L1039552-140x140.jpg",
+          "width": 140,
+          "height": 140,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-140x140.jpg"
+        },
+        "wide": {
+          "file": "14L1039552-1000x500.jpg",
+          "width": 1000,
+          "height": 500,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-1000x500.jpg"
+        },
+        "wide_small": {
+          "file": "14L1039552-670x335.jpg",
+          "width": 670,
+          "height": 335,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-670x335.jpg"
+        },
+        "regular": {
+          "file": "14L1039552-500x500.jpg",
+          "width": 500,
+          "height": 500,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-500x500.jpg"
+        },
+        "regular_small": {
+          "file": "14L1039552-350x350.jpg",
+          "width": 350,
+          "height": 350,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-350x350.jpg"
+        },
+        "tall": {
+          "file": "14L1039552-500x800.jpg",
+          "width": 500,
+          "height": 800,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-500x800.jpg"
+        },
+        "wide_tall": {
+          "file": "14L1039552-1000x800.jpg",
+          "width": 1000,
+          "height": 800,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-1000x800.jpg"
+        },
+        "wide_photography": {
+          "file": "14L1039552-900x600.jpg",
+          "width": 900,
+          "height": 600,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-900x600.jpg"
+        },
+        "large_featured": {
+          "file": "14L1039552-1189x770.jpg",
+          "width": 1189,
+          "height": 770,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-1189x770.jpg"
+        },
+        "medium_featured": {
+          "file": "14L1039552-800x800.jpg",
+          "width": 800,
+          "height": 800,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552-800x800.jpg"
+        },
+        "full": {
+          "file": "14L1039552.jpg",
+          "width": 1189,
+          "height": 800,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/06/14L1039552.jpg"
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": 30,
+      "name": "ΒΙΝΤΕΟ",
+      "slug": "videos",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 5,
+      "name": "ΙΣΤΟΡΙΑ ΚΑΙ ΦΙΛΟΣΟΦΙΑ ΕΠΙΣΤΗΜΩΝ ΚΑΙ ΤΕΧΝΟΛΟΓΙΑΣ",
+      "slug": "history-and-philosophy-of-science-and-technology",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 99,
+      "name": "ΝΕΟΤΕΡΑ",
+      "slug": "latest",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 70,
+      "name": "Συνέντευξη",
+      "slug": "synenteyxi",
+      "description": ""
+    }
+  ],
+  "format": "standard",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 1,
+    "article_content_type": "video",
+    "article_abstract": "Το InScience παρουσιάζει από το αρχείο του μια συνέντευξη, που πραγματοποιήθηκε το 2009, με τον καθηγητή φιλοσοφίας της επιστήμης και συγγραφέα βιβλίων επιστημονικής και πολιτικής θεωρίας Ευτύχη Μπιτσάκη.",
+    "article_youtube_url": "https://youtu.be/7vvIjDLFCHc",
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}

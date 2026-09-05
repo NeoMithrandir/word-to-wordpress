@@ -1,0 +1,66 @@
+{
+  "id": 1,
+  "slug": "hello-world",
+  "status": "draft",
+  "type": "post",
+  "date": "2021-05-04T05:44:34",
+  "date_gmt": "2021-05-04T05:44:34",
+  "modified": "2021-08-02T04:20:16",
+  "modified_gmt": "2021-08-02T04:20:16",
+  "link": "https://inscience.gr/?p=1",
+  "title": {
+    "rendered": "Hello world!"
+  },
+  "content": {
+    "rendered": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 1,
+    "name": "Νεσίμ Καλόσι",
+    "slug": "nesimk",
+    "avatar_urls": {
+      "24": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=24&d=mm&r=g",
+      "48": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=48&d=mm&r=g",
+      "96": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=96&d=mm&r=g"
+    }
+  },
+  "featured_media": 0,
+  "featured_image": null,
+  "categories": [
+    {
+      "id": 99,
+      "name": "ΝΕΟΤΕΡΑ",
+      "slug": "latest",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 1,
+      "name": "ΠΛΗΡΟΦΟΡΙΚΗ-ΤΗΛΕΠΙΚΟΙΝΩΝΙΕΣ",
+      "slug": "information-technology-and-telecommunications",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [],
+  "format": "standard",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 1,
+    "article_content_type": "article",
+    "article_abstract": "Welcome to WordPress. This is your first post. Edit or delete it, then start writing!",
+    "article_youtube_url": null,
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}

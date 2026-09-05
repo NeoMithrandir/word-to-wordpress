@@ -1,7 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import { ProcessedContent, ProcessedImage } from './DocumentProcessor';
-import { PostData } from './WordPressService';
+import { convertToWebp } from './ImageOptimizer';
+import { rewriteImageSeoHtml, uniquifyFilenameStem } from './ImageSeoService';
+import { PostData, FetchedPost } from './WordPressService';
 
 /** Metadata written alongside each saved image. */
 interface SavedImageMeta {
@@ -9,6 +11,7 @@ interface SavedImageMeta {
   originalId: string;
   alt: string;
   title: string;
+  caption?: string;
   contentType: string;
   sizeBytes: number;
 }
@@ -110,50 +113,59 @@ export class LocalSaveService {
   }
 
   /**
-   * Save every image from ProcessedContent.images as an individual file
-   * inside `folderPath`, and return a map from the original base64 data-URI
-   * prefix to the relative filename so the HTML can be rewritten.
+   * Save every image from ProcessedContent.images as an individual WebP
+   * inside `folderPath`, named from the SEO filename stem. Returns a map
+   * from ProcessedImage.id to the relative filename so the HTML can be rewritten.
    *
    * A companion `images-metadata.json` is written to the same folder.
    */
-  private saveImages(
+  private async saveImages(
     images: ProcessedImage[],
     folderPath: string
-  ): Map<string, string> {
-    // Map: image id → relative filename (e.g. "image-1.jpg")
+  ): Promise<Map<string, string>> {
     const uriToFile = new Map<string, string>();
     const metaEntries: SavedImageMeta[] = [];
+    const usedStems = new Set<string>();
 
     for (const img of images) {
-      const ext = this.imageExtension(img.contentType);
-      const filename = `${img.id}${ext}`;
+      const raw = Buffer.isBuffer(img.data)
+        ? img.data
+        : Buffer.from((img.data as { data?: number[] }).data || img.data);
+
+      let buf = raw;
+      let contentType = img.contentType;
+      let ext = this.imageExtension(img.contentType);
+
+      try {
+        const optimized = await convertToWebp(raw);
+        buf = optimized.buffer;
+        contentType = optimized.contentType;
+        ext = `.${optimized.extension}`;
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        console.warn(`  WebP convert failed for ${img.id}, saving original: ${message}`);
+      }
+
+      const stem = uniquifyFilenameStem(img.filename || img.id, usedStems);
+      const filename = `${stem}${ext}`;
       const filePath = path.join(folderPath, filename);
 
-      // img.data may be a real Buffer (from the upload pipeline) or a
-      // serialized Buffer object {type:"Buffer", data:[...]} after a
-      // JSON round-trip through the client.  Ensure we have a real Buffer.
-      const buf = Buffer.isBuffer(img.data)
-        ? img.data
-        : Buffer.from((img.data as any).data || img.data);
-
-      // Write the raw image bytes
       fs.writeFileSync(filePath, buf);
 
-      // Record metadata
       metaEntries.push({
         filename,
         originalId: img.id,
         alt: img.alt,
         title: img.title,
-        contentType: img.contentType,
+        caption: img.caption,
+        contentType,
         sizeBytes: buf.length,
       });
 
-      // We'll use the image id to locate and replace the data-URI later
       uriToFile.set(img.id, filename);
 
       console.log(
-        `  Saved image ${filename} (${img.contentType}, ${img.data.length} bytes)`
+        `  Saved image ${filename} (${contentType}, ${buf.length} bytes)`
       );
     }
 
@@ -212,8 +224,7 @@ export class LocalSaveService {
    *   saved-posts/
    *     post-<timestamp>/
    *       index.html
-   *       image-1.jpg
-   *       image-2.png
+   *       {filename}.webp
    *       images-metadata.json
    *
    * Returns the folder name (e.g. "post-2025-09-11T19-27-58-751Z").
@@ -228,11 +239,15 @@ export class LocalSaveService {
       fs.mkdirSync(folderPath, { recursive: true });
 
       // Save images as separate files and get the URI→filename map
-      const uriToFile = this.saveImages(content.images, folderPath);
+      const uriToFile = await this.saveImages(content.images, folderPath);
       console.log(`Saved ${content.images.length} images to ${folderName}/`);
 
-      // Generate the HTML document
-      let htmlContent = this.generateHtmlDocument(content, postData);
+      // Generate the HTML document from body HTML that already has alt/figure
+      const bodyHtml = rewriteImageSeoHtml(content.content, content.images);
+      let htmlContent = this.generateHtmlDocument(
+        { ...content, content: bodyHtml },
+        postData
+      );
 
       // Rewrite base64 data URIs → relative file paths
       htmlContent = this.replaceDataUrisWithFiles(htmlContent, content.images, uriToFile);
@@ -559,5 +574,70 @@ export class LocalSaveService {
 </html>`;
 
     return htmlDoc;
+  }
+
+  // ─── Fetched Posts Export ──────────────────────────────────────────
+
+  /**
+   * Save a batch of posts fetched from WordPress into a structured folder.
+   *
+   * Layout:
+   *   saved-posts/fetch-<timestamp>/
+   *     manifest.json
+   *     posts/
+   *       post-<id>.json
+   *       post-<id>.json
+   *       …
+   *
+   * Returns the folder name (e.g. "fetch-2025-09-11T19-27-58-751Z").
+   */
+  async saveFetchedPosts(
+    posts: FetchedPost[],
+    meta: { source: string; filters: Record<string, unknown> }
+  ): Promise<{ folderName: string; postCount: number }> {
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const folderName = `fetch-${timestamp}`;
+    const folderPath = path.join(this.saveDirectory, folderName);
+    const postsDir = path.join(folderPath, 'posts');
+
+    fs.mkdirSync(postsDir, { recursive: true });
+
+    // Collect unique categories and tags across all posts
+    const categoriesMap = new Map<number, FetchedPost['categories'][0]>();
+    const tagsMap = new Map<number, FetchedPost['tags'][0]>();
+
+    for (const post of posts) {
+      // Write individual post file
+      const postFile = path.join(postsDir, `post-${post.id}.json`);
+      fs.writeFileSync(postFile, JSON.stringify(post, null, 2));
+
+      for (const cat of post.categories) categoriesMap.set(cat.id, cat);
+      for (const tag of post.tags) tagsMap.set(tag.id, tag);
+    }
+
+    // Build manifest
+    const manifest = {
+      fetchedAt: new Date().toISOString(),
+      source: meta.source,
+      filters: meta.filters,
+      totalPosts: posts.length,
+      posts: posts.map((p) => ({
+        id: p.id,
+        title: p.title.rendered,
+        slug: p.slug,
+        status: p.status,
+        date: p.date,
+        modified: p.modified,
+        link: p.link,
+        file: `posts/post-${p.id}.json`,
+      })),
+      categories: Array.from(categoriesMap.values()),
+      tags: Array.from(tagsMap.values()),
+    };
+
+    fs.writeFileSync(path.join(folderPath, 'manifest.json'), JSON.stringify(manifest, null, 2));
+
+    console.log(`Saved ${posts.length} fetched posts to ${folderName}/`);
+    return { folderName, postCount: posts.length };
   }
 } 

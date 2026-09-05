@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "%ce%bd%ce%bf%ce%b7%cf%84%ce%b9%ce%ba%ce%b1-%cf%80%ce%b5%ce%b9%cf%81%ce%b1%ce%bc%ce%b1%cf%84%ce%b1-%ce%bc%ce%b5-%cf%88%cf%85%cf%87%cf%81%ce%b1-%ce%b1%cf%84%ce%bf%ce%bc%ce%b1-%cf%84%ce%bf-2-2026-08-30T04:01:32.292Z-tl62l3",
+      "slug": "%ce%bd%ce%bf%ce%b7%cf%84%ce%b9%ce%ba%ce%b1-%cf%80%ce%b5%ce%b9%cf%81%ce%b1%ce%bc%ce%b1%cf%84%ce%b1-%ce%bc%ce%b5-%cf%88%cf%85%cf%87%cf%81%ce%b1-%ce%b1%cf%84%ce%bf%ce%bc%ce%b1-%cf%84%ce%bf-2",
+      "title": "ΝΟΗΤΙΚΑ ΠΕΙΡΑΜΑΤΑ ΜΕ ΨΥΧΡΑ ΑΤΟΜΑ – ΤΟ ΠΕΙΡΑΜΑ ΤΗΣ ΔΙΠΛΗΣ ΣΧΙΣΜΗΣ.",
+      "postId": 12141,
+      "postUrl": "https://arthra.inscience.gr/2026/08/30/%ce%bd%ce%bf%ce%b7%cf%84%ce%b9%ce%ba%ce%b1-%cf%80%ce%b5%ce%b9%cf%81%ce%b1%ce%bc%ce%b1%cf%84%ce%b1-%ce%bc%ce%b5-%cf%88%cf%85%cf%87%cf%81%ce%b1-%ce%b1%cf%84%ce%bf%ce%bc%ce%b1-%cf%84%ce%bf-2/",
+      "publishedAt": "2026-08-30T04:01:32.288Z",
+      "timestamp": "2026-08-30T04:01:32.292Z",
+      "source": "publish",
+      "simplifications": {
+        "ok": false,
+        "message": "Invalid post slug"
+      },
+      "deploy": {
+        "ok": false,
+        "message": "Skipped deploy because slug is invalid"
+      }
+    },
+    {
+      "id": "chartografontas-to-skoteino-sympan-meros-2-o-aoratos-skeletos-tou-sympantos-2026-08-30T05:01:24.923Z-j6eyst",
+      "slug": "chartografontas-to-skoteino-sympan-meros-2-o-aoratos-skeletos-tou-sympantos",
+      "title": "ΧΑΡΤΟΓΡΑΦΩΝΤΑΣ ΤΟ ΣΚΟΤΕΙΝΟ ΣΥΜΠΑΝ:  ΜΕΡΟΣ 2: O ΑΟΡΑΤΟΣ ΣΚΕΛΕΤΟΣ ΤΟΥ ΣΥΜΠΑΝΤΟΣ",
+      "postId": 12164,
+      "postUrl": "https://arthra.inscience.gr/2026/08/30/chartografontas-to-skoteino-sympan-meros-2-o-aoratos-skeletos-tou-sympantos/",
+      "publishedAt": "2026-08-30T04:56:44.051Z",
+      "timestamp": "2026-08-30T05:01:24.923Z",
+      "source": "publish",
+      "simplifications": {
+        "ok": true,
+        "message": "Wrote Με πιο απλά Λόγια for \"chartografontas-to-skoteino-sympan-meros-2-o-aoratos-skeletos-tou-sympantos\"",
+        "output": "> inscience-v2@1.0.0 generate:simplifications\n> tsx scripts/generate-simplifications.ts --only=chartografontas-to-skoteino-sympan-meros-2-o-aoratos-skeletos-tou-sympantos --force\n\n[generate-simplifications] only=chartografontas-to-skoteino-sympan-meros-2-o-aoratos-skeletos-tou-sympantos force=true\n[generate-simplifications] provider=anthropic model=claude-opus-5\n[generate-simplifications] selected 1 article(s):\n  - 2026-08-30  chartografontas-to-skoteino-sympan-meros-2-o-aoratos-skeletos-tou-sympantos\n[analyse]  chartografontas-to-skoteino-sympan-meros-2-o-aoratos-skeletos-tou-sympantos…\n           in=11204 out=5746 117.1s $0.1997\n[write]    chartografontas-to-skoteino-sympan-meros-2-o-aoratos-skeletos-tou-sympantos…\n           in=18475 out=6632 117.4s $0.2582\n[simplifications-costs] refreshed spend canvas (9 article(s))\n[ok] wrote C:\\GitHub\\InScience-v2\\data\\simplifications\\chartografontas-to-skoteino-sympan-meros-2-o-aoratos-skeletos-tou-sympantos.json  (dimotikou=91w gymnasiou=146w lykeiou=196w summary=173w)\n[usage] 2 call(s) over 1 article(s): in=29679 out=12378 tokens, 234.5s of API time, $0.4578\n[usage] per article: 234.5s, $0.4578\n[generate-simplifications] done — ok=1 skipped=0 failed=0"
+      },
+      "deploy": {
+        "ok": true,
+        "message": "Rebuilt and deployed inscience-v2 via Cloudflare (npm run deploy:cloudflare)",
+        "output": "-education/synenteyxi-dimitri-pateli/index.html (+6ms) \n01:01:11   ├─ /history-and-philosophy-of-science-and-technology/synenteyxi-vaggeli-spandagoy/index.html (+8ms) \n01:01:11   ├─ /history-and-philosophy-of-science-and-technology/o-r-p-feynman-kai-i-epistimi-ton-ypologiston/index.html (+13ms) \n01:01:11   ├─ /history-and-philosophy-of-science-and-technology/synenteyxi-eytychioy-mpitsaki/index.html (+6ms) \n01:01:11   ├─ /viologia-iatriki/francois-jacob-egkomio-toy-darvinismoy/index.html (+7ms) \n01:01:11   ├─ /music/index.html (+7ms) \n01:01:11   ├─ /architecture/index.html (+12ms) \n01:01:11   ├─ /videos/index.html (+8ms) \n01:01:11   ├─ /viologia-iatriki/index.html (+6ms) \n01:01:11   ├─ /diastima/index.html (+9ms) \n01:01:11   ├─ /sciences-technology-and-education/index.html (+6ms) \n01:01:11   ├─ /history-and-philosophy-of-science-and-technology/index.html (+14ms) \n01:01:11   ├─ /kvantika-aeria/index.html (+5ms) \n01:01:11   ├─ /kinimatorgrafos/index.html (+5ms) \n01:01:11   ├─ /mathimatika-pliroforiki/index.html (+7ms) \n01:01:11   ├─ /neoi-ellines-epistimones/index.html (+6ms) \n01:01:11   ├─ /latest/index.html (+7ms) \n01:01:11   ├─ /optikoi-krystalloi-atomon/index.html (+4ms) \n01:01:11   ├─ /book-suggestions/index.html (+4ms) \n01:01:11   ├─ /texniti-noimosyni/index.html (+6ms) \n01:01:11   ├─ /fysiki/index.html (+7ms) \n01:01:11   ├─ /chimeia/index.html (+3ms) \n01:01:11   ├─ /index.html (+898ms) \n01:01:12 ✓ Completed in 21.46s.\n\n01:01:12 [build] ✓ Completed in 25.25s.\n01:01:12 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`\n01:01:12 [build] 253 page(s) built in 25.98s\n01:01:12 [build] Complete!\n\nRunning Pagefind v1.4.0 (Extended)\nRunning from: \"C:\\\\GitHub\\\\InScience-v2\"\nSource:       \"dist\"\nOutput:       \"dist\\\\pagefind\"\n\n[Walking source directory]\nFound 253 files matching **/*.{html}\n\n[Parsing files]\nFound a data-pagefind-body element on the site.\n↳ Ignoring pages without this tag.\n\n[Reading languages]\nDiscovered 1 language: el\n\n[Building search indexes]\nTotal: \n  Indexed 1 language\n  Indexed 249 pages\n  Indexed 29818 words\n  Indexed 0 filters\n  Indexed 0 sorts\n\nFinished in 2.500 seconds\n\n ⛅️ wrangler 4.86.0 (update available 4.127.1)\n──────────────────────────────────────────────\n🌀 Building list of assets...\n✨ Read 845 files from the assets directory C:\\GitHub\\InScience-v2\\dist\n🌀 Starting asset upload...\n🌀 Found 32 new or modified static assets to upload. Proceeding with upload...\n+ /pagefind/pagefind-entry.json\n+ /pagefind/fragment/el_f96927f.pf_fragment\n+ /pagefind/index/el_7f454c7.pf_index\n+ /pagefind/index/el_a99afc3.pf_index\n+ /pagefind/index/el_685f627.pf_index\n+ /pagefind/index/el_37d4193.pf_index\n+ /pagefind/index/el_208ce11.pf_index\n+ /pagefind/index/el_91dc17c.pf_index\n+ /pagefind/index/el_87259e8.pf_index\n+ /pagefind/index/el_5afc217.pf_index\n+ /fysiki/chartografontas-to-skoteino-sympan-meros-2-o-aoratos-skeletos-tou-sympantos/index.html\n+ /pagefind/pagefind.el_11e4a39be9.pf_meta\n+ /llms.txt\n+ /pagefind/index/el_ee4cfd5.pf_index\n+ /pagefind/index/el_558f817.pf_index\n+ /pagefind/index/el_f22aa35.pf_index\n+ /pagefind/index/el_e1f49a4.pf_index\n+ /pagefind/index/el_7ee48f6.pf_index\n+ /pagefind/index/el_4a64bf0.pf_index\n+ /pagefind/index/el_f7f1220.pf_index\n+ /pagefind/index/el_aa105e7.pf_index\n+ /syggrafeis/vlembessis/index.html\n+ /pagefind/fragment/el_60e0222.pf_fragment\n+ /pagefind/index/el_1367f96.pf_index\n+ /pagefind/index/el_b69f5ba.pf_index\n+ /pagefind/index/el_6e9d47c.pf_index\n+ /pagefind/index/el_4cb52d6.pf_index\n+ /pagefind/index/el_32bede2.pf_index\n+ /pagefind/index/el_38e4b4e.pf_index\n+ /rss.xml\n+ /pagefind/index/el_4cde86f.pf_index\n+ /fysiki/index.html\nUploaded 10 of 32 assets\nUploaded 21 of 32 assets\nUploaded 32 of 32 assets\n✨ Success! Uploaded 32 files (555 already uploaded) (1.45 sec)\n\nTotal Upload: 0.31 KiB / gzip: 0.22 KiB\nUploaded inscience-v2 (6.24 sec)\nDeployed inscience-v2 triggers (1.78 sec)\n  https://inscience-v2.tech-f58.workers.dev\nCurrent Version ID: 5578c275-ff2a-4197-95f9-0ca774a71046"
+      }
+    }
+  ]
+}

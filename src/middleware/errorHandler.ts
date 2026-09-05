@@ -27,8 +27,26 @@ export const errorHandler = (
     userAgent: req.get('User-Agent')
   });
 
-  // Send error response
-  if (process.env.NODE_ENV === 'development') {
+  const isDev = process.env.NODE_ENV !== 'production';
+  const isPayloadTooLarge =
+    err.statusCode === 413 ||
+    err.name === 'PayloadTooLargeError' ||
+    err.message === 'request entity too large';
+
+  if (isPayloadTooLarge) {
+    res.status(413).json({
+      success: false,
+      error: {
+        message:
+          'This document is too large to send in one request. Re-upload the file and publish again so the server can use the cached copy.'
+      }
+    });
+    return;
+  }
+
+  // Send error response. Unset NODE_ENV is treated as development so local
+  // `npm run server:dev` surfaces the real message instead of a generic 500.
+  if (isDev) {
     res.status(err.statusCode).json({
       success: false,
       error: {
@@ -37,24 +55,20 @@ export const errorHandler = (
         statusCode: err.statusCode
       }
     });
+  } else if (err.isOperational || (err.statusCode && err.statusCode < 500)) {
+    res.status(err.statusCode).json({
+      success: false,
+      error: {
+        message: err.message
+      }
+    });
   } else {
-    // Production - send limited error info
-    if (err.isOperational) {
-      res.status(err.statusCode).json({
-        success: false,
-        error: {
-          message: err.message
-        }
-      });
-    } else {
-      // Programming error - don't leak details
-      res.status(500).json({
-        success: false,
-        error: {
-          message: 'Something went wrong'
-        }
-      });
-    }
+    res.status(500).json({
+      success: false,
+      error: {
+        message: 'Something went wrong'
+      }
+    });
   }
 };
 

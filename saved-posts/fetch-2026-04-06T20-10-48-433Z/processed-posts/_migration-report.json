@@ -1,0 +1,20 @@
+{
+  "totalPosts": 249,
+  "byStatus": {
+    "draft": 41,
+    "publish": 208
+  },
+  "postsWithShortcodes": 236,
+  "postsWithExtractedVideoUrls": 35,
+  "contentTypeDistribution": {
+    "article": 96,
+    "video": 31,
+    "book_review": 109,
+    "podcast": 6,
+    "film": 7
+  },
+  "emptyContentPosts": [],
+  "averageReadingTime": 7.4,
+  "postsWithTags": 231,
+  "postsWithFeaturedImage": 236
+}

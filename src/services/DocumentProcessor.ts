@@ -1,6 +1,14 @@
 import mammoth from 'mammoth';
 import * as cheerio from 'cheerio';
 import JSZip from 'jszip';
+import {
+  imageSeoService,
+  isGenericAlt,
+  looksLikeCaption,
+  seoFromContext,
+  uniquifyFilenameStem,
+  type ImageSeoSource,
+} from './ImageSeoService';
 import { PdfProcessor } from './PdfProcessor';
 
 // ─── Public Interfaces ────────────────────────────────────────────────
@@ -31,8 +39,12 @@ export interface Citation {
 
 export interface ProcessedImage {
   id: string;
+  /** SEO filename stem (no extension). Internal matching still uses `id`. */
+  filename: string;
   alt: string;
   title: string;
+  caption?: string;
+  seoSource?: ImageSeoSource;
   data: Buffer;
   contentType: string;
 }
@@ -154,7 +166,7 @@ export class DocumentProcessor {
         convertImage: mammoth.images.imgElement((image: any) => {
           return image.read('base64').then((imageBuffer: string) => ({
             src: `data:${image.contentType};base64,${imageBuffer}`,
-            alt: image.altText || 'Document image',
+            alt: image.altText || '',
           }));
         }),
         includeDefaultStyleMap: true,
@@ -208,8 +220,8 @@ export class DocumentProcessor {
     // 3. Handle equations — insert $$...$$ for any OMath content
     const equations = this.extractEquations($, rawXmlEquations);
 
-    // 4. Extract image metadata
-    const images = this.extractImages($);
+    // 4. Extract image metadata (nearby heading/caption, then optional AI)
+    const images = await this.extractImages($, title);
 
     // 5. Link in-text citations → ΒΙΒΛΙΟΓΡΑΦΙΑ entries
     const citations = this.linkCitations($);
@@ -664,30 +676,110 @@ export class DocumentProcessor {
   // ─── Images ───────────────────────────────────────────────────────
 
   /**
-   * Extract base64-embedded images as metadata (for potential upload
-   * to the WordPress media library later).
+   * Extract base64-embedded images and derive SEO filename / alt / title
+   * from nearby document text. Internal ids stay `image-N`.
    */
-  private extractImages($: cheerio.CheerioAPI): ProcessedImage[] {
+  private async extractImages(
+    $: cheerio.CheerioAPI,
+    articleTitle: string
+  ): Promise<ProcessedImage[]> {
     const images: ProcessedImage[] = [];
+    const usedStems = new Set<string>();
 
-    $('img').each((idx, el) => {
-      const $el = $(el);
+    const imgEls = $('img').toArray();
+    for (let idx = 0; idx < imgEls.length; idx++) {
+      const $el = $(imgEls[idx]);
       const src = $el.attr('src');
-      if (!src || !src.startsWith('data:')) return;
+      if (!src || !src.startsWith('data:')) continue;
 
       const matches = src.match(/data:([^;]+);base64,(.+)/);
-      if (!matches) return;
+      if (!matches) continue;
+
+      const rawAlt = ($el.attr('alt') || '').trim();
+      const wordAlt = isGenericAlt(rawAlt) ? '' : rawAlt;
+      const caption = this.findFollowingCaption($el);
+      const heading = this.findNearestHeading($, $el);
+      const id = `image-${idx + 1}`;
+      const seo = seoFromContext(
+        { wordAlt, caption, heading, articleTitle },
+        id
+      );
+
+      const filename = uniquifyFilenameStem(seo.filename, usedStems);
+      if (seo.alt) $el.attr('alt', seo.alt);
 
       images.push({
-        id: `image-${idx + 1}`,
-        alt: $el.attr('alt') || '',
-        title: $el.attr('title') || '',
+        id,
+        filename,
+        alt: seo.alt,
+        title: seo.title || ($el.attr('title') || ''),
+        caption: seo.caption,
+        seoSource: seo.seoSource,
         data: Buffer.from(matches[2], 'base64'),
         contentType: matches[1],
       });
-    });
+    }
+
+    await imageSeoService.enrichWeakImages(images, articleTitle);
+
+    for (const img of images) {
+      const $match = this.findImgByDataUri($, img);
+      if ($match && img.alt) $match.attr('alt', img.alt);
+    }
 
     return images;
+  }
+
+  private findImgByDataUri(
+    $: cheerio.CheerioAPI,
+    img: ProcessedImage
+  ): cheerio.Cheerio<any> | null {
+    const dataUri = `data:${img.contentType};base64,${img.data.toString('base64')}`;
+    const $found = $('img').filter((_, el) => $(el).attr('src') === dataUri);
+    return $found.length ? $found.first() : null;
+  }
+
+  private findNearestHeading(
+    $: cheerio.CheerioAPI,
+    $el: cheerio.Cheerio<any>
+  ): string {
+    let $node = $el;
+    while ($node.length) {
+      let $prev = $node.prev();
+      while ($prev.length) {
+        if ($prev.is('h1, h2, h3, h4, h5, h6')) {
+          return $prev.text().trim();
+        }
+        const $nested = $prev.find('h1, h2, h3, h4, h5, h6').last();
+        if ($nested.length) return $nested.text().trim();
+        $prev = $prev.prev();
+      }
+      $node = $node.parent();
+      if (!$node.length || $node.is('body') || $node.is('html')) break;
+    }
+    return '';
+  }
+
+  private findFollowingCaption($el: cheerio.Cheerio<any>): string {
+    const candidates: cheerio.Cheerio<any>[] = [];
+    const $next = $el.next();
+    if ($next.length) candidates.push($next);
+
+    const $parent = $el.parent();
+    if ($parent.length && !$parent.is('body') && !$parent.is('html')) {
+      const $parentNext = $parent.next();
+      if ($parentNext.length) candidates.push($parentNext);
+    }
+
+    for (const $cand of candidates) {
+      const text = $cand.text().trim();
+      const italicOnly =
+        $cand.is('em, i') ||
+        ($cand.find('em, i').length > 0 &&
+          $cand.find('em, i').text().trim() === text);
+      if (looksLikeCaption(text, { italic: italicOnly })) return text;
+    }
+    return '';
   }
 
   // ─── Clean HTML ───────────────────────────────────────────────────

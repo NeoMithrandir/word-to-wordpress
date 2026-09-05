@@ -1,0 +1,239 @@
+{
+  "id": 10985,
+  "slug": "mia-protasi-gia-to-therino-programma-tou-dartmouth-gia-tin-texniti-noimosini",
+  "status": "publish",
+  "type": "post",
+  "date": "2025-02-22T06:44:15",
+  "date_gmt": "2025-02-22T04:44:15",
+  "modified": "2025-02-22T00:29:33",
+  "modified_gmt": "2025-02-21T22:29:33",
+  "link": "https://inscience.gr/2025/02/22/mia-protasi-gia-to-therino-programma-tou-dartmouth-gia-tin-texniti-noimosini/",
+  "title": {
+    "rendered": "ΜΙΑ ΠΡΟΤΑΣΗ ΓΙΑ ΤΟ ΘΕΡΙΝΟ ΕΡΕΥΝΗΤΙΚΟ ΠΡΟΓΡΑΜΜΑ ΤΟΥ DARTMOUTH ΓΙΑ ΤΗΝ ΤΕΧΝΗΤΗ ΝΟΗΜΟΣΥΝΗ, 31 ΑΥΓΟΥΣΤΟΥ 1955"
+  },
+  "content": {
+    "rendered": "<p><strong>John McCarthy, Marvin L. Minsky, Nathaniel Rochester </strong><strong>και</strong><strong> Claude E. Shannon</strong></p>\n<p><strong>Μετάφραση: <a href=\"https://www.linkedin.com/in/nicole-sarla-%CE%BD%CE%B9%CE%BA%CF%8C%CE%BB-%CF%83%CE%B1%CF%81%CE%BB%CE%AC-32943722a/\">Νικόλ Σαρλά</a></strong><br />\n<strong>Επιμέλεια μετάφρασης: Νικόλ Σαρλά, Βασίλης Λεμπέσης</strong><br />\n<strong>Επιστημονική επιμέλεια: Νικόλ Σαρλά, Βασίλης Λεμπέσης, Θάνος Παναγόπουλος</strong><strong>ΠΕΡΙΛΗΨΗ</strong></p>\n<p><strong><em>Το καλοκαιρινό ερευνητικό πρόγραμμα του 1956 στο Dartmouth για την τεχνητή νοημοσύνη ξεκίνησε με αυτή την πρόταση της 31<sup>ης</sup> Αυγούστου 1955, η οποία συντάχθηκε από τους John McCarthy, Marvin Minsky, Nathaniel Rochester και Claude Shannon. Το αρχικό δακτυλογραφημένο κείμενο αποτελούνταν από 17 σελίδες συν την σελίδα του τίτλου. Αντίγραφα του δακτυλογραφημένου κειμένου φυλάσσονται στα αρχεία του Κολεγίου </em></strong><strong><em>Da</em></strong><strong><em>rtmouth και του Πανεπιστημίου Stanford. Στις πρώτες 5 σελίδες παρουσιάζεται η πρόταση και στις υπόλοιπες σελίδες εκτίθενται τα προσόντα και τα ενδιαφέροντα των τεσσάρων που πρότειναν τη μελέτη. Για λόγους συντομίας, το παρόν άρθρο αναπαράγει μόνο την ίδια την πρόταση, μαζί με τις σύντομες αυτοβιογραφικές δηλώσεις των εισηγητών.</em></strong>Προτείνουμε να διεξαχθεί μια μελέτη της τεχνητής νοημοσύνης διάρκειας 2 μηνών και με συμμετοχή 10 ατόμων κατά τη διάρκεια του καλοκαιριού του 1956 στο Κολέγιο Dartmouth στο Ανόβερο του Νιου Χάμσαϊρ. Η μελέτη θα βασιστεί στην υπόθεση ότι κάθε πτυχή της μάθησης ή οποιοδήποτε άλλο χαρακτηριστικό της νοημοσύνης μπορεί κατ' αρχήν να περιγραφεί με τόση ακρίβεια ώστε να μπορεί να κατασκευαστεί μια μηχανή που να την προσομοιώνει. Θα γίνει μια προσπάθεια να βρεθεί πώς να κάνει κανείς τις μηχανές να χρησιμοποιούν τη γλώσσα, να σχηματίζουν αφαιρέσεις και έννοιες, να επιλύουν τύπους προβλημάτων που τώρα προορίζονται για τον άνθρωπο και να βελτιώνονται. Πιστεύουμε ότι μπορεί να σημειωθεί σημαντική πρόοδος σε ένα ή περισσότερα από αυτά τα προβλήματα αν μια προσεκτικά επιλεγμένη ομάδα επιστημόνων εργαστεί πάνω σε αυτό από κοινού για ένα καλοκαίρι.</p>\n<p>Τα παρακάτω αποτελούν μερικές πτυχές του προβλήματος της τεχνητής νοημοσύνης:<strong><u>1) Αυτόματοι υπολογιστές</u></strong></p>\n<p>Αν μια μηχανή μπορεί να εκτελέσει μια εργασία, τότε ένας αυτόματος υπολογιστής μπορεί να προγραμματιστεί για να προσομοιώσει τη μηχανή. Οι ταχύτητες και οι χωρητικότητες μνήμης των σημερινών υπολογιστών μπορεί να είναι ανεπαρκείς για την προσομοίωση πολλών από τις ανώτερες λειτουργίες του ανθρώπινου εγκεφάλου, το σημαντικότερο εμπόδιο, όμως, δεν είναι η έλλειψη χωρητικότητας της μηχανής, αλλά η αδυναμία μας να γράψουμε προγράμματα που να εκμεταλλεύονται πλήρως αυτό που έχουμε.</p>\n<p><strong><u>2) Πώς μπορεί ένας υπολογιστής να προγραμματιστεί να χρησιμοποιεί μια γλώσσα</u></strong></p>\n<p>Μπορούμε να υποθέσουμε ότι σε μεγάλο βαθμό η ανθρώπινη σκέψη συνίσταται στον χειρισμό λέξεων σύμφωνα με κανόνες της λογικής και κανόνες εικασίας. Από αυτή την άποψη, ο σχηματισμός μιας γενίκευσης συνίσταται στην πρόσληψη μιας νέας λέξης και κάποιων κανόνων, σύμφωνα με τους οποίους οι προτάσεις που την περιέχουν συνεπάγονται άλλες προτάσεις και, με τη σειρά τους, συνεπάγονται οι ίδιες από άλλες. Αυτή η ιδέα δεν έχει διατυπωθεί ποτέ με μεγάλη ακρίβεια, ούτε έχουν αναπτυχθεί συγκεκριμένα υποδείγματα.</p>\n<p style=\"text-align: center;\"><em>Εικ. 1. Πρώτη σελίδα από την πρωτότυπη πρόταση. Ευγενική προσφορά του Κολεγίου </em><em>Dartmouth</em><em>.</em></p>\n<p><strong><u>3) Νευρωνικά δίκτυα</u></strong></p>\n<p>Πώς μπορεί ένα σύνολο από (υποθετικούς) νευρώνες να οργανωθεί με τέτοιον τρόπο ώστε να σχηματίζει έννοιες. Έχει πραγματοποιηθεί σημαντική θεωρητική και πειραματική εργασία πάνω σε αυτό το πρόβλημα από τους Uttley, Rashevsky και την ομάδα του, Farley και Clark, Pitts και McCulloch, Minsky, Rochester και Holland και άλλους. Έχουν προκύψει κάποια αποτελέσματα, αλλά το πρόβλημα απαιτεί περισσότερη θεωρητική επεξεργασία.</p>\n<p><strong><u>4) Θεωρία του μεγέθους ενός υπολογισμού</u></strong></p>\n<p>Αν μας δοθεί ένα καλώς ορισμένο πρόβλημα (για το οποίο είναι δυνατόν να ελέγξουμε μηχανικά αν μια προτεινόμενη απάντηση είναι έγκυρη ή όχι), ένας τρόπος επίλυσής του είναι να δοκιμάσουμε κατά σειρά όλες τις πιθανές απαντήσεις. Αυτή η μέθοδος είναι αναποτελεσματική και για να την αποκλείσουμε πρέπει να έχουμε κάποιο κριτήριο για την αποτελεσματικότητα του υπολογισμού. Η εξέταση θα δείξει ότι, για να πάρει κανείς ένα μέτρο της αποτελεσματικότητας ενός υπολογισμού, είναι απαραίτητο να έχει στη διάθεσή του μια μέθοδο μέτρησης της πολυπλοκότητας των υπολογιστικών συσκευών, η οποία με τη σειρά της μπορεί να γίνει αν έχει κανείς μια θεωρία της πολυπλοκότητας των συναρτήσεων. Ορισμένα μερικά αποτελέσματα για το πρόβλημα αυτό έχουν προκύψει από τον Shannon καθώς και τον McCarthy.</p>\n<p><strong><u>5) Αυτοβελτίωση</u></strong></p>\n<p>Πιθανώς μια πραγματικά ευφυής μηχανή θα εκτελεί δραστηριότητες που μπορούν να περιγραφούν καλύτερα ως αυτοβελτίωση. Έχουν προταθεί ορισμένα σχήματα για να γίνει αυτό και αξίζει να μελετηθούν περαιτέρω. Ενδεχομένως το ζήτημα αυτό μπορεί να μελετηθεί και αφηρημένα.</p>\n<p><strong><u>6) Αφαιρέσεις</u></strong></p>\n<p>Ορισμένοι τύποι «αφαίρεσης» μπορούν να οριστούν με σαφήνεια και αρκετοί άλλοι με λιγότερη σαφήνεια. Μια άμεση προσπάθεια ταξινόμησης αυτών και περιγραφής των μηχανικών μεθόδων σχηματισμού αφαιρέσεων από αισθητηριακά και άλλα δεδομένα φαίνεται ότι αξίζει τον κόπο.</p>\n<p><strong><u>7) Τυχαιότητα και δημιουργικότητα</u></strong></p>\n<p>Μια αρκετά ελκυστική, αλλά σαφώς ελλιπής υπόθεση είναι ότι η διαφορά μεταξύ δημιουργικής σκέψης και μη-ευφάνταστης, αλλά ικανής, σκέψης έγκειται στην εισαγωγή κάποιας τυχαιότητας. Η τυχαιότητα πρέπει να καθοδηγείται από τη διαίσθηση ώστε να είναι αποτελεσματική. Με άλλα λόγια, η εύλογη εικασία ή η διαίσθηση περιλαμβάνουν ελεγχόμενη τυχαιότητα μέσα σε μια κατά τα άλλα μεθοδική σκέψη.<strong>ΕΙΣΗΓΗΤΕΣ</strong></p>\n<p><a href=\"https://en.wikipedia.org/wiki/Claude_Shannon\">CLAUDE E. SHANNON</a></p>\n<p>Claude E. Shannon, μαθηματικός, Bell Telephone Laboratories. Ο Shannon ανέπτυξε τη στατιστική θεωρία της πληροφορίας, την εφαρμογή του προτασιακού λογισμού σε κυκλώματα μεταγωγής και έχει συνεισφέρει στη μελέτη της αποδοτικής σχεδίασης κυκλωμάτων μεταγωγής, τον σχεδιασμό μηχανών που μαθαίνουν, την κρυπτογραφία και τη θεωρία των μηχανών Turing. Μαζί με τον J. McCarthy συνεπιμελούνται ένα αφιέρωμα στο Annals of Mathematics με θέμα «<em>Θεωρία των Αυτομάτων</em>» (The Theory of Automata).</p>\n<p><a href=\"https://en.wikipedia.org/wiki/Marvin_Minsky\">MARVIN L. MINSKY</a></p>\n<p>Marvin L. Minsky, υπότροφος-συνεργάτης του Harvard στον τομέα των μαθηματικών και της νευρολογίας. Ο Minsky έχει κατασκευάσει μια μηχανή για την προσομοίωση της μάθησης από νευρωνικά δίκτυα και έχει γράψει μια διδακτορική διατριβή στα μαθηματικά στο Princeton με τίτλο «Νευρωνικά Δίκτυα και το Πρόβλημα του Μοντέλου του Εγκεφάλου» (Neural Nets and the Brain Model Problem), η οποία περιλαμβάνει αποτελέσματα στη θεωρία της μάθησης και τη θεωρία των τυχαίων νευρωνικών δικτύων.</p>\n<p><a href=\"https://en.wikipedia.org/wiki/Nathaniel_Rochester_(computer_scientist)\">NATHANIEL ROCHESTER</a></p>\n<p>Nathaniel Rochester, διευθυντής έρευνας της πληροφορίας, εταιρεία IBM, Poughkeepsie, Νέα Υόρκη. Ο Rochester ασχολήθηκε με την ανάπτυξη του ραντάρ για επτά χρόνια και των υπολογιστικών μηχανημάτων επίσης για επτά χρόνια. Μαζί με έναν άλλο μηχανικό ήταν από κοινού υπεύθυνοι για τον σχεδιασμό του IBM 701, ενός αυτόματου υπολογιστή μεγάλης κλίμακας που τυγχάνει ευρείας χρήσης σήμερα. Επεξεργάστηκε ορισμένες από τις τεχνικές αυτόματου προγραμματισμού που χρησιμοποιούνται ευρέως σήμερα και ασχολήθηκε με προβλήματα που αφορούν το πώς να βάλουμε τις μηχανές να κάνουν εργασίες που προηγουμένως μπορούσαν να κάνουν μόνο άνθρωποι. Εργάστηκε επίσης στην προσομοίωση νευρικών δικτύων με ιδιαίτερη έμφαση στη χρήση υπολογιστών για τη δοκιμή θεωριών στη νευροφυσιολογία.</p>\n<p><a href=\"https://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist)\">JOHN McCARTHY</a></p>\n<p>John McCarthy, αναπληρωτής καθηγητής μαθηματικών, Κολέγιο Dartmouth. Ο McCarthy έχει εργαστεί σε διάφορα ζητήματα που σχετίζονται με τη μαθηματική φύση της διαδικασίας της σκέψης, συμπεριλαμβανομένης της θεωρίας των μηχανών Turing, της ταχύτητας των υπολογιστών, της σχέσης ενός μοντέλου του εγκεφάλου με το περιβάλλον του και της χρήσης γλωσσών από μηχανές. Ορισμένα αποτελέσματα αυτής της εργασίας περιλαμβάνονται στο επερχόμενο βιβλίο «Annals Study» που επιμελήθηκαν οι Shannon και McCarthy. Το υπόλοιπο έργο του McCarthy φορά τον τομέα των διαφορικών εξισώσεων.</p>\n<p><em>H</em><em> κεντρική φωτογραφία του άρθρου φιλοτεχνήθηκε από το </em><em>ChatGPT</em><em> έπειτα από αίτημά μας προς αυτό να φτιαχτεί ένας πίνακας σχετικός με το περιεχόμενο του άρθρου που να ακολουθεί την τεχνοτροπία του Σαλβαντόρ Νταλί.</em><br />\n</p>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>John McCarthy, Marvin L. Minsky, Nathaniel Rochester και Claude E. Shannon Μετάφραση: Νικόλ Σαρλά Επιμέλεια μετάφρασης: Νικόλ Σαρλά, Βασίλης Λεμπέσης Επιστημονική επιμέλεια: Νικόλ Σαρλά, Βασίλης Λεμπέσης, Θάνος Παναγόπουλος ΠΕΡΙΛΗΨΗ Το...</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 16,
+    "name": "Νικόλ Σαρλά",
+    "slug": "nsarla",
+    "avatar_urls": {
+      "24": "https://inscience.gr/wp-content/uploads/2023/10/cropped-cropped-InScience-sarla-photo-24x24.jpg",
+      "48": "https://inscience.gr/wp-content/uploads/2023/10/cropped-cropped-InScience-sarla-photo-48x48.jpg",
+      "96": "https://inscience.gr/wp-content/uploads/2023/10/cropped-cropped-InScience-sarla-photo-96x96.jpg"
+    }
+  },
+  "featured_media": 10987,
+  "featured_image": {
+    "id": 10987,
+    "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main.jpg",
+    "alt_text": "",
+    "media_details": {
+      "width": 1024,
+      "height": 1024,
+      "file": "2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main.jpg",
+      "sizes": {
+        "medium": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-300x300.jpg",
+          "width": 300,
+          "height": 300,
+          "filesize": 41812,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-300x300.jpg"
+        },
+        "thumbnail": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-150x150.jpg",
+          "width": 150,
+          "height": 150,
+          "filesize": 13233,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-150x150.jpg"
+        },
+        "medium_large": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-768x768.jpg",
+          "width": 768,
+          "height": 768,
+          "filesize": 193839,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-768x768.jpg"
+        },
+        "portfolio-thumb": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-600x403.jpg",
+          "width": 600,
+          "height": 403,
+          "filesize": 89552,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-600x403.jpg"
+        },
+        "nectar_small_square": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-140x140.jpg",
+          "width": 140,
+          "height": 140,
+          "filesize": 12090,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-140x140.jpg"
+        },
+        "portfolio-thumb_large": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-900x604.jpg",
+          "width": 900,
+          "height": 604,
+          "filesize": 170765,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-900x604.jpg"
+        },
+        "portfolio-thumb_small": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-400x269.jpg",
+          "width": 400,
+          "height": 269,
+          "filesize": 46115,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-400x269.jpg"
+        },
+        "portfolio-widget": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-100x100.jpg",
+          "width": 100,
+          "height": 100,
+          "filesize": 7204,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-100x100.jpg"
+        },
+        "wide": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-1000x500.jpg",
+          "width": 1000,
+          "height": 500,
+          "filesize": 149714,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-1000x500.jpg"
+        },
+        "wide_photography": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-900x600.jpg",
+          "width": 900,
+          "height": 600,
+          "filesize": 169281,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-900x600.jpg"
+        },
+        "wide_small": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-670x335.jpg",
+          "width": 670,
+          "height": 335,
+          "filesize": 79921,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-670x335.jpg"
+        },
+        "regular": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-500x500.jpg",
+          "width": 500,
+          "height": 500,
+          "filesize": 97538,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-500x500.jpg"
+        },
+        "regular_small": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-350x350.jpg",
+          "width": 350,
+          "height": 350,
+          "filesize": 53744,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-350x350.jpg"
+        },
+        "tall": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-500x1000.jpg",
+          "width": 500,
+          "height": 1000,
+          "filesize": 153920,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-500x1000.jpg"
+        },
+        "wide_tall": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-1000x1000.jpg",
+          "width": 1000,
+          "height": 1000,
+          "filesize": 297851,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-1000x1000.jpg"
+        },
+        "large_featured": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-1024x770.jpg",
+          "width": 1024,
+          "height": 770,
+          "filesize": 244341,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-1024x770.jpg"
+        },
+        "medium_featured": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main-800x800.jpg",
+          "width": 800,
+          "height": 800,
+          "filesize": 209387,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main-800x800.jpg"
+        },
+        "full": {
+          "file": "InScience-A_surreal_painting_Dartmouth_AI_Dali-main.jpg",
+          "width": 1024,
+          "height": 1024,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2025/02/InScience-A_surreal_painting_Dartmouth_AI_Dali-main.jpg"
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": 256,
+      "name": "ΝΕΟΙ ΕΛΛΗΝΕΣ ΕΠΙΣΤΗΜΟΝΕΣ",
+      "slug": "neoi-ellines-epistimones",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 282,
+      "name": "ΤΕΧΝΗΤΗ ΝΟΗΜΟΣΥΝΗ",
+      "slug": "techniti-noimosini-artificial-intelligence",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 194,
+      "name": "Artificial Intelligence",
+      "slug": "artificial-intelligence",
+      "description": ""
+    },
+    {
+      "id": 189,
+      "name": "Τεχνητή νοημοσύνη",
+      "slug": "techniti-noimosyni",
+      "description": ""
+    },
+    {
+      "id": 13,
+      "name": "Τεχνολογία",
+      "slug": "technology",
+      "description": ""
+    }
+  ],
+  "format": "standard",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 6,
+    "article_content_type": "article",
+    "article_abstract": "John McCarthy, Marvin L. Minsky, Nathaniel Rochester και Claude E. Shannon Μετάφραση: Νικόλ Σαρλά Επιμέλεια μετάφρασης: Νικόλ Σαρλά, Βασίλης Λεμπέσης Επιστημονική επιμέλεια: Νικόλ Σαρλά, Βασίλης Λεμπέσης, Θάνος Παναγόπουλος ΠΕΡΙΛΗΨΗ Το...",
+    "article_youtube_url": null,
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}

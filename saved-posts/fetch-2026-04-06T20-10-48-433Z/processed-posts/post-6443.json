@@ -1,0 +1,216 @@
+{
+  "id": 6443,
+  "slug": "mystiki-gnosi-mia-epistimoniki-prose",
+  "status": "publish",
+  "type": "post",
+  "date": "2021-08-06T04:29:28",
+  "date_gmt": "2021-08-06T04:29:28",
+  "modified": "2021-08-06T04:37:21",
+  "modified_gmt": "2021-08-06T04:37:21",
+  "link": "https://inscience.gr/2021/08/06/%ce%bc%cf%85%cf%83%cf%84%ce%b9%ce%ba%ce%b7-%ce%b3%ce%bd%cf%89%cf%83%ce%b7-%ce%bc%ce%b9%ce%b1-%ce%b5%cf%80%ce%b9%cf%83%cf%84%ce%b7%ce%bc%ce%bf%ce%bd%ce%b9%ce%ba%ce%b7-%cf%80%cf%81%ce%bf%cf%83%ce%b5/",
+  "title": {
+    "rendered": "ΜΥΣΤΙΚΗ ΓΝΩΣΗ ΜΙΑ ΕΠΙΣΤΗΜΟΝΙΚΗ ΠΡΟΣΕΓΓΙΣΗ ΤΟΥ ΘΡΗΣΚΕΥΤΙΚΟΥ, ΦΙΛΟΣΟΦΙΚΟΥ ΚΑΙ ΦΑΡΜΑΚΟΓΕΝΟΥΣ ΜΥΣΤΙΚΙΣΜOY"
+  },
+  "content": {
+    "rendered": "<p><strong>ΑΝΔΡΕΑΣ  Κ. ΠΑΠΑΝΙΚΟΛΑΟΥ</strong>Μυστικισμός… πλάνη ή αλήθεια; Τι είναι η μυστική εμπειρία; Είναι αυθεντική, αξιόπιστη, έγκυρη; Γιατί τη μελετούν σε μεγάλα πανεπιστήμια και ερευνητικά κέντρα; Ποια είναι τα χαρακτηριστικά της; Ποια η σχέση της με εγκεφαλικές διεργασίες;</p>\n<p>Ο Ανδρέας Κ. Παπανικολάου, παγκοσμίως γνωστός νευροεπιστήμονας, προχωρά πέρα από τις παραδοσιακές φιλοσοφικές και θεολογικές ερμηνείες των μυστικών φαινομένων και, προσεγγίζοντας επιστημονικά τις σχετικές μαρτυρίες και τα αποτελέσματα πειραμάτων, επισημαίνει τα κοινά στοιχεία των μυστικών εμπειριών εξετάζοντας εάν πρόκειται για υποκειμενικές κατασκευές-προϊόντα παράτυπων νευροχημικών, νευροφυσιολογικών ή ψυχοπαθολογικών παραγόντων ή για πηγές αυθεντικής γνώσης.</p>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>ΑΝΔΡΕΑΣ Κ. ΠΑΠΑΝΙΚΟΛΑΟΥ Μυστικισμός… πλάνη ή αλήθεια; Τι είναι η μυστική εμπειρία; Είναι αυθεντική, αξιόπιστη, έγκυρη; Γιατί τη μελετούν σε μεγάλα πανεπιστήμια και ερευνητικά κέντρα; Ποια είναι τα χαρακτηριστικά της;...</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 2,
+    "name": "Βασίλης Λεμπέσης",
+    "slug": "vlembessis",
+    "avatar_urls": {
+      "24": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-24x24.jpg",
+      "48": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-48x48.jpg",
+      "96": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-96x96.jpg"
+    }
+  },
+  "featured_media": 6444,
+  "featured_image": {
+    "id": 6444,
+    "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi.jpg",
+    "alt_text": "",
+    "media_details": {
+      "width": 800,
+      "height": 1095,
+      "file": "2021/08/Inscience_mistiki-gnosi.jpg",
+      "sizes": {
+        "medium": {
+          "file": "Inscience_mistiki-gnosi-219x300.jpg",
+          "width": 219,
+          "height": 300,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-219x300.jpg"
+        },
+        "large": {
+          "file": "Inscience_mistiki-gnosi-748x1024.jpg",
+          "width": 748,
+          "height": 1024,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-748x1024.jpg"
+        },
+        "thumbnail": {
+          "file": "Inscience_mistiki-gnosi-150x150.jpg",
+          "width": 150,
+          "height": 150,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-150x150.jpg"
+        },
+        "medium_large": {
+          "file": "Inscience_mistiki-gnosi-768x1051.jpg",
+          "width": 768,
+          "height": 1051,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-768x1051.jpg"
+        },
+        "portfolio-thumb_large": {
+          "file": "Inscience_mistiki-gnosi-800x604.jpg",
+          "width": 800,
+          "height": 604,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-800x604.jpg"
+        },
+        "portfolio-thumb": {
+          "file": "Inscience_mistiki-gnosi-600x403.jpg",
+          "width": 600,
+          "height": 403,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-600x403.jpg"
+        },
+        "portfolio-thumb_small": {
+          "file": "Inscience_mistiki-gnosi-400x269.jpg",
+          "width": 400,
+          "height": 269,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-400x269.jpg"
+        },
+        "portfolio-widget": {
+          "file": "Inscience_mistiki-gnosi-100x100.jpg",
+          "width": 100,
+          "height": 100,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-100x100.jpg"
+        },
+        "nectar_small_square": {
+          "file": "Inscience_mistiki-gnosi-140x140.jpg",
+          "width": 140,
+          "height": 140,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-140x140.jpg"
+        },
+        "wide": {
+          "file": "Inscience_mistiki-gnosi-800x500.jpg",
+          "width": 800,
+          "height": 500,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-800x500.jpg"
+        },
+        "wide_small": {
+          "file": "Inscience_mistiki-gnosi-670x335.jpg",
+          "width": 670,
+          "height": 335,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-670x335.jpg"
+        },
+        "regular": {
+          "file": "Inscience_mistiki-gnosi-500x500.jpg",
+          "width": 500,
+          "height": 500,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-500x500.jpg"
+        },
+        "regular_small": {
+          "file": "Inscience_mistiki-gnosi-350x350.jpg",
+          "width": 350,
+          "height": 350,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-350x350.jpg"
+        },
+        "tall": {
+          "file": "Inscience_mistiki-gnosi-500x1000.jpg",
+          "width": 500,
+          "height": 1000,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-500x1000.jpg"
+        },
+        "wide_tall": {
+          "file": "Inscience_mistiki-gnosi-800x1000.jpg",
+          "width": 800,
+          "height": 1000,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-800x1000.jpg"
+        },
+        "wide_photography": {
+          "file": "Inscience_mistiki-gnosi-800x600.jpg",
+          "width": 800,
+          "height": 600,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-800x600.jpg"
+        },
+        "large_featured": {
+          "file": "Inscience_mistiki-gnosi-800x770.jpg",
+          "width": 800,
+          "height": 770,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-800x770.jpg"
+        },
+        "medium_featured": {
+          "file": "Inscience_mistiki-gnosi-800x800.jpg",
+          "width": 800,
+          "height": 800,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi-800x800.jpg"
+        },
+        "full": {
+          "file": "Inscience_mistiki-gnosi.jpg",
+          "width": 800,
+          "height": 1095,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Inscience_mistiki-gnosi.jpg"
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": 96,
+      "name": "ΠΡΟΤΑΣΕΙΣ ΒΙΒΛΙΩΝ",
+      "slug": "book-suggestions",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 98,
+      "name": "InScience book suggestions",
+      "slug": "inscience-book-suggestions",
+      "description": ""
+    },
+    {
+      "id": 97,
+      "name": "InScience προτάσεις βιβλίων",
+      "slug": "inscience-protaseis-vivlion",
+      "description": ""
+    }
+  ],
+  "format": "standard",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 1,
+    "article_content_type": "book_review",
+    "article_abstract": "ΑΝΔΡΕΑΣ Κ. ΠΑΠΑΝΙΚΟΛΑΟΥ Μυστικισμός… πλάνη ή αλήθεια; Τι είναι η μυστική εμπειρία; Είναι αυθεντική, αξιόπιστη, έγκυρη; Γιατί τη μελετούν σε μεγάλα πανεπιστήμια και ερευνητικά κέντρα; Ποια είναι τα χαρακτηριστικά της;...",
+    "article_youtube_url": null,
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}

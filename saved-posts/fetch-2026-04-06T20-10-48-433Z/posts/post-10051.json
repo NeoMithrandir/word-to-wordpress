@@ -1,0 +1,205 @@
+{
+  "id": 10051,
+  "date": "2023-05-20T05:35:29",
+  "date_gmt": "2023-05-20T02:35:29",
+  "modified": "2023-05-20T18:28:45",
+  "modified_gmt": "2023-05-20T15:28:45",
+  "slug": "epanatopothetisi-farmakon",
+  "status": "publish",
+  "type": "post",
+  "link": "https://inscience.gr/2023/05/20/epanatopothetisi-farmakon/",
+  "title": {
+    "rendered": "ΕΠΑΝΑΤΟΠΟΘΕΤΗΣΗ ΦΑΡΜΑΚΩΝ, ΔΕΔΟΜΕΝΑ ΜΕΓΑΛΟΥ ΟΓΚΟΥ ΚΑΙ ΤΕΧΝΗΤΗ ΝΟΗΜΟΣΥΝΗ"
+  },
+  "content": {
+    "rendered": "<div id=\"bsf_rt_marker\"></div><p><span class=\"span-reading-time rt-reading-time\" style=\"display: block;\"><span class=\"rt-label rt-prefix\">Χρόνος Ανάγνωσης</span> <span class=\"rt-time\"> 8</span> <span class=\"rt-label rt-postfix\">Λεπτά</span></span>[vc_row type=&#8221;in_container&#8221; full_screen_row_position=&#8221;middle&#8221; column_margin=&#8221;default&#8221; column_direction=&#8221;default&#8221; column_direction_tablet=&#8221;default&#8221; column_direction_phone=&#8221;default&#8221; scene_position=&#8221;center&#8221; text_color=&#8221;dark&#8221; text_align=&#8221;left&#8221; row_border_radius=&#8221;none&#8221; row_border_radius_applies=&#8221;bg&#8221; id=&#8221;feynman-image-1&#8243; overlay_strength=&#8221;0.3&#8243; gradient_direction=&#8221;left_to_right&#8221; shape_divider_position=&#8221;bottom&#8221; bg_image_animation=&#8221;none&#8221; shape_type=&#8221;&#8221;][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_spacing=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/6&#8243; tablet_width_inherit=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][/vc_column][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_spacing=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;2/3&#8243; tablet_width_inherit=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][image_with_animation image_url=&#8221;10052&#8243; animation=&#8221;Fade In&#8221; hover_animation=&#8221;none&#8221; alignment=&#8221;center&#8221; border_radius=&#8221;none&#8221; box_shadow=&#8221;none&#8221; image_loading=&#8221;default&#8221; max_width=&#8221;100%&#8221; max_width_mobile=&#8221;default&#8221;][/vc_column][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_spacing=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/6&#8243; tablet_width_inherit=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][/vc_column][/vc_row][vc_row type=&#8221;in_container&#8221; full_screen_row_position=&#8221;middle&#8221; column_margin=&#8221;default&#8221; column_direction=&#8221;default&#8221; column_direction_tablet=&#8221;default&#8221; column_direction_phone=&#8221;default&#8221; scene_position=&#8221;center&#8221; text_color=&#8221;dark&#8221; text_align=&#8221;left&#8221; row_border_radius=&#8221;none&#8221; row_border_radius_applies=&#8221;bg&#8221; overlay_strength=&#8221;0.3&#8243; gradient_direction=&#8221;left_to_right&#8221; shape_divider_position=&#8221;bottom&#8221; bg_image_animation=&#8221;none&#8221;][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_spacing=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/1&#8243; tablet_width_inherit=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][vc_column_text]<strong>ΠΕΡΙΛΗΨΗ</strong></p>\n<p><strong><em>Η επανατοποθέτηση φαρμάκων επιταχύνει σημαντικά την ανακάλυψη και ανάπτυξη φαρμάκων με ουσιαστική απήχηση στα σπάνια νοσήματα. Σε συνεργασία με τα δεδομένα μεγάλου όγκου και τις τεχνολογίες τεχνητής νοημοσύνης (</em></strong><strong><em>AI</em></strong><strong><em>) ενισχύει την αξιοπιστία των προβλέψεων, αναφορικά με την αποτελεσματικότητα, αλλά και την τοξικότητα του επαναστοχευμένου φαρμάκου. Τα σύγχρονα υπολογιστικά εργαλεία, πλέον, καθοδηγούν και εμπλουτίζουν τις εργαστηριακές προσεγγίσεις, ενώ οι τελευταίες επικυρώνουν τις υποθέσεις εργασίας ή δημιουργούν νέες. Χαρακτηριστικό παράδειγμα καινοτόμων συνεργειών αποτελεί η πλατφόρμα επανατοποθέτησης φαρμάκων Cloudscreen<sup>©</sup>, προϊόν καινοτομίας της </em></strong><strong><em>Cloudpharm</em></strong> <strong><em>PC</em></strong><strong><em>, μιας ελληνικής νεοφυούς εταιρείας και του Εργαστηρίου Ανάδειξης Βιοδεικτών &amp; Μεταφραστικής Έρευνας του Εθνικού Ιδρύματος Ερευνών. </em></strong>[/vc_column_text][/vc_column][/vc_row][vc_row type=&#8221;in_container&#8221; full_screen_row_position=&#8221;middle&#8221; column_margin=&#8221;default&#8221; column_direction=&#8221;default&#8221; column_direction_tablet=&#8221;default&#8221; column_direction_phone=&#8221;default&#8221; scene_position=&#8221;center&#8221; text_color=&#8221;dark&#8221; text_align=&#8221;left&#8221; row_border_radius=&#8221;none&#8221; row_border_radius_applies=&#8221;bg&#8221; overlay_strength=&#8221;0.3&#8243; gradient_direction=&#8221;left_to_right&#8221; shape_divider_position=&#8221;bottom&#8221; bg_image_animation=&#8221;none&#8221;][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_spacing=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/1&#8243; tablet_width_inherit=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][vc_column_text]<strong>ΕΙΣΑΓΩΓΗ </strong></p>\n<p>Η ανακάλυψη και ανάπτυξη φαρμάκων απαιτεί, συνολικά, σημαντικές δαπάνες και περιλαμβάνει πλήθος ενδιάμεσων σταδίων, μέχρι την έγκριση από τους ρυθμιστικούς οργανισμούς και τη διάθεσή τους στον πολίτη. Σημειώνεται, εδώ, ότι μόνο το 10% νέων φαρμάκων λαμβάνουν έγκριση προς διάθεση στην αγορά (<a href=\"#3\">Hernandez et al, 2017</a>). Η επανατοποθέτηση φαρμάκων είναι μια μέθοδος λιγότερο δαπανηρή και χρονοβόρα σε σχέση με την παραδοσιακή μέθοδο ανάπτυξης φαρμάκων. Ο όρος επανατοποθέτηση ή επαναστόχευση φαρμάκων αναφέρεται στην ανεύρεση νέων χρήσεων για εγκεκριμένα ή υπό διερεύνηση φάρμακα για διαφορετικές ιατρικές ενδείξεις από αυτές για τις οποίες χρησιμοποιούνται ήδη. Το φάρμακο το οποίο καταφέρνει να βρει εφαρμογή σε μία νέα ασθένεια καλείται <em>επαναστοχευμένο φάρμακο</em> (<a href=\"#4\">Pushpakom et al, 2019</a>).</p>\n<p>Η επανατοποθέτηση φαρμάκων επιταχύνει σημαντικά την ανακάλυψη και ανάπτυξη φαρμάκων, γεγονός εξαιρετικής απήχησης στα σπάνια νοσήματα. Σημαντικά, η επανατοποθέτηση φαρμάκων εκτιμάται πως μειώνει, συνολικά, το κόστος και τον χρόνο έρευνας και ανάπτυξης ενός φαρμάκου, περιορίζοντας τον κίνδυνο αποτυχίας.  Χαρακτηριστικά, το 30% φαρμάκων, κατόπιν επανατοποθέτησης, έχει λάβει έγκριση, δίνοντας κίνητρο στην φαρμακευτική βιομηχανία και τις βιοτεχνολογικές εταιρείες να επαναστοχεύσουν υπάρχοντα προϊόντα (<a href=\"#2\">Ashburn et al, 2004</a>). Η επανατοποθέτηση φαρμάκων γίνεται μία ολοένα και περισσότερο ελκυστική και παραγωγική προσέγγιση για τον προσδιορισμό νέων θεραπευτικών ενδείξεων ήδη υπαρχόντων εγκεκριμένων φαρμάκων ή κλινικά αποτυχημένων/ υπό διερεύνηση βιοδραστικών μορίων (<a href=\"#6\">Sommerford, 2022</a>).</p>\n<p><strong>ΠΡΟΣΕΓΓΙΣΕΙΣ ΓΙΑ ΤΗΝ ΕΠΑΝΑΤΟΠΟΘΕΤΗΣΗ ΦΑΡΜΑΚΩΝ </strong></p>\n<p>Υπάρχουν τρεις κύριες προσεγγίσεις για την επανατοποθέτηση φαρμάκων: α) με βάση την ασθένεια, β) με βάση την πρωτεΐνη-στόχο και γ) με βάση το φάρμακο. Στην προσέγγιση με βάση τη ασθένεια προσδιορίζονται οι σχέσεις μεταξύ μιας νέας και μιας παλαιότερης ένδειξης. Στην περίπτωση αυτή, η ασθένεια για την οποία ερευνάται μια πιθανή επαναστόχευση έρχεται στο προσκήνιο και γίνεται προσπάθεια εντοπισμού φαρμάκων, τα οποία θα έχουν κάποια δράση έναντι της υπό μελέτης ασθένειας. Στη δεύτερη προσέγγιση πραγματοποιείται η συσχέτιση γνωστών φαρμακευτικών στόχων και των καθιερωμένων φαρμάκων τους με νέες ενδείξεις. Σε αυτή την περίπτωση στο προσκήνιο μπαίνει ο φαρμακευτικός στόχος και το καθιερωμένο φάρμακο που έχει δράση σε αυτόν τον στόχο και γίνεται προσπάθεια σύνδεσης του συγκεκριμένου ζεύγους στόχος-φάρμακο με μία νέα διαφορετική ασθένεια ή παθολογική κατάσταση. Τέλος, σε μία προσέγγιση με βάση το φάρμακο γίνεται η σύνδεση ενός γνωστού φαρμάκου με έναν νέο φαρμακευτικό στόχο και τη σχετική ένδειξη. Πρωταγωνιστικό ρόλο στην παρούσα περίπτωση έχει το φάρμακο για το οποίο διερευνάται μια πιθανή επαναστόχευση. Εδώ γίνεται προσπάθεια συσχέτισης του υπό μελέτη φαρμάκου με νέους φαρμακευτικούς στόχους και τις αντίστοιχες ιατρικές ενδείξεις (<a href=\"#6\">Sommerford, 2022</a>).</p>\n<p><strong>ΕΠΑΝΑΤΟΠΟΘΕΤΗΣΗ ΦΑΡΜΑΚΩΝ ΚΑΙ ΤΕΧΝΗΤΗ ΝΟΗΜΟΣΥΝΗ</strong></p>\n<p>Η <em>τεχνητή νοημοσύνη</em> (artificial intelligence, ΑΙ) ενισχύει τον τομέα της έρευνας και ανάπτυξης φαρμάκων, εντοπίζοντας και εξάγοντας μοτίβα και στοιχεία από βιοϊατρικά και χημειοπληροφορικά δεδομένα. Οι καινοτόμες τεχνικές ΑΙ και <em>μηχανικής μάθησης</em> (machine learning, ML) αξιοποιούνται στην επανατοποθέτηση φαρμάκων για να συσχετίσουν υπάρχοντα φάρμακα με συγκεκριμένες ενδείξεις ή να συνδυάσουν φάρμακα, ώστε να αντιμετωπιστούν επείγουσες ιατρικές ανάγκες. Η χρήση μεθόδων AI/ML επιταχύνει τη διαδικασία έρευνας και ανάπτυξης νέων φαρμάκων και προσφέρει μια δεύτερη ευκαιρία σε φάρμακα που έχουν αποσυρθεί ή αποτύχει για κάποιες ενδείξεις, να επαναχρησιμοποιηθούν με επιτυχία σε νέες.</p>\n<p>Οι προσεγγίσεις AI έχουν ένα ευρύ φάσμα εφαρμογών, που ξεκινά από τις αλληλεπιδράσεις σε μοριακό επίπεδο μεταξύ φαρμάκου και πρωτεΐνης, μέχρι την ενδελεχή επιλογή εκατομμυρίων αρχείων (δεδομένων μεγάλου όγκου) για την εύρεση φαρμάκων και την ενδεχόμενη εφαρμογή τους στη θεραπεία άλλων παθήσεων. Συνοπτικά, αυτές οι στρατηγικές ΑΙ υποστηρίζουν βέλτιστα την εξαγωγή βιβλιογραφίας, την εφαρμογή της μηχανικής μάθησης σε φαρμακογονιδιωματικά δεδομένα και δεδομένα βιοπληροφορικής και χημειοπληροφορικής, καθώς και την <em>εξόρυξη δεδομένων</em> (data mining) από <em>ηλεκτρονικά ιατρικά αρχεία</em> (Electronic Medical Records, EMR).</p>\n<p>Με τη βοήθεια της τεχνητής νοημοσύνης ελέγχονται τεράστιες ποσότητες δεδομένων, ώστε να εντοπιστούν φάρμακα που χρησιμοποιούνται ήδη, με επιτυχία, με σκοπό την επανατοποθέτησή τους σε νέα ένδειξη για μέγιστο κλινικό όφελος και περιορισμό των ανεπιθύμητων ενεργειών, πόσο δε μάλλον για ενδείξεις που στερούνται φαρμακευτικής αγωγής. Δεδομένου ότι η ασφάλεια των φαρμάκων που κυκλοφορούν στην αγορά έχει ελεγχθεί σε κλινικές δοκιμές, η επανατοποθέτηση γνωστών φαρμάκων δύναται να δώσει την φαρμακευτική αγωγή στον ασθενή πιο άμεσα και με σημαντικά μειωμένο κόστος (<a href=\"#6\">Sommerford, 2022</a>). Αντίστοιχα, αναφορικά με τα βιοδραστικά μόρια που έχουν αποτύχει, διερευνάται ο <em>χημικός χώρος </em>(chemical space) εκ νέου, συνδυαστικά και απορρέουν προβλέψεις επανατοποθέτησης. Ως χημικός χώρος ορίζεται ένας θεωρητικός χώρος, οποίος περιλαμβάνει όλα τα πιθανά χημικά μόρια (χημικές ενώσεις) που μπορούν να συντεθούν. Το θεωρητικό μέγεθος του χώρου αυτού εκτιμάται στα περίπου 10<sup>60</sup> χημικά μόρια (<a href=\"#5\">Reymond et al, 2012</a>).</p>\n<p>Η ΑΙ, στο αυτό πλαίσιο, συμβάλλει στη βελτιστοποίηση των κλασσικών υπολογιστικών μεθόδων, όπως είναι η <em>μοριακή πρόσδεση</em> (molecular docking). Η μέθοδος της μοριακής πρόσδεσης είναι μια τεχνική μοριακής μοντελοποίησης, με την οποία διερευνώνται σε τρισδιάστατο επίπεδο οι σχέσεις χημικών ενώσεων (ή φαρμάκων) με πρωτεΐνες, οι οποίες αποτελούν απαραίτητα δομικά στοιχεία για κάθε ζωντανό οργανισμό. Η τεχνική αυτή είναι ευρέως διαδεδομένη και χρησιμοποιείται εδώ και αρκετά χρόνια από την επιστημονική κοινότητα, αλλά και από τις φαρμακοβιομηχανίες για τον σχεδιασμό φαρμάκων. Ωστόσο, παρά το υψηλό ποσοστό θετικών αποτελεσμάτων, υπάρχουν περιπτώσεις όπου η συγκεκριμένη τεχνική αποδίδει ψευδώς αληθή αποτελέσματα, τα οποία δεν είναι αντιπροσωπευτικά. Με τη χρήση αλγορίθμων ΑΙ μπορούν να εντοπιστούν αυτά τα λανθασμένα ευρήματα και να χρησιμοποιηθούν για τη βελτιστοποίηση της μεθοδολογίας της μοριακής πρόσδεσης, ώστε να αυξηθεί η αξιοπιστία των αποτελεσμάτων. Με αυτόν τον τρόπο η διαδικασία του σχεδιασμού νέων φαρμάκων μπορεί να επιταχυνθεί με αξιοπιστία (<a href=\"#1\">Adeshina et al, 2020</a>).</p>\n<p><strong>ΔΥΣΚΟΛΙΕΣ ΤΗΣ ΕΠΑΝΑΤΟΠΟΘΕΤΗΣΗΣ ΦΑΡΜΑΚΩΝ</strong></p>\n<p>Με τις κλασικές τεχνικές έρευνας και ανάπτυξης φαρμάκων, η γνώση των αποτυχημένων δοκιμών και υπολογισμών είναι περιορισμένη και συχνά δεν βλέπει το φως της δημοσιότητας. Ως εκ τούτου, η επανατοποθέτηση φαρμάκων χαρακτηρίζεται από ποικίλα ζητήματα και περιορισμούς, που πρέπει να ληφθούν υπόψη. Μερικές φορές είναι αδύνατο να είναι διαθέσιμα τα απαραίτητα δεδομένα για την κατάλληλη ανάλυση παλαιότερων φαρμάκων, καθώς ενίοτε δεν επιτυγχάνεται η βελτιστοποίηση του κλινικού oφέλους του υπό μελέτη φαρμάκου σε βιολογικό επίπεδο ή ο σχεδιασμός της μελέτης ήταν διαφορετικός. Κάποιες φορές υπάρχουν κλινικές δοκιμές με μικρό αριθμό συμμετεχόντων, με αποτέλεσμα να μην επαρκούν τα διαθέσιμα στατιστικά στοιχεία, οπότε και απαιτούνται διαφορετικοί χειρισμοί, ειδικά, όταν πρόκειται για σπάνια νοσήματα (<a href=\"#7\">Zhou et al, 2020</a>).</p>\n<p>Η στρατηγική της επανατοποθέτησης φαρμάκων γίνεται ολοένα και πιο δημοφιλής, καθώς η τεχνητή νοημοσύνη ανοίγει την πόρτα σε νέες γνώσεις, αναφορικά με τους φαρμακευτικούς στόχους και την παθοβιοχημεία των ασθενειών, επιταχύνοντας και αυξάνοντας τις πιθανότητες επιτυχίας των επαναστοχευμένων φαρμάκων, ενώ παράλληλα κατακτάται σε μεγαλύτερο βαθμό η γνώση του χημικού χώρου. Εν κατακλείδι, αυτή η διαδικασία φέρει την υπόσχεση του κλινικού όφελους και της πιο άμεσης πρόσβασης στις κατάλληλες θεραπευτικές προσεγγίσεις.</p>\n<p><strong>Η ΠΛΑΤΦΟΡΜΑ </strong><strong>CLOUDSCREEN</strong><strong><sup>©</sup></strong></p>\n<p>Η νεοφυής εταιρεία Cloudpharm PC, σε συνεργασία με το Εργαστήριο Ανάδειξης Βιοδεικτών &amp; Μεταφραστικής Έρευνας του Εθνικού Ιδρύματος Ερευνών, αναπτύσσουν την πλατφόρμα επανατοποθέτησης φαρμάκων Cloudscreen<sup>©</sup>. Με τη χρήση αλγορίθμων AI και ML, η πλατφόρμα αξιοποιεί ψηφιοποιημένη επιστημονική πληροφορία από έναν μεγάλο όγκο δεδομένων, η οποία σε συνδυασμό με πειραματική επαλήθευση των προβλέψεων έχει ως στόχο να προτείνει νέες ενδείξεις για εμπορικά διαθέσιμα ή υπό εξέταση φαρμακευτικά προϊόντα και για συγκεκριμένες κατηγορίες πληθυσμού, με εκτίμηση τοξικότητας. Με αυτόν το τρόπο, μπορούν να προβλεφθούν νέες θεραπευτικές λύσεις για νέες παθήσεις.</p>\n<p>Η παρούσα έρευνα υποστηρίζεται από το Ευρωπαϊκό Ταμείο Περιφερειακής Ανάπτυξης της Ευρωπαϊκής Ένωσης και εθνικούς πόρους μέσω του Επιχειρησιακού Προγράμματος Ανταγωνιστικότητα, Επιχειρηματικότητα και Καινοτομία, στο πλαίσιο της πρόσκλησης ΕΡΕΥΝΩ—ΔΗΜΙΟΥΡΓΩ— ΚΑΙΝΟΤΟΜΩ (κωδικός έργου: T2ΕΔΚ-03153)[/vc_column_text][/vc_column][/vc_row][vc_row type=&#8221;in_container&#8221; full_screen_row_position=&#8221;middle&#8221; column_margin=&#8221;default&#8221; column_direction=&#8221;default&#8221; column_direction_tablet=&#8221;default&#8221; column_direction_phone=&#8221;default&#8221; scene_position=&#8221;center&#8221; text_color=&#8221;dark&#8221; text_align=&#8221;left&#8221; row_border_radius=&#8221;none&#8221; row_border_radius_applies=&#8221;bg&#8221; overlay_strength=&#8221;0.3&#8243; gradient_direction=&#8221;left_to_right&#8221; shape_divider_position=&#8221;bottom&#8221; bg_image_animation=&#8221;none&#8221;][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_spacing=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/1&#8243; tablet_width_inherit=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][vc_column_text]<strong>ΒΙΒΛΙΟΓΡΑΦΙΑ</strong></p>\n<p><a id=\"1\"></a>Adeshina, Y. O., Deeds, E. J., and Karanicolas, J., 2020. Machine learning classification can reduce false positives in structure-based virtual screening. <em>Proc Natl Acad Sci U.S.A.</em>, 117(31), 18477-18488. <a href=\"https://doi.org/10.1073/pnas.2000585117\">https://doi.org/10.1073/pnas.2000585117</a></p>\n<p><a id=\"2\"></a>Ashburn, T. T., and Thor, K. B., 2004. Drug repositioning: identifying and developing new uses for existing drugs. <em>Nat Rev Drug Discov.</em>, 3(8), 673–683. <a href=\"https://doi.org/10.1038/nrd1468\">https://doi.org/10.1038/nrd1468</a></p>\n<p><a id=\"3\"></a>Hernandez, J. J., Pryszlak, M., Smith, L., Yanchus, C., Kurji, N., Shahani, V. M., and Molinski, S. V., 2017. Giving Drugs a Second Chance: Overcoming Regulatory and Financial Hurdles in Repurposing Approved Drugs As Cancer Therapeutics. <em>Front Oncol</em>, 7, p. 273. <a href=\"https://doi.org/10.3389/fonc.2017.00273\">https://doi.org/10.3389/fonc.2017.00273</a></p>\n<p><a id=\"4\"></a>Pushpakom, S., Iorio, F., Eyers, P. A., Escott, K. J., Hopper, S., Wells, A., Doig, A., Guilliams, T., Latimer, J., McNamee, C., Norris, A., Sanseau, P., Cavalla, D., &amp; Pirmohamed, M., 2019. Drug repurposing: progress, challenges and recommendations. <em>Nat Rev Drug Discov</em>, 18(1), 41–58. <a href=\"https://doi.org/10.1038/nrd.2018.168\">https://doi.org/10.1038/nrd.2018.168</a></p>\n<p><a id=\"5\"></a>Reymond, J. L., and Awale, M., 2012. Exploring chemical space for drug discovery using the chemical universe database. <em>ACS Chem Neurosci</em>, 3(9), 649–657. <a href=\"https://doi.org/10.1021/cn3000422\">https://doi.org/10.1021/cn3000422</a></p>\n<p><a id=\"6\"></a>Sommerford, Ν., 2022. Drug Repurposing Basics, <a href=\"https://www.iqvia.com/\">https://www.iqvia.com/</a> , May 12.</p>\n<p><a id=\"7\"></a>Zhou, Y., Wang, F., Tang, J., Nussinov, R., and Cheng, F., 2020. Artificial intelligence in COVID-19 drug repurposing. <em>Lancet Digit Health</em>, 2(12), e667–e676. <a href=\"https://doi.org/10.1016/S2589-7500(20)30192-8\">https://doi.org/10.1016/S2589-7500(20)30192-8</a>[/vc_column_text][/vc_column][/vc_row][vc_row type=&#8221;in_container&#8221; full_screen_row_position=&#8221;middle&#8221; column_margin=&#8221;default&#8221; column_direction=&#8221;default&#8221; column_direction_tablet=&#8221;default&#8221; column_direction_phone=&#8221;default&#8221; scene_position=&#8221;center&#8221; text_color=&#8221;dark&#8221; text_align=&#8221;left&#8221; row_border_radius=&#8221;none&#8221; row_border_radius_applies=&#8221;bg&#8221; overlay_strength=&#8221;0.3&#8243; gradient_direction=&#8221;left_to_right&#8221; shape_divider_position=&#8221;bottom&#8221; bg_image_animation=&#8221;none&#8221;][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_spacing=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/1&#8243; tablet_width_inherit=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][vc_column_text]<br />\n[/vc_column_text][/vc_column][/vc_row][vc_row type=&#8221;in_container&#8221; full_screen_row_position=&#8221;middle&#8221; column_margin=&#8221;default&#8221; equal_height=&#8221;yes&#8221; content_placement=&#8221;middle&#8221; column_direction=&#8221;default&#8221; column_direction_tablet=&#8221;default&#8221; column_direction_phone=&#8221;default&#8221; scene_position=&#8221;center&#8221; text_color=&#8221;dark&#8221; text_align=&#8221;left&#8221; row_border_radius=&#8221;none&#8221; row_border_radius_applies=&#8221;bg&#8221; overlay_strength=&#8221;0.3&#8243; gradient_direction=&#8221;left_to_right&#8221; shape_divider_position=&#8221;bottom&#8221; bg_image_animation=&#8221;none&#8221; shape_type=&#8221;&#8221;][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_spacing=&#8221;default&#8221; centered_text=&#8221;true&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/4&#8243; tablet_width_inherit=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][image_with_animation image_url=&#8221;10056&#8243; animation=&#8221;Fade In&#8221; hover_animation=&#8221;none&#8221; alignment=&#8221;center&#8221; border_radius=&#8221;none&#8221; box_shadow=&#8221;none&#8221; image_loading=&#8221;default&#8221; max_width=&#8221;75%&#8221; max_width_mobile=&#8221;default&#8221; el_class=&#8221;article-author-img&#8221;][/vc_column][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_spacing=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;3/4&#8243; tablet_width_inherit=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][vc_column_text]<strong>Βασίλης Παναγιωτόπουλος, </strong><strong>T</strong><strong>μήμα Μηχανικών Βιοϊατρικής, Πανεπιστήμιο Δυτικής Αττικής και </strong><strong>Cloupharm</strong> <strong>PC</strong></p>\n<p>Ο Βασίλης Παναγιωτόπουλος (email: <a href=\"mailto:vpanagiotopoulos@cloudpharm.eu\">vpanagiotopoulos@cloudpharm.eu</a>) είναι υποψήφιος διδάκτορας στο τμήμα Μηχανικών Βιοϊατρικής του Πανεπιστημίου Δυτικής Αττικής και εργάζεται ως επιστήμονας έρευνας και ανάπτυξης σε μια εταιρεία βιοτεχνολογίας, η οποία εστιάζει στην υπολογιστική έρευνα για την ανάπτυξη φαρμάκων. Τα κύρια ερευνητικά του ενδιαφέροντα σχετίζονται με εφαρμογές της τεχνητής νοημοσύνης και ανάλυσης δεδομένων μεγάλου όγκου στο πεδίο της υπολογιστικής χημείας και της ανακάλυψης φαρμάκων. Έχει συμμετάσχει ως ερευνητής σε 2 εθνικά χρηματοδοτούμενα προγράμματα και είναι συγγραφέας 2 επιστημονικών δημοσιεύσεων. Επιπλέον, έχει πραγματοποιήσει μία ομιλία σε διεθνές συνέδριο και έχει συμμετάσχει με αναρτημένες δημοσιεύσεις σε ένα εθνικό και 3 διεθνή συνέδρια. Έχει βραβευτεί με υπολογιστικό χρόνο σε ένα εθνικό και ένα διεθνές σύγχρονο υπερυπολογιστικό κέντρο για την υλοποίηση υπολογιστικών διεργασιών σχετικών με την έρευνά του.[/vc_column_text][/vc_column][/vc_row][vc_row type=&#8221;in_container&#8221; full_screen_row_position=&#8221;middle&#8221; column_margin=&#8221;default&#8221; equal_height=&#8221;yes&#8221; content_placement=&#8221;middle&#8221; column_direction=&#8221;default&#8221; column_direction_tablet=&#8221;default&#8221; column_direction_phone=&#8221;default&#8221; scene_position=&#8221;center&#8221; text_color=&#8221;dark&#8221; text_align=&#8221;left&#8221; row_border_radius=&#8221;none&#8221; row_border_radius_applies=&#8221;bg&#8221; overlay_strength=&#8221;0.3&#8243; gradient_direction=&#8221;left_to_right&#8221; shape_divider_position=&#8221;bottom&#8221; bg_image_animation=&#8221;none&#8221; shape_type=&#8221;&#8221;][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_spacing=&#8221;default&#8221; centered_text=&#8221;true&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;1/4&#8243; tablet_width_inherit=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][image_with_animation image_url=&#8221;10057&#8243; animation=&#8221;Fade In&#8221; hover_animation=&#8221;none&#8221; alignment=&#8221;center&#8221; border_radius=&#8221;none&#8221; box_shadow=&#8221;none&#8221; image_loading=&#8221;default&#8221; max_width=&#8221;75%&#8221; max_width_mobile=&#8221;default&#8221; el_class=&#8221;article-author-img&#8221;][/vc_column][vc_column column_padding=&#8221;no-extra-padding&#8221; column_padding_tablet=&#8221;inherit&#8221; column_padding_phone=&#8221;inherit&#8221; column_padding_position=&#8221;all&#8221; column_element_spacing=&#8221;default&#8221; background_color_opacity=&#8221;1&#8243; background_hover_color_opacity=&#8221;1&#8243; column_shadow=&#8221;none&#8221; column_border_radius=&#8221;none&#8221; column_link_target=&#8221;_self&#8221; gradient_direction=&#8221;left_to_right&#8221; overlay_strength=&#8221;0.3&#8243; width=&#8221;3/4&#8243; tablet_width_inherit=&#8221;default&#8221; tablet_text_alignment=&#8221;default&#8221; phone_text_alignment=&#8221;default&#8221; bg_image_animation=&#8221;none&#8221; border_type=&#8221;simple&#8221; column_border_width=&#8221;none&#8221; column_border_style=&#8221;solid&#8221;][vc_column_text]<strong>Μίνωας-Τιμόθεος Ματσούκας, </strong><strong>T</strong><strong>μήμα Μηχανικών Βιοϊατρικής, Πανεπιστήμιο Δυτικής Αττικής και </strong><strong>Cloupharm</strong> <strong>PC</strong></p>\n<p>Ο Μίνως Ματσούκας είναι Επίκουρος Καθηγητής του τμήματος Μηχανικών Βιοϊατρικής του Πανεπιστημίου Δυτικής Αττικής από τον Μάρτιο του 2022. Γεννήθηκε το 1981 και αποφοίτησε το 2004 από το τμήμα Χημείας του Πανεπιστημίου Πατρών. Στη συνέχεια έκανε μεταπτυχιακές σπουδές (2006) και εκπόνησε τη διδακτορική του διατριβή (2012) στην Ιατρική Χημεία, διατμηματικό πρόγραμμα του Πανεπιστημίου Πατρών. Από το 2012 έως και το 2015 διετέλεσε μεταδιδακτορικός ερευνητής στο εργαστήριο Υπολογιστικής Ιατρικής, του τμήματος Ιατρικής, στο Αυτόνομο Πανεπιστήμιο Βαρκελώνης. Από το 2015 έως και το 2021 συνέχισε τη μεταδιδακτορική του έρευνα στο Εργαστήριο Μοριακού Σχεδιασμού και Βιομοριακού NMR, του τμήματος Φαρμακευτικής στο Πανεπιστήμιο Πατρών. Έχει βραβευτεί για την έρευνά του με πέντε υποτροφίες μεταδιδακτορικής έρευνας στην Ελλάδα και το εξωτερικό, και έχει συμμετάσχει σε χρηματοδοτικά προγράμματα ως Επιστημονικός Υπεύθυνος και ως Συντονιστής. Παράλληλα με την ερευνητική του δραστηριότητα, διετέλεσε διαχειριστής έργων, επιστημονικός συνεργάτης, σύμβουλος και είναι συνιδρυτής της εταιρία Cloudpharm, η οποία εστιάζει στην υπολογιστική έρευνα για την ανάπτυξη φαρμάκων.[/vc_column_text][/vc_column][/vc_row]</p>\n",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p><span class=\"span-reading-time rt-reading-time\" style=\"display: block;\"><span class=\"rt-label rt-prefix\">Χρόνος Ανάγνωσης</span> <span class=\"rt-time\"> 8</span> <span class=\"rt-label rt-postfix\">Λεπτά</span></span>[vc_row type=&#8221;in_container&#8221; full_screen_row_position=&#8221;middle&#8221; column_margin=&#8221;default&#8221; column_direction=&#8221;default&#8221; column_direction_tablet=&#8221;default&#8221; column_direction_phone=&#8221;default&#8221; scene_position=&#8221;center&#8221; text_color=&#8221;dark&#8221; text_align=&#8221;left&#8221; row_border_radius=&#8221;none&#8221; row_border_radius_applies=&#8221;bg&#8221; id=&#8221;feynman-image-1&#8243; overlay_strength=&#8221;0.3&#8243; gradient_direction=&#8221;left_to_right&#8221;&#8230;</p>\n",
+    "protected": false
+  },
+  "author": {
+    "id": 15,
+    "name": "Βασίλης Παναγιωτόπουλος Μίνωας-Τιμόθεος Ματσούκας",
+    "slug": "panagiotopoulos-matsoukas",
+    "avatar_urls": {
+      "24": "https://secure.gravatar.com/avatar/37c4225071bdf8edeb7d746e0fc7277f2b727fdef5f2343e3853e574720f979b?s=24&d=mm&r=g",
+      "48": "https://secure.gravatar.com/avatar/37c4225071bdf8edeb7d746e0fc7277f2b727fdef5f2343e3853e574720f979b?s=48&d=mm&r=g",
+      "96": "https://secure.gravatar.com/avatar/37c4225071bdf8edeb7d746e0fc7277f2b727fdef5f2343e3853e574720f979b?s=96&d=mm&r=g"
+    }
+  },
+  "featured_media": 10052,
+  "featured_image": {
+    "id": 10052,
+    "source_url": "https://inscience.gr/wp-content/uploads/2023/05/InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini.png",
+    "alt_text": "",
+    "media_details": {
+      "width": 429,
+      "height": 312,
+      "file": "2023/05/InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini.png",
+      "sizes": {
+        "medium": {
+          "file": "InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini-300x218.png",
+          "width": 300,
+          "height": 218,
+          "filesize": 78971,
+          "mime_type": "image/png",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/05/InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini-300x218.png"
+        },
+        "thumbnail": {
+          "file": "InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini-150x150.png",
+          "width": 150,
+          "height": 150,
+          "filesize": 35136,
+          "mime_type": "image/png",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/05/InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini-150x150.png"
+        },
+        "portfolio-thumb_small": {
+          "file": "InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini-400x269.png",
+          "width": 400,
+          "height": 269,
+          "filesize": 131183,
+          "mime_type": "image/png",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/05/InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini-400x269.png"
+        },
+        "portfolio-widget": {
+          "file": "InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini-100x100.png",
+          "width": 100,
+          "height": 100,
+          "filesize": 16943,
+          "mime_type": "image/png",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/05/InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini-100x100.png"
+        },
+        "nectar_small_square": {
+          "file": "InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini-140x140.png",
+          "width": 140,
+          "height": 140,
+          "filesize": 31070,
+          "mime_type": "image/png",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/05/InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini-140x140.png"
+        },
+        "regular_small": {
+          "file": "InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini-350x312.png",
+          "width": 350,
+          "height": 312,
+          "filesize": 148813,
+          "mime_type": "image/png",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/05/InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini-350x312.png"
+        },
+        "full": {
+          "file": "InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini.png",
+          "width": 429,
+          "height": 312,
+          "mime_type": "image/png",
+          "source_url": "https://inscience.gr/wp-content/uploads/2023/05/InScience_Epanatopothetisi-Farmako-dedomena-megalou-ogkou-kai-tehniti-noimisini.png"
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": 2,
+      "name": "ΒΙΟΛΟΓΙΑ",
+      "slug": "biology",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 4,
+      "name": "ΕΠΙΣΤΗΜΕΣ- ΤΕΧΝΟΛΟΓΙΑ ΚΑΙ ΕΚΠΑΙΔΕΥΣΗ",
+      "slug": "sciences-technology-and-education",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 99,
+      "name": "ΝΕΟΤΕΡΑ",
+      "slug": "latest",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 1,
+      "name": "ΠΛΗΡΟΦΟΡΙΚΗ-ΤΗΛΕΠΙΚΟΙΝΩΝΙΕΣ",
+      "slug": "information-technology-and-telecommunications",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 23,
+      "name": "ΧΗΜΕΙΑ",
+      "slug": "chemistry",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 113,
+      "name": "biology",
+      "slug": "biology",
+      "description": ""
+    },
+    {
+      "id": 148,
+      "name": "chemistry",
+      "slug": "chemistry",
+      "description": ""
+    },
+    {
+      "id": 77,
+      "name": "computer science. επιστήμη των υπολογιστών",
+      "slug": "computer-science-%ce%b5%cf%80%ce%b9%cf%83%cf%84%ce%ae%ce%bc%ce%b7-%cf%84%cf%89%ce%bd-%cf%85%cf%80%ce%bf%ce%bb%ce%bf%ce%b3%ce%b9%cf%83%cf%84%cf%8e%ce%bd",
+      "description": ""
+    },
+    {
+      "id": 154,
+      "name": "sciences",
+      "slug": "sciences",
+      "description": ""
+    },
+    {
+      "id": 114,
+      "name": "βιολογία",
+      "slug": "%ce%b2%ce%b9%ce%bf%ce%bb%ce%bf%ce%b3%ce%af%ce%b1",
+      "description": ""
+    },
+    {
+      "id": 32,
+      "name": "Επιστήμες",
+      "slug": "science",
+      "description": ""
+    },
+    {
+      "id": 88,
+      "name": "επιστήμη",
+      "slug": "%ce%b5%cf%80%ce%b9%cf%83%cf%84%ce%ae%ce%bc%ce%b7",
+      "description": ""
+    },
+    {
+      "id": 149,
+      "name": "χημεία",
+      "slug": "%cf%87%ce%b7%ce%bc%ce%b5%ce%af%ce%b1",
+      "description": ""
+    }
+  ],
+  "format": "standard",
+  "meta": {
+    "_acf_changed": false,
+    "_bbp_topic_count": 0,
+    "_bbp_reply_count": 0,
+    "_bbp_total_topic_count": 0,
+    "_bbp_total_reply_count": 0,
+    "_bbp_voice_count": 0,
+    "_bbp_anonymous_reply_count": 0,
+    "_bbp_topic_count_hidden": 0,
+    "_bbp_reply_count_hidden": 0,
+    "_bbp_forum_subforum_count": 0,
+    "footnotes": ""
+  },
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open"
+}

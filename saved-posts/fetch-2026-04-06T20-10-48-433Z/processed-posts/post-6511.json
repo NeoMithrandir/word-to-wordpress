@@ -1,0 +1,59 @@
+{
+  "id": 6511,
+  "slug": "",
+  "status": "draft",
+  "type": "post",
+  "date": "2021-09-29T21:27:28",
+  "date_gmt": "2021-09-29T18:27:28",
+  "modified": "2021-09-29T21:27:28",
+  "modified_gmt": "2021-09-29T21:27:28",
+  "link": "https://inscience.gr/?p=6511",
+  "title": {
+    "rendered": ""
+  },
+  "content": {
+    "rendered": "<p> \\</p>\n<p class=\"ql-center-displayed-equation\" style=\"line-height: 142px;\"><span class=\"ql-right-eqno\"> (1) </span><span class=\"ql-left-eqno\"> &nbsp; </span><img loading=\"lazy\" decoding=\"async\" src=\"https://inscience.gr/wp-content/ql-cache/quicklatex.com-75e1c50699a89d7777ef4b27087c409d_l3.png\" height=\"142\" width=\"626\" class=\"ql-img-displayed-equation quicklatex-auto-format\" alt=\"&#92;&#98;&#101;&#103;&#105;&#110;&#123;&#101;&#113;&#117;&#97;&#116;&#105;&#111;&#110;&#42;&#125; &#85;&#32;&#92;&#112;&#114;&#111;&#112;&#116;&#111;&#32;&#92;&#102;&#114;&#97;&#99;&#123;&#73;&#95;&#123;&#48;&#125;&#125;&#123;&#92;&#108;&#101;&#102;&#116;&#40;&#49;&#43;&#122;&#94;&#123;&#50;&#125;&#32;&#47;&#32;&#122;&#95;&#123;&#82;&#125;&#94;&#123;&#50;&#125;&#92;&#114;&#105;&#103;&#104;&#116;&#41;&#125;&#32;&#101;&#94;&#123;&#45;&#92;&#102;&#114;&#97;&#99;&#123;&#50;&#32;&#92;&#114;&#104;&#111;&#94;&#123;&#50;&#125;&#125;&#123;&#119;&#95;&#123;&#48;&#125;&#94;&#123;&#50;&#125;&#92;&#108;&#101;&#102;&#116;&#40;&#49;&#43;&#122;&#94;&#123;&#50;&#125;&#32;&#47;&#32;&#122;&#95;&#123;&#82;&#125;&#94;&#123;&#50;&#125;&#92;&#114;&#105;&#103;&#104;&#116;&#41;&#125;&#125; &#92;&#101;&#110;&#100;&#123;&#101;&#113;&#117;&#97;&#116;&#105;&#111;&#110;&#42;&#125;\" title=\"Rendered by QuickLaTeX.com\"/></p>\n</p>\n<p><p class=\"ql-center-displayed-equation\" style=\"line-height: 111px;\"><span class=\"ql-right-eqno\"> &nbsp; </span><span class=\"ql-left-eqno\"> &nbsp; </span><img loading=\"lazy\" decoding=\"async\" src=\"https://inscience.gr/wp-content/ql-cache/quicklatex.com-66dbbd08f589bd39b903ae7a7d0385db_l3.png\" height=\"111\" width=\"453\" class=\"ql-img-displayed-equation quicklatex-auto-format\" alt=\"&#92;&#91;&#32;&#70;&#95;&#92;&#114;&#104;&#111;&#61;&#45;&#92;&#102;&#114;&#97;&#99;&#123;&#92;&#112;&#97;&#114;&#116;&#105;&#97;&#108;&#32;&#85;&#125;&#123;&#92;&#112;&#97;&#114;&#116;&#105;&#97;&#108;&#92;&#114;&#104;&#111;&#125;&#92;&#102;&#114;&#97;&#99;&#123;&#92;&#112;&#97;&#114;&#116;&#105;&#97;&#108;&#45;&#52;&Iota;&#48;&#119;&#125;&#123;&#92;&#112;&#97;&#114;&#116;&#105;&#97;&#108;&#48;&#50;&#125;&rho;&#32;&#92;&#93;\" title=\"Rendered by QuickLaTeX.com\"/></p>\n</p>\n<p><p class=\"ql-center-displayed-equation\" style=\"line-height: 101px;\"><span class=\"ql-right-eqno\"> &nbsp; </span><span class=\"ql-left-eqno\"> &nbsp; </span><img loading=\"lazy\" decoding=\"async\" src=\"https://inscience.gr/wp-content/ql-cache/quicklatex.com-043fe74204f36f37e62537256efb7a4c_l3.png\" height=\"101\" width=\"509\" class=\"ql-img-displayed-equation quicklatex-auto-format\" alt=\"&#92;&#91;&#32;&#70;&#95;&#122;&#61;&#45;&#92;&#102;&#114;&#97;&#99;&#123;&#92;&#112;&#97;&#114;&#116;&#105;&#97;&#108;&#32;&#85;&#125;&#123;&#92;&#112;&#97;&#114;&#116;&#105;&#97;&#108;&#32;&#122;&#125;&#92;&#112;&#114;&#111;&#112;&#116;&#111;&#45;&#50;&Iota;&#48;&#122;&#82;&#50;&#122;&#32;&#92;&#93;\" title=\"Rendered by QuickLaTeX.com\"/></p>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>\\ (1) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 1,
+    "name": "Νεσίμ Καλόσι",
+    "slug": "nesimk",
+    "avatar_urls": {
+      "24": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=24&d=mm&r=g",
+      "48": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=48&d=mm&r=g",
+      "96": "https://secure.gravatar.com/avatar/29ebca3f7511cc0733a304fab2c7cb2af8f5f68714e1207d6b77a4724961e806?s=96&d=mm&r=g"
+    }
+  },
+  "featured_media": 0,
+  "featured_image": null,
+  "categories": [
+    {
+      "id": 1,
+      "name": "ΠΛΗΡΟΦΟΡΙΚΗ-ΤΗΛΕΠΙΚΟΙΝΩΝΙΕΣ",
+      "slug": "information-technology-and-telecommunications",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [],
+  "format": "standard",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 1,
+    "article_content_type": "article",
+    "article_abstract": "\\ (1) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;",
+    "article_youtube_url": null,
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}

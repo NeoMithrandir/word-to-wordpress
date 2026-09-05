@@ -1,0 +1,139 @@
+{
+  "id": 6413,
+  "slug": "i-komi-tis-verenikis-37i-ekdosi-me-cd-epet",
+  "status": "publish",
+  "type": "post",
+  "date": "2021-08-02T03:54:35",
+  "date_gmt": "2021-08-02T03:54:35",
+  "modified": "2021-08-02T03:55:30",
+  "modified_gmt": "2021-08-02T03:55:30",
+  "link": "https://inscience.gr/2021/08/02/%ce%b7-%ce%ba%ce%bf%ce%bc%ce%b7-%cf%84%ce%b7%cf%83-%ce%b2%ce%b5%cf%81%ce%b5%ce%bd%ce%b9%ce%ba%ce%b7%cf%83-37%ce%b7-%ce%ad%ce%ba%ce%b4%ce%bf%cf%83%ce%b7-%ce%bc%ce%b5-cd-%ce%b5%cf%80%ce%b5%cf%84/",
+  "title": {
+    "rendered": "Η ΚΟΜΗ ΤΗΣ ΒΕΡΕΝΙΚΗΣ | 37η έκδοση με CD | επετειακή έκδοση"
+  },
+  "content": {
+    "rendered": "<p><a href=\"https://www.cup.gr/people/giorgos-grammatikakis/\"><strong>ΓΙΩΡΓΟΣ ΓΡΑΜΜΑΤΙΚΑΚΗΣ</strong></a></p>\n<p><strong>Επιστημονική εκλαΐκευση</strong></p>\n<p>«Η Κόμη της Βερενίκης», του Γιώργου Γραμματικάκη. Επετειακή έκδοση για τα 32 χρόνια κυκλοφορίας του βιβλίου που ξεπέρασε τα 100.000 αντίτυπα.</p>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>ΓΙΩΡΓΟΣ ΓΡΑΜΜΑΤΙΚΑΚΗΣ Επιστημονική εκλαΐκευση «Η Κόμη της Βερενίκης», του Γιώργου Γραμματικάκη. Επετειακή έκδοση για τα 32 χρόνια κυκλοφορίας του βιβλίου που ξεπέρασε τα 100.000 αντίτυπα.</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 2,
+    "name": "Βασίλης Λεμπέσης",
+    "slug": "vlembessis",
+    "avatar_urls": {
+      "24": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-24x24.jpg",
+      "48": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-48x48.jpg",
+      "96": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-96x96.jpg"
+    }
+  },
+  "featured_media": 6414,
+  "featured_image": {
+    "id": 6414,
+    "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ.jpg",
+    "alt_text": "",
+    "media_details": {
+      "width": 360,
+      "height": 360,
+      "file": "2021/08/Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ.jpg",
+      "sizes": {
+        "medium": {
+          "file": "Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-300x300.jpg",
+          "width": 300,
+          "height": 300,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-300x300.jpg"
+        },
+        "thumbnail": {
+          "file": "Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-150x150.jpg",
+          "width": 150,
+          "height": 150,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-150x150.jpg"
+        },
+        "portfolio-thumb_small": {
+          "file": "Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-360x269.jpg",
+          "width": 360,
+          "height": 269,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-360x269.jpg"
+        },
+        "portfolio-widget": {
+          "file": "Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-100x100.jpg",
+          "width": 100,
+          "height": 100,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-100x100.jpg"
+        },
+        "nectar_small_square": {
+          "file": "Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-140x140.jpg",
+          "width": 140,
+          "height": 140,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-140x140.jpg"
+        },
+        "wide_small": {
+          "file": "Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-360x335.jpg",
+          "width": 360,
+          "height": 335,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-360x335.jpg"
+        },
+        "regular_small": {
+          "file": "Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-350x350.jpg",
+          "width": 350,
+          "height": 350,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ-350x350.jpg"
+        },
+        "full": {
+          "file": "Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ.jpg",
+          "width": 360,
+          "height": 360,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2021/08/Η-ΚΟΜΗ-ΤΗΣ-ΒΕΡΕΝΙΚΗΣ.jpg"
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": 96,
+      "name": "ΠΡΟΤΑΣΕΙΣ ΒΙΒΛΙΩΝ",
+      "slug": "book-suggestions",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 98,
+      "name": "InScience book suggestions",
+      "slug": "inscience-book-suggestions",
+      "description": ""
+    },
+    {
+      "id": 97,
+      "name": "InScience προτάσεις βιβλίων",
+      "slug": "inscience-protaseis-vivlion",
+      "description": ""
+    }
+  ],
+  "format": "standard",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 1,
+    "article_content_type": "book_review",
+    "article_abstract": "ΓΙΩΡΓΟΣ ΓΡΑΜΜΑΤΙΚΑΚΗΣ Επιστημονική εκλαΐκευση «Η Κόμη της Βερενίκης», του Γιώργου Γραμματικάκη. Επετειακή έκδοση για τα 32 χρόνια κυκλοφορίας του βιβλίου που ξεπέρασε τα 100.000 αντίτυπα.",
+    "article_youtube_url": null,
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}

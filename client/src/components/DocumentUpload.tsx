@@ -5,7 +5,7 @@ import { ProcessedContent } from '../App';
 import { API_URL } from '../config/wordpress.config';
 
 interface DocumentUploadProps {
-  onDocumentProcessed: (content: ProcessedContent) => void;
+  onDocumentProcessed: (content: ProcessedContent, contentId: string) => void;
 }
 
 export const DocumentUpload: React.FC<DocumentUploadProps> = ({ onDocumentProcessed }) => {
@@ -38,7 +38,7 @@ export const DocumentUpload: React.FC<DocumentUploadProps> = ({ onDocumentProces
       });
 
       if (response.data.success) {
-        onDocumentProcessed(response.data.content);
+        onDocumentProcessed(response.data.content, response.data.contentId);
       } else {
         throw new Error(response.data.error || 'Upload failed');
       }

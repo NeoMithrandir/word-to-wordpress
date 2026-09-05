@@ -1,0 +1,353 @@
+{
+  "id": 7565,
+  "slug": "enas-ellinas-sto-diastimiko-tileskop",
+  "status": "publish",
+  "type": "post",
+  "date": "2022-08-27T11:14:51",
+  "date_gmt": "2022-08-27T08:14:51",
+  "modified": "2024-05-25T21:40:15",
+  "modified_gmt": "2024-05-25T18:40:15",
+  "link": "https://inscience.gr/2022/08/27/%ce%ad%ce%bd%ce%b1%cf%82-%ce%ad%ce%bb%ce%bb%ce%b7%ce%bd%ce%b1%cf%82-%cf%83%cf%84%ce%bf-%ce%b4%ce%b9%ce%b1%cf%83%cf%84%ce%b7%ce%bc%ce%b9%ce%ba%cf%8c-%cf%84%ce%b7%ce%bb%ce%b5%cf%83%ce%ba%cf%8c%cf%80/",
+  "title": {
+    "rendered": "Ένας Έλληνας στο Διαστημικό Τηλεσκόπιο James Webb. Συνέντευξη με τον Πολυχρόνη Πατάπη."
+  },
+  "content": {
+    "rendered": "<p>Το InScience παρουσιάζει μια συνέντευξη με τον Πολυχρόνη Πατάπη.</p>",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>Το InScience παρουσιάζει μια συνέντευξη με τον Πολυχρόνη Πατάπη.</p>",
+    "protected": false
+  },
+  "author": {
+    "id": 2,
+    "name": "Βασίλης Λεμπέσης",
+    "slug": "vlembessis",
+    "avatar_urls": {
+      "24": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-24x24.jpg",
+      "48": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-48x48.jpg",
+      "96": "https://inscience.gr/wp-content/uploads/2021/05/cropped-Βασίλης-Λεμπέσης-96x96.jpg"
+    }
+  },
+  "featured_media": 7573,
+  "featured_image": {
+    "id": 7573,
+    "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm.jpg",
+    "alt_text": "",
+    "media_details": {
+      "width": 1333,
+      "height": 1000,
+      "file": "2022/08/Patapis_JWST3_sm.jpg",
+      "sizes": {
+        "medium": {
+          "file": "Patapis_JWST3_sm-300x225.jpg",
+          "width": 300,
+          "height": 225,
+          "filesize": 19685,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-300x225.jpg"
+        },
+        "large": {
+          "file": "Patapis_JWST3_sm-1024x768.jpg",
+          "width": 1024,
+          "height": 768,
+          "filesize": 150666,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-1024x768.jpg"
+        },
+        "thumbnail": {
+          "file": "Patapis_JWST3_sm-150x150.jpg",
+          "width": 150,
+          "height": 150,
+          "filesize": 7807,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-150x150.jpg"
+        },
+        "medium_large": {
+          "file": "Patapis_JWST3_sm-768x576.jpg",
+          "width": 768,
+          "height": 576,
+          "filesize": 94377,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-768x576.jpg"
+        },
+        "portfolio-thumb_large": {
+          "file": "Patapis_JWST3_sm-900x604.jpg",
+          "width": 900,
+          "height": 604,
+          "filesize": 115840,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-900x604.jpg"
+        },
+        "portfolio-thumb": {
+          "file": "Patapis_JWST3_sm-600x403.jpg",
+          "width": 600,
+          "height": 403,
+          "filesize": 59462,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-600x403.jpg"
+        },
+        "portfolio-thumb_small": {
+          "file": "Patapis_JWST3_sm-400x269.jpg",
+          "width": 400,
+          "height": 269,
+          "filesize": 29620,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-400x269.jpg"
+        },
+        "portfolio-widget": {
+          "file": "Patapis_JWST3_sm-100x100.jpg",
+          "width": 100,
+          "height": 100,
+          "filesize": 4116,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-100x100.jpg"
+        },
+        "nectar_small_square": {
+          "file": "Patapis_JWST3_sm-140x140.jpg",
+          "width": 140,
+          "height": 140,
+          "filesize": 6996,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-140x140.jpg"
+        },
+        "wide": {
+          "file": "Patapis_JWST3_sm-1000x500.jpg",
+          "width": 1000,
+          "height": 500,
+          "filesize": 110489,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-1000x500.jpg"
+        },
+        "wide_small": {
+          "file": "Patapis_JWST3_sm-670x335.jpg",
+          "width": 670,
+          "height": 335,
+          "filesize": 56790,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-670x335.jpg"
+        },
+        "regular": {
+          "file": "Patapis_JWST3_sm-500x500.jpg",
+          "width": 500,
+          "height": 500,
+          "filesize": 56899,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-500x500.jpg"
+        },
+        "regular_small": {
+          "file": "Patapis_JWST3_sm-350x350.jpg",
+          "width": 350,
+          "height": 350,
+          "filesize": 31778,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-350x350.jpg"
+        },
+        "tall": {
+          "file": "Patapis_JWST3_sm-500x1000.jpg",
+          "width": 500,
+          "height": 1000,
+          "filesize": 91058,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-500x1000.jpg"
+        },
+        "wide_tall": {
+          "file": "Patapis_JWST3_sm-1000x1000.jpg",
+          "width": 1000,
+          "height": 1000,
+          "filesize": 193253,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-1000x1000.jpg"
+        },
+        "wide_photography": {
+          "file": "Patapis_JWST3_sm-900x600.jpg",
+          "width": 900,
+          "height": 600,
+          "filesize": 115535,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-900x600.jpg"
+        },
+        "large_featured": {
+          "file": "Patapis_JWST3_sm-1333x770.jpg",
+          "width": 1333,
+          "height": 770,
+          "filesize": 217269,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-1333x770.jpg"
+        },
+        "medium_featured": {
+          "file": "Patapis_JWST3_sm-800x800.jpg",
+          "width": 800,
+          "height": 800,
+          "filesize": 122787,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm-800x800.jpg"
+        },
+        "full": {
+          "file": "Patapis_JWST3_sm.jpg",
+          "width": 1333,
+          "height": 1000,
+          "mime_type": "image/jpeg",
+          "source_url": "https://inscience.gr/wp-content/uploads/2022/08/Patapis_JWST3_sm.jpg"
+        }
+      }
+    }
+  },
+  "categories": [
+    {
+      "id": 30,
+      "name": "ΒΙΝΤΕΟ",
+      "slug": "videos",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 3,
+      "name": "ΔΙΑΣΤΗΜΑ",
+      "slug": "space",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 4,
+      "name": "ΕΠΙΣΤΗΜΕΣ- ΤΕΧΝΟΛΟΓΙΑ ΚΑΙ ΕΚΠΑΙΔΕΥΣΗ",
+      "slug": "sciences-technology-and-education",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 256,
+      "name": "ΝΕΟΙ ΕΛΛΗΝΕΣ ΕΠΙΣΤΗΜΟΝΕΣ",
+      "slug": "neoi-ellines-epistimones",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 99,
+      "name": "ΝΕΟΤΕΡΑ",
+      "slug": "latest",
+      "description": "",
+      "parent": 0
+    },
+    {
+      "id": 1,
+      "name": "ΠΛΗΡΟΦΟΡΙΚΗ-ΤΗΛΕΠΙΚΟΙΝΩΝΙΕΣ",
+      "slug": "information-technology-and-telecommunications",
+      "description": "",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 84,
+      "name": "Astronomy",
+      "slug": "astronomy",
+      "description": ""
+    },
+    {
+      "id": 159,
+      "name": "computer science",
+      "slug": "computer-science",
+      "description": ""
+    },
+    {
+      "id": 165,
+      "name": "Greece",
+      "slug": "greece",
+      "description": ""
+    },
+    {
+      "id": 94,
+      "name": "interview",
+      "slug": "interview",
+      "description": ""
+    },
+    {
+      "id": 162,
+      "name": "James Webb",
+      "slug": "james-webb",
+      "description": ""
+    },
+    {
+      "id": 75,
+      "name": "physics",
+      "slug": "physics",
+      "description": ""
+    },
+    {
+      "id": 129,
+      "name": "research",
+      "slug": "research",
+      "description": ""
+    },
+    {
+      "id": 154,
+      "name": "sciences",
+      "slug": "sciences",
+      "description": ""
+    },
+    {
+      "id": 161,
+      "name": "space telescope",
+      "slug": "space-telescope",
+      "description": ""
+    },
+    {
+      "id": 158,
+      "name": "Διαστημα",
+      "slug": "diastima",
+      "description": ""
+    },
+    {
+      "id": 163,
+      "name": "διαστημικό τηλεσκόπιο",
+      "slug": "diastimiko-tileskopio",
+      "description": ""
+    },
+    {
+      "id": 164,
+      "name": "Ελλάδα",
+      "slug": "ellada",
+      "description": ""
+    },
+    {
+      "id": 160,
+      "name": "επιστήμη των υπολογιστών",
+      "slug": "epistimi-ton-ypologiston",
+      "description": ""
+    },
+    {
+      "id": 132,
+      "name": "έρευνα",
+      "slug": "ereyna",
+      "description": ""
+    },
+    {
+      "id": 70,
+      "name": "Συνέντευξη",
+      "slug": "synenteyxi",
+      "description": ""
+    },
+    {
+      "id": 76,
+      "name": "φυσική",
+      "slug": "fysiki",
+      "description": ""
+    }
+  ],
+  "format": "standard",
+  "sticky": false,
+  "template": "",
+  "comment_status": "open",
+  "ping_status": "open",
+  "meta": {
+    "article_reading_time": 1,
+    "article_content_type": "video",
+    "article_abstract": "Το InScience παρουσιάζει μια συνέντευξη με τον Πολυχρόνη Πατάπη.",
+    "article_youtube_url": "https://youtu.be/NOR6PFs7vEM",
+    "article_podcast_url": null,
+    "article_featured": false,
+    "article_references": "",
+    "footnotes": ""
+  }
+}
