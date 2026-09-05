@@ -1,0 +1,102 @@
+{
+  "package.json": {
+    "mtime": 1774015619.9140804,
+    "ast_hash": "e873da38e93f4a871904cf4678c01c23",
+    "semantic_hash": ""
+  },
+  "public/manifest.json": {
+    "mtime": 1750474085.3672476,
+    "ast_hash": "d9d975cebe2ec20b6c652e1e4c12ccf0",
+    "semantic_hash": ""
+  },
+  "src/App.tsx": {
+    "mtime": 1788061724.3555472,
+    "ast_hash": "bcf6cf527488b8530bb5ad81b46fdb8d",
+    "semantic_hash": ""
+  },
+  "src/components/ContentPreview.tsx": {
+    "mtime": 1777924752.2582395,
+    "ast_hash": "762ddde7cd9da336c16f81949fd8e5b8",
+    "semantic_hash": ""
+  },
+  "src/components/DocumentUpload.tsx": {
+    "mtime": 1787977207.1474288,
+    "ast_hash": "6308198410e90d2e1ac8d8a4b1306ecd",
+    "semantic_hash": ""
+  },
+  "src/components/LivePublishLog.tsx": {
+    "mtime": 1788061768.3641925,
+    "ast_hash": "6ab7f16e9b8f782d54f0a915f2a08c34",
+    "semantic_hash": ""
+  },
+  "src/components/PostFetcher.tsx": {
+    "mtime": 1787976034.888891,
+    "ast_hash": "031d907acae0f1052213fe0369a2ec4e",
+    "semantic_hash": ""
+  },
+  "src/components/PublishSettings.tsx": {
+    "mtime": 1788061730.7256265,
+    "ast_hash": "b5890067ef1ee913038e0dafda5d488f",
+    "semantic_hash": ""
+  },
+  "src/components/WordPressConfig.tsx": {
+    "mtime": 1750477005.6495433,
+    "ast_hash": "24845ac4230b0a605d843bf58ce1eeb7",
+    "semantic_hash": ""
+  },
+  "src/config/wordpress.config.ts": {
+    "mtime": 1787945827.7228782,
+    "ast_hash": "e472f80fffedaae25284fda8b0f97097",
+    "semantic_hash": ""
+  },
+  "src/index.tsx": {
+    "mtime": 1774015619.931885,
+    "ast_hash": "8e88b6d244785bef6f35dda4659094e3",
+    "semantic_hash": ""
+  },
+  "src/react-app-env.d.ts": {
+    "mtime": 1750474103.19182,
+    "ast_hash": "6c6e01e59f5b56816e02688702db5875",
+    "semantic_hash": ""
+  },
+  "tsconfig.json": {
+    "mtime": 1750474103.1907842,
+    "ast_hash": "06ff7122dc62f580a16a5b9b48ab7079",
+    "semantic_hash": ""
+  },
+  "vite.config.js": {
+    "mtime": 1774015619.9172828,
+    "ast_hash": "36dc01cacabe4d685a9eb4df45123996",
+    "semantic_hash": ""
+  },
+  "VITE_MIGRATION.md": {
+    "mtime": 1774015619.9140804,
+    "ast_hash": "6883cacb7afe70f15cb9fca71ac1e72c",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1774015619.9172828,
+    "ast_hash": "9d0ac3c9ebcfb7b8f90e0f0dcf5b2c0c",
+    "semantic_hash": ""
+  },
+  "public/index.html": {
+    "mtime": 1750474085.0925426,
+    "ast_hash": "ef8a02db437c74f2ecb0d88becc4b9d4",
+    "semantic_hash": ""
+  },
+  "public/robots.txt": {
+    "mtime": 1750474088.0002198,
+    "ast_hash": "fa1ded1ed7c11438a9b0385b1e112850",
+    "semantic_hash": ""
+  },
+  "public/logo192.png": {
+    "mtime": 1750474086.3174658,
+    "ast_hash": "33dbdd0177549353eeeb785d02c294af",
+    "semantic_hash": ""
+  },
+  "public/logo512.png": {
+    "mtime": 1750474086.6876032,
+    "ast_hash": "917515db74ea8d1aee6a246cfbcc0b45",
+    "semantic_hash": ""
+  }
+}
