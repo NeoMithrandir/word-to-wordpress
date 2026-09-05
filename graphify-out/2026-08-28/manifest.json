@@ -1,0 +1,247 @@
+{
+  ".vscode/settings.json": {
+    "mtime": 1750476404.7397647,
+    "ast_hash": "4c87e689a4ecfd93f6f2c6335e5835e1",
+    "semantic_hash": "4c87e689a4ecfd93f6f2c6335e5835e1"
+  },
+  "auth-test.php": {
+    "mtime": 1771565675.3161914,
+    "ast_hash": "cc6331fa7927a903b497d4891bc0dc83",
+    "semantic_hash": "cc6331fa7927a903b497d4891bc0dc83"
+  },
+  "check-auth-header.php": {
+    "mtime": 1771559114.7735906,
+    "ast_hash": "f282a202d89fb6480c7a3567771d4fdf",
+    "semantic_hash": "f282a202d89fb6480c7a3567771d4fdf"
+  },
+  "check-wp-auth-headers.js": {
+    "mtime": 1787941985.5981967,
+    "ast_hash": "46150de4ca5c036b1d939b538fb0e99c",
+    "semantic_hash": "46150de4ca5c036b1d939b538fb0e99c"
+  },
+  "client/package.json": {
+    "mtime": 1774015619.9140804,
+    "ast_hash": "e873da38e93f4a871904cf4678c01c23",
+    "semantic_hash": "e873da38e93f4a871904cf4678c01c23"
+  },
+  "client/public/manifest.json": {
+    "mtime": 1750474085.3672476,
+    "ast_hash": "d9d975cebe2ec20b6c652e1e4c12ccf0",
+    "semantic_hash": "d9d975cebe2ec20b6c652e1e4c12ccf0"
+  },
+  "client/src/App.tsx": {
+    "mtime": 1787947648.963573,
+    "ast_hash": "bd6323d43583da3e16067a92b93d096a",
+    "semantic_hash": ""
+  },
+  "client/src/components/ContentPreview.tsx": {
+    "mtime": 1777924752.2582395,
+    "ast_hash": "762ddde7cd9da336c16f81949fd8e5b8",
+    "semantic_hash": "762ddde7cd9da336c16f81949fd8e5b8"
+  },
+  "client/src/components/DocumentUpload.tsx": {
+    "mtime": 1787941985.5981967,
+    "ast_hash": "3f515e9a51d64160bc7ab5297735d52d",
+    "semantic_hash": "3f515e9a51d64160bc7ab5297735d52d"
+  },
+  "client/src/components/PostFetcher.tsx": {
+    "mtime": 1787941985.5981967,
+    "ast_hash": "031d907acae0f1052213fe0369a2ec4e",
+    "semantic_hash": "031d907acae0f1052213fe0369a2ec4e"
+  },
+  "client/src/components/PublishSettings.tsx": {
+    "mtime": 1787947653.6044877,
+    "ast_hash": "893c42c6a6db91d413de8f5e59bf9550",
+    "semantic_hash": ""
+  },
+  "client/src/components/WordPressConfig.tsx": {
+    "mtime": 1750477005.6495433,
+    "ast_hash": "24845ac4230b0a605d843bf58ce1eeb7",
+    "semantic_hash": "24845ac4230b0a605d843bf58ce1eeb7"
+  },
+  "client/src/config/wordpress.config.ts": {
+    "mtime": 1787945827.7228782,
+    "ast_hash": "e472f80fffedaae25284fda8b0f97097",
+    "semantic_hash": ""
+  },
+  "client/src/index.tsx": {
+    "mtime": 1774015619.931885,
+    "ast_hash": "8e88b6d244785bef6f35dda4659094e3",
+    "semantic_hash": "8e88b6d244785bef6f35dda4659094e3"
+  },
+  "client/src/react-app-env.d.ts": {
+    "mtime": 1750474103.19182,
+    "ast_hash": "6c6e01e59f5b56816e02688702db5875",
+    "semantic_hash": "6c6e01e59f5b56816e02688702db5875"
+  },
+  "client/tsconfig.json": {
+    "mtime": 1750474103.1907842,
+    "ast_hash": "06ff7122dc62f580a16a5b9b48ab7079",
+    "semantic_hash": "06ff7122dc62f580a16a5b9b48ab7079"
+  },
+  "client/vite.config.js": {
+    "mtime": 1774015619.9172828,
+    "ast_hash": "36dc01cacabe4d685a9eb4df45123996",
+    "semantic_hash": "36dc01cacabe4d685a9eb4df45123996"
+  },
+  "package.json": {
+    "mtime": 1785851479.0993276,
+    "ast_hash": "b6b01ad26878f1d75c9ae27ab5b26373",
+    "semantic_hash": "b6b01ad26878f1d75c9ae27ab5b26373"
+  },
+  "src/lib/categoryMigration.ts": {
+    "mtime": 1785851479.6298354,
+    "ast_hash": "03f1ac49d3575980541a5252bc5e6f3b",
+    "semantic_hash": "03f1ac49d3575980541a5252bc5e6f3b"
+  },
+  "src/middleware/errorHandler.ts": {
+    "mtime": 1750474022.445541,
+    "ast_hash": "6caf5ff55bc7e7ed65418afa37536d3c",
+    "semantic_hash": "6caf5ff55bc7e7ed65418afa37536d3c"
+  },
+  "src/scripts/extract-base64-images.ts": {
+    "mtime": 1777924275.0341547,
+    "ast_hash": "d00aba2167fb1daac9412c1b78887e1c",
+    "semantic_hash": "d00aba2167fb1daac9412c1b78887e1c"
+  },
+  "src/scripts/import-processed-posts.ts": {
+    "mtime": 1785851479.63034,
+    "ast_hash": "1b5b759f9181da320e5758087848f264",
+    "semantic_hash": "1b5b759f9181da320e5758087848f264"
+  },
+  "src/server.ts": {
+    "mtime": 1787947637.3108237,
+    "ast_hash": "adebb6bc295dbfe16cf8156855c2ba4a",
+    "semantic_hash": ""
+  },
+  "src/services/DocumentProcessor.ts": {
+    "mtime": 1777924682.1046512,
+    "ast_hash": "21e65315affb7a85efb2fe5e3f7c58d5",
+    "semantic_hash": "21e65315affb7a85efb2fe5e3f7c58d5"
+  },
+  "src/services/ImageOptimizer.ts": {
+    "mtime": 1777924275.0301545,
+    "ast_hash": "d6a72a7fe83fc0898e9f8ba4b45b0646",
+    "semantic_hash": "d6a72a7fe83fc0898e9f8ba4b45b0646"
+  },
+  "src/services/LocalSaveService.ts": {
+    "mtime": 1787941985.5981967,
+    "ast_hash": "1c63c4e2a7c6f0b25c29f8caf196ac8a",
+    "semantic_hash": "1c63c4e2a7c6f0b25c29f8caf196ac8a"
+  },
+  "src/services/PdfProcessor.ts": {
+    "mtime": 1751000739.4531822,
+    "ast_hash": "da561801207adbcb723c179be9f71d80",
+    "semantic_hash": "da561801207adbcb723c179be9f71d80"
+  },
+  "src/services/ProcessedPostsImporter.ts": {
+    "mtime": 1785851478.9499078,
+    "ast_hash": "05ff1e9efba507c6c186dd5dd92a53af",
+    "semantic_hash": "05ff1e9efba507c6c186dd5dd92a53af"
+  },
+  "src/services/WordPressService.ts": {
+    "mtime": 1787947625.8245087,
+    "ast_hash": "ff7e07396516095fb24289994811aa64",
+    "semantic_hash": ""
+  },
+  "test-equations.js": {
+    "mtime": 1750994364.055106,
+    "ast_hash": "25dc240c19c82991a55a7b6b71964e14",
+    "semantic_hash": "25dc240c19c82991a55a7b6b71964e14"
+  },
+  "test-pdf.js": {
+    "mtime": 1750999846.994885,
+    "ast_hash": "107e5887b06c9fe68a097f6ac3f5a0dd",
+    "semantic_hash": "107e5887b06c9fe68a097f6ac3f5a0dd"
+  },
+  "test-publish.js": {
+    "mtime": 1750477646.5490665,
+    "ast_hash": "063f8a91dcaca99724d23439176d8aa2",
+    "semantic_hash": "063f8a91dcaca99724d23439176d8aa2"
+  },
+  "test-user-permissions.js": {
+    "mtime": 1787941985.5981967,
+    "ast_hash": "afbd54238acd127ed30d3d34516438fa",
+    "semantic_hash": "afbd54238acd127ed30d3d34516438fa"
+  },
+  "test-wp-connection.js": {
+    "mtime": 1750476603.405268,
+    "ast_hash": "6b5b0b389abceb55c25a5829e5b2ec19",
+    "semantic_hash": "6b5b0b389abceb55c25a5829e5b2ec19"
+  },
+  "test-wp.ps1": {
+    "mtime": 1750475683.971058,
+    "ast_hash": "cc63e264b82161cbc9a5807675b4fba6",
+    "semantic_hash": "cc63e264b82161cbc9a5807675b4fba6"
+  },
+  "tsconfig.json": {
+    "mtime": 1750473903.9157777,
+    "ast_hash": "b1b652f218593d9771a2d83eafaddef6",
+    "semantic_hash": "b1b652f218593d9771a2d83eafaddef6"
+  },
+  ".cursor/hooks/state/continual-learning.json": {
+    "mtime": 1787945908.4395044,
+    "ast_hash": "de3e16f89906a2eedc8ec0b6491aeec4",
+    "semantic_hash": ""
+  },
+  "EQUATION_HANDLING.md": {
+    "mtime": 1751000571.8392286,
+    "ast_hash": "f0028d6dd388564d6771449b15eda295",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1750476842.5649645,
+    "ast_hash": "5461c229c9a2da5f8ff42854960afada",
+    "semantic_hash": ""
+  },
+  "RESTART_SERVERS.md": {
+    "mtime": 1750476857.2872703,
+    "ast_hash": "b791c407853f70304ff82c7ba0749048",
+    "semantic_hash": ""
+  },
+  "TROUBLESHOOTING.md": {
+    "mtime": 1787941985.5981967,
+    "ast_hash": "1dfd2757698f0e7eb529116c32b64e4f",
+    "semantic_hash": ""
+  },
+  "client/VITE_MIGRATION.md": {
+    "mtime": 1774015619.9140804,
+    "ast_hash": "6883cacb7afe70f15cb9fca71ac1e72c",
+    "semantic_hash": ""
+  },
+  "client/index.html": {
+    "mtime": 1774015619.9172828,
+    "ast_hash": "9d0ac3c9ebcfb7b8f90e0f0dcf5b2c0c",
+    "semantic_hash": ""
+  },
+  "client/public/index.html": {
+    "mtime": 1750474085.0925426,
+    "ast_hash": "ef8a02db437c74f2ecb0d88becc4b9d4",
+    "semantic_hash": ""
+  },
+  "client/public/robots.txt": {
+    "mtime": 1750474088.0002198,
+    "ast_hash": "fa1ded1ed7c11438a9b0385b1e112850",
+    "semantic_hash": ""
+  },
+  "test-offline-mode.md": {
+    "mtime": 1787941985.5981967,
+    "ast_hash": "d5569818ee1e7822962f5f0b20ed8eb6",
+    "semantic_hash": ""
+  },
+  "client/public/logo192.png": {
+    "mtime": 1750474086.3174658,
+    "ast_hash": "33dbdd0177549353eeeb785d02c294af",
+    "semantic_hash": ""
+  },
+  "client/public/logo512.png": {
+    "mtime": 1750474086.6876032,
+    "ast_hash": "917515db74ea8d1aee6a246cfbcc0b45",
+    "semantic_hash": ""
+  },
+  "src/services/SimplificationsService.ts": {
+    "mtime": 1787947631.8246756,
+    "ast_hash": "14cd1a9a50c6f8b5d40575489443fbad",
+    "semantic_hash": ""
+  }
+}
