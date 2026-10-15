@@ -6,6 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.LocalSaveService = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
+const footnotes_1 = require("../lib/footnotes");
+const ImageOptimizer_1 = require("./ImageOptimizer");
+const ImageSeoService_1 = require("./ImageSeoService");
 class LocalSaveService {
     constructor() {
         this.saveDirectory = path_1.default.join(process.cwd(), 'saved-posts');
@@ -94,34 +97,48 @@ class LocalSaveService {
         return map[contentType] || '.jpg';
     }
     /**
-     * Save every image from ProcessedContent.images as an individual file
-     * inside `folderPath`, and return a map from the original base64 data-URI
-     * prefix to the relative filename so the HTML can be rewritten.
+     * Save every image from ProcessedContent.images as an individual WebP
+     * inside `folderPath`, named from the SEO filename stem. Returns a map
+     * from ProcessedImage.id to the relative filename so the HTML can be rewritten.
      *
      * A companion `images-metadata.json` is written to the same folder.
      */
-    saveImages(images, folderPath) {
-        // Map: image id → relative filename (e.g. "image-1.jpg")
+    async saveImages(images, folderPath) {
         const uriToFile = new Map();
         const metaEntries = [];
+        const usedStems = new Set();
         for (const img of images) {
-            const ext = this.imageExtension(img.contentType);
-            const filename = `${img.id}${ext}`;
+            const raw = Buffer.isBuffer(img.data)
+                ? img.data
+                : Buffer.from(img.data.data || img.data);
+            let buf = raw;
+            let contentType = img.contentType;
+            let ext = this.imageExtension(img.contentType);
+            try {
+                const optimized = await (0, ImageOptimizer_1.convertToWebp)(raw);
+                buf = optimized.buffer;
+                contentType = optimized.contentType;
+                ext = `.${optimized.extension}`;
+            }
+            catch (error) {
+                const message = error instanceof Error ? error.message : String(error);
+                console.warn(`  WebP convert failed for ${img.id}, saving original: ${message}`);
+            }
+            const stem = (0, ImageSeoService_1.uniquifyFilenameStem)(img.filename || img.id, usedStems);
+            const filename = `${stem}${ext}`;
             const filePath = path_1.default.join(folderPath, filename);
-            // Write the raw image bytes
-            fs_1.default.writeFileSync(filePath, img.data);
-            // Record metadata
+            fs_1.default.writeFileSync(filePath, buf);
             metaEntries.push({
                 filename,
                 originalId: img.id,
                 alt: img.alt,
                 title: img.title,
-                contentType: img.contentType,
-                sizeBytes: img.data.length,
+                caption: img.caption,
+                contentType,
+                sizeBytes: buf.length,
             });
-            // We'll use the image id to locate and replace the data-URI later
             uriToFile.set(img.id, filename);
-            console.log(`  Saved image ${filename} (${img.contentType}, ${img.data.length} bytes)`);
+            console.log(`  Saved image ${filename} (${contentType}, ${buf.length} bytes)`);
         }
         // Write metadata sidecar
         if (metaEntries.length > 0) {
@@ -147,7 +164,11 @@ class LocalSaveService {
             const filename = uriToFile.get(img.id);
             if (!filename)
                 continue;
-            const base64 = img.data.toString('base64');
+            // Ensure we have a real Buffer (may be a serialized object after JSON round-trip)
+            const buf = Buffer.isBuffer(img.data)
+                ? img.data
+                : Buffer.from(img.data.data || img.data);
+            const base64 = buf.toString('base64');
             const dataUri = `data:${img.contentType};base64,${base64}`;
             // Replace the full data URI with the relative file path
             result = result.split(dataUri).join(`./${filename}`);
@@ -163,8 +184,7 @@ class LocalSaveService {
      *   saved-posts/
      *     post-<timestamp>/
      *       index.html
-     *       image-1.jpg
-     *       image-2.png
+     *       {filename}.webp
      *       images-metadata.json
      *
      * Returns the folder name (e.g. "post-2025-09-11T19-27-58-751Z").
@@ -177,10 +197,13 @@ class LocalSaveService {
             // Create the post folder
             fs_1.default.mkdirSync(folderPath, { recursive: true });
             // Save images as separate files and get the URI→filename map
-            const uriToFile = this.saveImages(content.images, folderPath);
+            const uriToFile = await this.saveImages(content.images, folderPath);
             console.log(`Saved ${content.images.length} images to ${folderName}/`);
-            // Generate the HTML document
-            let htmlContent = this.generateHtmlDocument(content, postData);
+            // Generate the HTML document from body HTML that already has alt/figure.
+            // This export never passes through the InScience-v2 Astro renderer, so
+            // it must render the `[^N]` footnote tokens itself (see src/lib/footnotes.ts).
+            const bodyHtml = (0, footnotes_1.renderFootnoteTokens)((0, ImageSeoService_1.rewriteImageSeoHtml)(content.content, content.images));
+            let htmlContent = this.generateHtmlDocument({ ...content, content: bodyHtml }, postData);
             // Rewrite base64 data URIs → relative file paths
             htmlContent = this.replaceDataUrisWithFiles(htmlContent, content.images, uriToFile);
             // Write the HTML file
@@ -463,9 +486,10 @@ class LocalSaveService {
         <div class="footnotes">
             <h2>Footnotes</h2>
             ${content.footnotes.map((footnote, index) => `
-                <div class="footnote">
+                <div class="footnote" id="${footnote.id}">
                     <span class="footnote-ref">[${index + 1}]</span>
                     ${footnote.text}
+                    ${footnote.backRef ? ` <a href="#${footnote.backRef}">↩</a>` : ''}
                 </div>
             `).join('')}
         </div>
@@ -502,6 +526,61 @@ class LocalSaveService {
 </body>
 </html>`;
         return htmlDoc;
+    }
+    // ─── Fetched Posts Export ──────────────────────────────────────────
+    /**
+     * Save a batch of posts fetched from WordPress into a structured folder.
+     *
+     * Layout:
+     *   saved-posts/fetch-<timestamp>/
+     *     manifest.json
+     *     posts/
+     *       post-<id>.json
+     *       post-<id>.json
+     *       …
+     *
+     * Returns the folder name (e.g. "fetch-2025-09-11T19-27-58-751Z").
+     */
+    async saveFetchedPosts(posts, meta) {
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+        const folderName = `fetch-${timestamp}`;
+        const folderPath = path_1.default.join(this.saveDirectory, folderName);
+        const postsDir = path_1.default.join(folderPath, 'posts');
+        fs_1.default.mkdirSync(postsDir, { recursive: true });
+        // Collect unique categories and tags across all posts
+        const categoriesMap = new Map();
+        const tagsMap = new Map();
+        for (const post of posts) {
+            // Write individual post file
+            const postFile = path_1.default.join(postsDir, `post-${post.id}.json`);
+            fs_1.default.writeFileSync(postFile, JSON.stringify(post, null, 2));
+            for (const cat of post.categories)
+                categoriesMap.set(cat.id, cat);
+            for (const tag of post.tags)
+                tagsMap.set(tag.id, tag);
+        }
+        // Build manifest
+        const manifest = {
+            fetchedAt: new Date().toISOString(),
+            source: meta.source,
+            filters: meta.filters,
+            totalPosts: posts.length,
+            posts: posts.map((p) => ({
+                id: p.id,
+                title: p.title.rendered,
+                slug: p.slug,
+                status: p.status,
+                date: p.date,
+                modified: p.modified,
+                link: p.link,
+                file: `posts/post-${p.id}.json`,
+            })),
+            categories: Array.from(categoriesMap.values()),
+            tags: Array.from(tagsMap.values()),
+        };
+        fs_1.default.writeFileSync(path_1.default.join(folderPath, 'manifest.json'), JSON.stringify(manifest, null, 2));
+        console.log(`Saved ${posts.length} fetched posts to ${folderName}/`);
+        return { folderName, postCount: posts.length };
     }
 }
 exports.LocalSaveService = LocalSaveService;

@@ -40,7 +40,9 @@ exports.DocumentProcessor = void 0;
 const mammoth_1 = __importDefault(require("mammoth"));
 const cheerio = __importStar(require("cheerio"));
 const jszip_1 = __importDefault(require("jszip"));
+const ImageSeoService_1 = require("./ImageSeoService");
 const PdfProcessor_1 = require("./PdfProcessor");
+const equationPlacement_1 = require("../lib/equationPlacement");
 // ═══════════════════════════════════════════════════════════════════════
 //  DocumentProcessor — converts .docx / .pdf → clean, minimal HTML
 //  suitable for WordPress + WPBakery (Visual Bakery).
@@ -125,13 +127,11 @@ class DocumentProcessor {
                     "p[style-name='List Paragraph'] => li:fresh",
                     // Quotes
                     "p[style-name='Quote'] => blockquote > p:fresh",
-                    // Footnote text — used for detection, class stripped later
-                    "p[style-name='Footnote Text'] => p.footnote-text:fresh",
                 ],
                 convertImage: mammoth_1.default.images.imgElement((image) => {
                     return image.read('base64').then((imageBuffer) => ({
                         src: `data:${image.contentType};base64,${imageBuffer}`,
-                        alt: image.altText || 'Document image',
+                        alt: image.altText || '',
                     }));
                 }),
                 includeDefaultStyleMap: true,
@@ -161,23 +161,27 @@ class DocumentProcessor {
      * Order matters — citation linking adds ids that must survive the
      * subsequent cleanHtml pass.
      */
-    async processHtmlContent(html, rawXmlEquations) {
-        const $ = cheerio.load(html);
+    async processHtmlContent(html, rawEquationZones) {
+        // 0. Splice equations back into their original position BEFORE anything
+        //    else touches the HTML. Anchors are matched against mammoth's raw,
+        //    unmodified output — later steps (footnotes, cheerio's own
+        //    re-serialization) can shift whitespace/tag boundaries slightly and
+        //    would make the match less reliable.
+        const { html: htmlWithEquations, equations } = this.placeEquations(rawEquationZones, html);
+        const $ = cheerio.load(htmlWithEquations);
         // 1. Extract & remove title from body
         const title = this.extractTitle($);
         // 2. Process footnotes (rewrite Word's _ftn anchors)
         const footnotes = this.extractFootnotes($);
-        // 3. Handle equations — insert $$...$$ for any OMath content
-        const equations = this.extractEquations($, rawXmlEquations);
-        // 4. Extract image metadata
-        const images = this.extractImages($);
-        // 5. Link in-text citations → ΒΙΒΛΙΟΓΡΑΦΙΑ entries
+        // 3. Extract image metadata (nearby heading/caption, then optional AI)
+        const images = await this.extractImages($, title);
+        // 4. Link in-text citations → ΒΙΒΛΙΟΓΡΑΦΙΑ entries
         const citations = this.linkCitations($);
-        // 6. Wrap orphaned <li> elements in <ul>
+        // 5. Wrap orphaned <li> elements in <ul>
         this.processLists($);
-        // 7. Strip all unnecessary markup (classes, ids, scripts, styles, empties)
+        // 6. Strip all unnecessary markup (classes, ids, scripts, styles, empties)
         this.cleanHtml($);
-        // 8. Compute excerpt and word count
+        // 7. Compute excerpt and word count
         const excerpt = this.generateExcerpt($);
         const wordCount = this.countWords($);
         // Return only the body inner-HTML (no <html>/<head>/<body> wrappers)
@@ -208,35 +212,110 @@ class DocumentProcessor {
     }
     // ─── Footnotes ────────────────────────────────────────────────────
     /**
-     * Rewrite Word's footnote anchors (#_ftn*) into a clean scheme
-     * (footnote-N / footnote-ref-N) and collect footnote text.
+     * Rewrite footnote AND endnote anchors into the scheme the InScience-v2
+     * Astro frontend expects: a literal `[^N]` token in-text, and a note body
+     * with `id="fn-N"`. Astro treats every note the same way regardless of
+     * whether Word stored it as a footnote (page bottom) or an endnote
+     * (document end) — both render identically once published, so both are
+     * captured here and share one sequential numbering.
+     *
+     * Astro's `processFootnotes` only does a plain-text replace of `[^N]`
+     * tokens into a styled `<sup>/<a>` at render time — it does not touch
+     * the note body at all, so the body must already carry `id="fn-N"` in
+     * the published HTML. See src/lib/footnotes.ts for the matching
+     * renderer used by this repo's own "Save as HTML" export.
+     *
+     * Supports three source formats:
+     *   • mammoth native footnotes (idPrefix 'doc-'): #doc-footnote-N / doc-footnote-ref-N
+     *   • mammoth native endnotes  (idPrefix 'doc-'): #doc-endnote-N  / doc-endnote-ref-N
+     *   • Legacy Word HTML:                            #_ftnN
+     *
+     * Word's own numbering restarts separately for footnotes vs. endnotes, so
+     * a document can have both a "footnote 1" and an "endnote 1" with
+     * unrelated content. Re-numbering sequentially in document order (rather
+     * than reusing Word's per-type ids) keeps every `[^N]` token — and its
+     * matching `id="fn-N"` — globally unique.
+     *
+     * NOTE: We intentionally do NOT use the Word paragraph style "Footnote Text"
+     * for detection, because mammoth applies that style to any paragraph bearing
+     * it — including quoted / italic passages that were (mis-)styled with it in
+     * the original .docx.  Only structurally-linked notes are reliable.
      */
     extractFootnotes($) {
         const footnotes = [];
-        let counter = 1;
-        // Rewrite in-text footnote reference links
-        $('a[href^="#_ftn"]').each((_, el) => {
+        // Maps Word's own per-type key (e.g. "footnote-1", "endnote-1", "ftn3")
+        // to the sequential id this repo assigns across all note types.
+        const sequentialIdByOriginalKey = new Map();
+        let nextSequentialId = 1;
+        let legacyFallbackCounter = 1;
+        // ── Rewrite in-text reference markers (footnotes AND endnotes) ──
+        // mammoth footnote: <sup><a href="#doc-footnote-N" id="doc-footnote-ref-N">[N]</a></sup>
+        // mammoth endnote:  <sup><a href="#doc-endnote-N"  id="doc-endnote-ref-N">[N]</a></sup>
+        // Legacy Word:      <a href="#_ftnN">
+        // Replaced with the literal token `[^N]` — Astro renders this into a
+        // styled superscript link at build time; no markup needs to survive
+        // this repo's own cleanHtml() class-stripping pass.
+        $('a[href^="#doc-footnote-"], a[href^="#doc-endnote-"], a[href^="#_ftn"]').each((_, el) => {
             const $el = $(el);
-            const href = $el.attr('href');
-            const id = href?.replace('#_ftn', '') || counter.toString();
-            $el.attr('href', `#footnote-${id}`);
-            $el.attr('id', `footnote-ref-${id}`);
-            counter++;
+            const href = $el.attr('href') || '';
+            let originalKey;
+            if (href.startsWith('#doc-footnote-')) {
+                originalKey = `footnote-${href.replace('#doc-footnote-', '')}`;
+            }
+            else if (href.startsWith('#doc-endnote-')) {
+                originalKey = `endnote-${href.replace('#doc-endnote-', '')}`;
+            }
+            else {
+                const legacyId = href.replace('#_ftn', '') || legacyFallbackCounter.toString();
+                originalKey = `ftn-${legacyId}`;
+                legacyFallbackCounter++;
+            }
+            const sequentialId = nextSequentialId.toString();
+            sequentialIdByOriginalKey.set(originalKey, sequentialId);
+            nextSequentialId++;
+            const $sup = $el.closest('sup');
+            const $target = $sup.length ? $sup : $el;
+            $target.replaceWith(`[^${sequentialId}]`);
         });
-        // Collect footnote text and rewrite as clean anchored elements
-        $('div[id^="_ftn"], p.footnote-text').each((idx, el) => {
+        // ── Collect note body text (footnotes AND endnotes) ──
+        // mammoth footnote: <ol><li id="doc-footnote-N"><p>text</p></li></ol>
+        // mammoth endnote:  <ol><li id="doc-endnote-N"><p>text</p></li></ol>
+        // Legacy Word:       <div id="_ftnN">...</div>
+        $('li[id^="doc-footnote-"], li[id^="doc-endnote-"], div[id^="_ftn"]').each((idx, el) => {
             const $el = $(el);
             const text = $el.text().trim();
             if (!text)
                 return;
-            const id = $el.attr('id')?.replace('_ftn', '') || (idx + 1).toString();
+            const elId = $el.attr('id') || '';
+            let originalKey;
+            if (elId.startsWith('doc-footnote-')) {
+                originalKey = `footnote-${elId.replace('doc-footnote-', '')}`;
+            }
+            else if (elId.startsWith('doc-endnote-')) {
+                originalKey = `endnote-${elId.replace('doc-endnote-', '')}`;
+            }
+            else {
+                originalKey = `ftn-${elId.replace('_ftn', '')}`;
+            }
+            // Fall back to a fresh sequential id if no matching in-text reference
+            // was found (shouldn't normally happen — Word always pairs the two).
+            const id = sequentialIdByOriginalKey.get(originalKey) ?? (nextSequentialId++).toString();
             footnotes.push({
-                id: `footnote-${id}`,
+                id: `fn-${id}`,
                 text,
-                backRef: `footnote-ref-${id}`,
+                backRef: `fnref-${id}`,
             });
-            // Replace with a clean footnote div (id preserved by cleanHtml)
-            $el.replaceWith(`<div id="footnote-${id}"><p>${text} <a href="#footnote-ref-${id}">↩</a></p></div>`);
+            // Replace with a plain <li id="fn-N"> so it stays a valid child of
+            // the surrounding <ol> mammoth already produced (the previous <div>
+            // replacement broke out of that list).
+            $el.replaceWith(`<li id="fn-${id}">${text} <a href="#fnref-${id}">↩</a></li>`);
+        });
+        // Clean up any now-empty <ol> wrappers left behind by mammoth's footnote list
+        $('ol').each((_, el) => {
+            const $el = $(el);
+            if ($el.children().length === 0 && $el.text().trim() === '') {
+                $el.remove();
+            }
         });
         return footnotes;
     }
@@ -335,25 +414,68 @@ class DocumentProcessor {
             .replace(/[^\p{L}\p{N}]/gu, ''); // keep letters and digits only
     }
     /**
+     * Extract ALL author surnames from a bibliography entry text.
+     * Looks for capitalized words before commas in the author portion
+     * (everything before the year).  This lets us index entries by
+     * non-first authors too, so "(Lemonde, 1998)" can match an entry
+     * that starts with "Laurent, Ph., Lemonde, P., …, 1998."
+     */
+    extractAllSurnames(text, year) {
+        const yearIdx = text.indexOf(year);
+        if (yearIdx < 0)
+            return [];
+        const authorPart = text.substring(0, yearIdx);
+        // Find words of 2+ letters that appear before a comma — these are
+        // likely surnames in "Surname, Initial." patterns.
+        const surnameRe = /([\p{L}][\p{L}\-']+)\s*,/gu;
+        const surnames = [];
+        let m;
+        while ((m = surnameRe.exec(authorPart)) !== null) {
+            if (m[1].length > 1) {
+                surnames.push(this.normalizeName(m[1]));
+            }
+        }
+        return [...new Set(surnames)];
+    }
+    /**
      * Walk every text-containing element *before* the bibliography heading
      * and replace "(Author, Year)" patterns with `<a href="#bib-...">` links.
      */
     linkInTextCitations($, entries, bibHeading) {
         // Build a lookup map:  "normalizedSurname-year" → BibliographyEntry
+        // Primary key: first author's surname.
+        // Secondary keys: every other author surname in the same entry,
+        // so that e.g. "(Lemonde, 1998)" can find the Laurent et al. 1998 entry.
         const lookup = new Map();
         for (const e of entries) {
+            // Primary key
             lookup.set(`${e.surname}-${e.year}`, e);
+            // Secondary keys from all author surnames in the full text
+            const allSurnames = this.extractAllSurnames(e.text, e.year);
+            for (const s of allSurnames) {
+                if (!lookup.has(`${s}-${e.year}`)) {
+                    lookup.set(`${s}-${e.year}`, e);
+                }
+            }
         }
-        // Regex that matches in-text citations.
+        // Broad citation regex.
         //
-        //   (Author, 1989)
-        //   (Author & Author, 1989)
-        //   (Author et al., 1989)
-        //   (Παπαδόπουλος, 2023)
-        //   (Author κ.α., 2023)
+        // Matches any "(SOMETHING, YEAR)" where SOMETHING starts with a
+        // Unicode letter.  This covers all common academic citation formats:
         //
-        // The first capture group is the author portion, the second is the year.
-        const citationRe = /\(([\p{L}\-']+(?:\s*(?:&amp;|&|και)\s*[\p{L}\-']+)*(?:\s*(?:et\s+al\.?|κ\.?\s*α\.?))?)\s*,\s*((?:19|20)\d{2}[a-z]?)\)/gu;
+        //   (Author, 1989)                simple
+        //   (Author & Author, 1989)       multi-author
+        //   (Author et al., 1989)         et al.
+        //   (De Marchi, 1982)             multi-word surname
+        //   (F. Maier et al., 2025)       initial before surname
+        //   (Παπαδόπουλος, 2023)          Greek names
+        //   (Author, 2011, σ.438)         with page reference
+        //   (Author, 2020: 55-60)         colon-style page
+        //
+        // Group 1 = author portion (everything before the last ", YEAR")
+        // Group 2 = year
+        // Group 3 = optional trailing content (page refs, etc.)
+        const citationRe = /\(([\p{L}][^()]*?),\s*((?:19|20)\d{2}[a-z]?)(\s*[,:][^)]*)?\)/gu;
         const bibHeadingEl = bibHeading[0];
         let reachedBib = false;
         $('p, li, td, th, h1, h2, h3, h4, h5, h6').each((_, el) => {
@@ -367,19 +489,31 @@ class DocumentProcessor {
             const html = $el.html();
             if (!html)
                 return;
-            // Reset the regex lastIndex for each element (since it has the g flag)
             citationRe.lastIndex = 0;
-            const replaced = html.replace(citationRe, (full, authors, yearStr) => {
-                // Extract the first surname from the captured author text
-                const firstSurname = (authors.match(/^([\p{L}\-']+)/u) || [])[1];
-                if (!firstSurname)
-                    return full;
-                // Strip optional year-letter suffix (e.g. 1989a → 1989) for lookup
+            const replaced = html.replace(citationRe, (full, authors, yearStr, extra) => {
                 const baseYear = yearStr.replace(/[a-z]$/, '');
-                const key = `${this.normalizeName(firstSurname)}-${baseYear}`;
-                const entry = lookup.get(key);
-                if (entry) {
-                    return `<a href="#${entry.id}">(${authors}, ${yearStr})</a>`;
+                // Extract candidate surnames from the author text.
+                // Strip "et al.", "κ.α.", ampersands, "και", then split into words.
+                // Filter out single-letter initials (like "F.") and try each
+                // remaining word as a potential surname for lookup.
+                const cleaned = authors
+                    .replace(/\s*et\s+al\.?\s*/gi, ' ')
+                    .replace(/\s*κ\.?\s*α\.?\s*/gi, ' ')
+                    .replace(/&amp;/g, ' ')
+                    .replace(/&/g, ' ')
+                    .replace(/και/g, ' ')
+                    .replace(/,/g, ' ');
+                const candidates = cleaned
+                    .split(/\s+/)
+                    .filter((w) => w.length > 1)
+                    .filter((w) => !/^[\p{L}]\.$/u.test(w)); // skip initials like "F."
+                for (const word of candidates) {
+                    const key = `${this.normalizeName(word)}-${baseYear}`;
+                    const entry = lookup.get(key);
+                    if (entry) {
+                        const trailing = extra || '';
+                        return `<a href="#${entry.id}">(${authors}, ${yearStr}${trailing})</a>`;
+                    }
                 }
                 // No matching bibliography entry — leave the text as-is
                 return full;
@@ -391,9 +525,14 @@ class DocumentProcessor {
     }
     // ─── Equations ────────────────────────────────────────────────────
     /**
-     * Extract OMath elements by unzipping the .docx with JSZip and
-     * reading word/document.xml.  This replaces the broken approach of
-     * reading the compressed buffer as UTF-8.
+     * Extract OMath zones by unzipping the .docx with JSZip and reading
+     * word/document.xml. This replaces the broken approach of reading the
+     * compressed buffer as UTF-8.
+     *
+     * Returns one zone per equation, each carrying the surrounding paragraph
+     * text needed to relocate it in the mammoth-converted HTML later (see
+     * src/lib/equationPlacement.ts) — mammoth silently drops OOXML math from
+     * its own HTML output, so there is no other trace of where it belongs.
      */
     async extractOMathFromXML(buffer) {
         try {
@@ -404,23 +543,9 @@ class DocumentProcessor {
                 return [];
             }
             const xml = await docFile.async('string');
-            const equations = [];
-            // Flexible namespace prefix: <m:oMath>, <w14:oMath>, etc.
-            const omathRe = /<[^:]*:oMath\b[^>]*>([\s\S]*?)<\/[^:]*:oMath>/g;
-            const omathParaRe = /<[^:]*:oMathPara\b[^>]*>([\s\S]*?)<\/[^:]*:oMathPara>/g;
-            let m;
-            while ((m = omathRe.exec(xml)) !== null) {
-                const text = this.extractMathText(m[1]);
-                if (text)
-                    equations.push(text);
-            }
-            while ((m = omathParaRe.exec(xml)) !== null) {
-                const text = this.extractMathText(m[1]);
-                if (text)
-                    equations.push(text);
-            }
-            console.log(`Found ${equations.length} equations in document XML`);
-            return equations;
+            const zones = (0, equationPlacement_1.extractRawEquationZones)(xml);
+            console.log(`Found ${zones.length} equations in document XML`);
+            return zones;
         }
         catch (error) {
             console.error('Error extracting OMath from XML:', error);
@@ -446,52 +571,128 @@ class DocumentProcessor {
         return text;
     }
     /**
-     * Process equations extracted from the .docx XML and record them
-     * as metadata.  Each equation is also appended to the HTML body as
-     * a paragraph with $$...$$ delimiters so a MathJax/KaTeX WordPress
-     * plugin can render it.
+     * Convert each equation zone's raw OMath XML to LaTeX, then splice it
+     * back into `html` near the text it originally sat next to (see
+     * src/lib/equationPlacement.ts) instead of appending everything at the
+     * very end of the article.
      *
-     * Any LaTeX already present in the body as $...$ / $$...$$ text
-     * is left untouched — it will render naturally via the WP plugin.
+     * Inline equations (a bare <m:oMath> within a sentence) render as `$...$`
+     * so they stay inline and compact; display equations (from <m:oMathPara>,
+     * or standalone in their own paragraph) render as their own `<p>$$...$$</p>`.
+     * Any LaTeX already present in the body as $...$ / $$...$$ text is left
+     * untouched — it will render naturally via the WP plugin.
+     *
+     * An equation whose surrounding text can't be found (or matches more
+     * than once, which is too ambiguous to guess) still gets appended at the
+     * end — the previous, always-safe-but-unpositioned behavior — so nothing
+     * is ever silently dropped.
      */
-    extractEquations($, rawXmlEquations = []) {
-        const equations = [];
-        let counter = 1;
-        for (const raw of rawXmlEquations) {
-            const id = `equation-${counter}`;
-            const latex = this.convertToLatex(raw);
-            equations.push({ id, latex, display: true });
-            // Append as a clean paragraph with LaTeX display-math delimiters
-            $('body').append(`<p>$$${latex}$$</p>`);
-            counter++;
-        }
-        console.log(`Extracted ${equations.length} equations from document XML`);
-        return equations;
+    placeEquations(zones, html) {
+        const positioned = zones.map((zone) => ({
+            latex: this.convertToLatex(this.extractMathText(zone.omathXml)),
+            display: zone.display,
+            before: zone.before,
+            after: zone.after,
+            precedingParagraphTail: zone.precedingParagraphTail,
+        }));
+        const { html: placedHtml, placedInline, appendedAtEnd } = (0, equationPlacement_1.placeEquationsInHtml)(html, positioned);
+        console.log(`Placed ${placedInline} equation(s) near their original text; ${appendedAtEnd} appended at the end (no confident anchor found).`);
+        const equations = positioned.map((eq, index) => ({
+            id: `equation-${index + 1}`,
+            latex: eq.latex,
+            display: eq.display,
+        }));
+        return { html: placedHtml, equations };
     }
     // ─── Images ───────────────────────────────────────────────────────
     /**
-     * Extract base64-embedded images as metadata (for potential upload
-     * to the WordPress media library later).
+     * Extract base64-embedded images and derive SEO filename / alt / title
+     * from nearby document text. Internal ids stay `image-N`.
      */
-    extractImages($) {
+    async extractImages($, articleTitle) {
         const images = [];
-        $('img').each((idx, el) => {
-            const $el = $(el);
+        const usedStems = new Set();
+        const imgEls = $('img').toArray();
+        for (let idx = 0; idx < imgEls.length; idx++) {
+            const $el = $(imgEls[idx]);
             const src = $el.attr('src');
             if (!src || !src.startsWith('data:'))
-                return;
+                continue;
             const matches = src.match(/data:([^;]+);base64,(.+)/);
             if (!matches)
-                return;
+                continue;
+            const rawAlt = ($el.attr('alt') || '').trim();
+            const wordAlt = (0, ImageSeoService_1.isGenericAlt)(rawAlt) ? '' : rawAlt;
+            const caption = this.findFollowingCaption($el);
+            const heading = this.findNearestHeading($, $el);
+            const id = `image-${idx + 1}`;
+            const seo = (0, ImageSeoService_1.seoFromContext)({ wordAlt, caption, heading, articleTitle }, id);
+            const filename = (0, ImageSeoService_1.uniquifyFilenameStem)(seo.filename, usedStems);
+            if (seo.alt)
+                $el.attr('alt', seo.alt);
             images.push({
-                id: `image-${idx + 1}`,
-                alt: $el.attr('alt') || '',
-                title: $el.attr('title') || '',
+                id,
+                filename,
+                alt: seo.alt,
+                title: seo.title || ($el.attr('title') || ''),
+                caption: seo.caption,
+                seoSource: seo.seoSource,
                 data: Buffer.from(matches[2], 'base64'),
                 contentType: matches[1],
             });
-        });
+        }
+        await ImageSeoService_1.imageSeoService.enrichWeakImages(images, articleTitle);
+        for (const img of images) {
+            const $match = this.findImgByDataUri($, img);
+            if ($match && img.alt)
+                $match.attr('alt', img.alt);
+        }
         return images;
+    }
+    findImgByDataUri($, img) {
+        const dataUri = `data:${img.contentType};base64,${img.data.toString('base64')}`;
+        const $found = $('img').filter((_, el) => $(el).attr('src') === dataUri);
+        return $found.length ? $found.first() : null;
+    }
+    findNearestHeading($, $el) {
+        let $node = $el;
+        while ($node.length) {
+            let $prev = $node.prev();
+            while ($prev.length) {
+                if ($prev.is('h1, h2, h3, h4, h5, h6')) {
+                    return $prev.text().trim();
+                }
+                const $nested = $prev.find('h1, h2, h3, h4, h5, h6').last();
+                if ($nested.length)
+                    return $nested.text().trim();
+                $prev = $prev.prev();
+            }
+            $node = $node.parent();
+            if (!$node.length || $node.is('body') || $node.is('html'))
+                break;
+        }
+        return '';
+    }
+    findFollowingCaption($el) {
+        const candidates = [];
+        const $next = $el.next();
+        if ($next.length)
+            candidates.push($next);
+        const $parent = $el.parent();
+        if ($parent.length && !$parent.is('body') && !$parent.is('html')) {
+            const $parentNext = $parent.next();
+            if ($parentNext.length)
+                candidates.push($parentNext);
+        }
+        for (const $cand of candidates) {
+            const text = $cand.text().trim();
+            const italicOnly = $cand.is('em, i') ||
+                ($cand.find('em, i').length > 0 &&
+                    $cand.find('em, i').text().trim() === text);
+            if ((0, ImageSeoService_1.looksLikeCaption)(text, { italic: italicOnly }))
+                return text;
+        }
+        return '';
     }
     // ─── Clean HTML ───────────────────────────────────────────────────
     /**
@@ -512,11 +713,13 @@ class DocumentProcessor {
         $('script, style').remove();
         // Strip all class attributes
         $('[class]').removeAttr('class');
-        // Strip id attributes except those used for citation or footnote anchoring
+        // Strip id attributes except those used for citation or footnote anchoring.
+        // `fn-N` is the footnote-body id the InScience-v2 Astro frontend expects
+        // (paired with the literal `[^N]` token extractFootnotes leaves in-text).
         $('[id]').each((_, el) => {
             const $el = $(el);
             const id = $el.attr('id') || '';
-            if (!id.startsWith('bib-') && !id.startsWith('footnote-')) {
+            if (!id.startsWith('bib-') && !id.startsWith('fn-')) {
                 $el.removeAttr('id');
             }
         });

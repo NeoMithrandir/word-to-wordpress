@@ -1,5 +1,5 @@
 import { ProcessedContent } from './DocumentProcessor';
-import { PostData } from './WordPressService';
+import { PostData, FetchedPost } from './WordPressService';
 export declare class LocalSaveService {
     private saveDirectory;
     constructor();
@@ -25,9 +25,9 @@ export declare class LocalSaveService {
      */
     private imageExtension;
     /**
-     * Save every image from ProcessedContent.images as an individual file
-     * inside `folderPath`, and return a map from the original base64 data-URI
-     * prefix to the relative filename so the HTML can be rewritten.
+     * Save every image from ProcessedContent.images as an individual WebP
+     * inside `folderPath`, named from the SEO filename stem. Returns a map
+     * from ProcessedImage.id to the relative filename so the HTML can be rewritten.
      *
      * A companion `images-metadata.json` is written to the same folder.
      */
@@ -47,8 +47,7 @@ export declare class LocalSaveService {
      *   saved-posts/
      *     post-<timestamp>/
      *       index.html
-     *       image-1.jpg
-     *       image-2.png
+     *       {filename}.webp
      *       images-metadata.json
      *
      * Returns the folder name (e.g. "post-2025-09-11T19-27-58-751Z").
@@ -58,5 +57,25 @@ export declare class LocalSaveService {
      * Generate complete HTML document
      */
     private generateHtmlDocument;
+    /**
+     * Save a batch of posts fetched from WordPress into a structured folder.
+     *
+     * Layout:
+     *   saved-posts/fetch-<timestamp>/
+     *     manifest.json
+     *     posts/
+     *       post-<id>.json
+     *       post-<id>.json
+     *       …
+     *
+     * Returns the folder name (e.g. "fetch-2025-09-11T19-27-58-751Z").
+     */
+    saveFetchedPosts(posts: FetchedPost[], meta: {
+        source: string;
+        filters: Record<string, unknown>;
+    }): Promise<{
+        folderName: string;
+        postCount: number;
+    }>;
 }
 //# sourceMappingURL=LocalSaveService.d.ts.map

@@ -1,0 +1,32 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const assert_1 = __importDefault(require("assert"));
+const latinSlug_1 = require("../lib/latinSlug");
+const SimplificationsService_1 = require("../services/SimplificationsService");
+const greek = 'νοητικα-πειραματα-με-ψυχρα-ατομα-το-2';
+const encoded = '%ce%bd%ce%bf%ce%b7%cf%84%ce%b9%ce%ba%ce%b1-%cf%80%ce%b5%ce%b9%cf%81%ce%b1%ce%bc%ce%b1%cf%84%ce%b1-%ce%bc%ce%b5-%cf%88%cf%85%cf%87%cf%81%ce%b1-%ce%b1%cf%84%ce%bf%ce%bc%ce%b1-%cf%84%ce%bf-2';
+const permalink = `https://arthra.inscience.gr/2026/08/30/${encoded}/`;
+assert_1.default.strictEqual((0, SimplificationsService_1.isSafeSimplificationSlug)(greek), true, 'Greek slug should be accepted');
+assert_1.default.strictEqual((0, SimplificationsService_1.isSafeSimplificationSlug)('hello-world-post'), true, 'hyphenated slug should be accepted');
+assert_1.default.strictEqual((0, SimplificationsService_1.normalizeSimplificationSlug)(permalink), greek, 'permalink should decode to last segment');
+assert_1.default.strictEqual((0, SimplificationsService_1.isSafeSimplificationSlug)(permalink), true, 'permalink should be accepted after normalize');
+assert_1.default.strictEqual((0, SimplificationsService_1.normalizeSimplificationSlug)(encoded), greek, 'encoded slug should decode');
+assert_1.default.strictEqual((0, SimplificationsService_1.isSafeSimplificationSlug)(encoded), true, 'encoded slug should be accepted after normalize');
+assert_1.default.strictEqual((0, SimplificationsService_1.isSafeSimplificationSlug)('..'), false, '.. should be rejected');
+assert_1.default.strictEqual((0, SimplificationsService_1.isSafeSimplificationSlug)('foo/bar/..'), false, 'trailing .. segment should be rejected');
+assert_1.default.strictEqual((0, SimplificationsService_1.isSafeSimplificationSlug)('%2e%2e'), false, 'encoded .. should be rejected');
+assert_1.default.strictEqual((0, SimplificationsService_1.isSafeSimplificationSlug)('%2e%2e%2fetc'), false, 'encoded path should be rejected');
+const greekTitle = 'Νοητικά πειράματα με ψυχρά άτομα το 2';
+assert_1.default.strictEqual((0, latinSlug_1.toLatinSlug)(greekTitle), 'noitika-peiramata-me-psychra-atoma-to-2', 'Greek title should transliterate to kebab latin');
+assert_1.default.strictEqual((0, latinSlug_1.toLatinSlug)('Νοητικά πειράματα: με ψυχρά άτομα (το 2)!'), 'noitika-peiramata-me-psychra-atoma-to-2', 'punctuation should be stripped from Greek title');
+assert_1.default.strictEqual((0, latinSlug_1.toLatinSlug)(''), latinSlug_1.FALLBACK_LATIN_SLUG, 'empty title should fall back');
+assert_1.default.strictEqual((0, latinSlug_1.toLatinSlug)('   '), latinSlug_1.FALLBACK_LATIN_SLUG, 'whitespace title should fall back');
+assert_1.default.strictEqual((0, latinSlug_1.toLatinSlug)('!!!'), latinSlug_1.FALLBACK_LATIN_SLUG, 'punctuation-only title should fall back');
+assert_1.default.strictEqual((0, latinSlug_1.toLatinSlug)('Hello, World! 2024'), 'hello-world-2024', 'already-latin title should be kebab-normalized');
+assert_1.default.strictEqual((0, latinSlug_1.toLatinSlug)('hello-world-post'), 'hello-world-post', 'already-latin kebab slug should stay unchanged');
+assert_1.default.strictEqual((0, latinSlug_1.toLatinSlug)('του κόσμου'), 'tou-kosmou', 'ου digraph should become ou');
+console.log('slug normalization asserts passed');
+//# sourceMappingURL=assert-slug-normalization.js.map

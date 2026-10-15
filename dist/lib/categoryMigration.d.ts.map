@@ -1,0 +1,1 @@
+{"version":3,"file":"categoryMigration.d.ts","sourceRoot":"","sources":["../../src/lib/categoryMigration.ts"],"names":[],"mappings":"AAAA;;;GAGG;AAEH,MAAM,WAAW,cAAc;IAC7B,IAAI,EAAE,MAAM,CAAC;IACb,IAAI,EAAE,MAAM,CAAC;CACd;AAuDD,wBAAgB,mBAAmB,CAAC,GAAG,EAAE;IAAE,IAAI,EAAE,MAAM,CAAC;IAAC,IAAI,EAAE,MAAM,CAAA;CAAE,GAAG,cAAc,CAUvF"}
