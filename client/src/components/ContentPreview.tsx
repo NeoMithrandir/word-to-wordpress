@@ -9,10 +9,13 @@ import {
 import { API_URL } from '../config/wordpress.config';
 import { toLatinSlug } from '../lib/latinSlug';
 import {
+  collapseFootnoteAnchors,
   countWordsFromHtml,
+  renderFootnoteTokens,
   restoreImageDataUris,
   stripImageDataUris,
 } from '../lib/reviewHtml';
+import { buildReviewDiff, DiffSection } from '../lib/reviewDiff';
 
 interface ContentPreviewProps {
   content: ProcessedContent;
@@ -93,8 +96,8 @@ function reviewErrorMessage(payload: ArticleReviewResponse | null, fallback: str
   return fallback;
 }
 
-/** Longer than the server's 5-minute provider abort so this hop is not first to fail. */
-const REVIEW_CLIENT_TIMEOUT_MS = 6 * 60 * 1000;
+/** Longer than the server's 10-minute provider abort so this hop is not first to fail. */
+const REVIEW_CLIENT_TIMEOUT_MS = 12 * 60 * 1000;
 
 type PreviewTab = 'content' | 'footnotes' | 'citations' | 'images' | 'equations';
 
@@ -169,8 +172,19 @@ export const ContentPreview: React.FC<ContentPreviewProps> = ({
   const [changeNotes, setChangeNotes] = useState<string[]>([]);
   const [layoutAttention, setLayoutAttention] = useState<string[]>([]);
   const [reviewMeta, setReviewMeta] = useState<string | null>(null);
+  // Before/after of the last LLM review, plus a snapshot to undo it.
+  const [reviewDiff, setReviewDiff] = useState<DiffSection[]>([]);
+  const [preReview, setPreReview] = useState<{ content: ProcessedContent; slug: string } | null>(
+    null
+  );
+  // The content object the review just pushed up via onUpdate; the re-sync
+  // effect below must not treat it as a freshly uploaded document.
+  const reviewedContent = useRef<ProcessedContent | null>(null);
 
   useEffect(() => {
+    if (content === reviewedContent.current) return;
+    setReviewDiff([]);
+    setPreReview(null);
     setEdited(content);
     const generated = toLatinSlug(content.title);
     if (content.slug && content.slug !== generated) {
@@ -196,7 +210,7 @@ export const ContentPreview: React.FC<ContentPreviewProps> = ({
       skipNextBodySync.current = false;
       return;
     }
-    bodyRef.current.innerHTML = edited.content;
+    bodyRef.current.innerHTML = renderFootnoteTokens(edited.content);
   }, [edited.content, activeTab]);
 
   useEffect(() => {
@@ -319,7 +333,9 @@ export const ContentPreview: React.FC<ContentPreviewProps> = ({
   };
 
   const handleConfirm = () => {
-    const bodyHtml = bodyRef.current?.innerHTML ?? edited.content;
+    const bodyHtml = collapseFootnoteAnchors(
+      bodyRef.current?.innerHTML ?? edited.content
+    );
     onUpdate({
       ...edited,
       content: bodyHtml,
@@ -336,7 +352,7 @@ export const ContentPreview: React.FC<ContentPreviewProps> = ({
   const handleBodyInput = () => {
     if (!bodyRef.current) return;
     skipNextBodySync.current = true;
-    const html = bodyRef.current.innerHTML;
+    const html = collapseFootnoteAnchors(bodyRef.current.innerHTML);
     setEdited((prev) => ({
       ...prev,
       content: html,
@@ -355,6 +371,19 @@ export const ContentPreview: React.FC<ContentPreviewProps> = ({
     setReviewError(null);
   };
 
+  const handleUndoReview = () => {
+    if (!preReview) return;
+    reviewedContent.current = preReview.content;
+    setEdited(preReview.content);
+    setSlug(preReview.slug);
+    onUpdate(preReview.content);
+    setReviewDiff([]);
+    setPreReview(null);
+    setChangeNotes([]);
+    setLayoutAttention([]);
+    setReviewMeta('Review undone');
+  };
+
   const handleLlmReview = async () => {
     if (!isReviewProviderId(providerId) || !modelId) {
       setReviewError('Choose a provider and model first.');
@@ -370,7 +399,9 @@ export const ContentPreview: React.FC<ContentPreviewProps> = ({
     setReviewing(true);
     setReviewError(null);
 
-    const bodyHtml = bodyRef.current?.innerHTML ?? edited.content;
+    const bodyHtml = collapseFootnoteAnchors(
+      bodyRef.current?.innerHTML ?? edited.content
+    );
     const overlay = {
       title: edited.title,
       excerpt: edited.excerpt,
@@ -435,6 +466,14 @@ export const ContentPreview: React.FC<ContentPreviewProps> = ({
         wordCount: countWordsFromHtml(restoredHtml),
         slug: nextSlug,
       };
+      // Diff the exact HTML the model saw against what it returned (both with
+      // image bytes stripped), and keep a snapshot so the review can be undone.
+      setReviewDiff(buildReviewDiff(overlay, article));
+      setPreReview({
+        content: { ...edited, content: restoreImageDataUris(overlay.content, edited.images) },
+        slug,
+      });
+      reviewedContent.current = nextContent;
       setEdited(nextContent);
       if (!slugManual) {
         setSlug(nextSlug);
@@ -924,6 +963,30 @@ export const ContentPreview: React.FC<ContentPreviewProps> = ({
                 <li key={`change-${index}`}>{note}</li>
               ))}
             </ul>
+          </div>
+        )}
+        {preReview && (
+          <div className="review-notes review-diff">
+            <h5>
+              What changed{' '}
+              <button type="button" className="btn btn-outline" onClick={handleUndoReview}>
+                Undo review
+              </button>
+            </h5>
+            {reviewDiff.length === 0 && <p className="field-hint">The model changed nothing.</p>}
+            {reviewDiff.map((section) => (
+              <details key={section.label} open>
+                <summary>{section.label}</summary>
+                <pre className="diff-block">
+                  {section.lines.map((line, index) => (
+                    <div key={index} className={`diff-line diff-${line.type}`}>
+                      {line.type === 'add' ? '+ ' : line.type === 'del' ? '- ' : '  '}
+                      {line.text}
+                    </div>
+                  ))}
+                </pre>
+              </details>
+            ))}
           </div>
         )}
         {layoutAttention.length > 0 && (

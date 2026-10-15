@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { DeployResult, ProcessedContent, PostSettings, PublishOutcome, SimplificationsResult } from '../App';
+import {
+  ArticleContentType,
+  DeployResult,
+  ProcessedContent,
+  PostSettings,
+  PublishOutcome,
+  SimplificationsResult
+} from '../App';
 import { toLatinSlug } from '../lib/latinSlug';
 import {
   API_URL,
@@ -14,6 +21,24 @@ interface SubjectCategory {
   id: number;
   name: string;
   slug: string;
+}
+
+interface WordPressAuthorOption {
+  id: number;
+  name: string;
+  slug: string;
+}
+
+const CONTENT_TYPE_OPTIONS: Array<{ value: ArticleContentType; label: string }> = [
+  { value: 'article', label: 'Article' },
+  { value: 'video', label: 'Video / Talk' },
+  { value: 'podcast', label: 'Podcast' },
+  { value: 'book_review', label: 'Book Review' },
+  { value: 'film', label: 'Film' }
+];
+
+function imageThumbSrc(image: ProcessedContent['images'][number]): string {
+  return `data:${image.contentType};base64,${image.data}`;
 }
 
 function allowsUnlistedPreview(destination: PublishDestination): boolean {
@@ -194,6 +219,60 @@ function destinationLabel(value: PublishDestination): string {
   }
 }
 
+function destinationIncludesArthra(destination: PublishDestination): boolean {
+  switch (destination) {
+    case 'arthra':
+    case 'both':
+      return true;
+    case 'inscience':
+      return false;
+    default: {
+      const _exhaustive: never = destination;
+      return _exhaustive;
+    }
+  }
+}
+
+function simplificationsCanRun(
+  destination: PublishDestination,
+  status: PostSettings['status']
+): boolean {
+  switch (status) {
+    case 'publish':
+    case 'unlisted':
+      return destinationIncludesArthra(destination);
+    case 'draft':
+    case 'private':
+      return false;
+    default: {
+      const _exhaustive: never = status;
+      return _exhaustive;
+    }
+  }
+}
+
+function simplificationsHelperText(
+  destination: PublishDestination,
+  status: PostSettings['status']
+): string {
+  if (simplificationsCanRun(destination, status)) {
+    return 'Runs inscience-v2 simple-language generation after a successful public arthra publish.';
+  }
+  switch (status) {
+    case 'draft':
+      return 'Unavailable for drafts — Με απλά λόγια runs only after a successful public arthra publish.';
+    case 'private':
+      return 'Unavailable for private posts — Με απλά λόγια runs only after a successful public arthra publish.';
+    case 'publish':
+    case 'unlisted':
+      return 'Unavailable for inscience.gr-only posts — Με απλά λόγια runs only after a successful public arthra publish.';
+    default: {
+      const _exhaustive: never = status;
+      return _exhaustive;
+    }
+  }
+}
+
 export const PublishSettings: React.FC<PublishSettingsProps> = ({
   content,
   destination,
@@ -212,7 +291,12 @@ export const PublishSettings: React.FC<PublishSettingsProps> = ({
     title: content.title,
     slug: content.slug || toLatinSlug(content.title),
     status: 'draft',
-    excerpt: content.excerpt
+    excerpt: content.excerpt,
+    runSimplifications: true,
+    acf: {
+      abstract: content.excerpt,
+      contentType: 'article'
+    }
   });
   const [slugManual, setSlugManual] = useState(
     Boolean(content.slug && content.slug !== toLatinSlug(content.title))
@@ -220,10 +304,13 @@ export const PublishSettings: React.FC<PublishSettingsProps> = ({
   const [isSavingHtml, setIsSavingHtml] = useState(false);
   const [subjectCategories, setSubjectCategories] = useState<SubjectCategory[]>([]);
   const [categoriesStatus, setCategoriesStatus] = useState<'idle' | 'loading' | 'ok' | 'failed'>('idle');
+  const [authors, setAuthors] = useState<WordPressAuthorOption[]>([]);
+  const [authorsStatus, setAuthorsStatus] = useState<'idle' | 'loading' | 'ok' | 'failed'>('idle');
   const selectedSites = resolvePublishSites(destination);
   const unlistedAllowed = allowsUnlistedPreview(destination);
   const missingSubjectCategory =
     settings.status === 'unlisted' && !(settings.subjectCategoryId && settings.subjectCategoryId > 0);
+  const simplificationsEnabled = simplificationsCanRun(destination, settings.status);
 
   useEffect(() => {
     if (settings.status === 'unlisted' && !unlistedAllowed) {
@@ -287,6 +374,60 @@ export const PublishSettings: React.FC<PublishSettingsProps> = ({
     };
   }, [unlistedAllowed]);
 
+  // Author picker — fetched from the first selected destination. Publishing
+  // to "both" already shares one categories/tags selection across two
+  // separate WordPress installs; the author id follows the same simplification.
+  useEffect(() => {
+    const site = selectedSites[0];
+    if (!site) return;
+
+    let cancelled = false;
+
+    const loadAuthors = async () => {
+      setAuthorsStatus('loading');
+      try {
+        const response = await fetch(`${API_URL}/api/authors`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            wpConfig: {
+              siteUrl: site.siteUrl,
+              username: site.username,
+              password: site.password
+            }
+          })
+        });
+        const payload = await response.json();
+        if (cancelled) return;
+        if (!response.ok || !payload.success || !Array.isArray(payload.authors)) {
+          setAuthorsStatus('failed');
+          return;
+        }
+        const next: WordPressAuthorOption[] = payload.authors
+          .filter((row: { id?: unknown }) => {
+            const id = typeof row.id === 'number' ? row.id : Number(row.id);
+            return Number.isInteger(id) && id > 0;
+          })
+          .map((row: { id: number; name?: string; slug?: string }) => ({
+            id: row.id,
+            name: row.name || row.slug || `User ${row.id}`,
+            slug: row.slug || ''
+          }));
+        setAuthors(next);
+        setAuthorsStatus('ok');
+      } catch {
+        if (!cancelled) setAuthorsStatus('failed');
+      }
+    };
+
+    void loadAuthors();
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedSites[0]?.siteUrl]);
+
   const handleInputChange = (field: keyof PostSettings, value: any) => {
     setSettings((prev) => {
       const next = { ...prev, [field]: value };
@@ -315,6 +456,31 @@ export const PublishSettings: React.FC<PublishSettingsProps> = ({
     }
     setSlugManual(true);
     setSettings((prev) => ({ ...prev, slug: value }));
+  };
+
+  const handleAcfChange = <K extends keyof NonNullable<PostSettings['acf']>>(
+    field: K,
+    value: NonNullable<PostSettings['acf']>[K]
+  ) => {
+    setSettings((prev) => ({
+      ...prev,
+      acf: { ...prev.acf, [field]: value }
+    }));
+  };
+
+  const handleAuthorChange = (value: string) => {
+    const id = Number(value);
+    setSettings((prev) => ({
+      ...prev,
+      author: Number.isInteger(id) && id > 0 ? id : undefined
+    }));
+  };
+
+  const handleFeaturedImageSelect = (imageId: string) => {
+    setSettings((prev) => ({
+      ...prev,
+      featuredImageId: prev.featuredImageId === imageId ? undefined : imageId
+    }));
   };
 
   const settingsForSubmit = (): PostSettings => ({
@@ -520,6 +686,33 @@ export const PublishSettings: React.FC<PublishSettingsProps> = ({
         </div>
 
         <div className="form-group">
+          <label htmlFor="author">Author</label>
+          <select
+            id="author"
+            value={settings.author ?? ''}
+            onChange={(e) => handleAuthorChange(e.target.value)}
+            disabled={authorsStatus !== 'ok'}
+          >
+            <option value="">
+              {authorsStatus === 'failed'
+                ? 'Could not load authors — will publish as the connected user'
+                : authorsStatus === 'ok'
+                  ? 'Connected user (default)'
+                  : 'Loading authors…'}
+            </option>
+            {authors.map((user) => (
+              <option key={user.id} value={user.id}>
+                {user.name}
+              </option>
+            ))}
+          </select>
+          <small>
+            The WordPress user this post is attributed to. InScience-v2 joins this to the
+            author's byline and bio. Leave unset to publish as the connected account.
+          </small>
+        </div>
+
+        <div className="form-group">
           <label htmlFor="slug">Permalink slug</label>
           <input
             id="slug"
@@ -550,6 +743,100 @@ export const PublishSettings: React.FC<PublishSettingsProps> = ({
           />
           <small>A brief summary of your post (optional)</small>
         </div>
+
+        <div className="form-group">
+          <label htmlFor="abstract">Abstract (InScience-v2)</label>
+          <textarea
+            id="abstract"
+            value={settings.acf?.abstract ?? ''}
+            onChange={(e) => handleAcfChange('abstract', e.target.value)}
+            placeholder="50–100 word summary shown on cards and as the meta description..."
+            rows={3}
+            maxLength={500}
+          />
+          <small>
+            Written to ACF <code>article_abstract</code>. Defaults to the excerpt above —
+            edit it separately if the lede needs different wording.
+          </small>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="content-type">Content Type</label>
+          <select
+            id="content-type"
+            value={settings.acf?.contentType ?? 'article'}
+            onChange={(e) => handleAcfChange('contentType', e.target.value as ArticleContentType)}
+          >
+            {CONTENT_TYPE_OPTIONS.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <small>Written to ACF <code>article_content_type</code>.</small>
+        </div>
+
+        {settings.acf?.contentType === 'video' && (
+          <div className="form-group">
+            <label htmlFor="youtube-url">YouTube URL</label>
+            <input
+              id="youtube-url"
+              type="url"
+              value={settings.acf?.youtubeUrl ?? ''}
+              onChange={(e) => handleAcfChange('youtubeUrl', e.target.value)}
+              placeholder="https://www.youtube.com/watch?v=…"
+            />
+          </div>
+        )}
+
+        {settings.acf?.contentType === 'podcast' && (
+          <div className="form-group">
+            <label htmlFor="podcast-url">Podcast / audio URL</label>
+            <input
+              id="podcast-url"
+              type="url"
+              value={settings.acf?.podcastUrl ?? ''}
+              onChange={(e) => handleAcfChange('podcastUrl', e.target.value)}
+              placeholder="https://…/episode.mp3"
+            />
+          </div>
+        )}
+
+        <div className="form-group">
+          <label className="checkbox-label">
+            <input
+              type="checkbox"
+              checked={settings.acf?.featuredArticle ?? false}
+              onChange={(e) => handleAcfChange('featuredArticle', e.target.checked)}
+            />
+            <span>Pin to homepage hero</span>
+          </label>
+          <small>Written to ACF <code>article_featured</code>.</small>
+        </div>
+
+        {content.images.length > 0 && (
+          <div className="form-group">
+            <label>Featured Image</label>
+            <div className="featured-image-grid">
+              {content.images.map((image) => (
+                <button
+                  key={image.id}
+                  type="button"
+                  className={`featured-image-thumb${settings.featuredImageId === image.id ? ' selected' : ''}`}
+                  onClick={() => handleFeaturedImageSelect(image.id)}
+                  title={image.alt || image.filename || image.id}
+                >
+                  <img src={imageThumbSrc(image)} alt={image.alt || ''} />
+                </button>
+              ))}
+            </div>
+            <small>
+              {settings.featuredImageId
+                ? 'Click again to deselect. This becomes the hero / card / Open Graph image.'
+                : 'Optional. No image is selected — the post will publish without a featured image.'}
+            </small>
+          </div>
+        )}
 
         <div className="form-group">
           <label>Post Status</label>
@@ -609,6 +896,19 @@ export const PublishSettings: React.FC<PublishSettingsProps> = ({
           </div>
         )}
 
+        <div className="form-group">
+          <label className="checkbox-label">
+            <input
+              type="checkbox"
+              checked={settings.runSimplifications !== false}
+              onChange={(e) => handleInputChange('runSimplifications', e.target.checked)}
+              disabled={isPublishing || isSavingHtml || !simplificationsEnabled}
+            />
+            <span>Με απλά λόγια</span>
+          </label>
+          <small>{simplificationsHelperText(destination, settings.status)}</small>
+        </div>
+
         <div className="publish-summary">
           <h3>Publishing Summary</h3>
           <div className="summary-grid">
@@ -634,6 +934,16 @@ export const PublishSettings: React.FC<PublishSettingsProps> = ({
               <span>
                 {destinationLabel(destination)}
                 {wpConnectionStatus === 'failed' && <span className="connection-error"> (Offline)</span>}
+              </span>
+            </div>
+            <div className="summary-item">
+              <strong>Με απλά λόγια:</strong>
+              <span>
+                {!simplificationsEnabled
+                  ? 'Skipped (not a public arthra publish)'
+                  : settings.runSimplifications === false
+                    ? 'Off'
+                    : 'On after publish'}
               </span>
             </div>
             {selectedSites.map((site) => (
@@ -741,6 +1051,18 @@ export const PublishSettings: React.FC<PublishSettingsProps> = ({
           {settings.status === 'draft' && <li><strong>As a draft:</strong> Only you can see it until you publish</li>}
           {settings.status === 'publish' && <li><strong>When published:</strong> It will be immediately visible to your audience</li>}
           {settings.status === 'private' && <li><strong>As private:</strong> Only you and editors can see it</li>}
+          {simplificationsEnabled && settings.runSimplifications !== false && (
+            <li>
+              <strong>Με απλά λόγια:</strong> After a successful public arthra publish, inscience-v2
+              generates simple-language text. The public-site rebuild still runs afterward.
+            </li>
+          )}
+          {simplificationsEnabled && settings.runSimplifications === false && (
+            <li>
+              <strong>Με απλά λόγια:</strong> Skipped. Publish and the optional inscience-v2 rebuild
+              still run.
+            </li>
+          )}
           {settings.status === 'unlisted' && (
             <li>
               <strong>As an unlisted preview:</strong> WordPress status is published, the

@@ -70,6 +70,24 @@ export interface WPConfig {
 
 export type PublishUiStatus = 'draft' | 'publish' | 'private' | 'unlisted';
 
+/** Content format understood by InScience-v2's ACF `article_content_type` field. */
+export type ArticleContentType = 'article' | 'video' | 'podcast' | 'book_review' | 'film';
+
+export interface ArticleFaqEntry {
+  question: string;
+  answer: string;
+}
+
+/** InScience-v2 ACF article fields, collected in the publish UI. */
+export interface ArticleAcfSettings {
+  abstract?: string;
+  contentType?: ArticleContentType;
+  youtubeUrl?: string;
+  podcastUrl?: string;
+  featuredArticle?: boolean;
+  faq?: ArticleFaqEntry[];
+}
+
 export interface PostSettings {
   title?: string;
   slug?: string;
@@ -80,6 +98,13 @@ export interface PostSettings {
   categories?: number[];
   tags?: number[];
   excerpt?: string;
+  /** WP user id for the byline — Astro joins this to team.ts / AuthorBio. */
+  author?: number;
+  /** Which ProcessedImage.id (from this document) becomes the hero / featured image. */
+  featuredImageId?: string;
+  acf?: ArticleAcfSettings;
+  /** When false, skip generate:simplifications after a public arthra publish. Default true. */
+  runSimplifications?: boolean;
 }
 
 export type SimplificationsStatus = 'skipped' | 'running' | 'ok' | 'failed';
@@ -341,7 +366,7 @@ function App() {
     }
 
     setIsPublishing(false);
-    await runLivePipelineAfterArthraPublish(settings.status, results);
+    await runLivePipelineAfterArthraPublish(settings, results);
   };
 
   const applyArthraPipeline = (
@@ -359,13 +384,13 @@ function App() {
   };
 
   const runLivePipelineAfterArthraPublish = async (
-    status: PostSettings['status'],
+    settings: PostSettings,
     results: SitePublishResult[]
   ) => {
     const arthraResult = results.find((entry) => entry.siteId === 'arthra' && entry.success);
     if (!arthraResult) return;
 
-    switch (status) {
+    switch (settings.status) {
       case 'publish':
       case 'unlisted':
         break;
@@ -379,7 +404,7 @@ function App() {
         return;
       }
       default: {
-        const _exhaustive: never = status;
+        const _exhaustive: never = settings.status;
         return _exhaustive;
       }
     }
@@ -394,9 +419,20 @@ function App() {
       return;
     }
 
+    const runSimplifications = settings.runSimplifications !== false;
     applyArthraPipeline(arthraResult.siteId, {
-      simplifications: { status: 'running' },
-      deploy: { status: 'running', message: 'Waiting for Με πιο απλά Λόγια, then rebuild…' }
+      simplifications: runSimplifications
+        ? { status: 'running' }
+        : {
+            status: 'skipped',
+            message: 'Με πιο απλά Λόγια was not requested.'
+          },
+      deploy: {
+        status: 'running',
+        message: runSimplifications
+          ? 'Waiting for Με πιο απλά Λόγια, then rebuild…'
+          : 'Rebuilding public site…'
+      }
     });
 
     try {
@@ -411,17 +447,24 @@ function App() {
           postId: arthraResult.postId,
           postUrl: arthraResult.postUrl,
           publishedAt: new Date().toISOString(),
-          source: 'publish'
+          source: 'publish',
+          runSimplifications
         }),
       });
       const payload = await response.json();
       const httpError = livePublishHttpError(payload);
+      const simplificationsSkipped = Boolean(payload.simplifications?.skipped) || !runSimplifications;
       applyArthraPipeline(arthraResult.siteId, {
         simplifications: {
-          status: payload.simplifications?.ok ? 'ok' : 'failed',
+          status: simplificationsSkipped
+            ? 'skipped'
+            : payload.simplifications?.ok
+              ? 'ok'
+              : 'failed',
           message:
             payload.simplifications?.message ||
             payload.simplifications?.output ||
+            (simplificationsSkipped ? 'Με πιο απλά Λόγια was not requested.' : undefined) ||
             httpError ||
             (payload.simplifications?.ok ? undefined : 'generate:simplifications failed')
         },
@@ -437,7 +480,9 @@ function App() {
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Failed to start the live-publish pipeline';
       applyArthraPipeline(arthraResult.siteId, {
-        simplifications: { status: 'failed', message },
+        simplifications: runSimplifications
+          ? { status: 'failed', message }
+          : { status: 'skipped', message: 'Με πιο απλά Λόγια was not requested.' },
         deploy: { status: 'failed', message }
       });
     }

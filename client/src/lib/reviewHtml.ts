@@ -34,6 +34,28 @@ export function restoreImageDataUris(
   return next;
 }
 
+/**
+ * Mirror of server `renderFootnoteTokens`: turn stored `[^N]` tokens into
+ * clickable #fn-N anchors so ContentPreview can jump to the note body.
+ * Confirm/input collapse these back to tokens via collapseFootnoteAnchors
+ * so WordPress still stores the Astro `[^N]` contract.
+ */
+export function renderFootnoteTokens(html: string): string {
+  if (!html) return html;
+  return html.replace(/\[\^(\d+)\]/g, (_match, num: string) => {
+    return `<sup class="footnote-ref"><a href="#fn-${num}" id="fnref-${num}">${num}</a></sup>`;
+  });
+}
+
+/** Inverse of renderFootnoteTokens for the contentEditable preview. */
+export function collapseFootnoteAnchors(html: string): string {
+  if (!html) return html;
+  return html.replace(
+    /<sup(?:\s[^>]*)?>\s*<a\b[^>]*href="#fn-(\d+)"[^>]*>\s*\1\s*<\/a>\s*<\/sup>/gi,
+    '[^$1]'
+  );
+}
+
 export function countWordsFromHtml(html: string): number {
   const text = html
     .replace(/<[^>]+>/g, ' ')

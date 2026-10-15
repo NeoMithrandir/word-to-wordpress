@@ -7,6 +7,7 @@ interface LivePublishStepResult {
   ok: boolean;
   message: string;
   output?: string;
+  skipped?: boolean;
 }
 
 interface LivePublishLogEntry {
@@ -40,7 +41,13 @@ function sourceLabel(source: LivePublishSource): string {
 }
 
 function stepLabel(result: LivePublishStepResult): string {
+  if (result.skipped) return 'skipped';
   return result.ok ? 'ok' : 'failed';
+}
+
+function stepBadgeClass(result: LivePublishStepResult): string {
+  if (result.skipped) return 'status-draft';
+  return result.ok ? 'status-publish' : 'status-draft';
 }
 
 function apiErrorMessage(data: unknown, fallback: string): string {
@@ -78,6 +85,7 @@ export const LivePublishLog: React.FC = () => {
   const [slug, setSlug] = useState('');
   const [title, setTitle] = useState('');
   const [postUrl, setPostUrl] = useState('');
+  const [runSimplifications, setRunSimplifications] = useState(true);
 
   const loadLog = async () => {
     setState('loading');
@@ -131,7 +139,8 @@ export const LivePublishLog: React.FC = () => {
           slug: trimmed,
           title: title.trim() || undefined,
           postUrl: postUrl.trim() || undefined,
-          source: 'manual'
+          source: 'manual',
+          runSimplifications
         })
       });
       const data = await response.json();
@@ -168,7 +177,7 @@ export const LivePublishLog: React.FC = () => {
       const response = await fetch(`${API_URL}/api/live-publish/replay`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ids: selectedIds })
+        body: JSON.stringify({ ids: selectedIds, runSimplifications })
       });
       const data = await response.json();
       if (!response.ok) {
@@ -232,6 +241,21 @@ export const LivePublishLog: React.FC = () => {
               disabled={busy}
             />
           </div>
+        </div>
+        <div className="form-group">
+          <label className="checkbox-label">
+            <input
+              type="checkbox"
+              checked={runSimplifications}
+              onChange={(event) => setRunSimplifications(event.target.checked)}
+              disabled={busy}
+            />
+            <span>Με απλά λόγια</span>
+          </label>
+          <small>
+            Runs inscience-v2 simple-language generation for this slug. Uncheck to rebuild
+            the public site without generate:simplifications.
+          </small>
         </div>
         <div className="filter-actions">
           <button className="btn btn-primary" onClick={handlePushSlug} disabled={busy || !slug.trim()}>
@@ -320,7 +344,7 @@ export const LivePublishLog: React.FC = () => {
                       </span>
                     </td>
                     <td>
-                      <span className={`status-badge ${entry.simplifications.ok ? 'status-publish' : 'status-draft'}`}>
+                      <span className={`status-badge ${stepBadgeClass(entry.simplifications)}`}>
                         {stepLabel(entry.simplifications)}
                       </span>
                       {stepDetail(entry.simplifications) && (
@@ -328,7 +352,7 @@ export const LivePublishLog: React.FC = () => {
                       )}
                     </td>
                     <td>
-                      <span className={`status-badge ${entry.deploy.ok ? 'status-publish' : 'status-draft'}`}>
+                      <span className={`status-badge ${stepBadgeClass(entry.deploy)}`}>
                         {stepLabel(entry.deploy)}
                       </span>
                       {stepDetail(entry.deploy) && (
