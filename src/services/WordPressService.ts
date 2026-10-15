@@ -1,6 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import FormData from 'form-data';
 import { toLatinSlug } from '../lib/latinSlug';
+import { buildNumberedBibliography } from '../lib/bibliography';
 import { ProcessedContent, ProcessedImage } from './DocumentProcessor';
 import { convertToWebp } from './ImageOptimizer';
 import { rewriteImageSeoHtml, uniquifyFilenameStem } from './ImageSeoService';
@@ -36,6 +37,32 @@ export interface WordPressCategory {
   parent: number;
 }
 
+export interface WordPressAuthor {
+  id: number;
+  name: string;
+  slug: string;
+}
+
+/** Content format understood by the InScience-v2 ACF `article_content_type` field. */
+export type ArticleContentType = 'article' | 'video' | 'podcast' | 'book_review' | 'film';
+
+/**
+ * ACF fields for the InScience-v2 `group_inscience_article` field group
+ * (see arthra's wp-config/acf-fields.php). All optional — publishPost only
+ * writes the keys the caller actually supplied (plus the auto-derived
+ * bibliography), so a post never ships a half-filled ACF group.
+ */
+export interface ArticleAcfInput {
+  /** 50–100 word summary. Falls back to `content.excerpt` when omitted. */
+  abstract?: string;
+  contentType?: ArticleContentType;
+  youtubeUrl?: string;
+  podcastUrl?: string;
+  /** Pin to the homepage hero (ACF `article_featured`). */
+  featuredArticle?: boolean;
+  faq?: Array<{ question: string; answer: string }>;
+}
+
 export interface PostData {
   title?: string;
   /** ASCII slug for new posts only. Updates must not send this unless the user overrode it. */
@@ -46,8 +73,17 @@ export interface PostData {
   categories?: number[];
   tags?: number[];
   excerpt?: string;
+  /** Raw WP media id — only useful when the image already exists on the target site. */
   featuredImage?: number;
+  /**
+   * Which `ProcessedImage.id` (from the same document) should become the
+   * featured image. Resolved to a real WP media id after upload, since
+   * embedded images are only uploaded during `publishPost`, not before.
+   */
+  featuredImageId?: string;
   author?: number;
+  /** InScience-v2 ACF article fields. */
+  acf?: ArticleAcfInput;
 }
 
 function resolveNewPostSlug(postData: PostData, content: ProcessedContent): string {
@@ -111,6 +147,69 @@ export function mergeUnlistedCategoryIds(
 ): number[] {
   const ids = [subjectCategoryId, privateCategoryId, ...(existing ?? [])];
   return [...new Set(ids.filter((id) => Number.isInteger(id) && id > 0))];
+}
+
+/**
+ * Resolve the WP media id for `featured_media`.
+ *
+ * Preferred path: `postData.featuredImageId` names one of the document's
+ * own `ProcessedImage`s (picked in the publish UI before any WP media id
+ * exists) — look it up in this publish's own upload results. Falls back
+ * to a raw `postData.featuredImage` WP media id for callers that already
+ * know it (e.g. reusing an attachment from a previous publish).
+ */
+export function resolveFeaturedMediaId(
+  postData: PostData,
+  uploadedMedia: readonly { imageId: string; mediaId: number }[]
+): number | undefined {
+  if (postData.featuredImageId) {
+    const match = uploadedMedia.find((u) => u.imageId === postData.featuredImageId);
+    if (match) return match.mediaId;
+    console.warn(
+      `  featuredImageId "${postData.featuredImageId}" did not match any uploaded image; leaving featured_media unset.`
+    );
+  }
+  return postData.featuredImage;
+}
+
+/**
+ * Build the ACF payload for `group_inscience_article` (arthra's
+ * wp-config/acf-fields.php). Only ever includes keys we actually have
+ * data for, plus `article_content_type` (always set — ACF's own
+ * `default_value` only applies inside the wp-admin edit form, not to
+ * REST-created posts) and the auto-derived bibliography.
+ */
+export function buildArticleAcfPayload(
+  postData: PostData,
+  content: { excerpt: string; citations: readonly { text: string }[] }
+): Record<string, unknown> {
+  const input = postData.acf || {};
+  const acf: Record<string, unknown> = {
+    article_content_type: input.contentType || 'article',
+  };
+
+  const abstract = (input.abstract || '').trim() || content.excerpt.trim();
+  if (abstract) acf.article_abstract = abstract;
+
+  if (input.youtubeUrl?.trim()) acf.article_youtube_url = input.youtubeUrl.trim();
+  if (input.podcastUrl?.trim()) acf.article_podcast_url = input.podcastUrl.trim();
+
+  const references = buildNumberedBibliography(content.citations);
+  if (references) acf.article_references = references;
+
+  const faq = (input.faq || []).filter(
+    (entry) => entry.question?.trim() && entry.answer?.trim()
+  );
+  if (faq.length > 0) {
+    acf.article_faq = faq.map((entry) => ({
+      question: entry.question.trim(),
+      answer: entry.answer.trim(),
+    }));
+  }
+
+  if (input.featuredArticle != null) acf.article_featured = input.featuredArticle;
+
+  return acf;
 }
 
 export interface WordPressPost {
@@ -263,6 +362,8 @@ export class WordPressService {
       // as the authenticated user (avoids "not allowed to create posts as this user").
       const baseSlug = resolveNewPostSlug(postData, content);
       const categories = await this.resolvePublishCategoryIds(config, postData);
+      const featuredMediaId = resolveFeaturedMediaId(postData, uploadedMedia);
+      const acf = buildArticleAcfPayload(postData, content);
       const postPayload: Record<string, unknown> = {
         title: postData.title || content.title,
         slug: baseSlug,
@@ -271,7 +372,8 @@ export class WordPressService {
         status: resolveWordPressPostStatus(postData.status),
         categories,
         tags: postData.tags || [],
-        featured_media: postData.featuredImage,
+        featured_media: featuredMediaId,
+        acf,
         meta: {
           footnotes: JSON.stringify(content.footnotes),
           citations: JSON.stringify(content.citations),
@@ -558,6 +660,41 @@ export class WordPressService {
         return _exhaustive;
       }
     }
+  }
+
+  /**
+   * Get WordPress users for the author picker. Uses the default (view)
+   * REST context — id/name/slug are public fields, no elevated capability
+   * needed beyond the Application Password's own authentication.
+   */
+  async getAuthors(config: WordPressConfig): Promise<WordPressAuthor[]> {
+    try {
+      const client = this.initializeClient(config);
+      const response = await client.get('/users', {
+        params: { per_page: 100 },
+      });
+      return this.normalizeAuthors(response.data);
+    } catch (error) {
+      console.error('Error fetching authors:', error);
+      return [];
+    }
+  }
+
+  private normalizeAuthors(raw: unknown): WordPressAuthor[] {
+    if (!Array.isArray(raw)) return [];
+    return raw
+      .map((item) => {
+        if (!item || typeof item !== 'object') return null;
+        const row = item as { id?: unknown; name?: unknown; slug?: unknown };
+        const id = typeof row.id === 'number' ? row.id : Number(row.id);
+        if (!Number.isInteger(id) || id <= 0) return null;
+        return {
+          id,
+          name: typeof row.name === 'string' ? row.name : '',
+          slug: typeof row.slug === 'string' ? row.slug : '',
+        };
+      })
+      .filter((item): item is WordPressAuthor => item != null);
   }
 
   /**

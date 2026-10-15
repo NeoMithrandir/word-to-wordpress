@@ -12,7 +12,8 @@ import { normalizeSimplificationSlug, SimplificationsService } from './services/
 import { LivePublishPipelineService } from './services/LivePublishPipelineService';
 import {
   LivePublishInput,
-  parseLivePublishSource
+  parseLivePublishSource,
+  parseRunSimplifications
 } from './services/LivePublishLogService';
 import {
   getProcessedContent,
@@ -129,13 +130,15 @@ function livePublishInputFromBody(body: Record<string, unknown>, fallbackSource:
     postId: optionalNumber(body.postId),
     postUrl: optionalString(body.postUrl),
     publishedAt: optionalString(body.publishedAt),
-    source: parseLivePublishSource(body.source, fallbackSource)
+    source: parseLivePublishSource(body.source, fallbackSource),
+    runSimplifications: parseRunSimplifications(body.runSimplifications)
   };
 }
 
 function resolveReplayInputs(body: Record<string, unknown>): LivePublishInput[] {
   const seen = new Set<string>();
   const inputs: LivePublishInput[] = [];
+  const runSimplifications = parseRunSimplifications(body.runSimplifications);
 
   const ids = Array.isArray(body.ids) ? body.ids.filter((value): value is string => typeof value === 'string') : [];
   for (const id of ids) {
@@ -150,7 +153,8 @@ function resolveReplayInputs(body: Record<string, unknown>): LivePublishInput[] 
       postId: prior.postId,
       postUrl: prior.postUrl,
       publishedAt: prior.publishedAt,
-      source: 'replay'
+      source: 'replay',
+      runSimplifications
     });
   }
 
@@ -166,7 +170,8 @@ function resolveReplayInputs(body: Record<string, unknown>): LivePublishInput[] 
       postId: prior?.postId,
       postUrl: prior?.postUrl,
       publishedAt: prior?.publishedAt,
-      source: 'replay'
+      source: 'replay',
+      runSimplifications
     });
   }
 
@@ -333,6 +338,22 @@ app.post('/api/categories', async (req, res, next) => {
   }
 });
 
+// List WordPress users for the author picker
+app.post('/api/authors', async (req, res, next) => {
+  try {
+    const { wpConfig } = req.body;
+
+    if (!wpConfig?.siteUrl || !wpConfig?.username || !wpConfig?.password) {
+      return res.status(400).json({ error: 'WordPress configuration incomplete' });
+    }
+
+    const authors = await wordpressService.getAuthors(wpConfig);
+    res.json({ success: true, authors });
+  } catch (error) {
+    next(error);
+  }
+});
+
 // Fetch posts from WordPress (single page)
 app.post('/api/fetch-posts', async (req, res, next) => {
   try {
@@ -469,8 +490,8 @@ app.post('/api/review-article', async (req, res, next) => {
       return res.status(400).json({ error: 'Missing article to review' });
     }
 
-    // Longer than the 5-minute outbound provider abort so that hop can return 504.
-    req.setTimeout(6 * 60 * 1000);
+    // Longer than the 10-minute outbound provider abort so that hop can return 504.
+    req.setTimeout(12 * 60 * 1000);
     const resolved: Pick<
       ProcessedContent,
       'title' | 'excerpt' | 'content' | 'footnotes' | 'citations' | 'images'

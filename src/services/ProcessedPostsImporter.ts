@@ -225,6 +225,13 @@ export class ProcessedPostsImporter {
     const pod = meta.article_podcast_url;
     const featured = meta.article_featured;
     const refs = meta.article_references;
+    const socialImage = meta.article_social_image;
+    const faq = meta.article_faq;
+    const related = meta.article_related;
+    const simpleDimotikou = meta.article_simple_dimotikou;
+    const simpleGymnasiou = meta.article_simple_gymnasiou;
+    const simpleLykeiou = meta.article_simple_lykeiou;
+    const simpleSummary = meta.article_simple_summary;
 
     const acf: Record<string, unknown> = {};
 
@@ -235,6 +242,46 @@ export class ProcessedPostsImporter {
     if (typeof pod === "string" && pod.trim()) acf.article_podcast_url = pod.trim();
     if (typeof featured === "boolean") acf.article_featured = featured;
     if (typeof refs === "string") acf.article_references = refs;
+
+    // Custom social share image — ACF image field accepts a plain attachment id on write.
+    if (typeof socialImage === "number" && socialImage > 0) {
+      acf.article_social_image = socialImage;
+    }
+
+    // FAQ repeater — array of { question, answer } string pairs.
+    if (Array.isArray(faq)) {
+      const rows = faq
+        .filter(
+          (row): row is { question: string; answer: string } =>
+            !!row &&
+            typeof row === "object" &&
+            typeof (row as Record<string, unknown>).question === "string" &&
+            typeof (row as Record<string, unknown>).answer === "string" &&
+            (row as { question: string }).question.trim().length > 0 &&
+            (row as { answer: string }).answer.trim().length > 0
+        )
+        .map((row) => ({ question: row.question.trim(), answer: row.answer.trim() }));
+      if (rows.length > 0) acf.article_faq = rows;
+    }
+
+    // Curated related posts — ACF relationship field accepts an array of post ids.
+    if (Array.isArray(related)) {
+      const ids = related.filter((id): id is number => typeof id === "number" && id > 0);
+      if (ids.length > 0) acf.article_related = ids;
+    }
+
+    if (typeof simpleDimotikou === "string" && simpleDimotikou.trim()) {
+      acf.article_simple_dimotikou = simpleDimotikou.trim();
+    }
+    if (typeof simpleGymnasiou === "string" && simpleGymnasiou.trim()) {
+      acf.article_simple_gymnasiou = simpleGymnasiou.trim();
+    }
+    if (typeof simpleLykeiou === "string" && simpleLykeiou.trim()) {
+      acf.article_simple_lykeiou = simpleLykeiou.trim();
+    }
+    if (typeof simpleSummary === "string" && simpleSummary.trim()) {
+      acf.article_simple_summary = simpleSummary.trim();
+    }
 
     return Object.keys(acf).length ? acf : undefined;
   }

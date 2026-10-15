@@ -8,6 +8,8 @@ export interface LivePublishStepResult {
   message: string;
   /** Trailing process output, when a step spawned npm/npx. */
   output?: string;
+  /** Present when the step was intentionally not run. */
+  skipped?: boolean;
 }
 
 export interface LivePublishLogEntry {
@@ -30,6 +32,8 @@ export interface LivePublishInput {
   postUrl?: string;
   publishedAt?: string;
   source: LivePublishSource;
+  /** When false, skip generate:simplifications. Missing/true keeps current behavior. */
+  runSimplifications?: boolean;
 }
 
 interface LivePublishLogFile {
@@ -43,6 +47,11 @@ function isLivePublishSource(value: unknown): value is LivePublishSource {
 
 export function parseLivePublishSource(value: unknown, fallback: LivePublishSource): LivePublishSource {
   return isLivePublishSource(value) ? value : fallback;
+}
+
+/** Default ON: only an explicit `false` skips generate:simplifications. */
+export function parseRunSimplifications(value: unknown): boolean {
+  return value !== false;
 }
 
 export class LivePublishLogService {

@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { renderFootnoteTokens } from '../lib/footnotes';
 import { ProcessedContent, ProcessedImage } from './DocumentProcessor';
 import { convertToWebp } from './ImageOptimizer';
 import { rewriteImageSeoHtml, uniquifyFilenameStem } from './ImageSeoService';
@@ -242,8 +243,10 @@ export class LocalSaveService {
       const uriToFile = await this.saveImages(content.images, folderPath);
       console.log(`Saved ${content.images.length} images to ${folderName}/`);
 
-      // Generate the HTML document from body HTML that already has alt/figure
-      const bodyHtml = rewriteImageSeoHtml(content.content, content.images);
+      // Generate the HTML document from body HTML that already has alt/figure.
+      // This export never passes through the InScience-v2 Astro renderer, so
+      // it must render the `[^N]` footnote tokens itself (see src/lib/footnotes.ts).
+      const bodyHtml = renderFootnoteTokens(rewriteImageSeoHtml(content.content, content.images));
       let htmlContent = this.generateHtmlDocument(
         { ...content, content: bodyHtml },
         postData
@@ -534,9 +537,10 @@ export class LocalSaveService {
         <div class="footnotes">
             <h2>Footnotes</h2>
             ${content.footnotes.map((footnote, index) => `
-                <div class="footnote">
+                <div class="footnote" id="${footnote.id}">
                     <span class="footnote-ref">[${index + 1}]</span>
                     ${footnote.text}
+                    ${footnote.backRef ? ` <a href="#${footnote.backRef}">↩</a>` : ''}
                 </div>
             `).join('')}
         </div>

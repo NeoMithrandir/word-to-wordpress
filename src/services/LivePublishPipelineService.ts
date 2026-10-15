@@ -3,13 +3,20 @@ import {
   LivePublishInput,
   LivePublishLogEntry,
   LivePublishLogService,
-  LivePublishStepResult
+  LivePublishStepResult,
+  parseRunSimplifications
 } from './LivePublishLogService';
 import {
   isSafeSimplificationSlug,
   normalizeSimplificationSlug,
   SimplificationsService
 } from './SimplificationsService';
+
+export const SKIPPED_SIMPLIFICATIONS_RESULT: LivePublishStepResult = {
+  ok: true,
+  skipped: true,
+  message: 'Skipped — Με πιο απλά Λόγια was not requested'
+};
 
 export interface LivePublishPipelineResult {
   entry: LivePublishLogEntry;
@@ -49,6 +56,10 @@ export class LivePublishPipelineService {
 
     for (const input of validInputs) {
       if (simpBySlug.has(input.slug)) continue;
+      if (!parseRunSimplifications(input.runSimplifications)) {
+        simpBySlug.set(input.slug, SKIPPED_SIMPLIFICATIONS_RESULT);
+        continue;
+      }
       try {
         const result = await this.simplificationsService.generateForSlug(input.slug);
         simpBySlug.set(input.slug, this.toStepResult(result));
