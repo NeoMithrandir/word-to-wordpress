@@ -57,9 +57,17 @@ export interface ArticleReviewResult {
 
 const ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
 const OPENAI_URL = 'https://api.openai.com/v1/chat/completions';
-/** Outbound provider call. Keep below Express / client so this hop returns the 504. */
-const REVIEW_TIMEOUT_MS = 5 * 60 * 1000;
+/**
+ * Outbound provider abort. Keep below Express / client so this hop returns the 504.
+ * A full HTML rewrite can exceed 5 minutes; metadata-only reviews should finish sooner.
+ */
+const REVIEW_TIMEOUT_MS = 10 * 60 * 1000;
 const MAX_OUTPUT_TOKENS = 8192;
+/**
+ * Sonnet 5 / Opus 5 count thinking + visible text against max_tokens.
+ * A full article rewrite as JSON needs far more than the 8k shared cap.
+ */
+const ANTHROPIC_MAX_OUTPUT_TOKENS = 65536;
 
 const ANTHROPIC_MODELS: ReviewModelOption[] = [
   { id: 'claude-sonnet-5', label: 'Claude Sonnet 5' },
@@ -186,19 +194,67 @@ function isReviewProviderId(value: unknown): value is ReviewProviderId {
   return value === 'anthropic' || value === 'openai' || value === 'gemini';
 }
 
-function parseModelJson(text: string): unknown {
+/** JSON rejects LaTeX like `\leftrightarrow`; double the unknown backslash. */
+export function repairInvalidJsonEscapes(text: string): string {
+  return text.replace(/\\(?!["\\/bfnrtu])/g, '\\\\');
+}
+
+export function parseModelJson(text: string): unknown {
   const trimmed = text.trim().replace(/^```(?:json)?\s*|\s*```$/g, '');
-  try {
-    return JSON.parse(trimmed);
-  } catch {
-    const match = trimmed.match(/\{[\s\S]*\}/);
-    if (!match) return null;
+  const candidates = [trimmed];
+  const match = trimmed.match(/\{[\s\S]*\}/);
+  if (match && match[0] !== trimmed) {
+    candidates.push(match[0]);
+  }
+
+  for (const candidate of candidates) {
     try {
-      return JSON.parse(match[0]);
+      return JSON.parse(candidate);
     } catch {
-      return null;
+      try {
+        return JSON.parse(repairInvalidJsonEscapes(candidate));
+      } catch {
+        // try the next candidate
+      }
     }
   }
+  return null;
+}
+
+function looksTruncatedJson(text: string): boolean {
+  const trimmed = text.trim();
+  if (!trimmed.includes('{')) return false;
+  const opens = (trimmed.match(/\{/g) || []).length;
+  const closes = (trimmed.match(/\}/g) || []).length;
+  return opens > closes;
+}
+
+export function invalidReviewJsonMessage(text: string): string {
+  const trimmed = text.trim();
+  if (!trimmed) {
+    return 'The model returned an empty review. Retry, or try another model.';
+  }
+  if (looksTruncatedJson(trimmed)) {
+    return 'The model hit the output limit before finishing the review JSON. Retry, or try another model.';
+  }
+  return 'The model did not return valid JSON.';
+}
+
+/** Sonnet 5 / Opus 5 think by default; those tokens steal the JSON budget. */
+export function anthropicDefaultsToAdaptiveThinking(model: string): boolean {
+  return /(?:sonnet|opus)-5(?:-|$)/i.test(model);
+}
+
+export function buildAnthropicReviewBody(model: string, prompt: string): Record<string, unknown> {
+  const body: Record<string, unknown> = {
+    model,
+    max_tokens: ANTHROPIC_MAX_OUTPUT_TOKENS,
+    messages: [{ role: 'user', content: prompt }],
+  };
+  if (anthropicDefaultsToAdaptiveThinking(model)) {
+    body.thinking = { type: 'disabled' };
+  }
+  return body;
 }
 
 function asStringArray(value: unknown): string[] {
@@ -252,7 +308,7 @@ export function restoreImageDataUris(
   return next;
 }
 
-function reviewPrompt(input: ArticleReviewInput): string {
+export function reviewPrompt(input: ArticleReviewInput): string {
   const payload = {
     title: input.title,
     excerpt: input.excerpt,
@@ -270,26 +326,29 @@ function reviewPrompt(input: ArticleReviewInput): string {
 
   return [
     'You are an editor for a science-journalism WordPress site (InScience).',
-    'Review the converted article and return a publish-ready version.',
+    'Review the converted article. Return JSON only. Do not wrap the answer in markdown.',
     'Keep the original language (usually Greek). Do not invent facts, citations, or quotes.',
-    'Fix conversion artifacts: broken headings, split paragraphs, leftover Word junk, awkward line breaks.',
+    'Fix conversion artifacts only when they are real: broken headings, split paragraphs, leftover Word junk, awkward line breaks.',
     'Keep HTML semantic and simple (h2–h4, p, ul/ol, blockquote, em, strong, a, figure/figcaption, img, table).',
-    'Do not wrap the article in <html> or <body>. Return only the inner article HTML.',
+    'Do not wrap rewritten HTML in <html> or <body>.',
     'Preserve every [image:ID] src placeholder exactly. Do not drop images.',
     'Image filenames must be Latin/ASCII kebab-case, no extension, no sequential image-N unless there is no better name.',
     'Alt text must describe the figure; captions optional.',
+    'Do not copy the article HTML into "content" unless you changed it.',
+    'If the HTML is already publishable, set "content" to an empty string. The app keeps the original.',
+    'Only put rewritten inner HTML in "content" when you fixed conversion artifacts.',
     'Return JSON only with this shape:',
     '{',
     '  "title": "string",',
     '  "excerpt": "string",',
-    '  "content": "html string",',
+    '  "content": "rewritten html, or empty string to keep the original",',
     '  "footnotes": [{ "id": "string", "text": "string", "backRef": "string" }],',
     '  "citations": [{ "id": "string", "text": "string", "source": "string" }],',
     '  "images": [{ "id": "string", "filename": "latin-kebab", "alt": "string", "title": "string", "caption": "string" }],',
     '  "changeNotes": ["what you changed"],',
     '  "layoutAttention": ["layout or typesetting items a human should check"]',
     '}',
-    'changeNotes: concrete edits you made.',
+    'changeNotes: concrete edits you made. If you left the HTML unchanged, say so.',
     'layoutAttention: figures, tables, equations, footnote markers, or columns that may still look wrong.',
     '',
     'Article JSON:',
@@ -297,7 +356,7 @@ function reviewPrompt(input: ArticleReviewInput): string {
   ].join('\n');
 }
 
-function applyReviewToArticle(
+export function applyReviewToArticle(
   input: ArticleReviewInput,
   parsed: unknown
 ): { article: ArticleReviewArticle; changeNotes: string[]; layoutAttention: string[] } {
@@ -368,6 +427,21 @@ function applyReviewToArticle(
   };
 }
 
+function anthropicErrorDetail(payload: unknown): string {
+  if (!payload || typeof payload !== 'object') return '';
+  const error = (payload as { error?: { message?: unknown } }).error;
+  return typeof error?.message === 'string' && error.message.trim() ? error.message.trim() : '';
+}
+
+function anthropicText(body: {
+  content?: Array<{ type?: string; text?: string }>;
+}): string {
+  return (body.content || [])
+    .filter((block) => block.type === 'text' && block.text)
+    .map((block) => block.text as string)
+    .join('');
+}
+
 async function callAnthropic(model: string, prompt: string, apiKey: string): Promise<string> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), REVIEW_TIMEOUT_MS);
@@ -380,19 +454,32 @@ async function callAnthropic(model: string, prompt: string, apiKey: string): Pro
         'anthropic-version': '2023-06-01',
       },
       signal: controller.signal,
-      body: JSON.stringify({
-        model,
-        max_tokens: MAX_OUTPUT_TOKENS,
-        messages: [{ role: 'user', content: prompt }],
-      }),
+      body: JSON.stringify(buildAnthropicReviewBody(model, prompt)),
     });
-    if (!response.ok) {
-      throw createError(`Anthropic review failed (HTTP ${response.status}).`, 502);
-    }
-    const body = (await response.json()) as {
+    const body = (await response.json().catch(() => null)) as {
+      stop_reason?: string;
       content?: Array<{ type?: string; text?: string }>;
-    };
-    return body.content?.find((block) => block.type === 'text')?.text || '';
+      error?: { message?: string };
+    } | null;
+    if (!response.ok) {
+      const detail = anthropicErrorDetail(body);
+      throw createError(
+        detail
+          ? `Anthropic review failed (HTTP ${response.status}): ${detail}`
+          : `Anthropic review failed (HTTP ${response.status}).`,
+        502
+      );
+    }
+    if (body?.stop_reason === 'max_tokens') {
+      throw createError(
+        'The model hit the output limit before finishing the review JSON. Retry, or try another model.',
+        502
+      );
+    }
+    if (body?.stop_reason === 'refusal') {
+      throw createError('The model refused this review request.', 502);
+    }
+    return body ? anthropicText(body) : '';
   } finally {
     clearTimeout(timer);
   }
@@ -545,6 +632,9 @@ export class ArticleReviewService {
     model: string
   ): Promise<ArticleReviewResult> {
     const prompt = reviewPrompt(input);
+    console.log(
+      `LLM review start: ${provider}/${model} contentChars=${input.content.length} promptChars=${prompt.length}`
+    );
     let text: string;
     try {
       text = await callProvider(provider, model, prompt);
@@ -553,7 +643,7 @@ export class ArticleReviewService {
       const message = error instanceof Error ? error.message : String(error);
       if (/aborted/i.test(message)) {
         throw createError(
-          'The LLM review timed out after 5 minutes. Retry, or try another model.',
+          'The LLM review timed out after 10 minutes. Retry, or try another model.',
           504
         );
       }
@@ -561,6 +651,9 @@ export class ArticleReviewService {
     }
 
     const parsed = parseModelJson(text);
+    if (parsed == null) {
+      throw createError(invalidReviewJsonMessage(text), 502);
+    }
     const applied = applyReviewToArticle(input, parsed);
     return {
       ...applied,

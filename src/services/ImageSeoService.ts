@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio';
+import { figureIdFromCaption } from '../lib/figureAnchors';
 import { toLatinSlug } from '../lib/latinSlug';
 import { convertToWebp } from './ImageOptimizer';
 
@@ -244,6 +245,21 @@ function removeMatchingCaptionSibling(
   }
 }
 
+function applyFigureAnchor(
+  $figure: cheerio.Cheerio<any>,
+  $img: cheerio.Cheerio<any>,
+  caption: string
+): void {
+  const fromFigure = ($figure.attr('id') || '').startsWith('fig-')
+    ? $figure.attr('id')
+    : '';
+  const fromImg = ($img.attr('id') || '').startsWith('fig-') ? $img.attr('id') : '';
+  const id = fromFigure || fromImg || figureIdFromCaption(caption);
+  if (!id) return;
+  $figure.attr('id', id);
+  if ($img.attr('id') === id) $img.removeAttr('id');
+}
+
 /**
  * Set alt on matching data-URI images and wrap them in figure/figcaption
  * when a caption is present and the image is not already in a figure.
@@ -277,6 +293,7 @@ export function rewriteImageSeoHtml(
       } else {
         $existingFigure.append($('<figcaption>').text(caption));
       }
+      applyFigureAnchor($existingFigure, $img, caption);
       return;
     }
 
@@ -287,17 +304,23 @@ export function rewriteImageSeoHtml(
       $parent.is('p') &&
       $parent.contents().length === 1 &&
       $parent.children('img').length === 1;
+    const parentAnchor = ($parent.attr('id') || '').startsWith('fig-')
+      ? $parent.attr('id')
+      : '';
 
     if (parentIsImageOnlyParagraph) {
       $figure.append($img.clone());
       $figure.append($caption);
+      if (parentAnchor) $figure.attr('id', parentAnchor);
       $parent.replaceWith($figure);
+      applyFigureAnchor($figure, $figure.find('img').first(), caption);
       removeMatchingCaptionSibling($figure, caption);
       return;
     }
 
     $img.wrap($figure);
     $img.after($caption);
+    applyFigureAnchor($img.parent(), $img, caption);
     removeMatchingCaptionSibling($img.parent(), caption);
   });
 

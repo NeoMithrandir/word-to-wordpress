@@ -1,7 +1,13 @@
 import assert from 'assert';
 import {
+  anthropicDefaultsToAdaptiveThinking,
+  applyReviewToArticle,
   articleReviewService,
+  buildAnthropicReviewBody,
+  invalidReviewJsonMessage,
+  parseModelJson,
   restoreImageDataUris,
+  reviewPrompt,
   stripImageDataUris,
 } from '../services/ArticleReviewService';
 
@@ -116,5 +122,77 @@ try {
     process.env.ANTHROPIC_REVIEW_MODEL = originalAnthropic;
   }
 }
+
+assert.strictEqual(
+  anthropicDefaultsToAdaptiveThinking('claude-sonnet-5'),
+  true,
+  'Sonnet 5 thinks by default'
+);
+assert.strictEqual(
+  anthropicDefaultsToAdaptiveThinking('claude-opus-5'),
+  true,
+  'Opus 5 thinks by default'
+);
+assert.strictEqual(
+  anthropicDefaultsToAdaptiveThinking('claude-haiku-4-5'),
+  false,
+  'Haiku 4.5 does not think by default'
+);
+
+const sonnetBody = buildAnthropicReviewBody('claude-sonnet-5', 'review this');
+assert.strictEqual(sonnetBody.max_tokens, 65536, 'Anthropic rewrite budget leaves room for a full article');
+assert.deepStrictEqual(
+  sonnetBody.thinking,
+  { type: 'disabled' },
+  'Sonnet 5 must not spend the JSON budget on thinking'
+);
+assert.ok(!('output_config' in sonnetBody), 'constrained JSON decoding is too slow for long articles');
+
+const haikuBody = buildAnthropicReviewBody('claude-haiku-4-5', 'review this');
+assert.ok(!('thinking' in haikuBody), 'older models do not get an unsupported thinking field');
+
+assert.deepStrictEqual(parseModelJson('{"title":"A"}'), { title: 'A' });
+assert.strictEqual(parseModelJson('{"title": "truncated"'), null, 'truncated JSON is rejected');
+assert.deepStrictEqual(
+  parseModelJson(String.raw`{"content":"$$x \leftrightarrow y$$"}`),
+  { content: String.raw`$$x \leftrightarrow y$$` },
+  'unescaped LaTeX backslashes are repaired into valid JSON'
+);
+
+assert.match(invalidReviewJsonMessage(''), /empty review/);
+assert.match(invalidReviewJsonMessage('{"title":'), /output limit/);
+assert.match(invalidReviewJsonMessage('not json at all'), /valid JSON/);
+
+const prompt = reviewPrompt({
+  title: 'Title',
+  excerpt: 'Excerpt',
+  content: '<p>Hello</p>',
+  footnotes: [],
+  citations: [],
+  images: [],
+});
+assert.match(prompt, /empty string/, 'prompt tells the model not to echo unchanged HTML');
+
+const kept = applyReviewToArticle(
+  {
+    title: 'Title',
+    excerpt: 'Excerpt',
+    content: '<p>Original</p>',
+    footnotes: [],
+    citations: [],
+    images: [],
+  },
+  {
+    title: 'Title',
+    excerpt: 'Excerpt',
+    content: '',
+    footnotes: [],
+    citations: [],
+    images: [],
+    changeNotes: ['Left the HTML unchanged'],
+    layoutAttention: [],
+  }
+);
+assert.strictEqual(kept.article.content, '<p>Original</p>', 'empty content keeps the original HTML');
 
 console.log('article review asserts passed');

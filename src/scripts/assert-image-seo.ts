@@ -140,7 +140,7 @@ const rewritten = rewriteImageSeoHtml(`<p><img src="${dataUri}" alt=""></p>`, [
   },
 ]);
 assert.match(rewritten, /alt="Οπτική παγίδα"/, 'publish rewrite writes img alt');
-assert.match(rewritten, /<figure>/, 'caption wraps the image in figure');
+assert.match(rewritten, /<figure\b/, 'caption wraps the image in figure');
 assert.match(rewritten, /<figcaption>Εικόνα 1\. Η παγίδα<\/figcaption>/);
 assert.ok(rewritten.includes(dataUri), 'rewrite keeps the original data URI for later URL swap');
 
@@ -180,10 +180,35 @@ const alreadyFigure = rewriteImageSeoHtml(
 );
 assert.match(alreadyFigure, /alt="Νέο alt"/);
 assert.strictEqual(
-  (alreadyFigure.match(/<figure>/g) || []).length,
+  (alreadyFigure.match(/<figure\b/g) || []).length,
   1,
   'already-wrapped figure is not wrapped again'
 );
 assert.match(alreadyFigure, /<figcaption>Νέα λεζάντα<\/figcaption>/);
+
+const withFigureAnchor = rewriteImageSeoHtml(
+  `<p id="fig-1"><img src="${dataUri}" alt=""></p><p>Εικόνα 1. Η παγίδα</p>`,
+  [
+    {
+      id: 'image-1',
+      filename: 'optiki-pagida',
+      alt: 'Οπτική παγίδα',
+      title: 'Οπτική παγίδα',
+      caption: 'Εικόνα 1. Η παγίδα',
+      contentType: 'image/png',
+      data: png,
+    },
+  ]
+);
+assert.match(
+  withFigureAnchor,
+  /<figure id="fig-1">/,
+  'publish rewrite must keep fig-N on the figure so Εικ. N links still resolve'
+);
+assert.doesNotMatch(
+  withFigureAnchor,
+  /<img[^>]*id="fig-1"/,
+  'fig-N must not stay on the img after it moves to the figure'
+);
 
 console.log('image SEO asserts passed');
