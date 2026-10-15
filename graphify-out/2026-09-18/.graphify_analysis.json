@@ -1,0 +1,596 @@
+{
+  "communities": {
+    "0": [
+      "client_src_app",
+      "client_src_app_app",
+      "client_src_app_apppage",
+      "client_src_app_citation",
+      "client_src_app_equation",
+      "client_src_app_footnote",
+      "client_src_app_postsettings",
+      "client_src_app_processedcontent",
+      "client_src_app_processedimage",
+      "client_src_app_wpconfig",
+      "client_src_components_contentpreview",
+      "client_src_components_contentpreview_contentpreview",
+      "client_src_components_contentpreview_contentpreviewprops",
+      "client_src_components_contentpreview_nextsequentialid",
+      "client_src_components_contentpreview_previewtab",
+      "client_src_components_documentupload",
+      "client_src_components_documentupload_documentupload",
+      "client_src_components_documentupload_documentuploadprops",
+      "client_src_components_postfetcher",
+      "client_src_components_postfetcher_exportresult",
+      "client_src_components_postfetcher_fetchedpostsummary",
+      "client_src_components_postfetcher_fetchfilters",
+      "client_src_components_postfetcher_fetchstate",
+      "client_src_components_postfetcher_postfetcher",
+      "client_src_components_publishsettings",
+      "client_src_components_publishsettings_publishsettings",
+      "client_src_components_publishsettings_publishsettingsprops",
+      "client_src_components_wordpressconfig",
+      "client_src_components_wordpressconfig_wordpressconfig",
+      "client_src_components_wordpressconfig_wordpressconfigprops",
+      "client_src_config_wordpress_config",
+      "client_src_config_wordpress_config_wordpress_config",
+      "client_src_index",
+      "client_src_index_root"
+    ],
+    "1": [
+      "src_services_documentprocessor",
+      "src_services_documentprocessor_bibliographyentry",
+      "src_services_documentprocessor_citation",
+      "src_services_documentprocessor_equation",
+      "src_services_documentprocessor_footnote",
+      "src_services_documentprocessor_processedcontent",
+      "src_services_documentprocessor_processedimage",
+      "src_services_documentprocessor_rationale_270",
+      "src_services_imageoptimizer",
+      "src_services_imageoptimizer_converttowebp",
+      "src_services_imageoptimizer_optimizedimage",
+      "src_services_imageoptimizer_optimizeoptions",
+      "src_services_localsaveservice",
+      "src_services_localsaveservice_localsaveservice",
+      "src_services_localsaveservice_localsaveservice_constructor",
+      "src_services_localsaveservice_localsaveservice_ensuresavedirectory",
+      "src_services_localsaveservice_localsaveservice_generatehtmldocument",
+      "src_services_localsaveservice_localsaveservice_imageextension",
+      "src_services_localsaveservice_localsaveservice_listsavedposts",
+      "src_services_localsaveservice_localsaveservice_loadpost",
+      "src_services_localsaveservice_localsaveservice_replacedatauriswithfiles",
+      "src_services_localsaveservice_localsaveservice_savefetchedposts",
+      "src_services_localsaveservice_localsaveservice_saveimages",
+      "src_services_localsaveservice_localsaveservice_savepost",
+      "src_services_localsaveservice_localsaveservice_savepostashtml",
+      "src_services_localsaveservice_savedimagemeta",
+      "src_services_pdfprocessor",
+      "src_services_wordpressservice",
+      "src_services_wordpressservice_fetchedpost",
+      "src_services_wordpressservice_fetchpostsoptions",
+      "src_services_wordpressservice_fetchpostsresult",
+      "src_services_wordpressservice_postdata",
+      "src_services_wordpressservice_wordpressconfig",
+      "src_services_wordpressservice_wordpresspost"
+    ],
+    "2": [
+      "src_lib_categorymigration",
+      "src_lib_categorymigration_categorytarget",
+      "src_lib_categorymigration_mapcategorytotarget",
+      "src_lib_categorymigration_name_migration",
+      "src_lib_categorymigration_slug_migration",
+      "src_scripts_import_processed_posts",
+      "src_scripts_import_processed_posts_defaultprocesseddir",
+      "src_scripts_import_processed_posts_main",
+      "src_scripts_import_processed_posts_parseargs",
+      "src_services_processedpostsimporter",
+      "src_services_processedpostsimporter_featuredmediaoutcome",
+      "src_services_processedpostsimporter_importoptions",
+      "src_services_processedpostsimporter_importresultentry",
+      "src_services_processedpostsimporter_importsummary",
+      "src_services_processedpostsimporter_processedpost",
+      "src_services_processedpostsimporter_processedpostsimporter",
+      "src_services_processedpostsimporter_processedpostsimporter_buildacfpayload",
+      "src_services_processedpostsimporter_processedpostsimporter_constructor",
+      "src_services_processedpostsimporter_processedpostsimporter_ensurecategory",
+      "src_services_processedpostsimporter_processedpostsimporter_ensuretag",
+      "src_services_processedpostsimporter_processedpostsimporter_filenamefromurl",
+      "src_services_processedpostsimporter_processedpostsimporter_guessmime",
+      "src_services_processedpostsimporter_processedpostsimporter_importall",
+      "src_services_processedpostsimporter_processedpostsimporter_importpost",
+      "src_services_processedpostsimporter_processedpostsimporter_mediaattachmentexists",
+      "src_services_processedpostsimporter_processedpostsimporter_reporttimestamp",
+      "src_services_processedpostsimporter_processedpostsimporter_resolveauthorid",
+      "src_services_processedpostsimporter_processedpostsimporter_sleep",
+      "src_services_processedpostsimporter_processedpostsimporter_uploadmediafromurl",
+      "src_services_processedpostsimporter_processedpostsimporter_writeimportreport",
+      "src_services_processedpostsimporter_wordpressimportconfig"
+    ],
+    "3": [
+      "cheerio",
+      "cors",
+      "dotenv",
+      "express",
+      "express_rate_limit",
+      "form_data",
+      "helmet",
+      "jszip",
+      "mammoth",
+      "multer",
+      "package_dependencies",
+      "package_dependencies_axios",
+      "package_dependencies_cheerio",
+      "package_dependencies_cors",
+      "package_dependencies_dotenv",
+      "package_dependencies_express",
+      "package_dependencies_express_rate_limit",
+      "package_dependencies_form_data",
+      "package_dependencies_helmet",
+      "package_dependencies_jszip",
+      "package_dependencies_mammoth",
+      "package_dependencies_multer",
+      "package_dependencies_pdf2pic",
+      "package_dependencies_pdf_parse",
+      "package_dependencies_sharp",
+      "package_json_axios",
+      "pdf2pic",
+      "pdf_parse",
+      "sharp"
+    ],
+    "4": [
+      "package",
+      "package_author",
+      "package_description",
+      "package_keywords",
+      "package_license",
+      "package_main",
+      "package_name",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_client_build",
+      "package_scripts_client_dev",
+      "package_scripts_dev",
+      "package_scripts_import_posts",
+      "package_scripts_install_all",
+      "package_scripts_server_build",
+      "package_scripts_server_dev",
+      "package_scripts_start",
+      "package_version",
+      "ref_converter",
+      "ref_docx",
+      "ref_export",
+      "ref_word",
+      "ref_wordpress"
+    ],
+    "5": [
+      "src_services_documentprocessor_documentprocessor",
+      "src_services_documentprocessor_documentprocessor_cleanhtml",
+      "src_services_documentprocessor_documentprocessor_constructor",
+      "src_services_documentprocessor_documentprocessor_converttolatex",
+      "src_services_documentprocessor_documentprocessor_countwords",
+      "src_services_documentprocessor_documentprocessor_detectdocumenttype",
+      "src_services_documentprocessor_documentprocessor_extractallsurnames",
+      "src_services_documentprocessor_documentprocessor_extractequations",
+      "src_services_documentprocessor_documentprocessor_extractfootnotes",
+      "src_services_documentprocessor_documentprocessor_extractimages",
+      "src_services_documentprocessor_documentprocessor_extractmathtext",
+      "src_services_documentprocessor_documentprocessor_extractomathfromxml",
+      "src_services_documentprocessor_documentprocessor_extracttitle",
+      "src_services_documentprocessor_documentprocessor_generateexcerpt",
+      "src_services_documentprocessor_documentprocessor_linkcitations",
+      "src_services_documentprocessor_documentprocessor_linkintextcitations",
+      "src_services_documentprocessor_documentprocessor_normalizename",
+      "src_services_documentprocessor_documentprocessor_parsebibentry",
+      "src_services_documentprocessor_documentprocessor_processdocument",
+      "src_services_documentprocessor_documentprocessor_processhtmlcontent",
+      "src_services_documentprocessor_documentprocessor_processlists",
+      "src_services_documentprocessor_documentprocessor_processworddocument",
+      "src_services_documentprocessor_documentprocessor_reconstructmathexpression"
+    ],
+    "6": [
+      "client_tsconfig",
+      "client_tsconfig_compileroptions",
+      "client_tsconfig_compileroptions_allowjs",
+      "client_tsconfig_compileroptions_allowsyntheticdefaultimports",
+      "client_tsconfig_compileroptions_esmoduleinterop",
+      "client_tsconfig_compileroptions_forceconsistentcasinginfilenames",
+      "client_tsconfig_compileroptions_isolatedmodules",
+      "client_tsconfig_compileroptions_jsx",
+      "client_tsconfig_compileroptions_lib",
+      "client_tsconfig_compileroptions_module",
+      "client_tsconfig_compileroptions_moduleresolution",
+      "client_tsconfig_compileroptions_noemit",
+      "client_tsconfig_compileroptions_nofallthroughcasesinswitch",
+      "client_tsconfig_compileroptions_resolvejsonmodule",
+      "client_tsconfig_compileroptions_skiplibcheck",
+      "client_tsconfig_compileroptions_strict",
+      "client_tsconfig_compileroptions_target",
+      "client_tsconfig_include",
+      "client_tsconfig_json_ref_src",
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_esnext"
+    ],
+    "7": [
+      "ref_client",
+      "ref_dist",
+      "ref_es2020",
+      "ref_node_modules",
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_declaration",
+      "tsconfig_compileroptions_declarationmap",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_forceconsistentcasinginfilenames",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_outdir",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_rootdir",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_sourcemap",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_exclude",
+      "tsconfig_include",
+      "tsconfig_json_ref_src"
+    ],
+    "8": [
+      "concurrently",
+      "cross_env",
+      "nodemon",
+      "package_devdependencies",
+      "package_devdependencies_concurrently",
+      "package_devdependencies_cross_env",
+      "package_devdependencies_nodemon",
+      "package_devdependencies_ts_node",
+      "package_devdependencies_types_cors",
+      "package_devdependencies_types_express",
+      "package_devdependencies_types_multer",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_pdf_parse",
+      "package_devdependencies_typescript",
+      "package_json_types_node",
+      "package_json_typescript",
+      "ts_node",
+      "types_cors",
+      "types_express",
+      "types_multer",
+      "types_pdf_parse"
+    ],
+    "9": [
+      "client_package",
+      "client_package_dependencies",
+      "client_package_dependencies_axios",
+      "client_package_dependencies_react",
+      "client_package_dependencies_react_dom",
+      "client_package_dependencies_react_dropzone",
+      "client_package_json_axios",
+      "client_package_name",
+      "client_package_private",
+      "client_package_scripts",
+      "client_package_scripts_build",
+      "client_package_scripts_dev",
+      "client_package_scripts_preview",
+      "client_package_scripts_start",
+      "client_package_type",
+      "client_package_version",
+      "react",
+      "react_dom",
+      "react_dropzone"
+    ],
+    "10": [
+      "src_services_pdfprocessor_pdfprocessor",
+      "src_services_pdfprocessor_pdfprocessor_cleanextractedtext",
+      "src_services_pdfprocessor_pdfprocessor_converttohtml",
+      "src_services_pdfprocessor_pdfprocessor_converttolatex",
+      "src_services_pdfprocessor_pdfprocessor_countwords",
+      "src_services_pdfprocessor_pdfprocessor_escapehtml",
+      "src_services_pdfprocessor_pdfprocessor_extractcitationsfromtext",
+      "src_services_pdfprocessor_pdfprocessor_extractcitationsource",
+      "src_services_pdfprocessor_pdfprocessor_extractequationsfromtext",
+      "src_services_pdfprocessor_pdfprocessor_extractfootnotesfromtext",
+      "src_services_pdfprocessor_pdfprocessor_extracttitle",
+      "src_services_pdfprocessor_pdfprocessor_generateexcerpt",
+      "src_services_pdfprocessor_pdfprocessor_getheadinglevel",
+      "src_services_pdfprocessor_pdfprocessor_isheading",
+      "src_services_pdfprocessor_pdfprocessor_istitlecase",
+      "src_services_pdfprocessor_pdfprocessor_processpdf",
+      "src_services_pdfprocessor_pdfprocessor_processtextcontent",
+      "src_services_pdfprocessor_pdfprocessor_processtextformatting",
+      "src_services_pdfprocessor_pdfprocessor_splitintoparagraphs"
+    ],
+    "11": [
+      "client_package_devdependencies",
+      "client_package_devdependencies_types_node",
+      "client_package_devdependencies_types_react",
+      "client_package_devdependencies_types_react_dom",
+      "client_package_devdependencies_typescript",
+      "client_package_devdependencies_vite",
+      "client_package_devdependencies_vite_tsconfig_paths",
+      "client_package_devdependencies_vitejs_plugin_react",
+      "client_package_json_types_node",
+      "client_package_json_typescript",
+      "types_react",
+      "types_react_dom",
+      "vite",
+      "vite_tsconfig_paths",
+      "vitejs_plugin_react"
+    ],
+    "12": [
+      "src_services_wordpressservice_wordpressservice",
+      "src_services_wordpressservice_wordpressservice_attachmediatopost",
+      "src_services_wordpressservice_wordpressservice_createcategory",
+      "src_services_wordpressservice_wordpressservice_createtag",
+      "src_services_wordpressservice_wordpressservice_fetchallposts",
+      "src_services_wordpressservice_wordpressservice_fetchposts",
+      "src_services_wordpressservice_wordpressservice_getcategories",
+      "src_services_wordpressservice_wordpressservice_gettags",
+      "src_services_wordpressservice_wordpressservice_initializeclient",
+      "src_services_wordpressservice_wordpressservice_normalizeembeddedpost",
+      "src_services_wordpressservice_wordpressservice_publishpost",
+      "src_services_wordpressservice_wordpressservice_replacedatauriswithuploadedurls",
+      "src_services_wordpressservice_wordpressservice_testconnection",
+      "src_services_wordpressservice_wordpressservice_uploadimagesaswebp"
+    ],
+    "13": [
+      "src_middleware_errorhandler",
+      "src_middleware_errorhandler_apperror",
+      "src_middleware_errorhandler_createerror",
+      "src_middleware_errorhandler_errorhandler",
+      "src_server",
+      "src_server_app",
+      "src_server_documentprocessor",
+      "src_server_limiter",
+      "src_server_localsaveservice",
+      "src_server_storage",
+      "src_server_upload",
+      "src_server_wordpressservice"
+    ],
+    "14": [
+      "client_public_manifest",
+      "client_public_manifest_background_color",
+      "client_public_manifest_display",
+      "client_public_manifest_icons",
+      "client_public_manifest_name",
+      "client_public_manifest_short_name",
+      "client_public_manifest_start_url",
+      "client_public_manifest_theme_color"
+    ],
+    "15": [
+      "test_user_permissions",
+      "test_user_permissions_apiurl",
+      "test_user_permissions_authheaders",
+      "test_user_permissions_axios",
+      "test_user_permissions_checkuserpermissions",
+      "test_user_permissions_config"
+    ],
+    "16": [
+      "src_scripts_extract_base64_images",
+      "src_scripts_extract_base64_images_extractbase64images",
+      "src_scripts_extract_base64_images_extractresult",
+      "src_scripts_extract_base64_images_main",
+      "src_scripts_extract_base64_images_mimetoext"
+    ],
+    "17": [
+      "test_equations",
+      "test_equations_fs",
+      "test_equations_path",
+      "test_equations_showsupportedsymbols",
+      "test_equations_testequationparsing"
+    ],
+    "18": [
+      "test_pdf",
+      "test_pdf_fs",
+      "test_pdf_path",
+      "test_pdf_showfiledetection",
+      "test_pdf_testpdfprocessing"
+    ],
+    "19": [
+      "check_wp_auth_headers",
+      "check_wp_auth_headers_axios",
+      "check_wp_auth_headers_config",
+      "check_wp_auth_headers_main"
+    ],
+    "20": [
+      "test_wp_connection",
+      "test_wp_connection_axios",
+      "test_wp_connection_testwordpressconnection",
+      "test_wp_connection_wordpress_config"
+    ],
+    "21": [
+      "test_publish",
+      "test_publish_axios",
+      "test_publish_testpublish"
+    ],
+    "22": [
+      "auth_test"
+    ],
+    "23": [
+      "check_auth_header"
+    ],
+    "24": [
+      "client_src_react_app_env_d"
+    ],
+    "25": [
+      "client_vite_config"
+    ],
+    "26": [
+      "test_wp"
+    ]
+  },
+  "cohesion": {
+    "0": 0.10160427807486631,
+    "1": 0.10695187165775401,
+    "2": 0.1032258064516129,
+    "3": 0.06896551724137931,
+    "4": 0.08695652173913043,
+    "5": 0.17391304347826086,
+    "6": 0.09090909090909091,
+    "7": 0.09090909090909091,
+    "8": 0.09523809523809523,
+    "9": 0.10526315789473684,
+    "10": 0.2046783625730994,
+    "11": 0.13333333333333333,
+    "12": 0.27472527472527475,
+    "13": 0.18181818181818182,
+    "14": 0.25,
+    "15": 0.4666666666666667,
+    "16": 0.6,
+    "17": 0.4,
+    "18": 0.4,
+    "19": 0.5,
+    "20": 0.5,
+    "21": 0.6666666666666666,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0,
+    "26": 1.0
+  },
+  "gods": [
+    {
+      "id": "src_services_documentprocessor_documentprocessor",
+      "label": "DocumentProcessor",
+      "degree": 25
+    },
+    {
+      "id": "src_services_pdfprocessor_pdfprocessor",
+      "label": "PdfProcessor",
+      "degree": 21
+    },
+    {
+      "id": "client_tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 16
+    },
+    {
+      "id": "src_services_processedpostsimporter_processedpostsimporter",
+      "label": "ProcessedPostsImporter",
+      "degree": 16
+    },
+    {
+      "id": "src_services_wordpressservice_wordpressservice",
+      "label": "WordPressService",
+      "degree": 15
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 14
+    },
+    {
+      "id": "src_services_localsaveservice_localsaveservice",
+      "label": "LocalSaveService",
+      "degree": 13
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 10
+    },
+    {
+      "id": "src_services_documentprocessor_processedcontent",
+      "label": "ProcessedContent",
+      "degree": 10
+    },
+    {
+      "id": "src_services_documentprocessor_processedimage",
+      "label": "ProcessedImage",
+      "degree": 8
+    }
+  ],
+  "surprises": [
+    {
+      "source": "ContentPreviewProps",
+      "target": "ProcessedContent",
+      "source_files": [
+        "client/src/components/ContentPreview.tsx",
+        "client/src/App.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "peripheral node `ContentPreviewProps` unexpectedly reaches hub `ProcessedContent`"
+    },
+    {
+      "source": "DocumentUploadProps",
+      "target": "ProcessedContent",
+      "source_files": [
+        "client/src/components/DocumentUpload.tsx",
+        "client/src/App.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "peripheral node `DocumentUploadProps` unexpectedly reaches hub `ProcessedContent`"
+    },
+    {
+      "source": "WordPressConfigProps",
+      "target": "WPConfig",
+      "source_files": [
+        "client/src/components/WordPressConfig.tsx",
+        "client/src/App.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "peripheral node `WordPressConfigProps` unexpectedly reaches hub `WPConfig`"
+    },
+    {
+      "source": "DocumentProcessor",
+      "target": "PdfProcessor",
+      "source_files": [
+        "src/services/DocumentProcessor.ts",
+        "src/services/PdfProcessor.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "PublishSettingsProps",
+      "target": "ProcessedContent",
+      "source_files": [
+        "client/src/components/PublishSettings.tsx",
+        "client/src/App.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `DocumentProcessor` connect `Community 5` to `Community 1`, `Community 10`, `Community 13`?",
+      "why": "High betweenness centrality (0.140) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `dependencies` connect `Community 3` to `Community 4`?",
+      "why": "High betweenness centrality (0.134) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `jszip` connect `Community 3` to `Community 5`?",
+      "why": "High betweenness centrality (0.113) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `axios`, `config`, `name` to the rest of the system?",
+      "why": "150 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10160427807486631 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10695187165775401 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1032258064516129 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

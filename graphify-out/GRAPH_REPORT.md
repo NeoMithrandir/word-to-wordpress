@@ -1,16 +1,16 @@
-# Graph Report - word-to-wordpress  (2026-08-30)
+# Graph Report - word-to-wordpress  (2026-09-18)
 
 ## Corpus Check
-- 62 files · ~40,436 words
+- 72 files · ~52,130 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 711 nodes · 1113 edges · 35 communities (28 shown, 7 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 3 edges (avg confidence: 0.7)
+- 834 nodes · 1375 edges · 41 communities (35 shown, 6 thin omitted)
+- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.65)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `07931c24`
+- Built from commit: `b4aed8bc`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -43,45 +43,51 @@
 - Windows (PowerShell)
 - WordPressService
 - LivePublishPipelineService.ts
+- App.tsx
+- WordPressService.ts
 - WordPressService
+- LocalSaveService
 - LivePublishLog.tsx
+- wordpress.config.ts
+- PostFetcher.tsx
+- ProcessedContent
 
 ## God Nodes (most connected - your core abstractions)
-1. `DocumentProcessor` - 28 edges
+1. `DocumentProcessor` - 24 edges
 2. `PdfProcessor` - 21 edges
-3. `WordPressService` - 19 edges
+3. `WordPressService` - 21 edges
 4. `compilerOptions` - 16 edges
 5. `ProcessedContent` - 16 edges
 6. `ProcessedPostsImporter` - 16 edges
 7. `Word to WordPress Converter` - 16 edges
-8. `compilerOptions` - 14 edges
-9. `LocalSaveService` - 13 edges
-10. `PublishSettings()` - 12 edges
+8. `PublishSettings()` - 15 edges
+9. `compilerOptions` - 14 edges
+10. `ContentPreview()` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `ContentPreviewProps` --references--> `ProcessedContent`  [EXTRACTED]
   client/src/components/ContentPreview.tsx → client/src/App.tsx
 - `DocumentUploadProps` --references--> `ProcessedContent`  [EXTRACTED]
   client/src/components/DocumentUpload.tsx → client/src/App.tsx
+- `PublishSettingsProps` --references--> `ProcessedContent`  [EXTRACTED]
+  client/src/components/PublishSettings.tsx → client/src/App.tsx
 - `SitePublishResult` --references--> `PublishSiteId`  [EXTRACTED]
   client/src/App.tsx → client/src/config/wordpress.config.ts
-- `applyReviewToArticle()` --calls--> `toLatinSlug()`  [EXTRACTED]
-  src/services/ArticleReviewService.ts → src/lib/latinSlug.ts
-- `resolveStoredContent()` --calls--> `createError()`  [EXTRACTED]
-  src/server.ts → src/middleware/errorHandler.ts
+- `toPublishOverlay()` --calls--> `stripImageDataUris()`  [EXTRACTED]
+  client/src/App.tsx → client/src/lib/reviewHtml.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (35 total, 7 thin omitted)
+## Communities (41 total, 6 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.05
-Nodes (66): App(), AppPage, Citation, DeployResult, DeployStatus, Equation, Footnote, ImageSeoSource (+58 more)
+Cohesion: 0.16
+Nodes (21): Citation, Footnote, ProcessedImage, ArticleReviewResponse, ContentPreview(), imageSeoSourceLabel(), isReviewProviderId(), listedModelId() (+13 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.05
-Nodes (55): GREEK_CHAR_MAP, toLatinSlug(), alreadyFigure, first, fromAlt, fromCaption, fromHeading, fromTitle (+47 more)
+Cohesion: 0.07
+Nodes (42): $, captionTextForImage(), figureIdFromCaption(), figureTargetForImage(), isInsideAnchor(), linkFigureReferences(), alreadyFigure, first (+34 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.10
@@ -95,6 +101,10 @@ Nodes (29): cheerio, cors, dotenv, express, express-rate-limit, form-data, helme
 Cohesion: 0.05
 Nodes (43): concurrently, cross-env, nodemon, author, description, devDependencies, concurrently, cross-env (+35 more)
 
+### Community 5 - "Community 5"
+Cohesion: 0.27
+Nodes (9): App(), livePublishHttpError(), toPublishOverlay(), overallConnectionStatus(), publicArticleUrl(), resolvePublishSites(), SHARED_AUTH, WORDPRESS_SITES (+1 more)
+
 ### Community 6 - "Community 6"
 Cohesion: 0.09
 Nodes (21): compilerOptions, allowJs, allowSyntheticDefaultImports, esModuleInterop, forceConsistentCasingInFileNames, isolatedModules, jsx, lib (+13 more)
@@ -104,24 +114,24 @@ Cohesion: 0.09
 Nodes (21): client, dist, ES2020, node_modules, compilerOptions, declaration, declarationMap, esModuleInterop (+13 more)
 
 ### Community 8 - "server.ts"
-Cohesion: 0.06
-Nodes (36): AppError, errorHandler(), app, documentProcessor, jsonBodyLimitMb, limiter, livePublishInputFromBody(), livePublishLog (+28 more)
+Cohesion: 0.17
+Nodes (4): Citation, Equation, Footnote, PdfProcessor
 
 ### Community 9 - "Community 9"
 Cohesion: 0.06
 Nodes (33): dependencies, axios, react, react-dom, react-dropzone, devDependencies, @types/node, @types/react (+25 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.17
-Nodes (4): Citation, Equation, Footnote, PdfProcessor
+Cohesion: 0.15
+Nodes (22): PostSettings, PublishOutcome, allowsUnlistedPreview(), categoriesLabel(), CONTENT_TYPE_OPTIONS, deployLabel(), DESTINATION_OPTIONS, destinationIncludesArthra() (+14 more)
 
 ### Community 11 - "Community 11"
 Cohesion: 0.05
 Nodes (40): 1. Enable REST API, 2. Create Application Password, 3. Test Your Setup, 🙏 Acknowledgments, 🔧 Advanced Configuration, 🛠️ API Reference, 🏗️ Architecture, Backend (Node.js/TypeScript) (+32 more)
 
 ### Community 12 - "Community 12"
-Cohesion: 0.10
-Nodes (35): createError(), images, png, restored, stripped, allowlistedIds(), ANTHROPIC_MODELS, anthropicKey() (+27 more)
+Cohesion: 0.08
+Nodes (48): GREEK_CHAR_MAP, toLatinSlug(), createError(), haikuBody, images, kept, png, prompt (+40 more)
 
 ### Community 13 - "Community 13"
 Cohesion: 0.08
@@ -156,36 +166,60 @@ Cohesion: 0.29
 Nodes (6): After Killing Processes, How to Restart the Servers, Option 1: Kill All Node Processes, Option 2: Kill Specific Port, Option 3: Use Different Ports, Windows (PowerShell)
 
 ### Community 32 - "LivePublishPipelineService.ts"
+Cohesion: 0.05
+Nodes (54): AppError, errorHandler(), main(), pipelineWith(), RecordingDeployService, RecordingLogService, RecordingSimplificationsService, app (+46 more)
+
+### Community 33 - "App.tsx"
+Cohesion: 0.12
+Nodes (16): AppPage, ArticleAcfSettings, ArticleContentType, ArticleFaqEntry, DeployResult, DeployStatus, Equation, ImageSeoSource (+8 more)
+
+### Community 34 - "WordPressService.ts"
 Cohesion: 0.08
-Nodes (29): slugFromPublishedPost(), DeployRunResult, deploySpec(), InscienceV2DeployService, InscienceV2DeployTarget, lastNonEmptyLine(), parseDeployTarget(), runDeploy() (+21 more)
+Nodes (32): buildAnchorPattern(), dashToMinus(), decodeNumericEntities(), decodeNumericEntity(), decodeXmlEntities(), EquationPlacementResult, escapeRegExp(), expandBareLatexRange() (+24 more)
 
 ### Community 35 - "WordPressService"
-Cohesion: 0.20
-Nodes (4): ProcessedImage, imageDataToBuffer(), isWordPressSlugConflict(), WordPressService
+Cohesion: 0.06
+Nodes (36): buildNumberedBibliography(), renderFootnoteTokens(), baseContent, spawnOpts, ArticleReviewArticle, ArticleReviewInput, ProcessedContent, ProcessedImage (+28 more)
+
+### Community 36 - "LocalSaveService"
+Cohesion: 0.08
+Nodes (36): BibliographyCitation, BibliographyEntry, extractAllSurnames(), InTextCite, isBibliographyHeading(), isFigureLikeParen(), linkBibliographyCitations(), LinkedBibliographyCitation (+28 more)
 
 ### Community 37 - "LivePublishLog.tsx"
-Cohesion: 0.27
-Nodes (10): apiErrorMessage(), formatTimestamp(), LivePublishLog(), LivePublishLogEntry, LivePublishSource, LivePublishStepResult, LogState, sourceLabel() (+2 more)
+Cohesion: 0.26
+Nodes (11): apiErrorMessage(), formatTimestamp(), LivePublishLog(), LivePublishLogEntry, LivePublishSource, LivePublishStepResult, LogState, sourceLabel() (+3 more)
+
+### Community 38 - "wordpress.config.ts"
+Cohesion: 0.21
+Nodes (13): resolveStoredContent(), restoreImageDataUris(), ImageSeoSource, cache, CacheEntry, getProcessedContent(), ImageMetaOverlay, mergeImageMeta() (+5 more)
+
+### Community 42 - "PostFetcher.tsx"
+Cohesion: 0.33
+Nodes (5): ExportResult, FetchedPostSummary, FetchFilters, FetchState, PostFetcher()
+
+### Community 44 - "ProcessedContent"
+Cohesion: 0.50
+Nodes (4): ProcessedContent, ContentPreviewProps, DocumentUpload(), DocumentUploadProps
 
 ## Knowledge Gaps
-- **295 isolated node(s):** `axios`, `config`, `name`, `version`, `private` (+290 more)
+- **332 isolated node(s):** `axios`, `config`, `name`, `version`, `private` (+327 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `DocumentProcessor` connect `Community 5` to `server.ts`, `Community 1`, `Community 10`?**
-  _High betweenness centrality (0.105) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `Community 3` to `Community 4`?**
   _High betweenness centrality (0.083) - this node is a cross-community bridge._
-- **Why does `jszip` connect `Community 3` to `Community 5`?**
-  _High betweenness centrality (0.080) - this node is a cross-community bridge._
+- **Why does `jszip` connect `Community 3` to `WordPressService.ts`?**
+  _High betweenness centrality (0.081) - this node is a cross-community bridge._
+- **Why does `DocumentProcessor` connect `WordPressService.ts` to `LivePublishPipelineService.ts`, `Community 1`, `server.ts`?**
+  _High betweenness centrality (0.072) - this node is a cross-community bridge._
 - **What connects `axios`, `config`, `name` to the rest of the system?**
-  _295 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.05263157894736842 - nodes in this community are weakly interconnected._
+  _332 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.05487269534679543 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06708595387840671 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.1032258064516129 - nodes in this community are weakly interconnected._
+- **Should `Community 3` be split into smaller, more focused modules?**
+  _Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected._

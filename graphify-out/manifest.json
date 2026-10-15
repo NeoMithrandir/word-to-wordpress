@@ -15,7 +15,7 @@
     "semantic_hash": "f282a202d89fb6480c7a3567771d4fdf"
   },
   "check-wp-auth-headers.js": {
-    "mtime": 1787976034.8946412,
+    "mtime": 1789612710.3270338,
     "ast_hash": "46150de4ca5c036b1d939b538fb0e99c",
     "semantic_hash": "46150de4ca5c036b1d939b538fb0e99c"
   },
@@ -30,13 +30,13 @@
     "semantic_hash": "d9d975cebe2ec20b6c652e1e4c12ccf0"
   },
   "client/src/App.tsx": {
-    "mtime": 1788066266.900532,
-    "ast_hash": "a0b0df8b9619c1b7d8bde5f470a22f6a",
+    "mtime": 1789713267.0255075,
+    "ast_hash": "d68d5e66a8c9646b1f898fcb82964f95",
     "semantic_hash": ""
   },
   "client/src/components/ContentPreview.tsx": {
-    "mtime": 1788067819.029931,
-    "ast_hash": "6b11fdfba047c2e8caeb5e528c36738c",
+    "mtime": 1789713363.9309368,
+    "ast_hash": "8e5a9ae158da96ab54741bb167cb70ab",
     "semantic_hash": ""
   },
   "client/src/components/DocumentUpload.tsx": {
@@ -45,13 +45,13 @@
     "semantic_hash": ""
   },
   "client/src/components/PostFetcher.tsx": {
-    "mtime": 1787976034.888891,
+    "mtime": 1788583952.6536677,
     "ast_hash": "031d907acae0f1052213fe0369a2ec4e",
     "semantic_hash": "031d907acae0f1052213fe0369a2ec4e"
   },
   "client/src/components/PublishSettings.tsx": {
-    "mtime": 1788064427.9660249,
-    "ast_hash": "e0902f6b5421bedeb26f8d5f70b6d433",
+    "mtime": 1789713277.1731563,
+    "ast_hash": "166fc676db0db5602b8947147789679e",
     "semantic_hash": ""
   },
   "client/src/components/WordPressConfig.tsx": {
@@ -110,13 +110,13 @@
     "semantic_hash": "1b5b759f9181da320e5758087848f264"
   },
   "src/server.ts": {
-    "mtime": 1788067806.5521488,
-    "ast_hash": "4228e3b9739e7e158f18e92a6a4d038e",
+    "mtime": 1789713259.0097907,
+    "ast_hash": "286e48af2028073e7efd586a20fdcf3c",
     "semantic_hash": ""
   },
   "src/services/DocumentProcessor.ts": {
-    "mtime": 1788063683.736632,
-    "ast_hash": "ef5756f30fe1d8b141aed56df0a799c9",
+    "mtime": 1789714423.84695,
+    "ast_hash": "6662788257147892567e10fa4489f1a1",
     "semantic_hash": ""
   },
   "src/services/ImageOptimizer.ts": {
@@ -125,8 +125,8 @@
     "semantic_hash": "d6a72a7fe83fc0898e9f8ba4b45b0646"
   },
   "src/services/LocalSaveService.ts": {
-    "mtime": 1788063719.458156,
-    "ast_hash": "2ee3af3868b033c3e5e0151ac7e5421e",
+    "mtime": 1789615548.7753482,
+    "ast_hash": "729ec853cabd4246563eb8de9d1d073c",
     "semantic_hash": ""
   },
   "src/services/PdfProcessor.ts": {
@@ -135,13 +135,13 @@
     "semantic_hash": "da561801207adbcb723c179be9f71d80"
   },
   "src/services/ProcessedPostsImporter.ts": {
-    "mtime": 1785851478.9499078,
-    "ast_hash": "05ff1e9efba507c6c186dd5dd92a53af",
-    "semantic_hash": "05ff1e9efba507c6c186dd5dd92a53af"
+    "mtime": 1789615519.2285032,
+    "ast_hash": "fd9eee44ce1190e2c854b76fe782e6c7",
+    "semantic_hash": ""
   },
   "src/services/WordPressService.ts": {
-    "mtime": 1788064482.2650416,
-    "ast_hash": "f91ec9c320f36458fe0a406672bf220d",
+    "mtime": 1789615753.3360336,
+    "ast_hash": "bc709a8c94ed76edd0f6bd32d11b4aef",
     "semantic_hash": ""
   },
   "test-equations.js": {
@@ -160,7 +160,7 @@
     "semantic_hash": "063f8a91dcaca99724d23439176d8aa2"
   },
   "test-user-permissions.js": {
-    "mtime": 1787976034.8833914,
+    "mtime": 1788583952.6536677,
     "ast_hash": "afbd54238acd127ed30d3d34516438fa",
     "semantic_hash": "afbd54238acd127ed30d3d34516438fa"
   },
@@ -180,8 +180,8 @@
     "semantic_hash": "b1b652f218593d9771a2d83eafaddef6"
   },
   ".cursor/hooks/state/continual-learning.json": {
-    "mtime": 1788067700.9755661,
-    "ast_hash": "4160c34fecda1c78b9b759c3dd2175fe",
+    "mtime": 1789714265.6294565,
+    "ast_hash": "4658c60bee15fe0c40d2e1d400f39adb",
     "semantic_hash": ""
   },
   "EQUATION_HANDLING.md": {
@@ -200,7 +200,7 @@
     "semantic_hash": ""
   },
   "TROUBLESHOOTING.md": {
-    "mtime": 1787976034.8946412,
+    "mtime": 1788583952.6546686,
     "ast_hash": "1dfd2757698f0e7eb529116c32b64e4f",
     "semantic_hash": ""
   },
@@ -225,7 +225,7 @@
     "semantic_hash": ""
   },
   "test-offline-mode.md": {
-    "mtime": 1787976034.888891,
+    "mtime": 1789612710.3270338,
     "ast_hash": "d5569818ee1e7822962f5f0b20ed8eb6",
     "semantic_hash": ""
   },
@@ -250,18 +250,18 @@
     "semantic_hash": ""
   },
   ".cursor/hooks/state/continual-learning-index.json": {
-    "mtime": 1788063865.157834,
-    "ast_hash": "2a46582dac1f68381b233d51179df053",
+    "mtime": 1789714337.618929,
+    "ast_hash": "6cdb4f3e2544ea373f4977c2e991a50c",
     "semantic_hash": ""
   },
   "AGENTS.md": {
-    "mtime": 1788063853.9665284,
-    "ast_hash": "fac1e5a971d5b10d6bfab66457c4b01a",
+    "mtime": 1789714334.2227223,
+    "ast_hash": "787de9aa84ae2bac7f8eb95b9f51416e",
     "semantic_hash": ""
   },
   "client/src/components/LivePublishLog.tsx": {
-    "mtime": 1788064815.2605357,
-    "ast_hash": "a61616d7693af30bbbecda062950d802",
+    "mtime": 1789713283.7592223,
+    "ast_hash": "8b65de0ab46d624f29fd38346914d396",
     "semantic_hash": ""
   },
   "src/scripts/assert-slug-normalization.ts": {
@@ -275,13 +275,13 @@
     "semantic_hash": ""
   },
   "src/services/LivePublishLogService.ts": {
-    "mtime": 1788064794.3195987,
-    "ast_hash": "2af834c4ec081980c5340a15b653bc0f",
+    "mtime": 1789713250.0604124,
+    "ast_hash": "2c569983efc965a143bb9c9b09270dcb",
     "semantic_hash": ""
   },
   "src/services/LivePublishPipelineService.ts": {
-    "mtime": 1788064797.5516026,
-    "ast_hash": "830795ac787687abaa9ae76287eac0a5",
+    "mtime": 1789713252.094922,
+    "ast_hash": "7ce76054f1d8c57e606e708c2c9d124f",
     "semantic_hash": ""
   },
   "src/services/inscienceV2Path.ts": {
@@ -300,13 +300,13 @@
     "semantic_hash": ""
   },
   "src/scripts/assert-image-seo.ts": {
-    "mtime": 1788063881.623001,
-    "ast_hash": "3cc009d692a271ff12e44429b371c9ec",
+    "mtime": 1789709842.7155752,
+    "ast_hash": "f10be48a36c701d55af223603ee1610e",
     "semantic_hash": ""
   },
   "src/services/ImageSeoService.ts": {
-    "mtime": 1788063880.2020972,
-    "ast_hash": "756e05f65db1e1913b37965d647dac12",
+    "mtime": 1789709818.8139265,
+    "ast_hash": "49cf01075eac63723344a4d04642286f",
     "semantic_hash": ""
   },
   "src/scripts/assert-unlisted-preview.ts": {
@@ -320,18 +320,68 @@
     "semantic_hash": ""
   },
   "client/src/lib/reviewHtml.ts": {
-    "mtime": 1788066354.5009131,
-    "ast_hash": "fe930d6962b37b66a098b508d98e9d74",
+    "mtime": 1789713352.5612519,
+    "ast_hash": "6004334ea72f73833d48fee5f89faaf0",
     "semantic_hash": ""
   },
   "src/scripts/assert-article-review.ts": {
-    "mtime": 1788067813.283173,
-    "ast_hash": "14fd4d00f7b85b30c588c804e7a6aece",
+    "mtime": 1789705936.3191798,
+    "ast_hash": "e2a38ff7c3f8c912c22dadf65d79b837",
     "semantic_hash": ""
   },
   "src/services/ArticleReviewService.ts": {
-    "mtime": 1788067806.4616232,
-    "ast_hash": "0fab765ce5c787d7ee599df13d74dbf8",
+    "mtime": 1789705929.2254052,
+    "ast_hash": "0d41a735f749894dd92846ce1ebf72b8",
+    "semantic_hash": ""
+  },
+  "src/lib/bibliography.ts": {
+    "mtime": 1789711114.5201576,
+    "ast_hash": "da1aa45d96a142c5fa1be14ea6c5d56a",
+    "semantic_hash": ""
+  },
+  "src/lib/footnotes.ts": {
+    "mtime": 1789713389.6235287,
+    "ast_hash": "8224be9affb64a76b994a5254575128e",
+    "semantic_hash": ""
+  },
+  "src/scripts/assert-bibliography.ts": {
+    "mtime": 1789711076.9762633,
+    "ast_hash": "ac58afc4cf75f6b6f747686610f29f7b",
+    "semantic_hash": ""
+  },
+  "src/scripts/assert-footnote-scheme.ts": {
+    "mtime": 1789713372.4848275,
+    "ast_hash": "b68523e66f4767b9d435bd6cb39777d8",
+    "semantic_hash": ""
+  },
+  "src/scripts/assert-publish-acf.ts": {
+    "mtime": 1789615714.20225,
+    "ast_hash": "89642c2ab43dfb75a3314a171e71b557",
+    "semantic_hash": ""
+  },
+  "src/lib/equationPlacement.ts": {
+    "mtime": 1789714423.118607,
+    "ast_hash": "d2f2faa8fdf172647b528eb4c58a8d3d",
+    "semantic_hash": ""
+  },
+  "src/scripts/assert-equation-placement.ts": {
+    "mtime": 1789714431.6566803,
+    "ast_hash": "8e6160e836c39b44aa40060f523c2def",
+    "semantic_hash": ""
+  },
+  "src/lib/figureAnchors.ts": {
+    "mtime": 1789709803.0460715,
+    "ast_hash": "15f87aeb8b22e92895fa9ad784ced404",
+    "semantic_hash": ""
+  },
+  "src/scripts/assert-figure-anchors.ts": {
+    "mtime": 1789709779.6402128,
+    "ast_hash": "71a8f9e45a041a86cfd8ae87648202c3",
+    "semantic_hash": ""
+  },
+  "src/scripts/assert-live-publish-simplifications.ts": {
+    "mtime": 1789713289.737462,
+    "ast_hash": "dd176bbd6732af3def024e04e5aa3aa0",
     "semantic_hash": ""
   }
 }

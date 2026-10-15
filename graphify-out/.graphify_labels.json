@@ -32,6 +32,12 @@
   "30": "Windows (PowerShell)",
   "31": "WordPressService",
   "32": "LivePublishPipelineService.ts",
+  "33": "App.tsx",
+  "34": "WordPressService.ts",
   "35": "WordPressService",
-  "37": "LivePublishLog.tsx"
+  "36": "LocalSaveService",
+  "37": "LivePublishLog.tsx",
+  "38": "wordpress.config.ts",
+  "42": "PostFetcher.tsx",
+  "44": "ProcessedContent"
 }
