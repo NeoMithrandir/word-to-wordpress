@@ -4,12 +4,15 @@
 - Keep the preview step editable: title, slug, excerpt, footnotes, bibliography, and image filename, alt text, and caption before continue-to-publish.
 - Published slugs must be Latin/ASCII kebab-case (Greek transliterated) so URLs are easy to share; do not rewrite slugs when updating an existing post.
 - Converter images should get SEO filenames and descriptive alt from nearby heading, caption, or title (Latin kebab filenames), not sequential `image-N`; use AI vision only when that context is missing.
+- Parenthetical bibliography clusters with multiple citations must become separate in-text anchors, including comma-heavy names like `(Cirelli, M., et al., 2025)`.
+- Typed footnotes under Σημειώσεις need in-text `[^N]` plus matching `id="fn-N"` on the bottom notes; Astro only builds the in-text link.
+- Equations in published HTML must match how sibling inscience-v2 Astro actually renders math; wrapping in `$` is not enough if CMS HTML never goes through remark-math.
 
 ## Learned Workspace Facts
 
 - This app publishes to WordPress only. The public site is the sibling `inscience-v2` Astro app, which reads `arthra.inscience.gr` GraphQL at build time and must be rebuilt separately.
 - The last publish step can target `inscience.gr` (legacy), `arthra.inscience.gr` (v2 CMS), or both. Upload can set WordPress status to draft, publish, or private.
-- Simple-language AI review lives in inscience-v2 (`generate:simplifications`). This repo runs it after a successful public publish to arthra, not for drafts or inscience.gr-only posts. Override the sibling path with `INSCIENCE_V2_DIR`.
+- Simple-language AI review lives in inscience-v2 (`generate:simplifications`). Users can opt in or out at publish or replay time; it still runs only after a successful public publish to arthra, not for drafts or inscience.gr-only posts. Override the sibling path with `INSCIENCE_V2_DIR`.
 - After that public arthra publish, this repo also rebuilds/redeploys inscience-v2 (`npm run deploy:cloudflare` from the sibling checkout; `INSCIENCE_V2_DEPLOY=vercel` for `npx vercel --prod --yes`). Attempts are appended to `saved-posts/live-publish-log.json` and can be replayed from the Live Publish page (or by pushing a slug published outside this tool).
 - arthra was seeded by this repo's fetch plus `import-processed-posts.ts`; CMS setup and shortcode cleanup live in inscience-v2. There is no ongoing seeder.
 - `PostFetcher` can pull existing WordPress posts (including taxonomies and featured images) into `saved-posts/` for offline batch updates.

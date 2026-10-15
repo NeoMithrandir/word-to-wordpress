@@ -103,3 +103,8 @@ test-output/
 # MemPalace per-project files (issue #185)
 mempalace.yaml
 entities.json
+
+# Local-only: credentials test script and Cursor hook state
+check-wp-auth-headers.js
+.cursor/hooks.json
+.cursor/hooks/state/
